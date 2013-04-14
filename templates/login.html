@@ -17,8 +17,8 @@
                         </div>
                     </div>
                     <div class="content_right">
-                        <form method="post" class="login_form validate" action="/login/old-school/">
-                            <input type="hidden" value="form" name="login">
+                        <form method="post" class="login_form validate" action="{{url_for('login')}}">
+                            {{ form.csrf_token }}
                             <fieldset>
                                 <div class="input_box">
                                     <input type="text" placeholder="Email" value="" class="required" name="username">

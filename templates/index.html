@@ -19,7 +19,12 @@
                 <!-- /obsah vlevo -->
                 <!-- obsah vpravo -->
                 <div class="content_right">
-                <a href="/login/" class="a_login">Přihlásit se</a>
+                    {% if user %}
+                    <a href="{{ url_for('login_settings') }}" class="a_login">Profil</a>
+                    <a href="{{ url_for('logout') }}" class="a_login">Odhlásit se</a>
+                    {% else %}
+                    <a href="{{ url_for('login') }}" class="a_login">Přihlásit se</a>
+                    {% endif %}
                 </div>
                 <!-- obsah vpravo -->
             </div>

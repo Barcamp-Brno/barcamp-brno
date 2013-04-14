@@ -5,12 +5,21 @@
 """
 
 from flask import Flask
+import redis
+
+app = None
 
 
-def create_app():
-    return Flask(__name__)
+def create_app(config):
+    global app
+    application = Flask(__name__)
+    application.secret_key = "jednadvehonzajde"
+    application.config.update(config)
 
+    application.redis = redis.Redis()
 
-app = create_app()
-import views  # silence
-import login  # silence
+    app = application
+
+    import views
+    import login
+    return app

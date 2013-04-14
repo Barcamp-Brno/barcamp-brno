@@ -7,9 +7,10 @@
             <div class="content_right">
                 <a href="/" class="a_home">Zpět na úvod</a>
                 {% if user %}
-                <a href="/logout/" class="a_logout">Odhlásit se</a>
+                <a href="{{ url_for('login_settings') }}" class="a_logout">Profil</a>
+                <a href="{{ url_for('logout') }}" class="a_logout">Odhlásit se</a>
                 {% else %}
-                <a href="/login/" class="a_logout">Přihlásit se</a>
+                <a href="{{ url_for('login') }}" class="a_logout">Přihlásit se</a>
                 {% endif %}
             </div>
         </div>

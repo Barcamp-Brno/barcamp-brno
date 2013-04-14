@@ -1,0 +1,86 @@
+{% extends "_base_small.html" %}
+{% block content_small %}
+<!-- obsah administrace -->
+<div class="admin_content">
+    <div class="center_page">
+        <!-- obsah administrace - box -->
+        <div class="admin_content_box">
+        <!-- obsah -->
+        <!-- obsah vlevo -->
+        <div class="content_left">
+            <div class="admin_user_box">
+                <div class="avatar_box">
+                    <img src="images/no-avatar-90.jpg" width="90" height="90" alt="" id="avatar_img" />
+                    <a href="#" id="edit-avatar-link" class="a_upload">nahrát</a>
+                </div>
+                <div class="user_name">{{user.name}}</div>
+            </div>
+            <form action="/profile/ajax/avatar" class="hide" id="avatar-form" method="post" enctype="multipart/form-data">
+                <div class="hide">
+                    <input name="_method" type="hidden" value="upload" />
+                    <input type="hidden" name="authenticity_token" value="MTM2NTc1NzI2MmptNnBscmUwYng5bHR0b3UxNWR5" />      </div>
+                <div class="form">
+                    <fieldset id="upload">
+                        <div class="input_icon">
+                            <div class="span3">
+                                <input type="file" id="user_avatar" name="avatar" />
+                            </div>
+                        </div>
+                        <p class="info">JPG nebo PNG. Max velikost 700kB.</p>
+                    </fieldset>
+                </div>
+                
+                <div class="buttons_box">
+                    <button type="submit" class="button default red_button">Nahrát</button>
+                    <a href="#cancel-avatar" class="button a_button" id="cancel-avatar">Zrušit</a>
+                </div>
+            </form>
+        
+            <div class="content_left">
+                            <p class="p_info">Na Barcamp Ostrava jste přihlášeni.</p>
+                    </div>
+        </div>
+        <!-- /obsah vlevo -->
+        <!-- obsah vpravo -->
+        <div class="content_right">
+            <form action="/profile" id="main-form" class="admin_form validate" method="post">
+                <div class="hide">
+                    <input type="hidden" name="_method" value="save" />
+                    <input type="hidden" name="authenticity_token" value="MTM2NTc1NzI2MmptNnBscmUwYng5bHR0b3UxNWR5" />      </div>
+                <fieldset>
+                    <label for="name">Jméno a příjmení:</label>
+                    <input type="text" name="name" value="{{user.name}}" class="required" />
+                </fieldset>
+                <fieldset>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" value="{{user.email}}" class="required" />
+                </fieldset>
+                <fieldset>
+                    <label for="bio">Bio:</label>
+                    <input type="text" name="bio" value="{{user.bio}}" />
+                </fieldset>
+                <fieldset>
+                    <label for="twitter">Twitter:</label>
+                    <input type="text" name="twitter" value="" />
+                </fieldset>
+                <fieldset>
+                    <label for="company">Firma:</label>
+                    <input type="text" name="company" value="{{user.company}}" />
+                </fieldset>
+                <fieldset>
+                    <label for="website">Web:</label>
+                    <input type="text" name="website" value="{{user.website}}" />
+                </fieldset>
+                <fieldset>
+                    <button type="submit" class="submit_button">Uložit profil</button><div class="loading hide"><span>Nahrávám...</span></div>
+                </fieldset>
+            </form>
+        </div>
+        <!-- /obsah vpravo -->              
+        <!-- /obsah -->
+        </div>
+        <!-- /obsah administrace - box -->
+    </div>
+</div>
+<!-- /obsah administrace -->
+{% endblock %}
