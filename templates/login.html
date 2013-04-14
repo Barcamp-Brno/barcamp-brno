@@ -1,0 +1,44 @@
+{% extends "_base_small.html" %}
+{% block content_small %}
+<div class="login_bar" id="login_content">
+            <div class="center_page">
+                <div class="title">Přihlášení a registrace</div>
+                <div class="login_box">
+                    <div class="content_left">
+                        <div class="button_box">
+                            <a class="button facebook social_login" href="/login/facebook/"><span>Přes facebook</span></a>
+                            <a class="button twitter social_login" href="/login/twitter/"><span>Přes twitter</span></a>
+                        </div>
+                        <div class="loading_circle" id="social_loading">
+                            <div class="loading_circle_item item_ie">Nahrávám</div>
+                            <div class="loading_circle_item item_1"></div>
+                            <div class="loading_circle_item item_2"></div>
+                            <div class="loading_circle_item item_3"></div>
+                        </div>
+                    </div>
+                    <div class="content_right">
+                        <form method="post" class="login_form validate" action="/login/old-school/">
+                            <input type="hidden" value="form" name="login">
+                            <fieldset>
+                                <div class="input_box">
+                                    <input type="text" placeholder="Email" value="" class="required" name="username">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="input_box">
+                                    <input type="password" placeholder="Heslo" value="" class="required" name="password">
+                                    
+                                </div>
+                            </fieldset>
+                            <div class="input_box">
+                                <button class="submit_button" type="submit">Přihlásit se</button>
+                            </div>
+                            <a class="oldschool_login" href="/login/registrace/">Oldschool registrace</a>
+                            <br />
+                            <a class="oldschool_login" href="/login/zapomenute-heslo/" title="Zapomenuté heslo">Zapomenuté heslo</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
