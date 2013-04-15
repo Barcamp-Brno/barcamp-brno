@@ -6,7 +6,8 @@ from barcamp import app
 from flask_oauth import OAuth
 from functools import wraps
 from hashlib import md5
-from flask_wtf import Form, TextField, Required
+from flask_wtf import Form, TextField, Required, Email
+import base64
 
 KEYS = {
     'account': 'account_%s',
@@ -34,13 +35,23 @@ def login():
     if request.method == "POST":
         form = LoginForm(request.form)
         if form.validate():
-            pass
-        pass
+            user_hash = resolve_user_by_email(
+                form.data.get('email'),
+                form.data.get('password'))
+            if not user_hash:
+                session['default_email'] = form.data.get('email')
+                flash(
+                    u'Neplatná kombinace e-mailu a hesla, zkuste to znovu.',
+                    'warning')
+            else:
+                session['user_hash'] = user_hash
+
     else:
         form = LoginForm()
 
     if check_auth():
         #TODO redirect for "next_url :)"
+        flash(u'Nyní jste přihlášen', 'success')
         return redirect(url_for('login_settings'))
 
     return render_template("login.html", form=form)
@@ -59,11 +70,47 @@ def logout():
     return redirect(url_for('index'))
 
 
+@app.route('/login/registrace/zalozeni-uctu/', methods=['GET', 'POST'])
+def login_create_account():
+    if request.method == "POST":
+        form = EmailForm(request.form)
+        if form.validate():
+            email = form.data.get('email').lower()
+            # TODO send email
+            email = base64.b64encode(email)
+            token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
+            url = url_for('login_click_from_email', token=token, email=email, _external=True)
+            flash("tohle poslu mailem - %s " % url, 'debug')
+            return redirect(url_for('login_email_verify'))
+    else:
+        form = EmailForm()
+    return render_template('login_create_account.html', form=form)
+
+
+@app.route("/login/registrace/overeni-emailu/")
+def login_email_verify():
+    return render_template('login_email_verify.html')
+
+
+@app.route("/login/registrace/odkaz-z-mailu/")
+def login_click_from_email():
+    email = request.args.get('email', None)
+    token = request.args.get('token', None)
+
+    if token == md5("%s|%s" % (app.secret_key, email)).hexdigest():
+        email = base64.b64decode(email)
+        return "email byl %s" % email
+    flash(u'Platnost odkazu již vypršela, nebo je odkaz v nespárvném tvaru', 'warning')
+    return redirect(url_for('login_create_account'))
+
+
+@app.route("/login/registrace/vyplneni-udaju/")
+def login_basic_data():
+    return render_template('login_basic_data.html')
+
+
 ### TODOS ###
 @app.route("/login/zapomenute-heslo/")
-@app.route("/login/registrace/zalozeni-uctu/")
-@app.route("/login/registrace/overeni-emailu/")
-@app.route("/login/registrace/vyplneni-udaju/")
 @app.route("/logout/")
 def todo():
     return "Tohle se pripravuje"
@@ -144,8 +191,18 @@ def login_facebook():
 
 ### FORMS ###
 class LoginForm(Form):
-    email = TextField('E-mail', validators=[Required()])
+    email = TextField('E-mail', validators=[Required(), Email()])
     password = TextField('Heslo', validators=[Required()])
+
+
+class EmailForm(Form):
+    email = TextField('E-mail', validators=[Required(), Email()])
+
+
+class BasicForm(Form):
+    fullname = TextField(u'Jméno', validators=[Required()])
+    password = TextField('Heslo', validators=[Required()])
+
 
 ### OAUTH SPECIFIC ###
 oauth = OAuth()

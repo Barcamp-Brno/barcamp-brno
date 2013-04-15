@@ -1,0 +1,37 @@
+{% extends "_base_small.html" %}
+{% block content_small %}
+<!-- krok 3 -->
+<div class="login_bar" id="login_content" style="margin-top: 0px;"><div style="display: none;" id="flash_msg"></div>
+<div class="center_page">
+    <div class="title">Vytvoření účtu</div>
+    <div class="top_form_box">
+        <div class="progress_box">
+            <div class="item done">1.</div>
+            <div class="item done">2.</div>
+            <div class="item active">3.</div>
+        </div>
+        <form method="post" class="form validate login_form" id="ajax-form" action="/account/create">
+            <div class="hide">
+                <input type="hidden" value="new" name="_method">
+                <input type="hidden" value="MTM2NTc1NzI2MmptNnBscmUwYng5bHR0b3UxNWR5" name="authenticity_token">
+                <input type="hidden" value="ce8cb44f0235c9b5705833e4fdd93f10" name="token">
+            </div>
+            <fieldset>
+                <div class="input_box">
+                    <input type="text" placeholder="Jméno a příjmení" class="required" value="" name="name">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input_box">
+                    <input type="password" placeholder="Heslo" class="required" value="" name="password">
+                </div>
+            </fieldset>
+            <div class="buttons_box">
+                <button class="submit_button" type="submit">Odeslat</button>
+            </div>
+        </form>
+        
+        
+    </div>
+</div>
+{% endblock%}

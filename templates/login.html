@@ -19,9 +19,10 @@
                     <div class="content_right">
                         <form method="post" class="login_form validate" action="{{url_for('login')}}">
                             {{ form.csrf_token }}
+                            {{form.errrors}}
                             <fieldset>
                                 <div class="input_box">
-                                    <input type="text" placeholder="Email" value="" class="required" name="username">
+                                    <input type="text" placeholder="Email" value="{{ form.email.data or '' }}" class="required" name="email">
                                 </div>
                             </fieldset>
                             <fieldset>
@@ -33,7 +34,7 @@
                             <div class="input_box">
                                 <button class="submit_button" type="submit">Přihlásit se</button>
                             </div>
-                            <a class="oldschool_login" href="/login/registrace/">Oldschool registrace</a>
+                            <a class="oldschool_login" href="{{url_for('login_create_account')}}">Oldschool registrace</a>
                             <br />
                             <a class="oldschool_login" href="/login/zapomenute-heslo/" title="Zapomenuté heslo">Zapomenuté heslo</a>
                         </form>
