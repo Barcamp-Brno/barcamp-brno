@@ -22,4 +22,6 @@ def create_app(config):
 
     import views
     import login
+    import talks
+    import filters
     return app

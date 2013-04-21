@@ -41,8 +41,12 @@
                         <li class="pos_03">Kdy:<br/><span>15. Června 2013<br/>od 8:30</span></li>
                     </ul>
                     <div class="button_box">
+                        {% if register %}
                         <a href="#" class="button">Zúčastním se</a>
                         <div class="counter">Zbývá ještě <strong>500 míst</strong></div>
+                        {% else %}
+                        <div class="counter" style="width: 100%">Registrace účasti od <strong>11.5.2013</strong></div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -54,8 +58,19 @@
             <div class="center_page">
                 <div class="content">
                     <h2>Přednášející &amp; program</h2>
+                    {% if talks %}
+                    <table class="program_table" cellpadding="0" cellspacing="0">
+                        {% for talk in talks %}
+                        <tr>
+                            <th>{{talk.user.name}}</th>
+                            <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                            {% if voting %}<td><a href="#" class="vote-link disabled">Odhlasováno</a> <span class="vote-count">{{talk.score|int}}</span></td>>{% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% endif %}
                     <div class="lecturer_button">
-                        <a href="#" class="button">
+                        <a href="/stranka/pro-prednasejici/" class="button">
                             přednášející a program připravujeme
                             <strong>Máte zájem přednášet?</strong>
                         </a>
@@ -66,6 +81,7 @@
         </div>
         <!-- /prednasejici -->
         <!-- ucastnici -->
+        {% if going %}
         <div id="members" class="members_box">
             <div class="center_page">
                 <div class="content">
@@ -84,6 +100,7 @@
             </div>
         </div>
         <div class="members_box_odd"></div></div>
+        {% endif %}
         <!-- /ucastnici -->
         <!-- sponzori -->
         <div id="sponsors" class="sponzors_box">

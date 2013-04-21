@@ -1,0 +1,11 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<h2>Přednáška &mdash; {{talk.title}}</h2>
+<h3>Připravuje {{author.name}}</h3>
+{% if author.user_hash == user.user_hash %}
+<div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
+{% endif %}
+<p>{{talk.description|nl2br}}</p>
+<h3>Pro koho je přednáška určena</h3>
+<p>{{talk.purpose|nl2br}}</p>
+{% endblock %}

@@ -10,20 +10,19 @@
             <div class="item done">2.</div>
             <div class="item active">3.</div>
         </div>
-        <form method="post" class="form validate login_form" id="ajax-form" action="/account/create">
+        <form method="post" class="form validate login_form" id="ajax-form" action=".">
             <div class="hide">
                 <input type="hidden" value="new" name="_method">
-                <input type="hidden" value="MTM2NTc1NzI2MmptNnBscmUwYng5bHR0b3UxNWR5" name="authenticity_token">
-                <input type="hidden" value="ce8cb44f0235c9b5705833e4fdd93f10" name="token">
+                {{form.csrf_token}}
             </div>
             <fieldset>
                 <div class="input_box">
-                    <input type="text" placeholder="Jméno a příjmení" class="required" value="" name="name">
+                    <input type="text" placeholder="Jméno a příjmení" class="required {{'error' if form.fullname.errors}}" value="{{form.fullname.data or ''}}" name="fullname">
                 </div>
             </fieldset>
             <fieldset>
                 <div class="input_box">
-                    <input type="password" placeholder="Heslo" class="required" value="" name="password">
+                    <input type="password" placeholder="Heslo" class="required {{'error' if form.password.errors}}" value="" name="password">
                 </div>
             </fieldset>
             <div class="buttons_box">

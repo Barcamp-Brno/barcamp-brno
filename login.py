@@ -60,6 +60,7 @@ def login():
 @app.route("/nastaveni-profilu/")
 @auth_required
 def login_settings():
+    #TODO formular na ukladani detailu uzivatele
     return render_template('nastaveni.html', user=check_auth())
 
 
@@ -76,10 +77,23 @@ def login_create_account():
         form = EmailForm(request.form)
         if form.validate():
             email = form.data.get('email').lower()
+            user_hash = resolve_user_by_email(email)
+            if user_hash:
+                flash(
+                    u'Účet s tímto e-mailem již existuje, '
+                    u'chcete obnovit zapomenuté heslo?',
+                    'warning')
+                return redirect(url_for(
+                    'login_forgotten_password',
+                    email=email))
             # TODO send email
             email = base64.b64encode(email)
             token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
-            url = url_for('login_click_from_email', token=token, email=email, _external=True)
+            url = url_for(
+                'login_click_from_email',
+                token=token,
+                email=email,
+                _external=True)
             flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_email_verify'))
     else:
@@ -99,25 +113,87 @@ def login_click_from_email():
 
     if token == md5("%s|%s" % (app.secret_key, email)).hexdigest():
         email = base64.b64decode(email)
-        return "email byl %s" % email
-    flash(u'Platnost odkazu již vypršela, nebo je odkaz v nespárvném tvaru', 'warning')
+        session['verified-mail'] = email
+        return redirect(url_for('login_basic_data'))
+    flash(
+        u'Platnost odkazu již vypršela, nebo je odkaz v nespárvném tvaru',
+        'warning')
     return redirect(url_for('login_create_account'))
 
 
-@app.route("/login/registrace/vyplneni-udaju/")
+@app.route("/login/registrace/vyplneni-udaju/", methods=['GET', 'POST'])
 def login_basic_data():
-    return render_template('login_basic_data.html')
+    if request.method == 'POST':
+        form = BasicForm(request.form)
+        if form.validate():
+            email = session.get('verified-mail')
+            fullname = form.data.get('fullname')
+            password = form.data.get('password')
+            user_hash = create_account(email, password, data={
+                'name': fullname,
+            })
+            session.clear()
+            session['user_hash'] = user_hash
+            return redirect(url_for('login_settings'))
+    else:
+        form = BasicForm()
+    return render_template('login_basic_data.html', form=form)
 
 
-### TODOS ###
-@app.route("/login/zapomenute-heslo/")
-@app.route("/logout/")
-def todo():
-    return "Tohle se pripravuje"
+@app.route("/login/zapomenute-heslo/", methods=['POST', 'GET'])
+def login_forgotten_password():
+    if request.method == "POST":
+        form = EmailForm(request.form)
+        if form.validate():
+            email = form.data.get('email')
+            # TODO send mail
+            email = base64.b64encode(email)
+            token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
+            url = url_for(
+                'login_click_from_email_password',
+                token=token,
+                email=email,
+                _external=True)
+            flash("tohle poslu mailem - %s " % url, 'debug')
+            return redirect(url_for('login_forgotten_verify'))
+    else:
+        form = EmailForm(request.args)
+
+    return render_template('login_forgotten_password.html')
+
+
+@app.route("/login/resetovat-heslo/overeni-emailu/")
+def login_forgotten_verify():
+    return render_template('login_forgotten_verify.html')
+
+
+@app.route("/login/resetovat-heslo/odkaz/", methods=['GET', 'POST'])
+def login_click_from_email_password():
+    email = request.args.get('email', None)
+    token = request.args.get('token', None)
+
+    if token == md5("%s|%s" % (app.secret_key, email)).hexdigest():
+        email = base64.b64decode(email)
+        return "email byl %s" % email
+        # TODO redirect na stranku s vyreserovanim hesla
+        # TODO ulozit mail do session
+    flash(
+        u'Platnost odkazu již vypršela, nebo je odkaz v nespárvném tvaru',
+        'warning')
+    return redirect(url_for('login_forgotten_password'))
+
+
+@app.route('/login/resetovat-heslo/')
+def login_reset_password():
+    pass
 
 
 def check_auth():
     user_hash = session.get('user_hash', None)
+    return get_account(user_hash)
+
+
+def get_account(user_hash):
     return json.loads(app.redis.get(KEYS['account'] % user_hash) or "false")
 
 
@@ -153,12 +229,17 @@ def resolve_user_by_twitter(twitter_id):
 
 def create_account(email, password, user_hash=None, data=None):
     data = data or {}
+    if password is not None:
+        password = md5(password).hexdigest()
     data.update({'email': email, 'password': password})
     email = email.lower()
     user_hash = create_update_profile(data)
     app.redis.set(
         KEYS['email'] % email,
-        json.dumps({'user_hash': user_hash, 'password': password}))
+        json.dumps({
+            'user_hash': user_hash,
+            'password': password
+        }))
 
     return user_hash
 
@@ -247,7 +328,10 @@ def login_twitter_authorized(resp):
 
     flash(u'Úspěšně jste se přihlásil jako %s' % resp['screen_name'])
     # TODO: zkontrolovat, jestli k twitteru existuje ucet,
-    # jinak vynutit registraci
+    #       jinak vynutit registraci
+
+    # TODO (ulozit udaje do session, abychom se neptali vickrat
+    #       - udela se jen overeni mailu)
     return redirect(next_url)
 
 

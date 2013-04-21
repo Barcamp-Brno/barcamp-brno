@@ -1,0 +1,30 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<h2>Editace přednášky</h2>
+<form method="POST" class="admin_form" action=".">
+    <fieldset>
+        <div class="input_box">
+            {{form.csrf_token}}
+            <input type="text" placeholder="Nadpisek" class="required  {{'error' if form.title.errors}}" value="{{form.title.data or ''}}" name="title">
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="input_box">
+            <textarea type="text" placeholder="Popis" class="required  {{'error' if form.description.errors}}" name="description">{{form.description.data or ''}}</textarea>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="input_box">
+            <textarea type="text" placeholder="Pro koho je přednáška určena" class="required  {{'error' if form.purpose.errors}}" name="purpose">{{form.purpose.data or ''}}</textarea>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="input_box">
+            <button class="submit_button" type="submit">Odeslat</button>
+        </div>
+    </fieldset>
+</form>
+<div>
+    <a href="{{url_for('talk_delete', talk_hash=talk.talk_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete přednášku smazat?')">Smazat přednášku</a>
+</div>
+{% endblock %}

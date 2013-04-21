@@ -18,6 +18,10 @@
     font-weight: bold;
     font-style: normal;}
 
+.center {
+    text-align: center;
+}
+
 .content_box{
     background-color: white;
     padding-top: 45px;
@@ -43,6 +47,11 @@
         li { list-style-position: inside; }
         hr { border-top: 1px solid #666; margin: 2em 0;}
     }
+}
+
+.admin_form{
+    & textarea { border-radius: 22px; width: 90%; height: 150px; padding: 17px 22px; border: 1px solid #c8c8c8;}
+    & textarea.error { border-color: #8c1700; background-image: -webkit-linear-gradient(bottom, rgba(255,63,44,.3) 0%, rgba(255,63,44,0) 100%);}
 }
 
 .bar {
