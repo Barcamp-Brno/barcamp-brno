@@ -91,6 +91,7 @@ def create_or_update_talk(data, talk_hash=None):
 
 
 def get_talk_hash(data, depth=5):
+    "Non-colide talk hash algoritm ;)"
     talk_hash = md5("%s|%s" % (json.dumps(data), depth)).hexdigest()[:8]
     if not app.redis.setnx(KEYS['talk'] % talk_hash, 'false'):
         return get_talk_hash(data, depth - 1)
@@ -126,16 +127,6 @@ def get_talks(user_hash=None):
     for talk in talks:
         talk['user'] = users_dict[talk['user']]
 
-    """for talk_hash, score in talk_tuples:
-        talk = json.loads(app.redis.get(KEYS['talk'] % talk_hash) or '')
-        if not talk:
-            continue
-
-        talk.update({
-            'score': score,
-            #'user': check_auth(talk['user'])
-        })
-        talks.append(talk)"""
     return talks
 
 
