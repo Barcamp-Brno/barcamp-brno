@@ -22,6 +22,7 @@ def create_app(config):
 
     import views
     import login
+    import login_oauth
     import talks
     import filters
     return app

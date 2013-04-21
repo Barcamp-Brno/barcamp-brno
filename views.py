@@ -3,7 +3,7 @@
 from barcamp import app
 from flask import render_template, Markup, abort
 import markdown
-from login import check_auth
+from login_misc import check_auth
 from talks import get_talks
 
 

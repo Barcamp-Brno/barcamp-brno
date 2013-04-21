@@ -2,7 +2,7 @@
 from barcamp import app
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
-from login import check_auth, auth_required, get_account
+from login_misc import check_auth, auth_required, get_account
 from flask_wtf import Form, TextField, Required, TextArea
 from hashlib import md5
 
@@ -76,7 +76,7 @@ def create_or_update_talk(data, talk_hash=None):
     user_data = check_auth()
     print data
     if talk_hash is None:
-        talk_hash = md5(json.dumps(data)).hexdigest()[:8]
+        talk_hash = get_talk_hash(data)
         data['talk_hash'] = talk_hash
 
     data.update({
@@ -85,9 +85,16 @@ def create_or_update_talk(data, talk_hash=None):
     })
 
     app.redis.set(KEYS['talk'] % talk_hash, json.dumps(data))
-    #TODO only if not there
     if not app.redis.zrank(KEYS['talks'], talk_hash):
         app.redis.zadd(KEYS['talks'], talk_hash, 0)
+    return talk_hash
+
+
+def get_talk_hash(data, depth=5):
+    talk_hash = md5("%s|%s" % (json.dumps(data), depth)).hexdigest()[:8]
+    if not app.redis.setnx(KEYS['talk'] % talk_hash, 'false'):
+        return get_talk_hash(data, depth - 1)
+
     return talk_hash
 
 
@@ -98,6 +105,9 @@ def get_talk(talk_hash):
 def get_talks(user_hash=None):
     talk_tuples = app.redis.zrevrange(KEYS['talks'], 0, -1, withscores=True)
     talk_hashes = [talk_tuple[0] for talk_tuple in talk_tuples]
+
+    if not talk_hashes:
+        return False
 
     talks = map(
         lambda talk: json.loads(talk or 'false'),
