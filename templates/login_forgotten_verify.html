@@ -1,18 +1,10 @@
-{% extends "_base_small.html" %}
-{% block content_small %}
+{% extends "_base_form.html" %}
+{% block page_content %}
 <!-- krok 2 -->
-<div class="login_bar" id="login_content" style="margin-top: 0px;"><div class="center_page">
-    <div class="title">Obnovení hesla</div>
-    <div class="top_form_box">
-        <div class="progress_box">
-            <div class="item done">1.</div>
-            <div class="item active">2.</div>
-            <div class="item">3.</div>
-        </div>
-        <p>
-            Na zadanou e-mailovou adresu jsme zaslali ověřovací e-mail. <br>Klikněte, prosím, na odkaz v tomto e-mailu, abychom se ujistili, že zadaná e-mailová adresa je vaše.
-        </p>
-    </div>
-</div>
+<h2>Obnovení hesla</h2>
+{{step_box(2)}}
+<p>
+    Na zadanou e-mailovou adresu jsme zaslali ověřovací e-mail. <br>Klikněte, prosím, na odkaz v tomto e-mailu, abychom se ujistili, že zadaná e-mailová adresa je vaše.
+</p>
 <!-- krok 2 -->
 {% endblock%}

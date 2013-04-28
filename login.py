@@ -8,7 +8,8 @@ from flask_wtf import Form, TextField, Required, Email, EqualTo
 import base64
 from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
-from login_misc import update_password
+from login_misc import update_password, create_update_profile
+from views import menu
 
 KEYS = {
     'account': 'account_%s',
@@ -42,14 +43,22 @@ def login():
         flash(u'Nyní jste přihlášen', 'success')
         return redirect(next or url_for('login_settings'))
 
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, menu=menu())
 
 
-@app.route("/nastaveni-profilu/")
+@app.route("/nastaveni-profilu/", methods=['GET', 'POST'])
 @auth_required
 def login_settings():
-    #TODO formular na ukladani detailu uzivatele
-    return render_template('nastaveni.html', user=check_auth())
+    user = check_auth()
+    if request.method == "POST":
+        form = SettingsForm(request.form)
+        if form.validate():
+            create_update_profile(form.data, user['user_hash'])
+            flash(u'Profil aktualizován', 'success')
+            return redirect(url_for('login_settings'))
+    else:
+        form = SettingsForm(**user)
+    return render_template('nastaveni.html', user=user, form=form, menu=menu())
 
 
 @app.route("/logout/")
@@ -86,7 +95,7 @@ def login_create_account():
             return redirect(url_for('login_email_verify'))
     else:
         form = EmailForm()
-    return render_template('login_create_account.html', form=form)
+    return render_template('login_create_account.html', form=form, menu=menu())
 
 
 @app.route("/login/registrace/overeni-emailu/")
@@ -140,7 +149,7 @@ def login_basic_data():
             return redirect(next or url_for('login_settings'))
     else:
         form = BasicForm()
-    return render_template('login_basic_data.html', form=form)
+    return render_template('login_basic_data.html', form=form, menu=menu())
 
 
 @app.route("/login/zapomenute-heslo/", methods=['POST', 'GET'])
@@ -165,7 +174,7 @@ def login_forgotten_password():
     else:
         form = EmailForm(request.args)
 
-    return render_template('login_forgotten.html', form=form)
+    return render_template('login_forgotten.html', form=form, menu=menu())
 
 
 @app.route("/login/resetovat-heslo/overeni-emailu/")
@@ -207,7 +216,7 @@ def login_reset_password():
             return redirect(next or url_for('index'))
     else:
         form = PasswordForm()
-    return render_template('login_reset_password.html', form=form)
+    return render_template('login_reset_password.html', form=form, menu=menu())
 
 
 ### FORMS ###
@@ -229,3 +238,11 @@ class EmailForm(Form):
 class BasicForm(Form):
     fullname = TextField(u'Jméno', validators=[Required()])
     password = TextField('Heslo', validators=[Required()])
+
+
+class SettingsForm(Form):
+    name = TextField(u'Jméno a příjmení', validators=[Required()])
+    bio = TextField('Bio')
+    company = TextField('Firma')
+    web = TextField('Web')
+    twitter = TextField('Twitter')

@@ -1,0 +1,1 @@
+[![Kentico](/static/img/logos/microsoft.png "Microsoft")](http://www.microsoft.com/cs-cz/default.aspx)

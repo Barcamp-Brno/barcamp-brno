@@ -1,0 +1,32 @@
+{% extends "_base_page.html" %}
+{% macro input(field, type="text") -%}
+<div class="control-group {{'error' if field.errors}}">
+    <label class="control-label" for="{{field.id}}">{{field.label.text}}</label>
+    <div class="controls">
+        <input type="{{type}}" id="{{field.id}}" name="{{field.name}}" placeholder="{{field.label.text}}" value="{{field.data or ''}}">
+        {% if field.errors %}
+            <span class="help-inline">{% for error in field.errors %}{{error}}{% endfor %}</span>
+        {% endif %}
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro textarea(field) -%}
+<div class="control-group {{'error' if field.errors}}">
+    <label class="control-label" for="{{field.id}}">{{field.label.text}}</label>
+    <div class="controls">
+        <textarea class="span8" rows="7" id="{{field.id}}" name="{{field.name}}" placeholder="{{field.label.text}}">{{field.data or ''}}</textarea>
+        {% if field.errors %}
+            <span class="help-inline">{% for error in field.errors %}{{error}}{% endfor %}</span>
+        {% endif %}
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro step_box(number) -%}
+<!--div class="progress_box">
+    <div class="{{'active' if number==1}} {{'done' if number > 1}}">1.</div>
+    <div class="{{'active' if number==2}} {{'done' if number > 2}}">2.</div>
+    <div class="{{'active' if number==3}} {{'done' if number > 3}}">3.</div>
+</div-->
+{%- endmacro %}

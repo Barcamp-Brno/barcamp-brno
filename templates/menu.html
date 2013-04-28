@@ -1,0 +1,11 @@
+{% if menu %}
+<div class="menu">
+    {{menu}}
+    {% if not user %}
+        <a href="{{url_for('login')}}">Přihlásit se</a>
+    {% else %}
+        <a href="{{url_for('login_settings')}}">Profil</a>
+        <a href="{{url_for('logout')}}">Odhlásit se</a>
+    {% endif %}
+</div>
+{% endif %}

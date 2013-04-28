@@ -1,36 +1,16 @@
-{% extends "_base_small.html" %}
-{% block content_small %}
+{% extends "_base_form.html" %}
+{% block page_content %}
 <!-- krok 3 -->
-<div class="login_bar" id="login_content" style="margin-top: 0px;"><div style="display: none;" id="flash_msg"></div>
-<div class="center_page">
-    <div class="title">Vytvoření účtu</div>
-    <div class="top_form_box">
-        <div class="progress_box">
-            <div class="item done">1.</div>
-            <div class="item done">2.</div>
-            <div class="item active">3.</div>
-        </div>
-        <form method="post" class="form validate login_form" id="ajax-form" action=".">
-            <div class="hide">
-                <input type="hidden" value="new" name="_method">
-                {{form.csrf_token}}
-            </div>
-            <fieldset>
-                <div class="input_box">
-                    <input type="text" placeholder="Jméno a příjmení" class="required {{'error' if form.fullname.errors}}" value="{{form.fullname.data or ''}}" name="fullname">
-                </div>
-            </fieldset>
-            <fieldset>
-                <div class="input_box">
-                    <input type="password" placeholder="Heslo" class="required {{'error' if form.password.errors}}" value="" name="password">
-                </div>
-            </fieldset>
-            <div class="buttons_box">
-                <button class="submit_button" type="submit">Odeslat</button>
-            </div>
-        </form>
-        
-        
+<h2>Vytvoření účtu</h2>
+{{step_box(3)}}
+<form method="post" class="form-horizontal" action=".">
+        {{form.csrf_token}}
+    <fieldset>
+        {{input(form.fullname)}}
+        {{input(form.password, type='password')}}
+    </fieldset>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Odeslat</button>
     </div>
-</div>
+</form>
 {% endblock%}

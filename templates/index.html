@@ -1,122 +1,48 @@
-{% extends "_base.html" %}
-{% block content %}
-
-        <!-- prihlaseni a registrace -->
-        <div id="login_content" class="login_bar"></div>
-        <!-- /prihlaseni a registrace -->
-        <!-- horni lista -->
-        <div class="top_bar">
-            <div class="center_page">
-                <!-- obsah vlevo -->
-                <div class="content_left">
-                    <a href="/" class="logo_site">Barcamp Brno</a>
-                    <ul class="main_menu">
-                        <li><a href="#">Přednášející &amp; program</a></li>
-                        <li><a href="#">Kdo příjde</a></li>
-                        <li><a href="#">Sponzoři</a></li>
-                    </ul>
-                </div>
-                <!-- /obsah vlevo -->
-                <!-- obsah vpravo -->
-                <div class="content_right">
-                    {% if user %}
-                    <a href="{{ url_for('login_settings') }}" class="a_login">Profil</a>
-                    <a href="{{ url_for('logout') }}" class="a_login">Odhlásit se</a>
-                    {% else %}
-                    <a href="{{ url_for('login') }}" class="a_login">Přihlásit se</a>
-                    {% endif %}
-                </div>
-                <!-- obsah vpravo -->
-            </div>
+{% extends "_base.html"%}
+{% block body %}
+<div id="hp-header">
+    {% include "menu.html"%}
+    <div class="wrapper">
+        <h1>Barcamp Brno 2013</h1>
+        <h2>15 | 06 | 2013 | Brno</h2>
+        <h3><a href="http://mapy.cz/s/6ZKC">VUT FIT, Božetěchova 2</a></h3>
+        <h3>11 | 05 | 2013 | Registrace účasti a hlasování</h3>
+        <div class="clearer" style="height: 375px"></div>
+    </div> <!-- wrapper -->
+</div> <!-- hp-head-->
+<div id="hp-content">
+    <div class="wrapper">
+        <div class="info">
+            <p>BarCamp Brno 2013 se bude konat 15. června 2013 na půdě FIT VUT.</p> 
+            <p><a href="/stranka/informace/" title="podrobné informace">Podrobné informace</a></p>
         </div>
-        <!-- /horni lista -->
-        <!-- hlavicka -->
-        <div class="header">
-            <div class="header_content">
-                <div class="center_page">
-                    <h1 class="site_name"><span>Barcamp Brno</span></h1>
-                    <ul class="header_info">
-                        <li class="pos_01">Co:<br/><span>Otevřená konference<br /> ze světa internetu</span></li>
-                        <li class="pos_02">Kde:<br/><span><a href="#" target="_blank">VUT FIT<br/>Božetěchova 2</a></span></li>
-                        <li class="pos_03">Kdy:<br/><span>15. Června 2013<br/>od 8:30</span></li>
-                    </ul>
-                    <div class="button_box">
-                        {% if register %}
-                        <a href="#" class="button">Zúčastním se</a>
-                        <div class="counter">Zbývá ještě <strong>500 míst</strong></div>
-                        {% else %}
-                        <div class="counter" style="width: 100%">Registrace účasti od <strong>11.5.2013</strong></div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="header_img"></div>
-        </div>
-        <!-- /hlavicka -->
         <!-- prednasejici -->
-        <div id="lecturer" class="lecturer_box">
-            <div class="center_page">
-                <div class="content">
-                    <h2>Přednášející &amp; program</h2>
-                    {% if talks %}
-                    <table class="program_table" cellpadding="0" cellspacing="0">
-                        {% for talk in talks %}
-                        <tr>
-                            <th>{{talk.user.name}}</th>
-                            <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
-                            {% if voting %}<td><a href="#" class="vote-link disabled">Odhlasováno</a> <span class="vote-count">{{talk.score|int}}</span></td>>{% endif %}
-                        </tr>
-                        {% endfor %}
-                    </table>
-                    {% endif %}
-                    <div class="lecturer_button">
-                        <a href="/stranka/pro-prednasejici/" class="button">
-                            přednášející a program připravujeme
-                            <strong>Máte zájem přednášet?</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <!-- /prednasejici -->
-        <!-- ucastnici -->
-        {% if going %}
-        <div id="members" class="members_box">
-            <div class="center_page">
-                <div class="content">
-                    <h2>Kdo příjde</h2>
-                </div>
-            </div>
-            <div class="members_box_bg">
-            <div class="members_content">
-                <!-- ToshTak -->
-                <a href="#" class="item" rel="twipsy" data-original-title="Patrik Illy" title='patrik illy'>
-                    <img src="/static/images/no-avatar.jpg" width="48" height="48" alt="" />
-                </a>
-                <a href="https://www.twitter.com/illycz" class="item" rel="twipsy" data-original-title="Patrik Illy">
-                    <img src="http://barcampostrava.cz/profile/avatar/5/avatar.jpg?s=small" width="48" height="48" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="members_box_odd"></div></div>
-        {% endif %}
-        <!-- /ucastnici -->
+        <h2>Přednášející &amp; program</h2>
+        
+        <table class="table">
+            {% for talk in talks %}
+            <tr>
+                <th>{{talk.user.name}}</th>
+                <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                {% if voting %}<td><a href="#" class="vote-link disabled">Odhlasováno</a> <span class="vote-count">{{talk.score|int}}</span></td>>{% endif %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <th><em>{{'Právě Ty' if not user else user.name}}</em></th>
+                <td><em><a href="/stranka/pro-prednasejici/" class="button">
+                    <i class="icon-bullhorn"></i>
+                    Máš co říct?
+                    <strong>Přidej své téma.</strong></a></em></td>
+            </tr>
+        </table>
+        <!-- / prednasejici -->
         <!-- sponzori -->
-        <div id="sponsors" class="sponzors_box">
-            <div class="center_page">
-                <div class="content">
-                    <h2>Sponzoři</h2>
-                    <div class="sponzors_content">
-                        <a href="http://www.moravio.com/" target="_blank" class="item"><img src="/static/images/sponzor_moravio.png" width="298" height="118" alt="" /></a>
-                        <a href="http://www.moravio.com/" target="_blank" class="item"><img src="/static/images/sponzor_moravio.png" width="298" height="118" alt="" /></a>
-                        <a href="http://www.moravio.com/" target="_blank" class="item"><img src="/static/images/sponzor_moravio.png" width="298" height="118" alt="" /></a>
-                        <br/>
-                        <a href="mailto:info@moravio.com?subject=Mám zájem sponzorovat Barcamp Ostrava" class="a_button">Sponzorujte Barcamp</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponzors_box_odd"></div>
-        </div>
-        <!-- /sponzori -->  
+        <h2>Hlavní partneři</h2>
+        <p class="sponsors">
+            {{sponsors_main}}
+        </p>
+        <!-- / sponzori -->
+    </div>
+</div>
+<div class="clearer"></div>
 {% endblock %}

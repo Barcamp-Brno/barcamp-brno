@@ -7,6 +7,6 @@ Kontakty
  - [Lukáš Greň](mailto:lukas.fruit@gmail.com?subject=Barcamp Brno 2013) - [@lukasgren](http://twitter.com/lukasgren)
 
 ### Ostatní
- - [Moravio](http://www.moravio.com/) - design
+ - Petr Šiller - design
  - [@white_kate](http://www.twitter.com/white_kate) - logo Barcamp Brno
  - [Martin Kacvinský](http://kaco.sk) - panorama Brna

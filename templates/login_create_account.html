@@ -1,29 +1,17 @@
-{% extends "_base_small.html" %}
-{% block content_small %}
+{% extends "_base_form.html" %}
+{% block page_content %}
 <!-- krok 1 -->
-<div class="login_bar" id="login_content" style="margin-top: 0px;">
-    <div class="center_page">
-        <div class="title">Vytvoření účtu</div>
-        <div class="top_form_box">
-            <div class="progress_box">
-                <div class="item active">1.</div>
-                <div class="item">2.</div>
-                <div class="item">3.</div>
-            </div>
-            <form method="post" class="form validate login_form" action="{{url_for('login_create_account')}}">
-                {{form.csrf_token}}
-                <fieldset>
-                    <div class="input_box">
-                        <input type="text" placeholder="Vaše emailová adresa" class="required {% if form.email.errors %}error{%endif%}" value="{{form.email.data or ''}}" name="email">
-                    </div>
-                </fieldset>
-                
-                <div class="buttons_box">
-                    <button class="submit_button" type="submit">Odeslat</button>
-                </div>
-            </form>
-        </div>
+<h2>Vytvoření účtu</h2>
+{{step_box(1)}}
+<form method="post" class="form-horizontal" action="{{url_for('login_create_account')}}">
+    {{form.csrf_token}}
+    <fieldset>
+        {{ input(form.email) }}
+    </fieldset>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Odeslat</button>
     </div>
-</div>
+</form>
+
 <!-- /krok 1 -->
 {% endblock%}

@@ -1,8 +1,14 @@
-{% extends "_base_small.html" %}
-{% block content_small %}
-<div class="content_box">
-    <div class="center_page">
-        <div class="content">    
+{% extends "_base.html" %}
+{% block body %}
+<div id="page-header">
+    <div class="wrapper">
+        <h1><a href="/">Barcamp Brno 2013</a></h1>
+        {% include 'menu.html' %}
+    </div>
+</div>
+<div id="hp-content" class="detail">
+    <div class="wrapper">
+        <div class="content">
             {% block page_content %}{% endblock %}
         </div>
     </div>
