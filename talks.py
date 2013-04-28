@@ -5,6 +5,7 @@ from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
 from flask_wtf import Form, TextField, Required, TextArea
 from hashlib import md5
+from utils import menu
 
 KEYS = {
     'talk': 'talk_%s',
@@ -23,6 +24,7 @@ def talk_detail(talk_hash):
     return render_template(
         'talk_detail.html',
         talk=talk,
+        menu=menu(),
         author=author,
         user=check_auth())
 
@@ -69,7 +71,7 @@ def talk_edit(talk_hash=None):
         form = TalkForm(**talk_data)
     return render_template(
         'talk_form.html',
-        form=form, user=check_auth(), talk=talk_data)
+        form=form, user=check_auth(), talk=talk_data, menu=menu())
 
 
 def create_or_update_talk(data, talk_hash=None):

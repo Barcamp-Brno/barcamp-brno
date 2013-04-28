@@ -7,13 +7,11 @@
         {{input(form.title)}}
         {{textarea(form.description)}}
         {{textarea(form.purpose)}}
-        
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Odeslat</button>
-          <a class="btn btn-danger" href="{{url_for('talk_delete', talk_hash=talk.talk_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete přednášku smazat?')">Smazat přednášku</a>
-      </div>
-  </form>
-  <div>
-    <a href="{{url_for('talk_delete', talk_hash=talk.talk_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete přednášku smazat?')">Smazat přednášku</a>
-</div>
+    </fiedlset>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+        <a class="btn btn-danger" href="{{url_for('talk_delete', talk_hash=talk.talk_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete přednášku smazat?')">Smazat přednášku</a>
+    </div>
+</form>
 {% endblock %}
