@@ -31,6 +31,7 @@ h1 {
     padding-top: 15px;
     padding-bottom: 20px;
     text-align:center;
+    height: 820px;
 
     h2, h3{
         color: @white;
@@ -312,5 +313,48 @@ h1 {
     a {
         display: inline-block;
         padding: 15px;
+    }
+}
+
+@media (max-width: 768px){
+    .wrapper { width: auto; }
+    body { padding: 5px 15px; }
+    #hp-header, #page-header {
+        background-image: none;
+        height: auto;
+    }
+    #hp-header {
+        text-align: left;
+        h1 {
+            position: absolute;
+            top: 20px;
+        }
+        h2 {
+            padding: 10px;
+            font-size: 25px;
+        }
+        h3 {
+            padding: 7px;
+            font-size: 20px;
+        }
+        .menu {
+            position: relative;
+            margin-top: 50px;
+        }
+    }
+
+    #page-header h1, h1 {
+        line-height: 50px;  
+        height: auto;
+        font-size: 40px;
+        background-image: none;
+        margin-top: 0;
+    }
+    #page-header h1 a {
+        color: black !important;
+    }
+    .menu a {
+        display: inline-block !important;
+        float: none !important;
     }
 }

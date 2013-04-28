@@ -2,7 +2,6 @@
 
 from barcamp import app
 from flask import render_template
-import markdown
 from login_misc import check_auth
 from talks import get_talks
 from utils import menu, markdown_static_page, markdown_markup
