@@ -9,6 +9,7 @@ redis
 markdown
 Flask-OAuth
 Flask-WTF
+Flask-Mail
 
 Deploy
 ------

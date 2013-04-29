@@ -16,6 +16,8 @@ if __name__ == '__main__':
         'FACEBOOK_SECRET': '1203f3bd7633d102e30cc02f7d61b3f8',
         'TWITTER_KEY': 'H3YBefguk72B38Yt5KdDg',
         'TWITTER_SECRET': 'cPmxDXCm3MgVPruiCjYXioZhUubLvehnTiVgI1M',
+        'MAIL_SERVER': 'joachim.cz',
+        'MAIL_PORT': 25,
     })
 
     app.debug = True

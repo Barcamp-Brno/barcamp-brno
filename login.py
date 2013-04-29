@@ -10,6 +10,8 @@ from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
 from login_misc import update_password, create_update_profile
 from views import menu
+import markdown
+from flask.ext.mail import Mail, Message
 
 KEYS = {
     'account': 'account_%s',
@@ -83,7 +85,6 @@ def login_create_account():
                 return redirect(url_for(
                     'login_forgotten_password',
                     email=email))
-            # TODO send email
             email = base64.b64encode(email)
             token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
             url = url_for(
@@ -91,6 +92,8 @@ def login_create_account():
                 token=token,
                 email=email,
                 _external=True)
+            #TODO
+            send_mail(u'Vytvoření účtu', email, "data/verify-account.md", url)
             flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_email_verify'))
     else:
@@ -161,7 +164,6 @@ def login_forgotten_password():
             if not resolve_user_by_email(email):
                 flash(u'Nejprve si svůj e-mail zaregistrujte', 'warning')
                 redirect(url_for('login_create_account'))
-            # TODO send mail
             email = base64.b64encode(email)
             token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
             url = url_for(
@@ -169,6 +171,8 @@ def login_forgotten_password():
                 token=token,
                 email=email,
                 _external=True)
+            # TODO
+            send_mail(u'Obnovení hesla', email, "data/reset-password.md", url)
             flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_forgotten_verify'))
     else:
@@ -217,6 +221,31 @@ def login_reset_password():
     else:
         form = PasswordForm()
     return render_template('login_reset_password.html', form=form, menu=menu())
+
+
+### MAIL ###
+def send_mail(subject, to, message_file, url):
+    mail = Mail(app)
+    body = read_file(message_file) or ""
+    body = body % {
+        'url': url,
+        'ip': 1,  # request.ip,
+        'user_agent': request.user_agent,
+        'mail': to,
+    }
+
+    msg = Message(
+        subject,
+        recipients=[to],
+        sender=("Petr Joachim", "petr@joachim.cz")
+    )
+    msg.body = body
+    msg.html = markdown.markdown(body)
+    mail.send(msg)
+
+
+def read_file(filename):
+    return open(filename).read().decode('utf-8')
 
 
 ### FORMS ###

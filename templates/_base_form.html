@@ -15,7 +15,7 @@
 <div class="control-group {{'error' if field.errors}}">
     <label class="control-label" for="{{field.id}}">{{field.label.text}}</label>
     <div class="controls">
-        <textarea class="span8" rows="7" id="{{field.id}}" name="{{field.name}}" placeholder="{{field.label.text}}">{{field.data or ''}}</textarea>
+        <textarea class="span5" rows="7" id="{{field.id}}" name="{{field.name}}" placeholder="{{field.label.text}}">{{field.data or ''}}</textarea>
         {% if field.errors %}
             <span class="help-inline">{% for error in field.errors %}{{error}}{% endfor %}</span>
         {% endif %}
