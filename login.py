@@ -85,6 +85,7 @@ def login_create_account():
                 return redirect(url_for(
                     'login_forgotten_password',
                     email=email))
+            raw_email = email
             email = base64.b64encode(email)
             token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
             url = url_for(
@@ -93,7 +94,11 @@ def login_create_account():
                 email=email,
                 _external=True)
             #TODO
-            send_mail(u'Vytvoření účtu', email, "data/verify-account.md", url)
+            send_mail(
+                u'Vytvoření účtu',
+                raw_email,
+                "data/verify-account.md",
+                url)
             flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_email_verify'))
     else:
@@ -164,6 +169,7 @@ def login_forgotten_password():
             if not resolve_user_by_email(email):
                 flash(u'Nejprve si svůj e-mail zaregistrujte', 'warning')
                 redirect(url_for('login_create_account'))
+            raw_email = email
             email = base64.b64encode(email)
             token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
             url = url_for(
@@ -172,7 +178,11 @@ def login_forgotten_password():
                 email=email,
                 _external=True)
             # TODO
-            send_mail(u'Obnovení hesla', email, "data/reset-password.md", url)
+            send_mail(
+                u'Obnovení hesla',
+                raw_email,
+                "data/reset-password.md",
+                url)
             flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_forgotten_verify'))
     else:
