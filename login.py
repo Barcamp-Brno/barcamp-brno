@@ -93,13 +93,11 @@ def login_create_account():
                 token=token,
                 email=email,
                 _external=True)
-            #TODO
             send_mail(
                 u'Vytvoření účtu',
                 raw_email,
                 "data/verify-account.md",
                 url)
-            flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_email_verify'))
     else:
         form = EmailForm()
@@ -177,13 +175,11 @@ def login_forgotten_password():
                 token=token,
                 email=email,
                 _external=True)
-            # TODO
             send_mail(
                 u'Obnovení hesla',
                 raw_email,
                 "data/reset-password.md",
                 url)
-            flash("tohle poslu mailem - %s " % url, 'debug')
             return redirect(url_for('login_forgotten_verify'))
     else:
         form = EmailForm(request.args)
@@ -239,7 +235,7 @@ def send_mail(subject, to, message_file, url):
     body = read_file(message_file) or ""
     body = body % {
         'url': url,
-        'ip': 1,  # request.ip,
+        'ip': request.remote_addr,
         'user_agent': request.user_agent,
         'mail': to,
     }
