@@ -3,7 +3,7 @@ from barcamp import app
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
-from flask_wtf import Form, TextField, Required, TextArea
+from flask_wtf import Form, TextField, Required, TextArea, URL, Optional
 from hashlib import md5
 from utils import menu
 
@@ -134,6 +134,9 @@ def get_talks(user_hash=None):
 
 class TalkForm(Form):
     title = TextField(u'Název', validators=[Required()])
+    company = TextField(u'Firma')
+    twitter = TextField(u'Twitter')
+    web = TextField(u'Web', validators=[Optional(), URL()])
     description = TextField(
         u'Popisek',
         validators=[Required()],
@@ -142,3 +145,8 @@ class TalkForm(Form):
         u'Pro koho je určena',
         validators=[Required()],
         widget=TextArea())
+
+    other = TextField(
+        u'Poznámka pro pořadatele',
+        widget=TextArea()
+    )

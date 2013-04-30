@@ -93,6 +93,10 @@ def login_create_account():
                 token=token,
                 email=email,
                 _external=True)
+
+            if app.debug:
+                flash(url, "debug")
+
             send_mail(
                 u'Vytvoření účtu',
                 raw_email,
@@ -175,6 +179,10 @@ def login_forgotten_password():
                 token=token,
                 email=email,
                 _external=True)
+
+            if app.debug:
+                flash(url, "debug")
+
             send_mail(
                 u'Obnovení hesla',
                 raw_email,

@@ -5,6 +5,7 @@
 """
 
 from flask import Flask
+from werkzeug.contrib.fixers import ProxyFix
 import redis
 
 app = None
@@ -12,13 +13,11 @@ app = None
 
 def create_app(config):
     global app
-    application = Flask(__name__)
-    application.secret_key = "jednadvehonzajde"
-    application.config.update(config)
+    app = Flask(__name__)
+    app.wsgi_app = ProxyFix(app.wsgi_app)
+    app.config.update(config)
 
-    application.redis = redis.Redis()
-
-    app = application
+    app.redis = redis.Redis()
 
     import views
     import login

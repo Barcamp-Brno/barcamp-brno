@@ -1,4 +1,5 @@
 __original__
+*.wsgi
 
 .DS_Store
 *.py[cod]
