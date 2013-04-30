@@ -110,7 +110,7 @@ def get_talks(user_hash=None):
     talk_hashes = [talk_tuple[0] for talk_tuple in talk_tuples]
 
     if not talk_hashes:
-        return False
+        return []
 
     talks = map(
         lambda talk: json.loads(talk or 'false'),
