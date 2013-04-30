@@ -29,11 +29,6 @@ def sponsors():
     )
 
 
-@app.route("/page/")
-def test():
-    return render_template("page.html", user=check_auth(), menu=menu())
-
-
 @app.route("/stranka/<page>/")
 def static_page(page):
     return markdown_static_page(page)
