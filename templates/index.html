@@ -5,18 +5,13 @@
         <h1>Barcamp Brno 2013</h1>
         <h2>15 | 06 | 2013 | Brno</h2>
         <h3><a href="http://mapy.cz/s/6ZKC">VUT FIT, Božetěchova 2</a></h3>
-        <h3>11 | 05 | 2013 | Registrace účasti a hlasování</h3>
-        <div class="clearer" style="height: 70px;"></div>
+        <div class="clearer" style="height: 40px;"></div>
         {% include "menu.html"%}
         <div class="clearer"></div>
     </div>
 </div> <!-- hp-head-->
 <div id="hp-content">
     <div class="wrapper">
-        <div class="info">
-            <p>BarCamp Brno 2013 se bude konat 15. června 2013 na půdě FIT VUT.</p> 
-            <p><a href="/stranka/informace/" title="podrobné informace">Podrobné informace</a></p>
-        </div>
         <!-- prednasejici -->
         <h2>Přednášející &amp; program</h2>
         
@@ -28,14 +23,11 @@
                 {% if voting %}<td><a href="#" class="vote-link disabled">Odhlasováno</a> <span class="vote-count">{{talk.score|int}}</span></td>>{% endif %}
             </tr>
             {% endfor %}
-            <tr>
-                <th><em>{{'Právě Ty' if not user else user.name}}</em></th>
-                <td><em><a href="/stranka/pro-prednasejici/" class="button">
-                    <i class="icon-bullhorn"></i>
-                    Máš co říct?
-                    <strong>Přidej své téma.</strong></a></em></td>
-            </tr>
         </table>
+        <p class="menu center"><a href="/stranka/pro-prednasejici/" style="float: none; width: 250px; margin: 0 15%">
+                    <i class="icon-bullhorn icon-white"></i>
+                    Máš co říct? Přidej své téma.</a>
+        </p><div class="clearer"></div>
         <!-- / prednasejici -->
         <!-- sponzori -->
         <h2>Hlavní partneři akce</h2>
