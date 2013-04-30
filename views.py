@@ -14,6 +14,7 @@ def index():
         user=check_auth(),
         menu=menu(),
         sponsors_main=markdown_markup('sponsors_main'),
+        sponsors=markdown_markup('sponsors'),
         talks=get_talks())
 
 
