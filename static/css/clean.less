@@ -55,11 +55,11 @@ h1 {
 }
 
 #hp-header {
-    background: url("/static/img/photo.jpg") no-repeat center -50px;
+    background: url("/static/img/photo.jpg") no-repeat scroll center -210px transparent;
     padding-top: 15px;
     margin-bottom: 30px;
     text-align:center;
-    height: 600px;
+    height: 540px;
 
     h2, h3{
         color: @white;
@@ -85,6 +85,7 @@ h1 {
     & .menu{
         font-size: 24px;
         line-height: 35px;
+        margin-top: 30px;
     }
 }
 .info {
@@ -108,6 +109,12 @@ h1 {
         font-weight: bold;
         text-transform: uppercase;
     }
+}
+
+.menu-button a {
+    float: none;
+    width: 250px;
+    margin: 0 15%;
 }
 
 #page-header {
@@ -143,13 +150,13 @@ h1 {
         padding-left: 15px;
     }
     h2 {
-        border-top: 1px solid #888;
-        margin-top: 20px;
+        margin-top: 75px;
         padding-top: 15px;
+        margin-bottom: 40px;
         color: #666;
     }
     h2:first-child {
-        border-top: none 0px transparent;
+        margin-top: 30px;
     }
     h3 {
         margin-top: 25px;
@@ -396,6 +403,9 @@ h1 {
     }
     #page-header h1 a {
         color: black !important;
+    }
+    .menu-button a {
+        margin: 0;
     }
 
 }
