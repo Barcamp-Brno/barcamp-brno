@@ -20,7 +20,7 @@ def index():
         user=user,
         menu=menu(),
         entrant_count=get_count(),
-        entrants=get_entrants(),
+        entrants=reversed(get_entrants()),
         user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
