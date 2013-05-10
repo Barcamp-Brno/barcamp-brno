@@ -21,7 +21,7 @@
         <table class="table" id="talks">
             {% for talk in talks %}
             <tr>
-                <th>{{talk.user.name}}</th>
+                <th>{{loop.index}}. {{talk.user.name}}</th>
                 <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
                 <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
                 {% if user and user.going %}
