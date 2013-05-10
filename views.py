@@ -5,14 +5,23 @@ from flask import render_template
 from login_misc import check_auth
 from talks import get_talks
 from utils import menu, markdown_static_page, markdown_markup
+from entrant import get_count, get_entrants
+from vote import get_user_votes
 
 
 @app.route("/")
 def index():
+    user = check_auth()
+    user_hash = None
+    if user:
+        user_hash = user['user_hash']
     return render_template(
         "index.html",
-        user=check_auth(),
+        user=user,
         menu=menu(),
+        entrant_count=get_count(),
+        entrants=get_entrants(),
+        user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
         talks=get_talks())

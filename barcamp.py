@@ -23,5 +23,7 @@ def create_app(config):
     import login
     import login_oauth
     import talks
+    import entrant
+    import vote
     import filters
     return app

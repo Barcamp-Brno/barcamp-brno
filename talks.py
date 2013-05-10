@@ -108,6 +108,7 @@ def get_talk(talk_hash):
 def get_talks(user_hash=None):
     talk_tuples = app.redis.zrevrange(KEYS['talks'], 0, -1, withscores=True)
     talk_hashes = [talk_tuple[0] for talk_tuple in talk_tuples]
+    talk_scores = dict(talk_tuples)
 
     if not talk_hashes:
         return []
@@ -115,6 +116,11 @@ def get_talks(user_hash=None):
     talks = map(
         lambda talk: json.loads(talk or 'false'),
         app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
+    )
+    map(
+        lambda talk: talk.update(
+            {'score': int(talk_scores.get(talk['talk_hash']) or 0)}),
+        talks
     )
 
     user_hashes = [talk['user'] for talk in talks]
