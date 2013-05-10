@@ -1,0 +1,13 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<h2>{{profile.name}}</h2>
+{% if profile.twitter %}
+<p><a href="https://twitter.com/{{profile.twitter}}">@{{profile.twitter}}</a>
+{% endif %}
+{% if profile.going %}
+<p>Tento uživatel je přihlášen jako účastník</p>
+{% endif %}
+<h3>Bio</h3>
+{{profile.bio|nl2br}}
+
+{% endblock %}

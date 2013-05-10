@@ -35,3 +35,10 @@ def vote_save():
 
 def get_user_votes(user_hash):
     return tuple(app.redis.smembers(KEYS['votes'] % user_hash))
+
+
+def remove_user_votes(user_hash):
+    decrement = app.redis.smembers(KEYS['votes'] % user_hash) or set()
+    for vote in decrement:
+        app.redis.srem(KEYS['votes'] % user_hash, vote)
+        app.redis.zincrby('talks', vote, -1)

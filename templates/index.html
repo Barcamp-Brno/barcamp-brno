@@ -15,7 +15,7 @@
         <!-- prednasejici -->
         <h2>Přednášející &amp; hlasování</h2>
         
-        {% if user %}    
+        {% if user and user.going %}    
         <form method="POST" action="{{url_for('vote_save')}}">
         {% endif %}
         <table class="table" id="talks">
@@ -24,7 +24,7 @@
                 <th>{{talk.user.name}}</th>
                 <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
                 <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
-                {% if user %}
+                {% if user and user.going %}
                     <td><label><input
                         type="checkbox"
                         {{'checked' if talk.talk_hash in user_votes}}
@@ -34,29 +34,33 @@
                 {% endif %}
             </tr>
             {% endfor %}
-            {% if user %}
+            {% if user and user.going %}
             <tr>
                 <td colspan="3"></td>
                 <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
             </tr>
+            {% else %}
+            <tr>
+                <td colspan="2"></td>
+                <td>Hlasovat mohou jen přihlášení účastníci.</td></tr>
             {% endif %}
         </table>
-        {% if user %}
+        {% if user and user.going %}
         </form>
         {% endif %}
 
         <p class="menu center menu-button"><a href="/stranka/pro-prednasejici/">
                     <i class="icon-bullhorn icon-white"></i>
-                    Máš co říct? Přidej své téma.</a>
+                    Máš co říct? Přidej své téma</a>
         </p><div class="clearer"></div>
         <!-- / prednasejici -->
         <a name="entrants"></a>
         <h2>Účastníci</h2>
         <p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
         {% if entrants %}
-        {% for user in entrants %}
+        {% for entrant in entrants %}
         <ul id="entrants">
-            <li><a href="#">{{user.name}}</a></li>
+            <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
         </ul>
         {% endfor %}{% endif %}
         

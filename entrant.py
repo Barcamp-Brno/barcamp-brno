@@ -3,6 +3,7 @@
 from barcamp import app
 from flask import flash, url_for, redirect, json
 from login_misc import check_auth, auth_required, create_update_profile
+from vote import remove_user_votes
 from time import time
 
 KEYS = {
@@ -15,15 +16,22 @@ KEYS = {
 @auth_required
 def attend_add():
     user = check_auth()
-    if user.get('going', False):
+    if user_user_go(user):
         flash(u'Na akci už jsi byl přihlášen dříve', 'success')
+    else:
+        flash(u'Nyní jsi přihlášen jako účastník akce', 'success')
+    return redirect(url_for('index'))  # , _anchor="entrants"))
+
+
+def user_user_go(user):
+    if user.get('going', False):
+        return True
     else:
         user['going'] = True
         create_update_profile(user, user['user_hash'])
         app.redis.zadd(KEYS['entrants'], user['user_hash'], int(time()))
         app.redis.incr(KEYS['entrant_count'])
-        flash(u'Nyní jsi přihlášen jako účastník akce', 'success')
-    return redirect(url_for('index'))  # , _anchor="entrants"))
+        return False
 
 
 @app.route('/nechci-prijit/')
@@ -37,6 +45,7 @@ def attend_remove():
         create_update_profile(user, user['user_hash'])
         app.redis.zrem(KEYS['entrants'], user['user_hash'])
         app.redis.decr(KEYS['entrant_count'])
+        remove_user_votes(user['user_hash'])
         flash(u'Již nejsi přihlášen na akci', 'success')
     return redirect(url_for('index'))  # , _anchor="entrants"))
 

@@ -104,8 +104,7 @@ def login_facebook_authorized(resp):
 
     user_hash = resolve_user_by_email(me.data['email'])
     if not user_hash:
-        print me.data
-        pass
+        # me.data
         # pokud ucet neexistuje, vytvorime (a vyplnime) ho z FB
         user_hash = create_account(me.data['email'], None, data={
             'verified': True,
