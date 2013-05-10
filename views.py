@@ -1,18 +1,27 @@
 # coding: utf-8
 
 from barcamp import app
-from flask import render_template
-from login_misc import check_auth
+from flask import render_template, abort
+from login_misc import check_auth, get_account
 from talks import get_talks
 from utils import menu, markdown_static_page, markdown_markup
+from entrant import get_count, get_entrants
+from vote import get_user_votes
 
 
 @app.route("/")
 def index():
+    user = check_auth()
+    user_hash = None
+    if user:
+        user_hash = user['user_hash']
     return render_template(
         "index.html",
-        user=check_auth(),
+        user=user,
         menu=menu(),
+        entrant_count=get_count(),
+        entrants=get_entrants(),
+        user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
         talks=get_talks())
@@ -27,6 +36,20 @@ def sponsors():
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
         sponsors_other=markdown_markup('sponsors_other'),
+    )
+
+
+@app.route('/profil/<user_hash>/')
+def profile(user_hash):
+    data = get_account(user_hash)
+    if not data:
+        abort(404)
+
+    return render_template(
+        'profil.html',
+        user=check_auth(),
+        menu=menu(),
+        profile=data
     )
 
 
