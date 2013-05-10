@@ -65,7 +65,7 @@
         </ul>
         {% endif %}
         
-        {# if user and user.going %}
+        {% if user and user.going %}
             <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
                     <i class="icon-remove icon-white"></i>
                     Už nechci přijít</a>
@@ -74,14 +74,7 @@
                     <i class="icon-heart icon-white"></i>
                     Chci přijít na Barcamp</a>
         </p><div class="clearer"></div>
-        {% endif #}
-        <p>Přihlásit se jako účastník bude možné až 11.5.2013.</p>
-        <p>Mezitím můžete vymyslet téma a zúčastnit se jako
-        řečník.</p>
-        <p class="menu center menu-button"><a style="background-color: #333">
-            <i class="icon-heart icon-white"></i>
-            Chci přijít na Barcamp</a>
-        </p>
+        {% endif %}
         
         </p><div class="clearer"></div>
         <!-- sponzori -->
