@@ -3,6 +3,7 @@ from barcamp import app
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
+from entrant import user_user_go
 from flask_wtf import Form, TextField, Required, TextArea, URL, Optional
 from hashlib import md5
 from utils import menu
@@ -52,9 +53,9 @@ def talk_delete(talk_hash):
 @auth_required
 def talk_edit(talk_hash=None):
     talk_data = {}
+    user_data = check_auth()
     if talk_hash:
         talk_data = get_talk(talk_hash)
-        user_data = check_auth()
 
         if user_data['user_hash'] != talk_data['user']:
             abort(403)  # uzivatel tohle nemuze editovat
@@ -64,6 +65,7 @@ def talk_edit(talk_hash=None):
         if form.validate():
             old_hash = talk_hash
             talk_hash = create_or_update_talk(form.data, talk_hash)
+            user_user_go(user_data)
             flash(u'Přednáska byla uložena', 'success')
             if talk_hash != old_hash:
                 return redirect(url_for('talk_edit', talk_hash=talk_hash))
@@ -76,7 +78,6 @@ def talk_edit(talk_hash=None):
 
 def create_or_update_talk(data, talk_hash=None):
     user_data = check_auth()
-    print data
     if talk_hash is None:
         talk_hash = get_talk_hash(data)
         data['talk_hash'] = talk_hash
@@ -108,6 +109,7 @@ def get_talk(talk_hash):
 def get_talks(user_hash=None):
     talk_tuples = app.redis.zrevrange(KEYS['talks'], 0, -1, withscores=True)
     talk_hashes = [talk_tuple[0] for talk_tuple in talk_tuples]
+    talk_scores = dict(talk_tuples)
 
     if not talk_hashes:
         return []
@@ -115,6 +117,11 @@ def get_talks(user_hash=None):
     talks = map(
         lambda talk: json.loads(talk or 'false'),
         app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
+    )
+    map(
+        lambda talk: talk.update(
+            {'score': int(talk_scores.get(talk['talk_hash']) or 0)}),
+        talks
     )
 
     user_hashes = [talk['user'] for talk in talks]
