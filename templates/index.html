@@ -42,7 +42,9 @@
             {% else %}
             <tr>
                 <td colspan="2"></td>
-                <td>Hlasovat mohou jen přihlášení účastníci.</td></tr>
+                <td>
+                    <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
+                </td></tr>
             {% endif %}
         </table>
         {% if user and user.going %}
@@ -70,6 +72,7 @@
                     <i class="icon-remove icon-white"></i>
                     Už nechci přijít</a>
         {% else %}
+            <a name="go"></a>
             <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
                     <i class="icon-heart icon-white"></i>
                     Chci přijít na Barcamp</a>
