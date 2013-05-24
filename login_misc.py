@@ -97,7 +97,7 @@ def register_twitter(twitter_id, user_hash):
 def create_account(email, password, user_hash=None, data=None):
     data = data or {}
 
-    data.update({'email': email, 'password': password})
+    data.update({'email': email})#, 'password': password})
     email = email.lower()
     user_hash = create_update_profile(data)
     update_password(user_hash, email, password)

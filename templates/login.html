@@ -1,6 +1,10 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 <h2>Přihlášení a registrace</h2>
+<p class="alert alert-danger">
+    <strong>Pozor!</strong> Přihlášením do stránky se automaticky nepřihlásíte k účasti na Barcamp Brno.
+</p>
+<p>&nbsp;</p>
 <p>
     <a class="btn btn-primary" href="/login/facebook/"><span>Přes facebook</span></a>
     <a class="btn btn-info" href="/login/twitter/"><span>Přes twitter</span></a>
@@ -8,6 +12,7 @@
 <form method="post" class="form-inline" action="{{url_for('login')}}">
     {{ form.csrf_token }}
     {{form.errrors}}
+
     <fieldset>
         <legend>Klasické přihlášení</legend>
         <input type="text" placeholder="Email" value="{{ form.email.data or '' }}" name="email">
@@ -15,6 +20,7 @@
         <button class="btn" type="submit">Přihlásit se</button>
     </fieldset>
 </form>
+
 <p>
     <a href="{{url_for('login_create_account')}}">Registrace</a>
 </p>

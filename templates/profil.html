@@ -8,6 +8,6 @@
 <p>Tento uživatel je přihlášen jako účastník</p>
 {% endif %}
 <h3>Bio</h3>
-{{profile.bio|nl2br}}
+{{profile.bio or ''|nl2br}}
 
 {% endblock %}
