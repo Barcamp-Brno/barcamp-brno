@@ -28,8 +28,8 @@
             {% endif %}
             <table class="table" id="talks">
                 {% for talk in data %}
-                <tr>
-                    <th>{{loop.index}}. {{talk.user.name}}</th>
+                <tr class="{{'fail' if loop.index > 28 }}">
+                    <th><span class="number">{{loop.index}}.</span> {{talk.user.name}}</th>
                     <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
                     <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
                     {% if user and user.going %}
