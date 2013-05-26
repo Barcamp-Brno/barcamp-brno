@@ -13,6 +13,7 @@ from vote import get_user_votes
 def index():
     user = check_auth()
     user_hash = None
+    talks, extra_talks = get_talks()
     if user:
         user_hash = user['user_hash']
     return render_template(
@@ -24,7 +25,8 @@ def index():
         user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
-        talks=get_talks())
+        talks=talks,
+        extra_talks=extra_talks)
 
 
 @app.route('/partneri/')

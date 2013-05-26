@@ -11,6 +11,7 @@ from utils import menu
 KEYS = {
     'talk': 'talk_%s',
     'talks': 'talks',
+    'extra': 'extra_talks',
 }
 
 
@@ -136,7 +137,17 @@ def get_talks(user_hash=None):
     for talk in talks:
         talk['user'] = users_dict[talk['user']]
 
-    return talks
+    extra_talk_hashes = app.redis.smembers(KEYS['extra'])
+    extra_talks = []
+    ordinary_talks = []
+
+    for talk in talks:
+        if talk['talk_hash'] in extra_talk_hashes:
+            extra_talks.append(talk)
+        else:
+            ordinary_talks.append(talk)
+
+    return ordinary_talks, extra_talks
 
 
 class TalkForm(Form):
