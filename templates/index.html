@@ -12,41 +12,50 @@
 </div> <!-- hp-head-->
 <div id="hp-content">
     <div class="wrapper">
+        <h2>Novinky</h2>
+        <p>Sledujte BarCamp na twitteru <a href="https://twitter.com/bcbrno">@bcbrno</a> a tweetujte hashtag <a href="https://twitter.com/search?q=%23bcbrno">#bcbrno</a></p>
         <!-- prednasejici -->
         <h2>Přednášející &amp; hlasování</h2>
         
         {% if user and user.going %}    
         <form method="POST" action="{{url_for('vote_save')}}">
         {% endif %}
-        <table class="table" id="talks">
-            {% for talk in talks %}
-            <tr>
-                <th>{{loop.index}}. {{talk.user.name}}</th>
-                <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
-                <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
-                {% if user and user.going %}
-                    <td><label><input
-                        type="checkbox"
-                        {{'checked' if talk.talk_hash in user_votes}}
-                        name="{{talk.talk_hash}}"/> 
-                        Chci vidět</label>
-                    </td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-            {% if user and user.going %}
-            <tr>
-                <td colspan="3"></td>
-                <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
-            </tr>
+        {% for data in (extra_talks, talks) %}
+            {% if loop.index == 1%}
+                <h3>Barcamp zve <small><a href="/stranka/barcamp-zve/">Co je to?</a></small></h3>
             {% else %}
-            <tr>
-                <td colspan="2"></td>
-                <td>
-                    <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
-                </td></tr>
+                <h3>Volený program <small>(28 míst)</small></h3>
             {% endif %}
-        </table>
+            <table class="table" id="talks">
+                {% for talk in data %}
+                <tr class="{{'fail' if loop.index > 28 }}">
+                    <th><span class="number">{{loop.index}}.</span> {{talk.user.name}}</th>
+                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                    <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
+                    {% if user and user.going %}
+                        <td><label><input
+                            type="checkbox"
+                            {{'checked' if talk.talk_hash in user_votes}}
+                            name="{{talk.talk_hash}}"/> 
+                            Chci vidět</label>
+                        </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% if user and user.going %}
+                <tr>
+                    <td colspan="3"></td>
+                    <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
+                    </td></tr>
+                {% endif %}
+            </table>
+        {% endfor %}
         {% if user and user.going %}
         </form>
         {% endif %}

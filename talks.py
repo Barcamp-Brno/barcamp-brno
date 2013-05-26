@@ -11,6 +11,7 @@ from utils import menu
 KEYS = {
     'talk': 'talk_%s',
     'talks': 'talks',
+    'extra': 'extra_talks',
 }
 
 
@@ -88,8 +89,8 @@ def create_or_update_talk(data, talk_hash=None):
     })
 
     app.redis.set(KEYS['talk'] % talk_hash, json.dumps(data))
-    if not app.redis.zrank(KEYS['talks'], talk_hash):
-        app.redis.zadd(KEYS['talks'], talk_hash, 0)
+    # zalozime hlasovani - bezpecne pres zincrby (namisto zadd s if podminkou)
+    app.redis.zincrby(KEYS['talks'], talk_hash, 0)
     return talk_hash
 
 
@@ -140,7 +141,17 @@ def get_talks(user_hash=None):
     for talk in talks:
         talk['user'] = users_dict[talk['user']]
 
-    return talks
+    extra_talk_hashes = app.redis.smembers(KEYS['extra'])
+    extra_talks = []
+    ordinary_talks = []
+
+    for talk in talks:
+        if talk['talk_hash'] in extra_talk_hashes:
+            extra_talks.append(talk)
+        else:
+            ordinary_talks.append(talk)
+
+    return ordinary_talks, extra_talks
 
 
 class TalkForm(Form):
