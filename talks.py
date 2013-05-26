@@ -118,6 +118,10 @@ def get_talks(user_hash=None):
         lambda talk: json.loads(talk or 'false'),
         app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
     )
+    try:
+        talks.remove(False)
+    except:
+        pass
     map(
         lambda talk: talk.update(
             {'score': int(talk_scores.get(talk['talk_hash']) or 0)}),
