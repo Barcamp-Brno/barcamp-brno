@@ -88,8 +88,8 @@ def create_or_update_talk(data, talk_hash=None):
     })
 
     app.redis.set(KEYS['talk'] % talk_hash, json.dumps(data))
-    if not app.redis.zrank(KEYS['talks'], talk_hash):
-        app.redis.zadd(KEYS['talks'], talk_hash, 0)
+    # zalozime hlasovani - bezpecne pres zincrby (namisto zadd s if podminkou)
+    app.redis.zincrby(KEYS['talks'], talk_hash, 0)
     return talk_hash
 
 
