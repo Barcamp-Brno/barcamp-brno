@@ -27,4 +27,5 @@ def create_app(config):
     import vote
     import filters
     import presenters_go
+    import service
     return app
