@@ -21,12 +21,23 @@ def index():
         user=user,
         menu=menu(),
         entrant_count=get_count(),
-        entrants=reversed(get_entrants()),
+        entrants=get_entrants()[50:0:-1],
         user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
         talks=talks,
         extra_talks=extra_talks)
+
+
+@app.route('/ucastnici/')
+def entrants():
+    return render_template(
+        "entrants.html",
+        user=check_auth(),
+        menu=menu(),
+        entrant_count=get_count(),
+        entrants=reversed(get_entrants())
+    )
 
 
 @app.route('/partneri/')

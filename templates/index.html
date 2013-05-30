@@ -73,6 +73,7 @@
         {% for entrant in entrants %}
             <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
         {% endfor %}
+            <li>... <a href="{{url_for('entrants')}}"> a spousta dalších</a></li>
         </ul>
         {% endif %}
         

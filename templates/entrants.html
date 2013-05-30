@@ -1,0 +1,25 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<h2>Účastníci</h2>
+<p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
+{% if entrants %}
+<ul id="entrants">
+{% for entrant in entrants %}
+    <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if user and user.going %}
+    <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
+            <i class="icon-remove icon-white"></i>
+            Už nechci přijít</a>
+{% else %}
+    <a name="go"></a>
+    <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
+            <i class="icon-heart icon-white"></i>
+            Chci přijít na Barcamp</a>
+</p><div class="clearer"></div>
+{% endif %}
+{% endblock %}
+
