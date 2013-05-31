@@ -6,12 +6,13 @@ Informační stránka
  - Občerstvení
  - Dobrá káva z Kofi Kofi
  - Jak se asi cítí papír v koš
+ - Women_in_IT2.0
+
+[doprovodný program podrobně](/stranka/doprovodny-program/)
 
 ### Wifi
  - login: barcamp
  - heslo: cerven
-
-[doprovodný program podrobně](/stranka/doprovodny-program/)
 
 ### After a warm-up párty
 Informace budou upřesněny

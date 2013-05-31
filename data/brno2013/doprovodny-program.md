@@ -13,5 +13,6 @@ Pokud chcete zkusit na vlastní kůži, jak se asi cítí papír v koši, využi
 ### I papír má své škůdce. Jak na ně?
 Znáte hru lodě? Se společností Ysoft jsme pro vás nachystali inovovanou verzi této hry. Pomozte nám zlikvidovat brouky Cartriguse, Toneriuse a Printerise! Napadají především kvalitní tiskařský papír a rozmnožují se kopírováním.
 
-### Women in it
-
+### Women_in_IT2.0
+Prodejní výstava fotek se zajímavou tématikou.  
+<http://blog.fiddis.cz/women_in_it2-0/>
