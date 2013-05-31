@@ -4,9 +4,11 @@
 from barcamp import app
 from flask import abort, redirect, url_for, flash
 from login_misc import check_auth, auth_required
+from login import send_mail
 from talks import get_talks
 from entrant import user_user_go
 from collections import defaultdict
+from entrant import get_entrants
 
 
 @app.route("/jedna-dve-tri-ctyri-pet/")
@@ -30,3 +32,23 @@ def prepocet_hlasu():
             app.redis.zadd('talks', talk, data.get(talk, 0))
 
     return "omg"
+
+
+@app.route('/jede-jede-postacek/')
+@auth_required
+def poslani_newsletteru():
+    user = check_auth()
+    if user['email'] != u'petr@joachim.cz':
+        abort(418)
+
+    entrants = get_entrants()
+    for entrant in entrants:
+        #print entrant['email']
+        pass
+
+    print send_mail(
+        u'Barcamp se blíží',
+        'jocho.jocho@gmail.com',
+        'data/newsletter.md')
+
+    return 'omg'

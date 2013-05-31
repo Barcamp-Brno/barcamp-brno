@@ -238,7 +238,7 @@ def login_reset_password():
 
 
 ### MAIL ###
-def send_mail(subject, to, message_file, url):
+def send_mail(subject, to, message_file, url=""):
     mail = Mail(app)
     body = read_file(message_file) or ""
     body = body % {
