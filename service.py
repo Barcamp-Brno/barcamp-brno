@@ -36,19 +36,46 @@ def prepocet_hlasu():
 
 @app.route('/jede-jede-postacek/')
 @auth_required
-def poslani_newsletteru():
+def plneni_newsletteru():
     user = check_auth()
     if user['email'] != u'petr@joachim.cz':
         abort(418)
 
     entrants = get_entrants()
     for entrant in entrants:
-        #print entrant['email']
-        pass
+        app.redis.sadd('newsletter', entrant['email'])
 
-    print send_mail(
-        u'Barcamp se blíží',
+    return 'omg'
+
+
+@app.route('/posli-osly/')
+def poslani_newsletteru():
+    user = check_auth()
+    if user['email'] != u'petr@joachim.cz':
+        abort(418)
+
+    for mail in app.redis.smembers('newsletter'):
+        print mail
+        app.redis.srem('newsletter', mail)
+        continue
+
+        send_mail(
+            u'Barcamp Brno 2013 se blíží',
+            '',#mail,
+            'data/newsletter.md')
+
+    return 'omg2'
+
+
+@app.route('/funguj-prosim/')
+def test_newsletteru():
+    user = check_auth()
+    if user['email'] != u'petr@joachim.cz':
+        abort(418)
+
+    send_mail(
+        u'Barcamp Brno 2013 se blíží',
         'jocho.jocho@gmail.com',
         'data/newsletter.md')
 
-    return 'omg'
+    return 'uff'
