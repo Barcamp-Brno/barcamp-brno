@@ -7,6 +7,10 @@ Informační stránka
  - Dobrá káva z Kofi Kofi
  - Jak se asi cítí papír v koš
 
+### Wifi
+ - login: barcamp
+ - heslo: cerven
+
 [doprovodný program podrobně](/stranka/doprovodny-program/)
 
 ### After a warm-up párty
