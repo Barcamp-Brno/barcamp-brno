@@ -10,10 +10,6 @@ Informační stránka
 
 [doprovodný program podrobně](/stranka/doprovodny-program/)
 
-### Wifi
- - login: barcamp
- - heslo: cerven
-
 ### After a warm-up párty
 Informace budou upřesněny
 
