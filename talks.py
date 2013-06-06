@@ -108,6 +108,27 @@ def get_talk(talk_hash):
 
 
 def get_talks(user_hash=None):
+    talks = _get_talks()
+
+    extra_talk_hashes = app.redis.smembers(KEYS['extra'])
+    extra_talks = []
+    ordinary_talks = []
+
+    for talk in talks:
+        if talk['talk_hash'] in extra_talk_hashes:
+            extra_talks.append(talk)
+        else:
+            ordinary_talks.append(talk)
+
+    return ordinary_talks, extra_talks
+
+
+def get_talks_dict():
+    talks = _get_talks()
+    return dict([(talk['talk_hash'], talk) for talk in talks])
+
+
+def _get_talks():
     talk_tuples = app.redis.zrevrange(KEYS['talks'], 0, -1, withscores=True)
     talk_hashes = [talk_tuple[0] for talk_tuple in talk_tuples]
     talk_scores = dict(talk_tuples)
@@ -141,17 +162,7 @@ def get_talks(user_hash=None):
     for talk in talks:
         talk['user'] = users_dict[talk['user']]
 
-    extra_talk_hashes = app.redis.smembers(KEYS['extra'])
-    extra_talks = []
-    ordinary_talks = []
-
-    for talk in talks:
-        if talk['talk_hash'] in extra_talk_hashes:
-            extra_talks.append(talk)
-        else:
-            ordinary_talks.append(talk)
-
-    return ordinary_talks, extra_talks
+    return talks
 
 
 class TalkForm(Form):
