@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 from barcamp import app
@@ -90,7 +89,7 @@ def rc_program():
             'd105':
                 '191ff524', # Petr Ludwig / Osobní efektivita - výběr 10 nejúčinnějších tipů
             'd0206':
-                '1f45f0e8', # Michal Janík / Povídání o SEO, PPC, vyhledávačích zboží, PR, display reklamě, firemních katalozích, e-mailingu, sociálních médiích či remarketingu
+                '9e22733b', # Jan Kovalčík / Slevová žumpa
             'd0207':
                 '75139daa', # Robert Janák / Sazba versus Typografie
             'e105':
@@ -102,13 +101,13 @@ def rc_program():
             'd105':
                 '8cc9eb88', # Adam Herout / Co je špatného na vysoké škole
             'd0206':
-                'f831c73a', # BerkaUX / Jak začít dělat skutečné UX
+                'd103d31e', # Miroslav Holec / Co mě život naučil o vývoji (nejen webových) aplikací
             'd0207':
                 'c2a4391a', # Jana Leitnerová / Born to be PR!
             'e105':
                 '01a3aedf', # Michal Hantl / Jak přestat chodit do práce a začít vydělávat pro programátory
             'e112':
-                '5fc9015a', # Boris Šuška & Zbyněk Nedoma / Yet another Silicon Valley story
+                'ff648560', # Jaroslav Homolka / 100 DAYS OF RIDING - MAD NOT BAD - sólo moto expedice na východ a zpět - co jsem se naučil
         }},
         {'block': '11:45 - 12:30', 'data': {
             'd105': None,
@@ -123,7 +122,7 @@ def rc_program():
             'd105':
                 '9ca09674', # Tereza Venerová / 10 minut denně
             'd0206':
-                '22430230', # Roman Hřebecký / Dělej si to klidně sám!
+                '6cf3d18a', # David Hořínek / Fenomén finančního poradenství - jak funguje?
             'd0207': None,
             'e105': None,
             'e112': None,
@@ -144,7 +143,7 @@ def rc_program():
             'd105':
                 'caa28ab6', # Barbora Nevosadova / Jak propagovat mobilní aplikaci
             'd0206':
-                '6cf3d18a', # David Hořínek / Fenomén finančního poradenství - jak funguje?
+                '22430230', # Roman Hřebecký / Dělej si to klidně sám!
             'd0207':
                 '24376166', # Petr Jezevec Pouchlý / To nejlepší z židovských anekdot o práci s lidmi
             'e105':
@@ -156,25 +155,25 @@ def rc_program():
             'd105':
                 '88b75dc5', # Petr Zemek / Od hamburgeru ke krávě aneb jak z binárky získat zdroják
             'd0206':
-                'd103d31e', # Miroslav Holec / Co mě život naučil o vývoji (nejen webových) aplikací
+                'f831c73a', # BerkaUX / Jak začít dělat skutečné UX
             'd0207':
                 '49f1a810', # Peter Krutý / Čtení výrazů lidské tváře
             'e105':
                 '0962c89a', # Charlie Greenberg / 6 otázek úspěchu
             'e112':
-                'ff648560', # Jaroslav Homolka / 100 DAYS OF RIDING - MAD NOT BAD - sólo moto expedice na východ a zpět - co jsem se naučil
+                '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
         }},
         {'block': '16:45 - 17:30', 'data': {
             'd105':
                 '666220de', # Igor Szoke / Geekovo minimum umělé inteligence
             'd0206':
-                '9e22733b', # Jan Kovalčík / Slevová žumpa
+                '1f45f0e8', # Michal Janík / Povídání o SEO, PPC, vyhledávačích zboží, PR, display reklamě, firemních katalozích, e-mailingu, sociálních médiích či remarketingu
             'd0207':
                 '506f7afa', # Štěpán Bechynský / Internet of Things
             'e105':
                 '86472f44', # Richard Kafoněk / Myslete strategicky, aneb perfektní exekutiva nestačí
             'e112':
-                '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
+                '5fc9015a', # Boris Šuška & Zbyněk Nedoma / Yet another Silicon Valley story
         }},
         {'block': '17:30 - 18:00','data': u'Zakončení akce'},
     ]

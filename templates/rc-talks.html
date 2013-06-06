@@ -1,0 +1,49 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<h2>Program RC_1.1</h2>
+
+<table class="table table-condensed">
+<tr>
+    <th></th>
+    <th style="text-align: center">D105</th>
+    <th style="text-align: center">E112</th>
+    <th style="text-align: center">D0206</th>
+    <th style="text-align: center">D0207</th>
+    <th style="text-align: center">E105</th>
+</tr>
+<tr>
+    <th></th>
+    <th style="text-align: center">Aleš Vrána</th>
+    <th style="text-align: center">Martin Kopta</th>
+    <th style="text-align: center">Berka</th>
+    <th style="text-align: center">Luboš Louženský</th>
+    <th style="text-align: center">Michal Holub</th>
+</tr>
+{% for t in times %}
+<tr class="{{'success' if not t.data.items}}">
+    <th>{{t.block}}</th>
+    {% if t.data.items %}
+        {{format_talk_td(t.data.d105)}}
+        {{format_talk_td(t.data.e112)}}
+        {{format_talk_td(t.data.d0206)}}
+        {{format_talk_td(t.data.d0207)}}
+        {{format_talk_td(t.data.e105)}}
+    {% else %}
+        <td colspan="5" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+    {% endif %}
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+{% macro format_talk_td(hash) -%}
+{% if hash %}
+<td style="text-align: center">
+    <p>
+        <strong>{{talks[hash].user.name}}</strong><br />
+        <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
+    </p>
+</td>
+{% else %}
+<td style="vertical-align: middle; text-align: center; background-color: #fcc">Oběd</td>
+{% endif %}
+{%- endmacro %}
