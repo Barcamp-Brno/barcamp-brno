@@ -101,7 +101,7 @@ def rc_program():
             'd105':
                 '8cc9eb88', # Adam Herout / Co je špatného na vysoké škole
             'd0206':
-                'd103d31e', # Miroslav Holec / Co mě život naučil o vývoji (nejen webových) aplikací
+                'f831c73a', # BerkaUX / Jak začít dělat skutečné UX
             'd0207':
                 'c2a4391a', # Jana Leitnerová / Born to be PR!
             'e105':
@@ -155,7 +155,7 @@ def rc_program():
             'd105':
                 '88b75dc5', # Petr Zemek / Od hamburgeru ke krávě aneb jak z binárky získat zdroják
             'd0206':
-                'f831c73a', # BerkaUX / Jak začít dělat skutečné UX
+                'd103d31e', # Miroslav Holec / Co mě život naučil o vývoji (nejen webových) aplikací
             'd0207':
                 '49f1a810', # Peter Krutý / Čtení výrazů lidské tváře
             'e105':
