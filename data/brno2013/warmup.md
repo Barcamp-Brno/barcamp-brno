@@ -1,4 +1,4 @@
-Wrm-up párty
+Warm-up párty
 -------------
 
 ### 18:00 Honza Řezáč
