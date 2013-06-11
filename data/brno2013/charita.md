@@ -9,4 +9,4 @@ S pomocí Bwindi jsme vybrali Josepha Ainebabaziho. Joseph je středoškolák, k
 
 Bez Vaší pomoci to však nezvládneme. Pokud chcete podpořit naši charitativní snahu, stavte se kdykoli v průběhu Barcampu na stánku Bwindi a přispějte jakoukoliv částkou. Za odměnu pro vás na stánku bude připravena ochutnávka Ugandské kávy.
 
-(/static/img/joseph.jpg "Joseph Ainebabazi")
+![Joseph Ainebabazi](/static/img/joseph.jpg "Joseph Ainebabazi")
