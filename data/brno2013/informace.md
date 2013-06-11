@@ -5,7 +5,7 @@ Informační stránka
  - Grilovaní prasátka
  - Občerstvení
  - Dobrá káva z Kofi Kofi
- - Jak se asi cítí papír v koš
+ - Jak se asi cítí papír v koši
  - Women_in_IT2.0
 
 [doprovodný program podrobně](/stranka/doprovodny-program/)
