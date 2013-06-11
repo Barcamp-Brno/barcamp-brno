@@ -110,8 +110,10 @@ def rc_program():
                 'ff648560', # Jaroslav Homolka / 100 DAYS OF RIDING - MAD NOT BAD - sólo moto expedice na východ a zpět - co jsem se naučil
         }},
         {'block': '11:45 - 12:30', 'data': {
-            'd105': None,
-            'd0206': None,
+            'd105':
+                '9ca09674', # Tereza Venerová / 10 minut denně
+            'd0206':
+                '6cf3d18a', # David Hořínek / Fenomén finančního poradenství - jak funguje?
             'd0207':
                 '9b1df0e0', # Martin Lutonský / Mozek - tvůj parťák nebo nepřítel?
             'e105':
@@ -119,10 +121,8 @@ def rc_program():
             'e112': None,
         }},
         {'block': '12:45 - 13:30', 'data': {
-            'd105':
-                '9ca09674', # Tereza Venerová / 10 minut denně
-            'd0206':
-                '6cf3d18a', # David Hořínek / Fenomén finančního poradenství - jak funguje?
+            'd105': None,
+            'd0206': None,
             'd0207': None,
             'e105': None,
             'e112': None,

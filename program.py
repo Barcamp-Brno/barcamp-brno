@@ -3,6 +3,7 @@ from barcamp import app
 from flask import render_template
 from login_misc import check_auth
 from utils import menu
+from talks import get_talks_dict
 
 
 times = [
@@ -102,6 +103,7 @@ def program():
         'program.html',
         menu=menu(),
         times=times,
+        talks=get_talks_dict(),
         user=check_auth()
     )
 
@@ -111,5 +113,6 @@ def program_aktualne():
     return render_template(
         'aktualne.html',
         menu=menu(),
+        talks=get_talks_dict(),
         user=check_auth()
     )
