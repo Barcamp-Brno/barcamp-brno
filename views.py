@@ -3,10 +3,11 @@
 from barcamp import app
 from flask import render_template, abort
 from login_misc import check_auth, get_account
-from talks import get_talks
+from talks import get_talks, get_talks_dict
 from utils import menu, markdown_static_page, markdown_markup
 from entrant import get_count, get_entrants
 from vote import get_user_votes
+from program import times
 
 
 @app.route("/")
@@ -20,13 +21,13 @@ def index():
         "index.html",
         user=user,
         menu=menu(),
+        times=times,
         entrant_count=get_count(),
         entrants=get_entrants()[50:0:-1],
-        user_votes=get_user_votes(user_hash),
+        #user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
-        talks=talks,
-        extra_talks=extra_talks)
+        talks=get_talks_dict())
 
 
 @app.route('/ucastnici/')

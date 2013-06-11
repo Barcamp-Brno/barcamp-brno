@@ -14,12 +14,59 @@
     <div class="wrapper">
         <h2>Novinky</h2>
         <p>Sledujte BarCamp na twitteru <a href="https://twitter.com/bcbrno">@bcbrno</a> a tweetujte hashtag <a href="https://twitter.com/search?q=%23bcbrno">#bcbrno</a></p>
+
+<h2>Program Barcampu</h2>
+<h3>Pátek 14.6.2013</h3>
+<a href="/stranka/warmup/">Warm-up párty a přednáška Honzy Řezáče</a>
+
+<h3>Sobota 15.6.2013</h3>
+<ul>
+    <li><a href="/stranka/doprovodny-program/">Bohatý doprovodný program</a></li>
+    <li><a href="/stranka/charita/">Dobročinná sbírka</a></li>
+</ul>
+<table class="table table-condensed">
+<tr>
+    <th></th>
+    <th style="text-align: center">D105</th>
+    <th style="text-align: center">E112</th>
+    <th style="text-align: center">D0206</th>
+    <th style="text-align: center">D0207</th>
+    <th style="text-align: center">E104</th>
+</tr>
+<tr>
+    <th>Moderuje</th>
+    <th style="text-align: center">Michal Holub</th>
+    <th style="text-align: center">Martin Kopta</th>
+    <th style="text-align: center">Julie Haladová</th>
+    <th style="text-align: center">Aleš Vrána</th>
+    <th style="text-align: center">Luboš Louženský</th>
+</tr>
+{% for t in times %}
+<tr class="{{'success' if not t.data.items}}">
+    <th>{{t.block_from}}&mdash;{{t.block_to}}</th>
+    {% if t.data.items %}
+        {{format_talk_td(t.data.d105)}}
+        {{format_talk_td(t.data.e112)}}
+        {{format_talk_td(t.data.d0206)}}
+        {{format_talk_td(t.data.d0207)}}
+        {{format_talk_td(t.data.e105)}}
+    {% else %}
+        <td colspan="5" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+    {% endif %}
+</tr>
+{% endfor %}
+<tr class="warning">
+    <th>19:00&mdash;23:59</th>
+    <td colspan="5" style="text-align: center; vertical-align:middle"><a href="/stranka/afterparty/">Kentico afterpárty</a></td>
+</tr>
+</table>
+        {#
         <!-- prednasejici -->
         <h2>Přednášející &amp; hlasování</h2>
         
-        {#% if user and user.going %}    
+        {% if user and user.going %}    
         <form method="POST" action="{{url_for('vote_save')}}">
-        {% endif %#}
+        {% endif %}
         {% for data in (extra_talks, talks) %}
             {% if loop.index == 1%}
                 <h3>Barcamp zve <small><a href="/stranka/barcamp-zve/">Co je to?</a></small></h3>
@@ -39,10 +86,10 @@
                             name="{{talk.talk_hash}}"/> 
                             Chci vidět</label>
                         </td>
-                    {% endif %#}
+                    {% endif %}
                 </tr>
                 {% endfor %}
-                {#% if user and user.going %}
+                {% if user and user.going %}
                 <tr>
                     <td colspan="3"></td>
                     <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
@@ -53,47 +100,23 @@
                     <td>
                         <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
                     </td></tr>
-                {% endif %#}
+                {% endif %}
                 <tr>
                     <td colspan="4">
                         <p class="alert alert-danger pull-right">Hlasování bylo ukončeno.</p>
                     </td></tr>
             </table>
         {% endfor %}
-        {#% if user and user.going %}
+        {% if user and user.going %}
         </form>
         {% endif %#}
-
+        {#
         <p class="menu center menu-button"><a href="/stranka/pro-prednasejici/">
                     <i class="icon-bullhorn icon-white"></i>
                     Máš co říct? Přidej své téma</a>
         </p><div class="clearer"></div>
-        <!-- / prednasejici -->
-        <a name="entrants"></a>
-        <h2>Účastníci</h2>
-        <p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
-        {% if entrants %}
-        <ul id="entrants">
-        {% for entrant in entrants %}
-            <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
-        {% endfor %}
-            <li>... <a href="{{url_for('entrants')}}"> a spousta dalších</a></li>
-        </ul>
-        {% endif %}
-        
-        {% if user and user.going %}
-            <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
-                    <i class="icon-remove icon-white"></i>
-                    Už nechci přijít</a>
-        {% else %}
-            <a name="go"></a>
-            <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-                    <i class="icon-heart icon-white"></i>
-                    Chci přijít na Barcamp</a>
-        </p><div class="clearer"></div>
-        {% endif %}
-        
-        </p><div class="clearer"></div>
+        #}
+
         <!-- sponzori -->
         <h2>Hlavní partneři akce</h2>
         <p class="sponsors">
@@ -105,6 +128,33 @@
             {{sponsors}}
         </p>
         <!-- / sponzori -->
+        <!-- / prednasejici -->
+        <a name="entrants"></a>
+        <h2>Účastníci</h2>
+        <p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
+        <a href="{{url_for('entrants')}}">Seznam účastníků</a>
+        {#% if entrants %}
+        <ul id="entrants">
+        {% for entrant in entrants %}
+            <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
+        {% endfor %}
+            <li>... <a href="{{url_for('entrants')}}"> a spousta dalších</a></li>
+        </ul>
+        {% endif %#}
+        
+        {#% if user and user.going %}
+            <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
+                    <i class="icon-remove icon-white"></i>
+                    Už nechci přijít</a>
+        {% else %}
+            <a name="go"></a>
+            <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
+                    <i class="icon-heart icon-white"></i>
+                    Chci přijít na Barcamp</a>
+        </p><div class="clearer"></div>
+        {% endif %#}
+        
+        </p><div class="clearer"></div>
     </div>
 </div>
 <div class="clearer"></div>
@@ -117,3 +167,15 @@
     </div>
 </div>
 {% endblock %}
+{% macro format_talk_td(hash) -%}
+{% if hash %}
+<td style="text-align: center">
+    <p>
+        <strong>{{talks[hash].user.name}}</strong><br />
+        <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
+    </p>
+</td>
+{% else %}
+<td style="vertical-align: middle; text-align: center;">&mdash;</td>
+{% endif %}
+{%- endmacro %}
