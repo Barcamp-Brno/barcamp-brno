@@ -7,7 +7,7 @@ from talks import get_talks_dict
 
 
 times = [
-        {'block_from': '8:30', 'block_to': '9:00', 'data': u'Začátek a registace'},
+        {'block_from': '8:30', 'block_to': '9:00', 'data': u'Začátek a registrace'},
         {'block_from': '9:00', 'block_to': '9:30', 'data': u'Zahájení'},
         {'block_from': '9:45', 'block_to': '10:30', 'data': {
             'd105':
