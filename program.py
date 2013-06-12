@@ -19,7 +19,7 @@ times = [
             'e105':
                 '01d489a6', # Luděk Kvapil / Art of Trolling
             'e112':
-                '5350e135', # Filip Dřímalka / Podnikání v 21. století - special edition
+                '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
         }},
         {'block_from': '10:45', 'block_to': '11:30', 'data': {
             'd105':
@@ -79,7 +79,7 @@ times = [
             'e105':
                 '0962c89a', # Charlie Greenberg / 6 otázek úspěchu
             'e112':
-                '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
+                '5350e135', # Filip Dřímalka / Podnikání v 21. století - special edition
         }}, 
         {'block_from': '16:45', 'block_to': '17:30', 'data': {
             'd105':
