@@ -1,4 +1,4 @@
-Kentico afterpárty
+Kentico afterpárty &mdash; sobota 15.6.2013
 -----------------
 
 ### 19:00 Baroko

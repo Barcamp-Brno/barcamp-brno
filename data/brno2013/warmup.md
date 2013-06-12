@@ -1,4 +1,4 @@
-Warm-up párty
+Warm-up párty &mdash; pátek 14.6. 2013
 -------------
 
 ### 18:00 Honza Řezáč
