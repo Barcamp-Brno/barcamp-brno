@@ -37,7 +37,7 @@
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
-    <th>{{t.block_from}}&mdash;{{t.block_to}}</th>
+    <th>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</th>
     {% if t.data.items %}
         {{format_talk_td(t.data.d105)}}
         {{format_talk_td(t.data.e112)}}
@@ -49,10 +49,6 @@
     {% endif %}
 </tr>
 {% endfor %}
-<tr class="warning">
-    <th>19:00&mdash;23:59</th>
-    <td colspan="5" style="text-align: center; vertical-align:middle"><a href="/stranka/afterparty/">Kentico afterpárty</a></td>
-</tr>
 </table>
 {% endblock %}
 {% macro format_talk_td(hash) -%}

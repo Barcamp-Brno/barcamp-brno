@@ -1,53 +1,43 @@
 {% set page_style="aktualne" %}
+{% set prev_date=None%}
 {% extends "_base_page.html" %}
 {% block page_content %}
-<h2>Aktuálně se děje</h2>
-<table class="table table-condensed">
-<tr>
-    <th></th>
-    <th style="text-align: center">D105</th>
-    <th style="text-align: center">E112</th>
-    <th style="text-align: center">D0206</th>
-    <th style="text-align: center">D0207</th>
-    <th style="text-align: center">E104</th>
-</tr>
-<tr>
-    <th></th>
-    <th style="text-align: center">Michal Holub</th>
-    <th style="text-align: center">Martin Kopta</th>
-    <th style="text-align: center">Julie Haladová</th>
-    <th style="text-align: center">Aleš Vrána</th>
-    <th style="text-align: center">Luboš Louženský</th>
-</tr>
-{% for t in times %}
-<tr class="{{'success' if not t.data.items}}">
-    <th>{{t.block_from}}&mdash;{{t.block_to}}</th>
-    {% if t.data.items %}
-        {{format_talk_td(t.data.d105)}}
-        {{format_talk_td(t.data.e112)}}
-        {{format_talk_td(t.data.d0206)}}
-        {{format_talk_td(t.data.d0207)}}
-        {{format_talk_td(t.data.e105)}}
-    {% else %}
-        <td colspan="5" style="text-align: center; vertical-align: middle">{{t.data}}</td>
-    {% endif %}
-</tr>
-{% endfor %}
-<tr class="warning">
-    <th>19:00&mdash;23:59</th>
-    <td colspan="5" style="text-align: center; vertical-align:middle"><a href="/stranka/afterparty/">Kentico Afterpárty</a></td>
-</tr>
-</table>
-{% endblock %}
-{% macro format_talk_td(hash) -%}
-{% if hash %}
-<td style="text-align: center">
-    <p>
-        <strong>{{hash}}</strong><br />
-        <small><a href="#">Lorem ipsum dolor commit git message</a></small>
-    </p>
-</td>
+{% if news %}
+    <h2>Mimořádně</h2>
+    {% for new in news %}
+    {% endfor %}
+{% endif %}
+{% if times %}
+    {% for t in times %}
+        {% if prev_date != t['date'] %}
+            <h2>{{t['date'].strftime('%d.%m.%Y')}}</h2>
+            {% set prev_date=t.date%}
+        {% endif %}
+        <h3>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</h3>
+        {% if t.data.items %}
+            <ul>
+                <li>Superman (D105):{{format_talk_a(t.data.d105)}}</li>
+                <li>Batman (E112):{{format_talk_a(t.data.e112)}}</li>
+                <li>Wonder Woman (D0206):{{format_talk_a(t.data.d0206)}}</li>
+                <li>Flash (D0207):{{format_talk_a(t.data.d0207)}}</li>
+                <li>Green Lantern (E104):{{format_talk_a(t.data.e105)}}</li>
+            </ul>
+        {% else %}
+            <p><strong>{{t.data}}</strong></p>
+        {% endif %}
+    {% endfor %}
 {% else %}
-<td style="vertical-align: middle; text-align: center; background-color: #fcc">Oběd</td>
+    <h2>Už je po všem</h2>
+    <p>Doufáme, že jste se bavili. Uvidíme se zase za rok.</p>
+    <p>Tým organizátorů Barcampu.</p>
+{% endif %}
+
+{% endblock %}
+{% macro format_talk_a(hash) -%}
+{% if hash %}
+    <strong>{{talks[hash].user.name}}</strong>
+    <a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title}}</a>
+{% else %}
+&mdash;
 {% endif %}
 {%- endmacro %}
