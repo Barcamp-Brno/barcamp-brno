@@ -32,6 +32,30 @@ body {
     color: @dark-gray;
 }
 
+body#ios7 {
+    background-image: linear-gradient(left bottom, rgb(0,255,30) 4%, rgb(17,186,169) 34%, rgb(25,139,209) 54%, rgb(255,51,255) 100%);
+    background-image: -o-linear-gradient(left bottom, rgb(0,255,30) 4%, rgb(17,186,169) 34%, rgb(25,139,209) 54%, rgb(255,51,255) 100%);
+    background-image: -moz-linear-gradient(left bottom, rgb(0,255,30) 4%, rgb(17,186,169) 34%, rgb(25,139,209) 54%, rgb(255,51,255) 100%);
+    background-image: -webkit-linear-gradient(left bottom, rgb(0,255,30) 4%, rgb(17,186,169) 34%, rgb(25,139,209) 54%, rgb(255,51,255) 100%);
+    background-image: -ms-linear-gradient(left bottom, rgb(0,255,30) 4%, rgb(17,186,169) 34%, rgb(25,139,209) 54%, rgb(255,51,255) 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        right top,
+        color-stop(0.04, rgb(0,255,30)),
+        color-stop(0.34, rgb(17,186,169)),
+        color-stop(0.54, rgb(25,139,209)),
+        color-stop(1, rgb(255,51,255))
+    );
+    #hp-header{
+        background: url("/static/img/photo_ios7.jpg") no-repeat scroll center -210px transparent;
+    }
+    #page-header {
+        background: url("/static/img/photo_small_ios7.jpg") no-repeat center top;
+    }
+}
+
 a {
     color: @red;
     img { border: 0;}
@@ -178,7 +202,6 @@ h1 {
 
 #hp-content {
     text-align: center;
-    background-color: @white;
     & .detail {
         line-height: 1.6em;
     }
