@@ -45,7 +45,7 @@ times = [
                 'afc4c4c6', # Ondřej Materna / Jak se kradou nápady
             'e112': None,
         }},
-        {'block_from': time(12, 45), 'block_to': time(13, 30), 'date': date(2013, 6, 15), 'data': u'Oběd'},
+        {'block_from': time(12, 45), 'block_to': time(13, 30), 'date': date(2013, 6, 15), 'data': u'Oběd a  warm-up party na přednášku o technu'},
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '9bc8cc97', # František Churý / Lean Startup Machine aneb jak validovat podnikatelský nápad během 48 hodin (ukázky na příkladech)
