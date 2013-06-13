@@ -7,6 +7,7 @@ Informační stránka
  - Dobrá káva z Kofi Kofi
  - Jak se asi cítí papír v koši
  - Women_in_IT2.0
+ - Lovecká sezóna - ulov si své geeky zvířátko
 
 [doprovodný program podrobně](/stranka/doprovodny-program/)
 

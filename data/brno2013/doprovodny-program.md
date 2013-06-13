@@ -14,5 +14,10 @@ Pokud chcete zkusit na vlastní kůži, jak se asi cítí papír v koši, využi
 Znáte hru lodě? Se společností Y Soft jsme pro vás nachystali inovovanou verzi této hry. Pomozte nám zlikvidovat brouky Cartriguse, Toneriuse a Printerise! Napadají především kvalitní tiskařský papír a rozmnožují se kopírováním.
 
 ### Women_in_IT2.0
-Výstava fotek se zajímavou tématikou.  
+Výstava fotek se zajímavou tématikou.
 <http://blog.fiddis.cz/women_in_it2-0/>
+
+### Lovecká sezóna zahájena
+![Ulov si své geeky zvířátko](/static/img/geek-animal-front.png "Ulov si své geeky zvířátko")
+
+![Pravidla soutěže](/static/img/geek-animal-back.png "pravidla")
