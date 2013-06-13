@@ -17,6 +17,9 @@ Znáte hru lodě? Se společností Y Soft jsme pro vás nachystali inovovanou ve
 Výstava fotek se zajímavou tématikou.
 <http://blog.fiddis.cz/women_in_it2-0/>
 
+### Dokážeš zkrotit rybu?
+Soutěž v krocení neposlušných mořských tvorů bude probíhat po celý den na stánku two bits. Nejšikovnější krotitel získá stylovou plážovou tašku plnou dobrého piva.
+
 ### Lovecká sezóna zahájena
 ![Ulov si své geeky zvířátko](/static/img/geek-animal-front.png "Ulov si své geeky zvířátko")
 
