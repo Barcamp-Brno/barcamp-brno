@@ -8,6 +8,7 @@ from talks import get_talks_dict
 from entrant import user_user_go
 from collections import defaultdict
 from entrant import get_entrants
+from datetime import time, date, datetime
 
 
 @app.route("/jedna-dve-tri-ctyri-pet/")
@@ -59,8 +60,8 @@ def poslani_newsletteru():
         continue
 
         send_mail(
-            u'Barcamp Brno 2013 se blíží',
-            '',#mail,
+            u'Barcamp Brno 2013, ohlédnutí za akcí',
+            '', #mail,
             'data/newsletter.md')
 
     return 'omg2'
@@ -73,19 +74,14 @@ def test_newsletteru():
         abort(418)
 
     send_mail(
-        u'Barcamp Brno 2013 se blíží',
-        'jocho.jocho@gmail.com',
+        u'Barcamp Brno 2013, ohlédnutí za akcí',
+        'tomas@sotoniak.cz',
         'data/newsletter.md')
 
     return 'uff'
 
-
-@app.route('/program-rc/')
-def rc_program():
-    times = [
-        {'block': '8:30 - 9:00', 'data': u'Začátek a registace'},
-        {'block': '9:00 - 9:30', 'data': u'Zahájení'},
-        {'block': '9:45 - 10:00', 'data': {
+times = [
+        {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '191ff524', # Petr Ludwig / Osobní efektivita - výběr 10 nejúčinnějších tipů
             'd0206':
@@ -95,9 +91,9 @@ def rc_program():
             'e105':
                 '01d489a6', # Luděk Kvapil / Art of Trolling
             'e112':
-                '5350e135', # Filip Dřímalka / Podnikání v 21. století - special edition
+                '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
         }},
-        {'block': '10:45 - 11:30', 'data': {
+        {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '8cc9eb88', # Adam Herout / Co je špatného na vysoké škole
             'd0206':
@@ -107,9 +103,9 @@ def rc_program():
             'e105':
                 '01a3aedf', # Michal Hantl / Jak přestat chodit do práce a začít vydělávat pro programátory
             'e112':
-                'ff648560', # Jaroslav Homolka / 100 DAYS OF RIDING - MAD NOT BAD - sólo moto expedice na východ a zpět - co jsem se naučil
+                'ff648560', # Jaroslav Homolka / 10 DAYS OF RIDING - MAD NOT BAD - sólo moto expedice na východ a zpět - co jsem se naučil
         }},
-        {'block': '11:45 - 12:30', 'data': {
+        {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '9ca09674', # Tereza Venerová / 10 minut denně
             'd0206':
@@ -118,16 +114,8 @@ def rc_program():
                 '9b1df0e0', # Martin Lutonský / Mozek - tvůj parťák nebo nepřítel?
             'e105':
                 'afc4c4c6', # Ondřej Materna / Jak se kradou nápady
-            'e112': None,
         }},
-        {'block': '12:45 - 13:30', 'data': {
-            'd105': None,
-            'd0206': None,
-            'd0207': None,
-            'e105': None,
-            'e112': None,
-        }},
-        {'block': '13:45 - 14:30', 'data': {
+        {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '9bc8cc97', # František Churý / Lean Startup Machine aneb jak validovat podnikatelský nápad během 48 hodin (ukázky na příkladech)
             'd0206':
@@ -139,7 +127,7 @@ def rc_program():
             'e112':
                 '8a2772f1', # Adam Hazdra / Techno je zpátky! aneb to byste tady nečekali
         }},
-        {'block': '14:45 - 15:30', 'data': {
+        {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 'caa28ab6', # Barbora Nevosadova / Jak propagovat mobilní aplikaci
             'd0206':
@@ -147,11 +135,11 @@ def rc_program():
             'd0207':
                 '24376166', # Petr Jezevec Pouchlý / To nejlepší z židovských anekdot o práci s lidmi
             'e105':
-                '741bbc0f', # Ivan Kutil | @codeas / Matematika s nastraženýma ušima
+                'nahrada',  # '741bbc0f', # Ivan Kutil | @codeas / Matematika s nastraženýma ušima
             'e112':
                 'e4d17deb', # Martin Jarčík / Buďte agilní, ne debilní
         }},
-        {'block': '15:45 - 16:30', 'data': {
+        {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '88b75dc5', # Petr Zemek / Od hamburgeru ke krávě aneb jak z binárky získat zdroják
             'd0206':
@@ -161,9 +149,9 @@ def rc_program():
             'e105':
                 '0962c89a', # Charlie Greenberg / 6 otázek úspěchu
             'e112':
-                '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
+                '5350e135', # Filip Dřímalka / Podnikání v 21. století - special edition
         }},
-        {'block': '16:45 - 17:30', 'data': {
+        {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': date(2013, 6, 15), 'data': {
             'd105':
                 '666220de', # Igor Szoke / Geekovo minimum umělé inteligence
             'd0206':
@@ -174,67 +162,15 @@ def rc_program():
                 '86472f44', # Richard Kafoněk / Myslete strategicky, aneb perfektní exekutiva nestačí
             'e112':
                 '5fc9015a', # Boris Šuška & Zbyněk Nedoma / Yet another Silicon Valley story
-        }},
-        {'block': '17:30 - 18:00','data': u'Zakončení akce'},
+        }}
     ]
-    rooms = {
-        'd105': [
-            '191ff524', # Petr Ludwig / Osobní efektivita - výběr 10 nejúčinnějších tipů
-            '8cc9eb88', # Adam Herout / Co je špatného na vysoké škole
-            '9ca09674', # Tereza Venerová / 10 minut denně
-            'obed'
-            '9bc8cc97', # František Churý / Lean Startup Machine aneb jak validovat podnikatelský nápad během 48 hodin (ukázky na příkladech)
-            'caa28ab6', # Barbora Nevosadova / Jak propagovat mobilní aplikaci
-            '88b75dc5', # Petr Zemek / Od hamburgeru ke krávě aneb jak z binárky získat zdroják
-            '666220de', # Igor Szoke / Geekovo minimum umělé inteligence
-        ],
-        'd0206': [
-            '1f45f0e8', # Michal Janík / Povídání o SEO, PPC, vyhledávačích zboží, PR, display reklamě, firemních katalozích, e-mailingu, sociálních médiích či remarketingu
-            'f831c73a', # BerkaUX / Jak začít dělat skutečné UX
-            '22430230', # Roman Hřebecký / Dělej si to klidně sám!
-            'obed',
-            'e0eb2c28', # Vladimír Kuchař / Medonosný marketing aneb jak získat více zákazníků a přitom neutrácet více peněz za reklamu
-            '6cf3d18a', # David Hořínek / Fenomén finančního poradenství - jak funguje?
-            'd103d31e', # Miroslav Holec / Co mě život naučil o vývoji (nejen webových) aplikací
-            '9e22733b', # Jan Kovalčík / Slevová žumpa
-        ],
-        'd0207': [
-            '75139daa', # Robert Janák / Sazba versus Typografie
-            'c2a4391a', # Jana Leitnerová / Born to be PR!
-            '9b1df0e0', # Martin Lutonský / Mozek - tvůj parťák nebo nepřítel?
-            '4a50162d', # Pavel Šíma / Bullshity o malých eshopech
-            'obed',
-            '24376166', # Petr Jezevec Pouchlý / To nejlepší z židovských anekdot o práci s lidmi
-            '49f1a810', # Peter Krutý / Čtení výrazů lidské tváře
-            '506f7afa', # Štěpán Bechynský / Internet of Things
-        ],
-        'e105': [
-            '01d489a6', # Luděk Kvapil / Art of Trolling
-            '01a3aedf', # Michal Hantl / Jak přestat chodit do práce a začít vydělávat pro programátory
-            'afc4c4c6', # Ondřej Materna / Jak se kradou nápady
-            '6372e8c8', # Evel Meckarov / Moc - Za každým šampionem stojí tým - plavba davem a objevení Ameriky - být nejlepší a tvrdě pracovat k úspěchu nestačí
-            'obed',
-            '741bbc0f', # Ivan Kutil | @codeas / Matematika s nastraženýma ušima
-            '0962c89a', # Charlie Greenberg / 6 otázek úspěchu
-            '86472f44', # Richard Kafoněk / Myslete strategicky, aneb perfektní exekutiva nestačí
-        ],
-        'e112': [
-            '5350e135', # Filip Dřímalka / Podnikání v 21. století - special edition
-            '5fc9015a', # Boris Šuška & Zbyněk Nedoma / Yet another Silicon Valley story
-            '8a2772f1', # Adam Hazdra / Techno je zpátky! aneb to byste tady nečekali
-            'obed',
-            'obed',
-            'e4d17deb', # Martin Jarčík / Buďte agilní, ne debilní
-            'ff648560', # Jaroslav Homolka / 100 DAYS OF RIDING - MAD NOT BAD - sólo moto expedice na východ a zpět - co jsem se naučil
-            '2ea99053', # ysoft / Mlč a pádluj, Amerika je daleko...
-        ],
-        # '0d4bdec9', # Jan Řezáč / Ovlivňování lidí
-    }
 
+@app.route('/program-rc/')
+def rc_program():
     return render_template(
         'rc-talks.html',
         times=times,
-        page_style="program",
+        page_style='program',
         talks=get_talks_dict(),
     )
 

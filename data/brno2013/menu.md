@@ -1,4 +1,4 @@
 [Informace](/stranka/informace/)
 [Partneři](/partneri/)
 [Program](/program/)
-[Aktuálně](/aktualne/)
+[Zhodnocení](/stranka/zhodnoceni/)

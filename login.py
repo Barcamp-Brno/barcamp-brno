@@ -251,7 +251,7 @@ def send_mail(subject, to, message_file, url=""):
     msg = Message(
         subject,
         recipients=[to],
-        sender=("Petr Joachim", "petr@joachim.cz")
+        sender=(u"Petr Joachim", "petr@joachim.cz")
     )
     msg.body = body
     msg.html = markdown.markdown(body)
