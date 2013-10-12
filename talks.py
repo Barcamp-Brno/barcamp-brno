@@ -4,7 +4,8 @@ from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
 from entrant import user_user_go
-from flask_wtf import Form, TextField, Required, TextArea, URL, Optional
+from wtforms import Form, TextField, TextAreaField
+from wtforms.validators import Required, Optional, URL
 from hashlib import md5
 from utils import menu
 
@@ -173,13 +174,13 @@ class TalkForm(Form):
     description = TextField(
         u'Popisek',
         validators=[Required()],
-        widget=TextArea())
+        widget=TextAreaField())
     purpose = TextField(
         u'Pro koho je určena',
         validators=[Required()],
-        widget=TextArea())
+        widget=TextAreaField())
 
     other = TextField(
         u'Poznámka pro pořadatele',
-        widget=TextArea()
+        widget=TextAreaField()
     )
