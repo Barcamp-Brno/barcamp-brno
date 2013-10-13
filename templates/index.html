@@ -2,33 +2,54 @@
 {% block body %}
         {% include "menu.html"%}
 
-<div class="header">
-    <div class="background"></div>
+<div class="header hidden-xs">
+    <div class="background hidden-xs"></div>
     <div class="content">
         <div class="container">
         
             <div class="site-name">
-                <h1>Barcamp Ostrava 2013</h1>
+                <h1><span>Barcamp</span> Ostrava 2013</h1>
             </div>
         </div>
     </div>
     <div class="infobar">
         <div>
-            <div>xxxx</div>
-            <div>xxxx</div>
-            <div class="last">xxxx</div>
+            <div>CO: <br/><span>OTEVŘENÁ KONFERENCE
+ZE SVĚTA INTERNETU</span>
+        </div>
+            <div>
+                KDE: <br/><span>VŠB - Nová aula</span>            
+            </div>
+            <div class="last">
+                KDY: <br/><span>14. prosince</span>                
+
+            </div>
         </div>
     </div>        
 
-    <div class="button_box">
-        <span class="button">xxx</span>
-        <div class="counter">40 návštěvníků</div>
-    </div>
+    <div class="registration">
+        <div class="button_box">
+               {% if user and user.going %}
+                    <a href="{{url_for('attend_remove')}}">
+                                <span class="button">Nechci přijít</span>
+                            </a>
+                {% else %}
+                    <a href="{{url_for('attend_add')}}">
+                                <span class="button">Chci přijít</span>
+                            </a>
+                {% endif %}
+
+
+            <div class="counter">40 návštěvníků</div>
+        </div>
+    </div>        
 </div>
 
 
 
-<div class="container">
+<div class="main-content">
+    <div class="container">
+
         <h2>Novinky</h2>
         <p>Sledujte BarCamp na twitteru <a href="https://twitter.com/barcampostrava">@barcampov</a> a tweetujte hashtag <a href="https://twitter.com/search?q=%23bcv">#barcampov</a></p>
 
@@ -81,13 +102,13 @@
         </tr>
         {% endfor %}
         </table>
-                {#
                 <!-- prednasejici -->
                 <h2>Přednášející &amp; hlasování</h2>
                 
                 {% if user and user.going %}    
                 <form method="POST" action="{{url_for('vote_save')}}">
                 {% endif %}
+
                 {% for data in (extra_talks, talks) %}
                     {% if loop.index == 1%}
                         <h3>Barcamp zve <small><a href="/stranka/barcamp-zve/">Co je to?</a></small></h3>
@@ -100,7 +121,7 @@
                             <th><span class="number">{{loop.index}}.</span> {{talk.user.name}}</th>
                             <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
                             <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
-                            {#% if user and user.going %}
+                            {% if user and user.going %}
                                 <td><label><input
                                     type="checkbox"
                                     {{'checked' if talk.talk_hash in user_votes}}
@@ -110,6 +131,7 @@
                             {% endif %}
                         </tr>
                         {% endfor %}
+
                         {% if user and user.going %}
                         <tr>
                             <td colspan="3"></td>
@@ -122,6 +144,7 @@
                                 <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
                             </td></tr>
                         {% endif %}
+
                         <tr>
                             <td colspan="4">
                                 <p class="alert alert-danger pull-right">Hlasování bylo ukončeno.</p>
@@ -130,13 +153,11 @@
                 {% endfor %}
                 {% if user and user.going %}
                 </form>
-                {% endif %#}
-                {#
+                {% endif %}
                 <p class="menu center menu-button"><a href="/stranka/pro-prednasejici/">
                             <i class="icon-bullhorn icon-white"></i>
                             Máš co říct? Přidej své téma</a>
                 </p><div class="clearer"></div>
-                #}
 
                 <!-- sponzori -->
                 <h2>Hlavní partneři akce</h2>
@@ -154,26 +175,16 @@
                 <h2>Účastníci</h2>
                 <p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
                 <a href="{{url_for('entrants')}}">Seznam účastníků</a>
-                {#% if entrants %}
+                {% if entrants %}
                 <ul id="entrants">
                 {% for entrant in entrants %}
                     <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
                 {% endfor %}
                     <li>... <a href="{{url_for('entrants')}}"> a spousta dalších</a></li>
                 </ul>
-                {% endif %#}
+                {% endif %}
                 
-                {#% if user and user.going %}
-                    <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
-                            <i class="icon-remove icon-white"></i>
-                            Už nechci přijít</a>
-                {% else %}
-                    <a name="go"></a>
-                    <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-                            <i class="icon-heart icon-white"></i>
-                            Chci přijít na Barcamp</a>
-                </p><div class="clearer"></div>
-                {% endif %#}
+ 
                 
                 </p><div class="clearer"></div>
         <div class="clearer"></div>
@@ -198,4 +209,5 @@
         <td style="vertical-align: middle; text-align: center;">Warm-up party na přednášku o technu</td>
         {% endif %}
         {%- endmacro %}
+    </div>
 </div>
