@@ -6,7 +6,11 @@ from utils import menu
 from talks import get_talks_dict
 from datetime import time, date, datetime
 
-
+times = [
+        {'block_from': time(8, 30), 'block_to': time(9, 0), 'date': date(2013, 6, 15), 'data': u'Otevření vstupu a registrace'},
+        {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': date(2013, 6, 15), 'data': u'Oficiální zahájení - Superman Hall'},
+	]
+"""
 times = [
         {'block_from': time(8, 30), 'block_to': time(9, 0), 'date': date(2013, 6, 15), 'data': u'Otevření vstupu a registrace'},
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': date(2013, 6, 15), 'data': u'Oficiální zahájení - Superman Hall'},
@@ -98,6 +102,7 @@ times = [
         {'block_from': time(19, 0), 'block_to': time(23, 0), 'date': date(2013, 6, 15),
             'data': Markup(u'<a href="/stranka/afterparty/">Kentico Afterpárty</a>')},
     ]
+"""
 
 
 @app.route('/program/')

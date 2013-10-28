@@ -4,7 +4,8 @@ from flask import render_template, session, redirect, flash
 from flask import url_for, request, abort
 from barcamp import app
 from hashlib import md5
-from flask_wtf import Form, TextField, Required, Email, EqualTo
+from wtforms import Form, TextField
+from wtforms.validators import Required, Email, EqualTo
 import base64
 from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
