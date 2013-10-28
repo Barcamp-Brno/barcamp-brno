@@ -18,7 +18,7 @@
     
         <script src="http://api4.mapy.cz/loader.js"></script>
         <script src="http://api4.mapy.cz/loader.js"></script>
-      
+
         <script>Loader.load()</script>
     </head>
     <body>
@@ -27,7 +27,10 @@
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                <div class="bar bar-{{ category }}">{{ message }}</div>
+                    <div class="alert alert-warning alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     {{ message }}
+                    </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}

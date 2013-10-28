@@ -2,38 +2,24 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 <h2>Program Barcampu</h2>
-<h3>Pátek 14.6.2013</h3>
-<a href="/stranka/warmup/">Warm-up párty a přednáška Honzy Řezáče</a>
+<h3>Pátek 13.12.2013</h3>
 
-<h3>Sobota 15.6.2013</h3>
-<ul>
-    <li><a href="/stranka/doprovodny-program/">Bohatý doprovodný program</a></li>
-    <li><a href="/stranka/charita/">Dobročinná sbírka</a></li>
-</ul>
+
+20:00 WARM-UP Party
+
+<h3>Sobota 14.12.2013</h3>
 <table class="table table-condensed">
 <tr>
     <th></th>
-    <th style="text-align: center">D105</th>
-    <th style="text-align: center">E112</th>
-    <th style="text-align: center">D0206</th>
-    <th style="text-align: center">D0207</th>
-    <th style="text-align: center">E104</th>
-</tr>
-<tr>
-    <th></th>
-    <th style="text-align: center">Superman</th>
-    <th style="text-align: center">Batman</th>
-    <th style="text-align: center">Wonder Woman</th>
-    <th style="text-align: center">Flash</th>
-    <th style="text-align: center">Green Lantern</th>
+    <th style="text-align: center">AULA</th>
+    <th style="text-align: center">1. menší</th>
+    <th style="text-align: center">2. menší</th>
 </tr>
 <tr>
     <th>Moderuje</th>
-    <th style="text-align: center">Michal Holub</th>
-    <th style="text-align: center">Martin Kopta</th>
-    <th style="text-align: center">Julie Haladová</th>
-    <th style="text-align: center">Aleš Vrána</th>
-    <th style="text-align: center">Luboš Louženský</th>
+    <th style="text-align: center">Patrik Illy</th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
@@ -42,8 +28,7 @@
         {{format_talk_td(t.data.d105)}}
         {{format_talk_td(t.data.e112)}}
         {{format_talk_td(t.data.d0206)}}
-        {{format_talk_td(t.data.d0207)}}
-        {{format_talk_td(t.data.e105)}}
+
     {% else %}
         <td colspan="5" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% endif %}

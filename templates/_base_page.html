@@ -1,9 +1,12 @@
 {% extends "_base.html" %}
 {% block body %}
         {% include 'menu.html' %}
-        <div class="small_header">
+        <div class="small_header hidden-xs">
             <h1>BarCamp Ostrava 2013</h1>
         </div>
+		<div class="visible-xs mobile-header">
+		    <h1><a href="/">BarCamp Ostrava 2013</a></h1>
+		</div>        
         <div class="main-content">
             <div class="container">
                 {% block page_content %}{% endblock %}
