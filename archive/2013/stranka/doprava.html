@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <title>Barcamp Brno 2013</title> 
+        <meta name="author" content="Barcamp Brno 2013" />
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+
+        <meta name="viewport" content="width=device-width" />
+
+        <meta name="description" content="Barcamp Brno 2013" />
+        <meta name="keywords" content="Barcamp Brno 2013" />
+
+        <link href="/2013/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen" id="main_css" />
+        <link href="/2013/static/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen" id="main_css" />
+        <link href="/2013/static/css/clean.less?1" rel="stylesheet/less" type="text/css" media="screen" id="main_css" />
+
+        
+        <script src="/2013/static/js/less-1.3.3.min.js" type="text/javascript"></script>
+        <script src="http://api4.mapy.cz/loader.js"></script>
+        <script>Loader.load()</script>
+    </head>
+    
+        <body>
+    
+
+    <div id="page">
+        
+            
+        
+        
+<div id="page-header" class="detail ">
+    <div class="wrapper">
+        <h1><a href="/">Barcamp Brno 2013</a></h1>
+        
+<div class="menu">
+    <a href="/2013/stranka/informace.html">Informace</a>
+<a href="/2013/partneri.html">Partneři</a>
+<a href="/2013/program.html">Program</a>
+<a href="/2013/stranka/zhodnoceni.html">Zhodnocení</a>
+    
+        <a href="/login/">Přihlásit se</a>
+    
+</div>
+
+        <div class="clearer"></div>
+    </div>
+</div>
+<div id="hp-content" class="detail ">
+    <div class="wrapper">
+        <div class="content">
+              
+<h2>Jak se dostat na Barcamp</h2>
+<p>Barcamp se koná v prostorách FIT VUT v Brně, <a href="http://mapy.cz/s/7mXM">Božetěchova 1/2, Brno</a>.</p>
+<div id="mapa" style="width:600px; height:400px;"></div>
+
+<script type="text/javascript">
+    var stred = SMap.Coords.fromWGS84(16.5965508, 49.2262092);
+    var m = new SMap(JAK.gel("mapa"), stred, 14);
+    m.addDefaultLayer(SMap.DEF_BASE).enable();
+    m.addDefaultControls();
+    var layer = new SMap.Layer.Marker();
+    m.addLayer(layer);
+    layer.enable();
+    var options = {};
+    var marker = new SMap.Marker(stred, "myMarker", options);
+    layer.addMarker(marker);
+</script>
+
+<h3>MHD</h3>
+<ul>
+<li>Zastávka <strong>Semilasso</strong> tramvaj 1, 6, autobusy 41, 42, 44, 53, 70, 71, 81, trolejbus 30</li>
+<li>Zastávka <strong>Mojmírovo náměstí</strong> autobusem 43</li>
+</ul>
+<h3>Vlakem nebo dálkovým autobusem</h3>
+<p>Přijeďte na vlakové nádraží <strong>Brno - hlavní nádraží</strong>. Autobusem k hotelu Grand nebo na Zvonařku (Hlavní autobusové nádraží)</p>
+<p>Dále pak pěšky na zastávku MHD <strong>Hlavní nádraží</strong> a tramvají č. 1 směrem na Řečkovice.</p>
+<h3>Autem</h3>
+<p>Přijedete podle navigace a zaparkovat můžete v přilehlých ulicích.</p>
+
+        </div>
+    </div>
+</div>
+<!-- pata -->
+<div id="footer" class="detail ">
+    <div class="wrapper">
+        <div>
+            &copy; Barcamp Brno 2013 &mdash; <a href="/2013/stranka/kontakty.html">Kontakty</a>
+        </div>
+    </div>
+</div> 
+
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-25528595-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        <!-- /pata -->
+    </div>
+</body>
+</html>

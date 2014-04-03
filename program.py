@@ -100,7 +100,7 @@ times = [
     ]
 
 
-@app.route('/program/')
+@app.route('/%s/program.html' % app.config['YEAR'])
 def program():
     return render_template(
         'program.html',
@@ -111,7 +111,7 @@ def program():
     )
 
 
-@app.route('/aktualne/')
+@app.route('/%s/aktualne.html' % app.config['YEAR'])
 def program_aktualne():
     t = times[::]
     t.insert(0, 

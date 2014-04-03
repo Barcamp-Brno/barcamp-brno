@@ -7,7 +7,7 @@ from barcamp import app
 
 def markdown_static_page(page):
     try:
-        with open('data/brno2013/%s.md' % page) as f:
+        with open('data/%s/%s.md' % (app.config['YEAR'], page)) as f:
             raw_data = f.read().decode('utf-8')
             content = Markup(markdown.markdown(raw_data))
     except:
@@ -27,7 +27,7 @@ def markdown_static_page(page):
 
 def markdown_markup(filename):
     try:
-        with open('data/brno2013/%s.md' % filename) as f:
+        with open('data/%s/%s.md' % (app.config['YEAR'], filename)) as f:
             raw_data = f.read().decode('utf-8')
             md_data = markdown.markdown(raw_data)
             md_data = md_data\

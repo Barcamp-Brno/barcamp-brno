@@ -4,7 +4,9 @@ from flask import render_template, session, redirect, flash
 from flask import url_for, request, abort
 from barcamp import app
 from hashlib import md5
-from flask_wtf import Form, TextField, Required, Email, EqualTo
+from flask_wtf import Form
+from wtforms import TextField
+from wtforms.validators import DataRequired, Email, EqualTo
 import base64
 from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
@@ -264,27 +266,27 @@ def read_file(filename):
 
 ### FORMS ###
 class LoginForm(Form):
-    email = TextField('E-mail', validators=[Required(), Email()])
-    password = TextField('Heslo', validators=[Required()])
+    email = TextField('E-mail', validators=[DataRequired(), Email()])
+    password = TextField('Heslo', validators=[DataRequired()])
 
 
 class PasswordForm(Form):
-    password = TextField('Heslo', validators=[Required(), EqualTo(
+    password = TextField('Heslo', validators=[DataRequired(), EqualTo(
         'confirm', message=u'Hesla se musí shodovat')])
     confirm = TextField(u'Potvrzení', validators=[])
 
 
 class EmailForm(Form):
-    email = TextField('E-mail', validators=[Required(), Email()])
+    email = TextField('E-mail', validators=[DataRequired(), Email()])
 
 
 class BasicForm(Form):
-    fullname = TextField(u'Jméno', validators=[Required()])
-    password = TextField('Heslo', validators=[Required()])
+    fullname = TextField(u'Jméno', validators=[DataRequired()])
+    password = TextField('Heslo', validators=[DataRequired()])
 
 
 class SettingsForm(Form):
-    name = TextField(u'Jméno a příjmení', validators=[Required()])
+    name = TextField(u'Jméno a příjmení', validators=[DataRequired()])
     bio = TextField('Bio')
     company = TextField('Firma')
     web = TextField('Web')

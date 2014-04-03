@@ -8,9 +8,10 @@ from utils import menu, markdown_static_page, markdown_markup
 from entrant import get_count, get_entrants
 from vote import get_user_votes
 from program import times
+import os
 
-
-@app.route("/")
+@app.route("/", redirect_to="/%s/index.html" % app.config['YEAR'])
+@app.route("/%s/index.html" % app.config['YEAR'])
 def index():
     user = check_auth()
     user_hash = None
@@ -30,7 +31,7 @@ def index():
         talks=get_talks_dict())
 
 
-@app.route('/ucastnici/')
+@app.route('/%s/ucastnici.html' % app.config['YEAR'])
 def entrants():
     return render_template(
         "entrants.html",
@@ -41,7 +42,7 @@ def entrants():
     )
 
 
-@app.route('/partneri/')
+@app.route('/%s/partneri.html' % app.config['YEAR'])
 def sponsors():
     return render_template(
         "partneri.html",
@@ -51,7 +52,6 @@ def sponsors():
         sponsors=markdown_markup('sponsors'),
         sponsors_other=markdown_markup('sponsors_other'),
     )
-
 
 @app.route('/profil/<user_hash>/')
 def profile(user_hash):
@@ -66,7 +66,19 @@ def profile(user_hash):
         profile=data
     )
 
+def stranky():
+    files = []
+    for _, _, keys in os.walk('data/%s' % app.config['YEAR']):
+        files += keys;
 
-@app.route("/stranka/<page>/")
+    return [{"page": key.replace(".md", "")} for key in files]
+
+@app.route("/%s/stranka/<page>.html" % app.config['YEAR'], generator=stranky)
 def static_page(page):
     return markdown_static_page(page)
+
+@app.route('/2013/<path:path>')
+def archive_proxy(path):
+    # send_static_file will guess the correct MIME type
+    print os.path.join('./archive/2013/', path)
+    return app.send_static_file(os.path.join('./archive/2013/', path))

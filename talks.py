@@ -4,7 +4,9 @@ from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
 from entrant import user_user_go
-from flask_wtf import Form, TextField, Required, TextArea, URL, Optional
+from flask_wtf import Form
+from wtforms import TextField, TextAreaField
+from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
 from utils import menu
 
@@ -14,8 +16,10 @@ KEYS = {
     'extra': 'extra_talks',
 }
 
+def prednasky():
+    return [{"talk_hash": key} for key in app.redis.zrange(KEYS['talks'], 0, -1)]
 
-@app.route('/prednaska/<talk_hash>/')
+@app.route('/%s/prednaska/<talk_hash>.html' % app.config['YEAR'], generator=prednasky)
 def talk_detail(talk_hash):
     talk = get_talk(talk_hash)
     if not talk:
@@ -166,20 +170,20 @@ def _get_talks():
 
 
 class TalkForm(Form):
-    title = TextField(u'Název', validators=[Required()])
+    title = TextField(u'Název', validators=[DataRequired()])
     company = TextField(u'Firma')
     twitter = TextField(u'Twitter')
     web = TextField(u'Web', validators=[Optional(), URL()])
     description = TextField(
         u'Popisek',
-        validators=[Required()],
-        widget=TextArea())
+        validators=[DataRequired()],
+        widget=TextAreaField())
     purpose = TextField(
         u'Pro koho je určena',
-        validators=[Required()],
-        widget=TextArea())
+        validators=[DataRequired()],
+        widget=TextAreaField())
 
     other = TextField(
         u'Poznámka pro pořadatele',
-        widget=TextArea()
+        widget=TextAreaField()
     )
