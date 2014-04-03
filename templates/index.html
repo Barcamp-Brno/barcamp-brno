@@ -73,7 +73,7 @@
         {% endif %}
         {% for data in (extra_talks, talks) %}
             {% if loop.index == 1%}
-                <h3>Barcamp zve <small><a href="/stranka/barcamp-zve/">Co je to?</a></small></h3>
+                <h3>Barcamp zve <small><a href="{{url_for('static_page', page='barcamp-zve')}}">Co je to?</a></small></h3>
             {% else %}
                 <h3>Volený program <small>(28 míst)</small></h3>
             {% endif %}
@@ -115,7 +115,7 @@
         </form>
         {% endif %#}
         {#
-        <p class="menu center menu-button"><a href="/stranka/pro-prednasejici/">
+        <p class="menu center menu-button"><a href="{{url_for('static_page', page='pro-prednasejici')}}/">
                     <i class="icon-bullhorn icon-white"></i>
                     Máš co říct? Přidej své téma</a>
         </p><div class="clearer"></div>
