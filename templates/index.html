@@ -116,10 +116,13 @@
         {% if user and user['going_%s' % config.YEAR] %}
         </form>
         {% endif %}
+        
+        {% if "REGISTER_TALKS" in config.STAGES %}
         <p class="menu center menu-button"><a href="{{url_for('static_page', page='pro-prednasejici')}}">
                     <i class="icon-bullhorn icon-white"></i>
                     Máš co říct? Přidej své téma</a>
         </p><div class="clearer"></div>
+        {% endif %}
 
         <!-- sponzori -->
         <h2>Hlavní partneři akce</h2>
