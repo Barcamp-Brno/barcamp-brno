@@ -1,4 +1,4 @@
-Harmonogram Barcampu Brno 2013
+Harmonogram Barcampu Brno 2014
 ------------------------------
 
 ![harmonogram](/static/img/harmonogram.png "harmonogram")

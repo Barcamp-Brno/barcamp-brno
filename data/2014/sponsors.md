@@ -1,7 +1,1 @@
-[![T-Mobile](/static/img/logos/tmobile.png "T-Mobile")](http://www.t-mobile.cz/)
-[![Kentico](/static/img/logos/kentico.png "Kentico")](http://www.kentico.com/)
-[![two bits](/static/img/logos/twobits.png "two bits")](http://www.twobits.cz/)
-[![WebSupport](/static/img/logos/websupport.png "WebSupport")](http://www.websupport.cz/)
-[![JIC](/static/img/logos/jic.png "JIC")](http://www.jic.cz/)
-[![IT Jobs](/static/img/logos/itjobs.png "IT Jobs")](http://www.itjobs.cz/)
-[![Big Shock!](/static/img/logos/bigshock.png "Big Shock!")](http://bigshock.cz/)
+
