@@ -16,6 +16,7 @@ def index():
     user = check_auth()
     user_hash = None
     talks, extra_talks = get_talks()
+
     if user:
         user_hash = user['user_hash']
     return render_template(
@@ -25,10 +26,11 @@ def index():
         times=times,
         entrant_count=get_count(),
         entrants=get_entrants()[50:0:-1],
-        #user_votes=get_user_votes(user_hash),
+        user_votes=get_user_votes(user_hash),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
-        talks=get_talks_dict())
+        talks=talks, extra_talks=extra_talks,
+        talks_dict=get_talks_dict())
 
 
 @app.route('/%s/ucastnici.html' % app.config['YEAR'])

@@ -10,6 +10,11 @@ from collections import defaultdict
 from entrant import get_entrants
 from datetime import time, date, datetime
 
+KEYS = {
+    'talk': 'talk_%s_%%s' % app.config['YEAR'],
+    'talks': 'talks_%s' % app.config['YEAR'],
+    'extra': 'extra_talks_%s' % app.config['YEAR'],
+}
 
 @app.route("/jedna-dve-tri-ctyri-pet/")
 @auth_required
@@ -19,17 +24,17 @@ def prepocet_hlasu():
         abort(418)
 
     data = defaultdict(lambda: 0)
-    keys = app.redis.keys('votes_*')
+    keys = app.redis.keys('votes_%s_*' % app.config['YEAR'])
     for key in keys:
         members = app.redis.smembers(key)
         for member in members:
             data[member] += 1
 
-    talk_tuples = app.redis.zrevrange('talks', 0, -1, withscores=True)
+    talk_tuples = app.redis.zrevrange(KEYS['talks'], 0, -1, withscores=True)
     for talk, score in talk_tuples:
         if 0 is not int(score - data.get(talk, 0)):
             print "update talk %s from %d to %d votes" % (talk, score, data.get(talk, 0))
-            app.redis.zadd('talks', talk, data.get(talk, 0))
+            app.redis.zadd(KEYS['talks'], talk, data.get(talk, 0))
 
     return "omg"
 

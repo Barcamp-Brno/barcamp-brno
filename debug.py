@@ -18,7 +18,8 @@ if __name__ == '__main__':
         'TWITTER_SECRET': 'cPmxDXCm3MgVPruiCjYXioZhUubLvehnTiVgI1M',
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
-        'YEAR': "2014"
+        'YEAR': "2014",
+        'STAGES': []
     })
 
     app.debug = True

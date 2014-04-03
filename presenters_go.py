@@ -6,12 +6,6 @@ from login_misc import check_auth, auth_required
 from talks import get_talks
 from entrant import user_user_go
 
-KEYS = {
-    'entrant_count': 'entrant_count',  # number
-    'entrants': 'entrants',  # sorted set
-}
-
-
 @app.route("/vsichni-jsou-uz-v-mexiku/")
 @auth_required
 def mexico_tequilla():

@@ -7,8 +7,8 @@ from vote import remove_user_votes
 from time import time
 
 KEYS = {
-    'entrant_count': 'entrant_count',  # number
-    'entrants': 'entrants',  # sorted set
+    'entrant_count': 'entrant_count_%s' % app.config['YEAR'],  # number
+    'entrants': 'entrants_%s' % app.config['YEAR'],  # sorted set
 }
 
 
@@ -24,7 +24,7 @@ def attend_add():
 
 
 def user_user_go(user):
-    if user.get('going', False):
+    if user.get('going_%s' % app.config['YEAR'], False):
         return True
     else:
         user['going'] = True
@@ -38,10 +38,10 @@ def user_user_go(user):
 @auth_required
 def attend_remove():
     user = check_auth()
-    if not user.get('going', False):
+    if not user.get('going_%s' % app.config['YEAR'], False):
         flash(u'Na akci jsi doposud nebyl přihlášen', 'warning')
     else:
-        user['going'] = False
+        user['going_%s' % app.config['YEAR']] = False
         create_update_profile(user, user['user_hash'])
         app.redis.zrem(KEYS['entrants'], user['user_hash'])
         app.redis.decr(KEYS['entrant_count'])

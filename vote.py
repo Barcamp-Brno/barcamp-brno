@@ -5,7 +5,9 @@ from flask import flash, url_for, redirect, request
 from login_misc import check_auth, auth_required
 
 KEYS = {
-    'votes': 'votes_%s',  # set
+    'votes': 'votes_%s_%%s' % app.config['YEAR'],  # set
+    'talks': 'talks_%s' % app.config['YEAR'],
+
 }
 
 
@@ -25,11 +27,11 @@ def vote_save():
 
     for vote in increment:
         app.redis.sadd(KEYS['votes'] % user_hash, vote)
-        app.redis.zincrby('talks', vote, 1)
+        app.redis.zincrby(KEYS['talks'], vote, 1)
 
     for vote in decrement:
         app.redis.srem(KEYS['votes'] % user_hash, vote)
-        app.redis.zincrby('talks', vote, -1)
+        app.redis.zincrby(KEYS['talks'], vote, -1)
 
     flash(u'Hlasy byly uloženy', 'success')
     return redirect(url_for('index'))
@@ -43,4 +45,4 @@ def remove_user_votes(user_hash):
     decrement = app.redis.smembers(KEYS['votes'] % user_hash) or set()
     for vote in decrement:
         app.redis.srem(KEYS['votes'] % user_hash, vote)
-        app.redis.zincrby('talks', vote, -1)
+        app.redis.zincrby(KEYS['talks'], vote, -1)

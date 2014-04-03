@@ -11,9 +11,11 @@ from hashlib import md5
 from utils import menu
 
 KEYS = {
-    'talk': 'talk_%s',
-    'talks': 'talks',
-    'extra': 'extra_talks',
+    'talk': 'talk_%s_%%s' % app.config['YEAR'],
+    'talks': 'talks_%s' % app.config['YEAR'],
+    'extra': 'extra_talks_%s' % app.config['YEAR'],
+    'account': 'account_%s',
+
 }
 
 def prednasky():
@@ -157,7 +159,7 @@ def _get_talks():
     user_hashes = [talk['user'] for talk in talks]
     users_tuple = map(
         lambda user: json.loads(user or 'false'),
-        app.redis.mget(map(lambda key: 'account_%s' % key, user_hashes))
+        app.redis.mget(map(lambda key: KEYS['account'] % key, user_hashes))
     )
     users_dict = dict([
         (user['user_hash'], user) for user in users_tuple

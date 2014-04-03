@@ -92,6 +92,7 @@ if __name__ == '__main__':
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
         'YEAR': YEAR,
+        'STAGE': FINAL,
         'ARCHIVE': True
     })
     publisher = Publisher(app)
