@@ -13,13 +13,15 @@
 {% if user and user.going %}
     <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
             <i class="icon-remove icon-white"></i>
-            Už nechci přijít</a>
+            Už nechci přijít ({{config.YEAR}})</a>
 {% else %}
-    <a name="go"></a>
-    <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-            <i class="icon-heart icon-white"></i>
-            Chci přijít na Barcamp</a>
-</p><div class="clearer"></div>
+    {% if "USERS" in config.STAGES %}
+        <a name="go"></a>
+        <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
+                <i class="icon-heart icon-white"></i>
+                Chci přijít na Barcamp Brno {{config.YEAR}}</a>
+    {% endif %}
 {% endif %}
+</p><div class="clearer"></div>
 {% endblock %}
 
