@@ -19,7 +19,7 @@ if __name__ == '__main__':
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
         'YEAR': "2014",
-        'STAGES': []
+        'STAGES': ['REGISTER_TALKS']
     })
 
     app.debug = True

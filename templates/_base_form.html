@@ -1,5 +1,5 @@
 {% extends "_base_page.html" %}
-{% macro input(field, type="text") -%}
+{%- macro input(field, type="text") %}
 <div class="control-group {{'error' if field.errors}}">
     <label class="control-label" for="{{field.id}}">{{field.label.text}}</label>
     <div class="controls">
@@ -9,9 +9,9 @@
         {% endif %}
     </div>
 </div>
-{%- endmacro %}
+{% endmacro -%}
 
-{% macro textarea(field) -%}
+{%- macro textarea(field) %}
 <div class="control-group {{'error' if field.errors}}">
     <label class="control-label" for="{{field.id}}">{{field.label.text}}</label>
     <div class="controls">
@@ -21,7 +21,17 @@
         {% endif %}
     </div>
 </div>
-{%- endmacro %}
+{% endmacro -%}
+{% macro checkbox(field) -%}
+<div class="control-group {{'error' if field.errors}}">
+    <div class="controls">
+        <input type="checkbox" id="{{field.id}}" name="{{field.name}}" placeholder="{{field.label.text}}" {{'checked="checked"' if field.data}}>
+        <span class="help-inline"><label for="{{field.id}}">{{field.label.text}}</label></span>
+        {% if field.errors %}
+            <span class="help-inline">{% for error in field.errors %}{{error}}{% endfor %}</span>
+        {% endif %}
+    </div>
+</div>{% endmacro -%}
 
 {% macro step_box(number) -%}
 <!--div class="progress_box">

@@ -5,7 +5,7 @@ from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
 from entrant import user_user_go
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField
+from wtforms import TextField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
 from utils import menu
@@ -189,3 +189,7 @@ class TalkForm(Form):
         u'Poznámka pro pořadatele',
         widget=TextAreaField()
     )
+
+    video = BooleanField(
+        u'Souhlasím se zveřejněním videozáznamu z přednášky',
+        default=True)
