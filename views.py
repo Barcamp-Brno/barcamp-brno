@@ -11,6 +11,7 @@ from program import times
 import os
 
 @app.route("/", redirect_to="/%s/index.html" % app.config['YEAR'])
+@app.route("/%s/" % app.config['YEAR'], redirect_to="/%s/index.html" % app.config['YEAR'])
 @app.route("/%s/index.html" % app.config['YEAR'])
 def index():
     user = check_auth()
@@ -27,6 +28,7 @@ def index():
         entrant_count=get_count(),
         entrants=get_entrants()[50:0:-1],
         user_votes=get_user_votes(user_hash),
+        novinky=markdown_markup('novinky'),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors=markdown_markup('sponsors'),
         talks=talks, extra_talks=extra_talks,
