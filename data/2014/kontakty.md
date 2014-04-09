@@ -1,9 +1,10 @@
 Kontakty
 --------
 ### Organizátoři
- - [Tomáš Sotoniak](mailto:tomas@sotoniak.cz?subject=Barcamp Brno 2013) - [@sotoniak](http://twitter.com/sotoniak) - Partneři
- - [Petr Joachim](mailto:petr@joachim.cz?subject=Barcamp Brno 2013) - [@petrjoachim](http://twitter.com/petrjoachim) - Přednášející
- - Zdeněk Zicha - [@zdenekzicha](http://twitter.com/zdenekzicha) - Organizace na místě
+ - [Tomáš Sotoniak](mailto:tomas@sotoniak.cz?subject=Barcamp Brno 2014) - [@sotoniak](http://twitter.com/sotoniak) - Partneři
+  - [Zdeněk Zicha](mailto:zdenek.zicha@gmail.com?subject=Barcamp Brno 2014) - [@zdenekzicha](http://twitter.com/zdenekzicha) - Organizace na místě
+
+ - [Petr Joachim](mailto:petr@joachim.cz?subject=Barcamp Brno 2014) - [@petrjoachim](http://twitter.com/petrjoachim) - Přednášející
 
 ### Ostatní
  - [Petr Šiller](http://petrsiller.cz/) - design
