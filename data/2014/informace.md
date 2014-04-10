@@ -1,5 +1,6 @@
 Informační stránka
 ------------------
+[Co je Barcamp?](/2014/stranka/co-je-barcamp.html)
 
 ### Doprava a ubytování
  - [Doprava](/2014/stranka/doprava.html)
