@@ -1,5 +1,7 @@
 Informační stránka
 ------------------
+Vstup na Barcamp v Brně byl, je a _vždy_ bude zdarma.
+
 [Co je Barcamp?](/2014/stranka/co-je-barcamp.html)
 
 ### Doprava a ubytování
