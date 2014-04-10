@@ -2,8 +2,8 @@
 {% block body %}
 <div id="hp-header">
     <div class="wrapper">
-        <h1>Barcamp Brno 2014</h1>
-        <h2>31 | 05 | 2014 | Brno</h2>
+        <h1>Barcamp Brno {{config.YEAR}}</h1>
+        <h2>31 | 05 | {{config.YEAR}} | Brno</h2>
         <h3><a href="http://mapy.cz/s/6ZKC">VUT FIT, Božetěchova 2</a></h3>
         <div class="clearer" style="height: 40px;"></div>
         {% include "menu.html"%}
@@ -15,7 +15,7 @@
         {{novinky}}
 {% if "PROGRAM_READY" in config.STAGES %}
 <h2>Program Barcampu</h2>
-<h3>Sobota 31.5.2014</h3>
+<h3>Sobota 31.5.{{config.YEAR}}</h3>
 <ul>
     <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li>
     <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
