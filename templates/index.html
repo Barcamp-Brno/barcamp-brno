@@ -61,6 +61,15 @@
 {% endfor %}
 </table>
 {% endif %}
+        
+        {% if "INTRO" in config.STAGES %}
+            <h2>Kdy budou registrace účastníků?</h2>
+            <p></p>
+            <p class="menu center menu-button"><a href="/2014/stranka/informace.html">
+                    <i class="icon-bullhorn icon-white"></i>
+                    Registrace účasti začnou 1.5.2014.</a>
+        </p>
+        {% endif %}
 
         <!-- prednasejici -->
         <h2>Přednášející{% if "VOTING" in config.STAGES %} &amp; hlasování{% endif %}</h2>
