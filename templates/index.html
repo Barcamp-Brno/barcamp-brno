@@ -88,7 +88,9 @@
                 <tr class="{{'fail' if loop.index > 28 }}">
                     <th><span class="number">{{loop.index}}.</span> {{talk.user.name}}</th>
                     <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
-                    <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
+                    {% if "VOTING" in config.STAGES%}
+                        <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
+                    {% endif %}
                     {#% if user and user['going_%s' % config.YEAR] %}
                         <td><label><input
                             type="checkbox"
