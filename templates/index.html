@@ -85,8 +85,10 @@
             {% endif %}
             <table class="table" id="talks">
                 {% for talk in data %}
-                <tr class="{{'fail' if loop.index > 28 }}">
-                    <th><span class="number">{{loop.index}}.</span> {{talk.user.name}}</th>
+                <tr class="{{'fail' if loop.index > 28 and 'VOTING' in config.STAGES }}">
+                    <th>
+                        {% if "VOTING" in config.STAGES %}
+                        <span class="number">{{loop.index}}.</span> {% endif %} {{talk.user.name}}</th>
                     <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
                     {% if "VOTING" in config.STAGES%}
                         <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
