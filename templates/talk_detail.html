@@ -1,4 +1,14 @@
 {% extends "_base_page.html" %}
+{% block meta%}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@bcbrno">
+<meta name="twitter:title" content="{{author.name}} - {{talk.title}}">
+<meta name="twitter:description" content="{{talk.description|truncate(180, True)}}">
+{% if author.twitter %}
+<meta name="twitter:creator" content="{{author.twitter}}">
+{% endif %}
+<meta name="twitter:image:src" content="http://www.barcampbrno.cz/static/img/barcamp-square.png">
+{% endblock %}
 {% block page_content %}
 <h2>Přednáška &mdash; {{talk.title}}</h2>
 <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name}}</a></h3>
