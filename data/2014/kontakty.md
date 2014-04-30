@@ -12,4 +12,4 @@ Kontakty
  - [Martin Kacvinský](http://kaco.sk) - panorama Brna
 
 
-Zaštiťuje [Forturio s.r.o.](http://www.forturio.cz/)
+Zaštiťuje Barcamp Brno o.s. a [Forturio s.r.o.](http://www.forturio.cz/)
