@@ -73,7 +73,6 @@
 
         {% if "USERS" in config.STAGES %}
             <h2>Moje účast</h2>
-            {{user}}
             {% if user and user['going_%s' % config.YEAR] %}
                 <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
                         <i class="icon-remove icon-white"></i>
