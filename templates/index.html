@@ -100,7 +100,7 @@
             {% endif %}
             <table class="table" id="talks">
                 {% for talk in data %}
-                <tr class="{{'fail' if loop.index > 28 and 'VOTING' in config.STAGES }}">
+                <tr class="{{'fail' if loop.index > 28 and 'VOTING_END' in config.STAGES }}">
                     <th>
                         {% if "VOTING" in config.STAGES %}
                         <span class="number">{{loop.index}}.</span> {% endif %} {{talk.user.name}}</th>
