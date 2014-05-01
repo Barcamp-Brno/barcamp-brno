@@ -14,8 +14,6 @@ KEYS = {
 @app.route('/zmenit-hlasy/', methods=['POST'])
 @auth_required
 def vote_save():
-    flash(u'Hlasování bylo ukončeno', 'warning')
-    return redirect(url_for('index'))
     user = check_auth()
     user_hash = user['user_hash']
     old_votes = app.redis.smembers(KEYS['votes'] % user_hash) or set()

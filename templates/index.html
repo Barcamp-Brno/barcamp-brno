@@ -108,14 +108,14 @@
                     {% if "VOTING" in config.STAGES%}
                         <td>Počet hlasů <strong>{{talk.score or 0|int}}</strong></td>
                     {% endif %}
-                    {#% if user and user['going_%s' % config.YEAR] %}
+                    {% if user and user['going_%s' % config.YEAR]%}
                         <td><label><input
                             type="checkbox"
                             {{'checked' if talk.talk_hash in user_votes}}
                             name="{{talk.talk_hash}}"/> 
                             Chci vidět</label>
                         </td>
-                    {% endif %#}
+                    {% endif %}
                 </tr>
                 {% else %}
                     <div>Zatím zde nic není</div>
