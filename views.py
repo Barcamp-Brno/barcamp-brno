@@ -26,7 +26,7 @@ def index():
         menu=menu(),
         times=times,
         entrant_count=get_count(),
-        entrants=get_entrants()[50:0:-1],
+        entrants=reversed(get_entrants()[-50:]),
         user_votes=get_user_votes(user_hash),
         novinky=markdown_markup('novinky'),
         sponsors_main=markdown_markup('sponsors_main'),
