@@ -151,16 +151,15 @@
             <a name="entrants"></a>
             <h2>Účastníci</h2>
             <p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
-            <a href="{{url_for('entrants')}}">Seznam účastníků</a>
             
-            {#% if entrants %}
+            {% if entrants %}
             <ul id="entrants">
             {% for entrant in entrants %}
                 <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
             {% endfor %}
                 <li>... <a href="{{url_for('entrants')}}"> a spousta dalších</a></li>
             </ul>
-            {% endif %#}
+            {% endif %}
         
             {% if user and user['going_%s' % config.YEAR] %}
                 <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
