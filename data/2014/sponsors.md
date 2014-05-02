@@ -2,4 +2,4 @@
 [![Tripomatic](/static/img/logos/tripomatic.png "Tripomatic")](http://www.tripomatic.com/)
 [![Unifer](/static/img/logos/unifer.jpg "Unifer")](http://www.unifer.cz/)
 [![GMC](/static/img/logos/gmc.png "GMC")](http://www.gmchk.cz/)
-[![Better.cz](/static/img/logos/better.png "Better")](http://www.better-marketing.cz/)
+[![Internetová agentura](/static/img/logos/better.png "Internetová agentura")](http://www.better-marketing.cz/)
