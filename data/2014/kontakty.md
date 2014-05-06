@@ -8,7 +8,7 @@ Kontakty
 
 ### Ostatní
  - [Petr Šiller](http://petrsiller.cz/) - design
- - [Martina Joachim](http://www.twitter.com/mysulemys) - Tisková grafika.
+ - [Martina Joachim](http://www.twitter.com/mysulemys) - Tisková grafika
  - [@white_kate](http://www.twitter.com/white_kate) - logo Barcamp Brno
  - [Martin Kacvinský](http://kaco.sk) - panorama Brna
 
