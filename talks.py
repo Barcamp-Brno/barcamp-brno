@@ -152,8 +152,6 @@ def _get_talks():
     except:
         pass
 
-    print talks
-
     map(
         lambda talk: talk.update(
             {'score': int(talk_scores.get(talk['talk_hash']) or 0)}),
