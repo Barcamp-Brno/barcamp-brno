@@ -4,3 +4,4 @@
 [![GMC](/static/img/logos/gmc.png "GMC")](http://www.gmchk.cz/)
 [![Internetová agentura](/static/img/logos/better.png "Internetová agentura")](http://www.better-marketing.cz/)
 [![Proficio](/static/img/logos/proficio.png "Proficio")](http://proficio.cz/)
+[![Geekshop](/static/img/logos/geekshop.png "Geekshop")](http://geekshop.cz/)
