@@ -11,7 +11,7 @@
     </tr>
     <tr>
         <td>Petr Štěpán</td>
-        <td></td>
+        <td><a href="http://www.petrstepan.eu">http://www.petrstepan.eu</a></td>
         <td>Fotografie z akce</td>
     </tr>
     <tr>
