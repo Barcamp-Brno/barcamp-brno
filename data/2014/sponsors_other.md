@@ -16,7 +16,7 @@
     </tr>
     <tr>
         <td>Toastmasters Brno</td>
-        <td><a href="http://www.brnotoastmasters.cz/">brnotoastmasters.cz/</a></td>
+        <td><a href="http://www.brnotoastmasters.cz/">brnotoastmasters.cz</a></td>
         <td>Valná část moderátorů v místnostech</td>
     </tr>
     <tr>
