@@ -6,17 +6,17 @@
     </tr>
     <tr>
         <td>Tomáš Vrabec</td>
-        <td><a href="http://www.tvrabec.cz">http://www.tvrabec.cz</a></td>
+        <td><a href="http://www.tvrabec.cz">tvrabec.cz</a></td>
         <td>Fotografie z akce</td>
     </tr>
     <tr>
         <td>Petr Štěpán</td>
-        <td><a href="http://www.petrstepan.eu">http://www.petrstepan.eu</a></td>
+        <td><a href="http://www.petrstepan.eu">petrstepan.eu</a></td>
         <td>Fotografie z akce</td>
     </tr>
     <tr>
         <td>Toastmasters Brno</td>
-        <td><a href="http://www.brnotoastmasters.cz/">http://www.brnotoastmasters.cz/</a></td>
+        <td><a href="http://www.brnotoastmasters.cz/">brnotoastmasters.cz/</a></td>
         <td>Valná část moderátorů v místnostech</td>
     </tr>
     <tr>
