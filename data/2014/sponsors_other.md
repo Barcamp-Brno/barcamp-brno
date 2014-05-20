@@ -15,6 +15,11 @@
         <td>Fotografie z akce</td>
     </tr>
     <tr>
+        <td>Toastmasters Brno</td>
+        <td><a href="http://www.brnotoastmasters.cz/">http://www.brnotoastmasters.cz/</a></td>
+        <td>Valná část moderátorů v místnostech</td>
+    </tr>
+    <tr>
         <td>Jitka Kreslíková</td>
         <td><a href="mailto:kreslika@fit.vutbr.cz">kreslika@fit.vutbr.cz</a></td>
         <td>za FIT VUT Brno</td>
