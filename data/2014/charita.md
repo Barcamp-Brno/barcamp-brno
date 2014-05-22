@@ -7,7 +7,7 @@ Loni se nám společně s Vámi podařilo pro Josepha vybrat šest tisíc korun 
 
 Shodou okolností jsme měli možnost Josefa osobně poznat při naší cestě do Ugandy. Joseph je moc milý kluk, který měl z naší podpory obrovskou radost. Jsme moc rádi, že jsme Josepha mohli poznat osobně a byl to pro nás obrovský zážitek. Tato pomoc opravdu má smysl.
 
-![Joseph Ainebabazi](/static/img/joseph2014_1.jpg "Joseph Ainebabazi")
+<img src="/static/img/joseph2014_1.jpg" alt="Joseph Ainebabazi" style="max-width:100%"/>
 
 Už když jsme se minulý rok rozhodli Josepha adoptovat věděli jsme, že to bude projekt na více let a proto sbírku pro Josepha uspořádáme v rámci Barcamp Brno i letos.
 
@@ -15,4 +15,4 @@ Bez Vaší pomoci to však nezvládneme. Pokud chcete podpořit naši charitativ
 
 Pokud se chcete o projektu Bwindi Orphans dozvědět více přijďte na přednášku Katky Andrlové.
 
-![Joseph Ainebabazi](/static/img/joseph2014_2.jpg "Joseph Ainebabazi")
+<img src="/static/img/joseph2014_2.jpg" alt="Joseph Ainebabazi" style="max-width:100%"/>
