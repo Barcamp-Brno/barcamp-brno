@@ -2,13 +2,10 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 <h2>Program Barcampu</h2>
-<h3>Pátek 14.6.2013</h3>
-<a href="/2013/stranka/warmup.html">Warm-up párty a přednáška Honzy Řezáče</a>
-
-<h3>Sobota 15.6.2013</h3>
+<h3>Sobota 31.5.2014</h3>
 <ul>
-    <li><a href="/stranka/doprovodny-program/">Bohatý doprovodný program</a></li>
-    <li><a href="/stranka/charita/">Dobročinná sbírka</a></li>
+    <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li>
+        <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
 </ul>
 <table class="table table-condensed">
 <tr>
@@ -21,19 +18,19 @@
 </tr>
 <tr>
     <th></th>
-    <th style="text-align: center">Superman</th>
-    <th style="text-align: center">Batman</th>
-    <th style="text-align: center">Wonder Woman</th>
-    <th style="text-align: center">Flash</th>
-    <th style="text-align: center">Green Lantern</th>
+    <th style="text-align: center">Pacman</th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
 </tr>
 <tr>
     <th>Moderuje</th>
-    <th style="text-align: center">Michal Holub</th>
-    <th style="text-align: center">Martin Kopta</th>
-    <th style="text-align: center">Julie Haladová</th>
-    <th style="text-align: center">Aleš Vrána</th>
-    <th style="text-align: center">Luboš Louženský</th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
@@ -60,6 +57,6 @@
     </p>
 </td>
 {% else %}
-<td style="vertical-align: middle; text-align: center;">Warm-up party na přednášku o technu</td>
+<td style="vertical-align: middle; text-align: center;"></td>
 {% endif %}
 {%- endmacro %}
