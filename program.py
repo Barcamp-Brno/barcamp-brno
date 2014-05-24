@@ -34,7 +34,7 @@ times = [
         }},
         {'block_from': time(12, 45), 'block_to': time(13, 30), 'date': den_d, 'data': u'Oběd'},
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
-            'e112': 'b48aa7cb', # XXX po obede / 31x Janek Rubes / Jak se tvoří na Stream.cz 
+            'e112': None,
             'd105': '5f9818b6', # 293x Filip Dřímalka / Absolut Lifehacks // How to Hack Your Work and Life 
             'd0206': '949089ea', # 183x Jan Tomáš / Návratnost User Experience 
             'd0207': '0a83d27a', # 154x Honza Slavík / Jak na projekty a nezbláznit se 
@@ -55,7 +55,7 @@ times = [
             'e105': 'ed5f993f', # 113x Matej Kvasňovský / Agilný redesign rozsiahlej webovej aplikácie Kentico 
         }},
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
-            'e112': None,
+            'e112': 'b48aa7cb', # XXX po obede / 31x Janek Rubes / Jak se tvoří na Stream.cz 
             'd105': 'e78df29f', # 233x Michal Hantl / Google Analytics pro startupy 
             'd0206': '227b8f4b', # 216x Swenia Toupalik / Photoshop finty, které vám ulehčí život 
             'd0207': 'fd876707', # XXX po 15:45 / 156x Stanislav Gálik / The Best of Psychologie přesvědčování COMPILATION sex tape 

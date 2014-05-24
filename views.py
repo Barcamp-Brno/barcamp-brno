@@ -16,7 +16,11 @@ import os
 def index():
     user = check_auth()
     user_hash = None
-    talks, extra_talks = get_talks()
+    if "PROGRAM_READY" in app.config['STAGES']:
+        talks = get_talks_dict()
+        extra_talks = []
+    else:
+        talks, extra_talks = get_talks()
 
     if user:
         user_hash = user['user_hash']
@@ -26,7 +30,7 @@ def index():
         menu=menu(),
         times=times,
         entrant_count=get_count(),
-        entrants=reversed(get_entrants()[-50:]),
+        entrants=get_entrants()[:50],
         user_votes=get_user_votes(user_hash),
         novinky=markdown_markup('novinky'),
         sponsors_main=markdown_markup('sponsors_main'),

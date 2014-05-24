@@ -1,6 +1,9 @@
 {% if menu %}
 <div class="menu">
     {{menu}}
+    {% if "PROGRAM_READY" in config.STAGES %}
+        <a href="{{url_for('program')}}">Program</a>
+    {% endif %}
     {% if not user %}
         <a href="{{url_for('login')}}">Přihlásit se</a>
     {% else %}

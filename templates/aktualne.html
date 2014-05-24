@@ -16,11 +16,11 @@
         <h3>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</h3>
         {% if t.data.items %}
             <ul>
-                <li>Superman (D105):{{format_talk_a(t.data.d105)}}</li>
-                <li>Batman (E112):{{format_talk_a(t.data.e112)}}</li>
-                <li>Wonder Woman (D0206):{{format_talk_a(t.data.d0206)}}</li>
-                <li>Flash (D0207):{{format_talk_a(t.data.d0207)}}</li>
-                <li>Green Lantern (E104):{{format_talk_a(t.data.e105)}}</li>
+                <li>D105:{{format_talk_a(t.data.d105)}}</li>
+                <li>E112:{{format_talk_a(t.data.e112)}}</li>
+                <li>D0206:{{format_talk_a(t.data.d0206)}}</li>
+                <li>D0207:{{format_talk_a(t.data.d0207)}}</li>
+                <li>E104:{{format_talk_a(t.data.e105)}}</li>
             </ul>
         {% else %}
             <p><strong>{{t.data}}</strong></p>
