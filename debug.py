@@ -19,7 +19,7 @@ if __name__ == '__main__':
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
         'YEAR': "2014",
-        'STAGES': ['REGISTER_TALKS', 'USERS', 'VOTING']
+        'STAGES': ['REGISTER_TALKS', 'USERS', 'VOTING_END'] #, 'PROGRAM_READY']
     })
 
     app.debug = True

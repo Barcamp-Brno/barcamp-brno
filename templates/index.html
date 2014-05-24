@@ -13,53 +13,54 @@
 <div id="hp-content">
     <div class="wrapper">
         {{novinky}}
+
 {% if "PROGRAM_READY" in config.STAGES %}
-<h2>Program Barcampu</h2>
-<h3>Sobota 31.5.{{config.YEAR}}</h3>
-<ul>
-    <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li>
-    <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
-</ul>
-<table class="table table-condensed">
-<tr>
-    <th></th>
-    <th style="text-align: center">D105</th>
-    <th style="text-align: center">E112</th>
-    <th style="text-align: center">D0206</th>
-    <th style="text-align: center">D0207</th>
-    <th style="text-align: center">E104</th>
-</tr>
-<tr>
-    <th></th>
-    <th style="text-align: center">Superman</th>
-    <th style="text-align: center">Batman</th>
-    <th style="text-align: center">Wonder Woman</th>
-    <th style="text-align: center">Flash</th>
-    <th style="text-align: center">Green Lantern</th>
-</tr>
-<tr>
-    <th>Moderuje</th>
-    <th style="text-align: center">Michal Holub</th>
-    <th style="text-align: center">Martin Kopta</th>
-    <th style="text-align: center">Julie Haladová</th>
-    <th style="text-align: center">Aleš Vrána</th>
-    <th style="text-align: center">Luboš Louženský</th>
-</tr>
-{% for t in times %}
-<tr class="{{'success' if not t.data.items}}">
-    <th>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</th>
-    {% if t.data.items %}
-        {{format_talk_td(t.data.d105)}}
-        {{format_talk_td(t.data.e112)}}
-        {{format_talk_td(t.data.d0206)}}
-        {{format_talk_td(t.data.d0207)}}
-        {{format_talk_td(t.data.e105)}}
-    {% else %}
-        <td colspan="5" style="text-align: center; vertical-align: middle">{{t.data}}</td>
-    {% endif %}
-</tr>
-{% endfor %}
-</table>
+    <h2>Program Barcampu</h2>
+    <h3>Sobota 31.5.{{config.YEAR}}</h3>
+    <ul>
+        <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li>
+        <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
+    </ul>
+    <table class="table table-condensed">
+    <tr>
+        <th></th>
+        <th style="text-align: center">D105</th>
+        <th style="text-align: center">E112</th>
+        <th style="text-align: center">D0206</th>
+        <th style="text-align: center">D0207</th>
+        <th style="text-align: center">E104</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th style="text-align: center"></th>
+        <th style="text-align: center"></th>
+        <th style="text-align: center"></th>
+        <th style="text-align: center"></th>
+        <th style="text-align: center"></th>
+    </tr>
+    <tr>
+        <th>Moderuje</th>
+        <th style="text-align: center">Michal Holub</th>
+        <th style="text-align: center">Martin Kopta</th>
+        <th style="text-align: center">Julie Haladová</th>
+        <th style="text-align: center">Aleš Vrána</th>
+        <th style="text-align: center">Luboš Louženský</th>
+    </tr>
+    {% for t in times %}
+    <tr class="{{'success' if not t.data.items}}">
+        <th>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</th>
+        {% if t.data.items %}
+            {{format_talk_td(t.data.d105)}}
+            {{format_talk_td(t.data.e112)}}
+            {{format_talk_td(t.data.d0206)}}
+            {{format_talk_td(t.data.d0207)}}
+            {{format_talk_td(t.data.e105)}}
+        {% else %}
+            <td colspan="5" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </table>
 {% endif %}
         
         {% if "INTRO" in config.STAGES %}
@@ -85,70 +86,71 @@
             </p><div class="clearer"></div>
             {% endif %}
         {% endif %}
-
-        <!-- prednasejici -->
-        <h2>Přednášející{% if "VOTING" in config.STAGES %} &amp; hlasování{% endif %}</h2>
-        
-        {% if user and user['going_%s' % config.YEAR] %}    
-        <form method="POST" action="{{url_for('vote_save')}}">
-        {% endif %}
-        {% for data in (extra_talks, talks) %}
-            {% if loop.index == 1%}
-                <h3>Barcamp zve <small><a href="{{url_for('static_page', page='barcamp-zve')}}">Co je to?</a></small></h3>
-            {% else %}
-                <h3>Volený program <small>(28 míst)</small></h3>
+        {% if "PROGRAM_READY" not in config.STAGES %}
+            <!-- prednasejici -->
+            <h2>Přednášející{% if "VOTING" in config.STAGES %} &amp; hlasování{% endif %}</h2>
+            
+            {% if user and user['going_%s' % config.YEAR] %}    
+            <form method="POST" action="{{url_for('vote_save')}}">
             {% endif %}
-            <table class="table" id="talks">
-                {% for talk in data %}
-                <tr class="{{'fail' if loop.index > 28 and 'VOTING_END' in config.STAGES }}">
-                    <th>
-                        {% if "VOTING" in config.STAGES %}
-                        <span class="number">{{loop.index}}.</span> {% endif %} {{talk.user.name}}</th>
-                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
-                    {% if "VOTING" in config.STAGES%}
-                        <td>Počet&nbsp;hlasů&nbsp;<strong>{{talk.score or 0|int}}</strong></td>
-                    {% endif %}
-                    {% if user and user['going_%s' % config.YEAR]%}
-                        <td><label><input
-                            type="checkbox"
-                            {{'checked' if talk.talk_hash in user_votes}}
-                            name="{{talk.talk_hash}}"/> 
-                            Chci vidět</label>
-                        </td>
-                    {% endif %}
-                </tr>
+            {% for data in (extra_talks, talks) %}
+                {% if loop.index == 1%}
+                    <h3>Barcamp zve <small><a href="{{url_for('static_page', page='barcamp-zve')}}">Co je to?</a></small></h3>
                 {% else %}
-                    <div>Zatím zde nic není</div>
-                {% endfor %}
-                {% if user and user['going_%s' % config.YEAR] and "VOTING" in config.STAGES%}
-                <tr>
-                    <td colspan="3"></td>
-                    <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
-                </tr>
-                {% elif "VOTING" in config.STAGES %}
-                <tr>
-                    <td colspan="2"></td>
-                    <td>
-                        <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
-                    </td></tr>
+                    <h3>Volený program <small>(28 míst)</small></h3>
                 {% endif %}
-                {% if "VOTING_END" in config.STAGES%}
-                <tr>
-                    <td colspan="4">
-                        <p class="alert alert-danger pull-right">Hlasování bylo ukončeno.</p>
-                    </td></tr>
-                {% endif %}
-            </table>
-        {% endfor %}
-        {% if user and user['going_%s' % config.YEAR] %}
-        </form>
-        {% endif %}
-        
-        {% if "REGISTER_TALKS" in config.STAGES %}
-        <p class="menu center menu-button"><a href="{{url_for('static_page', page='pro-prednasejici')}}">
-                    <i class="icon-bullhorn icon-white"></i>
-                    Máš co říct? Přidej své téma</a>
-        </p><div class="clearer"></div>
+                <table class="table" id="talks">
+                    {% for talk in data %}
+                    <tr class="{{'fail' if loop.index > 28 and 'VOTING_END' in config.STAGES }}">
+                        <th>
+                            {% if "VOTING_END" in config.STAGES %}
+                            <span class="number">{{loop.index}}.</span> {% endif %} {{talk.user.name}}</th>
+                        <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                        {% if "VOTING" in config.STAGES or "VOTING_END" in config.STAGES %}
+                            <td>Počet&nbsp;hlasů&nbsp;<strong>{{talk.score or 0|int}}</strong></td>
+                        {% endif %}
+                        {% if user and user['going_%s' % config.YEAR] %}
+                            <td><label><input
+                                type="checkbox"
+                                {{'checked' if talk.talk_hash in user_votes}}
+                                name="{{talk.talk_hash}}"/> 
+                                Chci vidět</label>
+                            </td>
+                        {% endif %}
+                    </tr>
+                    {% else %}
+                        <div>Zatím zde nic není</div>
+                    {% endfor %}
+                    {% if user and user['going_%s' % config.YEAR] and "VOTING" in config.STAGES%}
+                    <tr>
+                        <td colspan="3"></td>
+                        <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
+                    </tr>
+                    {% elif "VOTING" in config.STAGES %}
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
+                        </td></tr>
+                    {% endif %}
+                    {% if "VOTING_END" in config.STAGES%}
+                    <tr>
+                        <td colspan="4">
+                            <p class="alert alert-danger pull-right">Hlasování bylo ukončeno.</p>
+                        </td></tr>
+                    {% endif %}
+                </table>
+            {% endfor %}
+            {% if user and user['going_%s' % config.YEAR] %}
+            </form>
+            {% endif %}
+            
+            {% if "REGISTER_TALKS" in config.STAGES %}
+            <p class="menu center menu-button"><a href="{{url_for('static_page', page='pro-prednasejici')}}">
+                        <i class="icon-bullhorn icon-white"></i>
+                        Máš co říct? Přidej své téma</a>
+            </p><div class="clearer"></div>
+            {% endif %}
         {% endif %}
 
         <!-- sponzori -->
