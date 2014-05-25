@@ -14,7 +14,7 @@ times = [
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'e112': '8f420b99', # XXX dopoledne / 95x Lukáš Maňásek / Obchodování v 50 °C 
             'd105': '469849be', # 391x Petr Ludwig / Jak najít osobní vizi, nejsilnější motivátor našeho života 
-            'd0206': 'fc52c755', # 178x Robert Němec / 10 věcí, které jsem se naučil při tvorbě nového webu RobertNemec.com 
+            'd0206': '227b8f4b', # 216x Swenia Toupalik / Photoshop finty, které vám ulehčí život 
             'd0207': 'a9207afa', # 170x Karel Koupil / Inteligentní e-mailový marketing 
             'e105': 'e053f529', # 105x Peter Širka / ♛ node.js v praxi + tvoríme v ňom moderné aplikácie (WebSocket, Angular.js, atď.) 
         }},
@@ -57,7 +57,8 @@ times = [
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
             'e112': 'b48aa7cb', # XXX po obede / 31x Janek Rubes / Jak se tvoří na Stream.cz 
             'd105': 'e78df29f', # 233x Michal Hantl / Google Analytics pro startupy 
-            'd0206': '227b8f4b', # 216x Swenia Toupalik / Photoshop finty, které vám ulehčí život 
+            
+            'd0206': 'fc52c755', # 178x Robert Němec / 10 věcí, které jsem se naučil při tvorbě nového webu RobertNemec.com 
             'd0207': 'fd876707', # XXX po 15:45 / 156x Stanislav Gálik / The Best of Psychologie přesvědčování COMPILATION sex tape 
             'e105': 'ba1c1e72', # 124x Petr Jezevec Pouchlý / ☞ Zpověď korporátčíka od srdíčka ☜ 
         }},
