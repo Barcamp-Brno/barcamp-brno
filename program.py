@@ -52,15 +52,14 @@ times = [
             'd105': '1a9fa56d', # 241x Evel Meckarov / SuperProjekťák - 7 tajemství projektového řízení - řešte všechno přes projekt a uspějete!  
             'd0206': 'd58978e8', # 189x Marek Mencl / ---Jak si najít smysluplnou práci?--- 
             'd0207': '99373761', # 140x Petr Halík / PPC dnes - jak vypadat mají, jak ne a proč umí rychle odpovídat na byznysové otázky 
-            'e105': 'ed5f993f', # 113x Matej Kvasňovský / Agilný redesign rozsiahlej webovej aplikácie Kentico 
+            'e105': 'ba1c1e72', # 124x Petr Jezevec Pouchlý / ☞ Zpověď korporátčíka od srdíčka ☜ 
         }},
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
             'e112': 'b48aa7cb', # XXX po obede / 31x Janek Rubes / Jak se tvoří na Stream.cz 
             'd105': 'e78df29f', # 233x Michal Hantl / Google Analytics pro startupy 
-            
             'd0206': 'fc52c755', # 178x Robert Němec / 10 věcí, které jsem se naučil při tvorbě nového webu RobertNemec.com 
             'd0207': 'fd876707', # XXX po 15:45 / 156x Stanislav Gálik / The Best of Psychologie přesvědčování COMPILATION sex tape 
-            'e105': 'ba1c1e72', # 124x Petr Jezevec Pouchlý / ☞ Zpověď korporátčíka od srdíčka ☜ 
+            'e105': 'ed5f993f', # 113x Matej Kvasňovský / Agilný redesign rozsiahlej webovej aplikácie Kentico 
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
         {'block_from': time(19, 0), 'block_to': time(23, 0), 'date': den_d,
