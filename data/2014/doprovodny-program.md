@@ -15,7 +15,8 @@ Haptické mapy jsou speciálním mapovým podkladem pro nevidomé a lidi s poruc
 
 <img src="/static/img/program_seznam.jpg" alt="" style="max-width:100%"/>
 
-### Prasata vs. Krávy – Polštářová bitva
+<a href="#" name="kentico" ></a>
+### Prasata vs. Krávy – Polštářová bitva 
 Po obědě se uskuteční velká polštářová bitva. Pokud se jí budete chtít zúčastnit, stavte se u stánku Kentica a vyzvedněte si svůj polštář.
 
 A pokud vás polštářová bitva nebo náročný program dne vyčerpá můžete si odpočinout na nafukovacích matracích, které najdete také u stánku Kentica.
