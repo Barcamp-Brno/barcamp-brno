@@ -13,10 +13,10 @@
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Odeslat</button>
         {% if user.going %}
-            <a class="btn btn-danger pull-right" href="{{url_for('attend_remove')}}">Nechci se zůčastnit ({{config.YEAR}})</a>
+            <a class="btn btn-danger pull-right" href="{{url_for('attend_remove')}}">Nechci se zúčastnit ({{config.YEAR}})</a>
         {% else %}
             {% if "USERS" in config.STAGES %}
-            <a class="btn btn-success pull-right" href="{{url_for('attend_add')}}">Chci se zůčastnit ({{config.YEAR}})</a>
+            <a class="btn btn-success pull-right" href="{{url_for('attend_add')}}">Chci se zúčastnit ({{config.YEAR}})</a>
             {% endif %}
         {% endif %}
     </div>
