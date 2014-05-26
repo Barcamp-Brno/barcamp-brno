@@ -32,8 +32,8 @@ times = [
             'd0207': '713cde0b', # 167x Daniel Gamrot / Evernote aneb Neztrácejte čas hledáním informací 
             'e105': '4df11c67', # 109x Vladimír Šandera / Jak využívat live chat jako marketingový nástroj - nový způsob komunikace na webu 
         }},
-        {'block_from': time(12, 45), 'block_to': time(13, 10), 'date': den_d, 'data': u'Oběd'},
-        {'block_from': time(13, 10), 'block_to': time(13, 30), 'date': den_d, 'data': 
+        {'block_from': time(12, 30), 'block_to': time(13, 10), 'date': den_d, 'data': u'Oběd'},
+        {'block_from': time(13, 20), 'block_to': time(13, 45), 'date': den_d, 'data': 
             Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/doprovodny-program.html#kentico">Polštářová bitva</a>')},
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
             'e112': None,
