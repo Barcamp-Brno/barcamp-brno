@@ -14,21 +14,21 @@ times = [
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'e112': '8f420b99', # XXX dopoledne / 95x Lukáš Maňásek / Obchodování v 50 °C 
             'd105': '469849be', # 391x Petr Ludwig / Jak najít osobní vizi, nejsilnější motivátor našeho života 
-            'd0206': '4967fc68', # 179x Jiří Vicherek / Sex, cigarety a štěňátka - základy pick-up a networkingu 
+            'd0206': '227b8f4b', # 216x Swenia Toupalik / Photoshop finty, které vám ulehčí život 
             'd0207': 'a9207afa', # 170x Karel Koupil / Inteligentní e-mailový marketing 
             'e105': 'e053f529', # 105x Peter Širka / ♛ node.js v praxi + tvoríme v ňom moderné aplikácie (WebSocket, Angular.js, atď.) 
         }},
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
             'e112': 'ee34d277', # XXX dopoledne nebo po obede / 134x Marcel Fejtek / 100 zemí, 100 zákonů a ještě více norem… aneb jak prodat chytrou krabičku do celého světa 
             'd105': 'bb4031aa', # 383x Peter Krutý / Psychologie v Prezentovani 
-            'd0206': '227b8f4b', # 216x Swenia Toupalik / Photoshop finty, které vám ulehčí život 
+            'd0206': '10338554', # 183x Martin Lutonský / Myšlení, náš chléb - základy denní osobní efeftivity 
             'd0207': '2c9679ba', # XXX prvni nebo druhy cas / 149x Jan Řezáč / Jak vypsat výběrové řízení na web
             'e105': 'bf617a48', # 107x Richard Fridrich / Selfies - experiment, ktorý som nenávidel 
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'e112': 'd4505563', # XXX 10:30 - 15:30 / 6x Kateřina Andrlová / Jak se pomáhá dětem v Africe 
             'd105': '383123cb', # 322x Adam Herout / Tři principy veřejného mluvení 
-            'd0206': '10338554', # 183x Martin Lutonský / Myšlení, náš chléb - základy denní osobní efeftivity 
+            'd0206': '4967fc68', # 179x Jiří Vicherek / Sex, cigarety a štěňátka - základy pick-up a networkingu 
             'd0207': '713cde0b', # 167x Daniel Gamrot / Evernote aneb Neztrácejte čas hledáním informací 
             'e105': '4df11c67', # 109x Vladimír Šandera / Jak využívat live chat jako marketingový nástroj - nový způsob komunikace na webu 
         }},
