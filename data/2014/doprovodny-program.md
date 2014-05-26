@@ -2,9 +2,9 @@ Doprovodný program
 ------------------
 
 ### Opékání prasete
-
 aneb jaký program byste na konferenci nečekali. I letos si pro vás Y Soft připravil v krásných zahradách bývalého barokního kartuziánského kláštera (prostory VUT) grilování prasátka a klobás.
-Zasoutěžte si o vychytávky pro sport nebo do přírody
+
+###Zasoutěžte si o vychytávky pro sport nebo do přírody
 Léto klepe na dveře, a proto se vám určitě budou hodit praktické vychytávky na sport nebo pro zpestření pobytu v přírodě. Stylový sporttester, solární nabíječka nebo iPod Shuffle – to jsou hlavní výhry, které na vás budou čekat na oranžovém stánku Y Softu. Ptáte se jak se bude soutěžit? Je to jednoduché. Na oranžovém stánku Y Softu na vás bude čekat malá bojovka. Přímo ze svého mobilu či tabletu navštívíte speciální microsite, kde si vyberete jeden z kvízů – ten si prostřednictvím našeho mobilního tisku vytisknete, vyluštíte a vhodíte do slosování.
 
 <img src="/static/img/program_ysoft.jpg" alt="" style="max-width:100%"/>
