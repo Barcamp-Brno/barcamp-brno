@@ -58,12 +58,14 @@ def service_do_programu():
 
     for talk in extra_talks:
         user = talk['user']
-        output.write(("'e112': '%s', # %sx %s / %s \r\n" % (talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        #output.write(("'e112': '%s', # %sx %s / %s \r\n" % (talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        output.write(("e112: <%s>\r\n" % (user['email'])).encode('utf-8'))
     
-    rooms =  'd105', 'd0206', 'd0207', 'e105'
+    rooms =  'd105', 'd0206', 'd0207', 'e104'
     for i, talk in enumerate(talks):
         user = talk['user']
-        output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        #output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        output.write(("%s: <%s>\r\n" % (rooms[i//7], user['email'])).encode('utf-8'))
       
 
     return Response(output.getvalue(), mimetype="text/plain")

@@ -36,7 +36,7 @@ times = [
         {'block_from': time(13, 20), 'block_to': time(13, 45), 'date': den_d, 'data': 
             Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/doprovodny-program.html#kentico">Polštářová bitva</a>')},
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
-            'e112': None,
+            'e112': '79868619', # Brian Barsky
             'd105': '5f9818b6', # 293x Filip Dřímalka / Absolut Lifehacks // How to Hack Your Work and Life 
             'd0206': '949089ea', # 183x Jan Tomáš / Návratnost User Experience 
             'd0207': '0a83d27a', # 154x Honza Slavík / Jak na projekty a nezbláznit se 
