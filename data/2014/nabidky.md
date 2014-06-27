@@ -2,7 +2,7 @@ Nabídky pracovních pozic od partnerů
 ------------------------------------
 
 ### Y Soft
-#### QA Engineer <http://ysoft.jobs.cz/pd/470297831?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=>
+#### QA Engineer [http://ysoft.jobs.cz/pd/470297831](http://ysoft.jobs.cz/pd/470297831?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=)
 Hledáme kolegy do Brna i do Prahy na pozici QA Engineer.
 
 Na pozici budete mít 
@@ -12,7 +12,7 @@ Na pozici budete mít
  - funkční testování, testování výkonnosti, regresní testování
 
 
-#### JAVA developer <http://ysoft.jobs.cz/pd/485385274?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=>
+#### JAVA developer [http://ysoft.jobs.cz/pd/485385274](http://ysoft.jobs.cz/pd/485385274?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=)
 Hledáme kolegy do Brna i do Prahy na pozici Software Developer JAVA
 
 Náplní práce bude 
