@@ -1,7 +1,7 @@
 Zhodnocení Barcampu Brno 2014
 -----------------------------
 
-V sobotu 31.5. se konala konference Barcamp Brno 2014. Sešlo se nás tam něco málo přes 1000! Snědli jsme jedno pečené prasátko, klobásy, 1 000 chlebíčků a pár beden ovoce. Vypili jsme bezpočet litrů vody, kávy, limonády. V pěti místnostech se pořádalo 35 přednášek. Z téměř všech přednášek byl pořízený videozáznam, videa naleznete na adrese <http://www.superlectures.com/barcampbrno2014/>. Fotografie z celého dne pak na našem flickru <https://www.flickr.com/photos/97646969@N07/sets/72157644611735179/>.
+V sobotu 31.5. se konala konference Barcamp Brno 2014. Sešlo se nás tam něco málo přes 1000! Snědli jsme jedno pečené prasátko, 300 klobás, 1 000 chlebíčků a pár beden ovoce. Vypili jsme bezpočet litrů vody, kávy, limonády. V pěti místnostech se pořádalo 35 přednášek. Z téměř všech přednášek byl pořízený videozáznam, videa naleznete na adrese <http://www.superlectures.com/barcampbrno2014/>. Fotografie z celého dne pak na našem flickru <https://www.flickr.com/photos/97646969@N07/sets/72157644611735179/>.
 
 Celá akce byla zakončena Kentico Afterpárty, která se protáhla až do ranních hodin.
 
@@ -14,12 +14,12 @@ Rád bych jménem organizačního týmu poděkoval všem dobrovolníkům, kteř�
 
 Zase za rok na viděnou!
 
-Petr Joachim
+__Petr Joachim__
 
- - Barcamp Brno @bcbrno
- - Petr Joachim @petrjoachim
- - Tomáš Sotoniak @sotoniak
- - Zdeněk Zicha @zdenekzicha
+ - Barcamp Brno [@bcbrno](https://twitter.com/bcbrno)
+ - Petr Joachim [@petrjoachim](https://twitter.com/petrjoachim)
+ - Tomáš Sotoniak [@sotoniak](https://twitter.com/sotoniak)
+ - Zdeněk Zicha [@zdenekzicha](https://twitter.com/zdenekzicha)
 
 ** Hlavní partneři **
 
