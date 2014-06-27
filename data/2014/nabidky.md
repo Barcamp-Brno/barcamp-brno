@@ -1,9 +1,8 @@
 Nabídky pracovních pozic od partnerů
 ------------------------------------
 
-Y Soft
-======
-### QA Engineer <http://ysoft.jobs.cz/pd/470297831?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=>
+### Y Soft
+#### QA Engineer <http://ysoft.jobs.cz/pd/470297831?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=>
 Hledáme kolegy do Brna i do Prahy na pozici QA Engineer.
 
 Na pozici budete mít 
@@ -13,7 +12,7 @@ Na pozici budete mít
  - funkční testování, testování výkonnosti, regresní testování
 
 
-###JAVA developer <http://ysoft.jobs.cz/pd/485385274?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=>
+#### JAVA developer <http://ysoft.jobs.cz/pd/485385274?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=>
 Hledáme kolegy do Brna i do Prahy na pozici Software Developer JAVA
 
 Náplní práce bude 
@@ -23,18 +22,16 @@ Náplní práce bude
 
 
 
-Seznam.cz
-=========
-### Vývojář/ka statistických systémů <http://seznam.sprace.cz/?offer_id=190791>
+### Seznam.cz
+#### Vývojář/ka statistických systémů <http://seznam.sprace.cz/?offer_id=190791>
 Zajímají tě nejmodernější technologie pro zpracování dat? Láká tě oblast distribuovaných výpočtů? Chtěl by ses naučit pracovat s nástroji jako je Apache Hadoop, Hive nebo HBase? Jsi Linuxák nebo Linuxačka a umíš programovat v C++ nebo Pythonu a napsal/a jsi také něco v Javě? Pak hledáme přesně tebe! Lokalita Praha i Brno.
 
-### Javascriptový programátor <http://seznam.sprace.cz/?offer_id=190759>
+#### Javascriptový programátor <http://seznam.sprace.cz/?offer_id=190759>
 
 Jsi internetový nadšenec a máš Javascript v malíku? V Praze i v Brně právě hledáme Javascriptového programátora, který nám bude pomáhat s údržbou našich služeb. Zapoj se do mnoha unikátních projektů a poznej nejnovější technologie. Při práci používáme agilní metodiky Kanban a Scrum, takže nám práce odsýpá.
 
-ČSFD
-====
-### ČSFD.cz příjme programátory!
+###ČSFD
+#### ČSFD.cz příjme programátory!
  
 Jsi zkušený PHP programátor, ideálně i se znalostmi PostgreSQL?
 Máš chuť se podílet na prestižním českém projektu, který denně navštíví více než 200 000 lidí?
