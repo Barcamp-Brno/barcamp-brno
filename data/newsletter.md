@@ -12,7 +12,8 @@ Rád bych jménem organizačního týmu poděkoval všem dobrovolníkům, kteř�
 <http://www.barcampbrno.cz/2014/stranka/nabidky.html>
 
 Zase za rok na viděnou!
-__Petr Joachim__ a zbytek organizačního týmu
+
+__Petr Joachim__ a celý organizační tým
 
  - Barcamp Brno [@bcbrno](https://twitter.com/bcbrno)
  - Petr Joachim [@petrjoachim](https://twitter.com/petrjoachim)
