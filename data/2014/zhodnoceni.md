@@ -14,8 +14,6 @@ Rád bych jménem organizačního týmu poděkoval všem dobrovolníkům, kteř�
 
 Zase za rok na viděnou!
 
-__Petr Joachim__
-
  - Barcamp Brno [@bcbrno](https://twitter.com/bcbrno)
  - Petr Joachim [@petrjoachim](https://twitter.com/petrjoachim)
  - Tomáš Sotoniak [@sotoniak](https://twitter.com/sotoniak)
