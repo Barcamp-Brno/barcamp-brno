@@ -107,10 +107,9 @@ def poslani_newsletteru():
     for mail in app.redis.smembers('newsletter'):
         print mail
         app.redis.srem('newsletter', mail)
-        continue
 
         send_mail(
-            u'Barcamp Brno 2013, ohlédnutí za akcí',
+            u'Barcamp Brno 2014, ohlédnutí za akcí',
             '', #mail,
             'data/newsletter.md')
 
