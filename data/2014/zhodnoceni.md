@@ -9,7 +9,7 @@ Jako každý rok, i letos jsme na Barcampu uspořádali sbírku, jejíž cílem 
 
 Chtěli bychom poprosit všechny přihlášené účastníky, včetně těch, kteří na Barcamp nepřišli o vyplnění dotazníku. Budeme rádi za jakékoliv podněty, které pomohou vylepšit Barcamp Brno 2015. Dotazník najdete na adrese <https://www.survio.com/survey/d/dotaznik-barcamp-brno-2014>.
 
-Rád bych jménem organizačního týmu poděkoval všem dobrovolníkům, kteří nám s akcí pomohli, vám všem, kteří jste se akce zúčastnili a v neposlední řadě také všem partnerům. 
+Rád bych jménem organizačního týmu poděkoval všem dobrovolníkům, kteří nám s akcí pomohli, vám všem, kteří jste se akce zúčastnili a v neposlední řadě také všem partnerům.
 <http://www.barcampbrno.cz/2014/stranka/nabidky.html>
 
 Zase za rok na viděnou!

@@ -6,20 +6,21 @@ Nabídky pracovních pozic od partnerů
 Hledáme kolegy do Brna i do Prahy na pozici QA Engineer.
 
 Na pozici budete mít 
+
  - zodpovědnost za testování SW produktů běžících na platformě Windows a Linux
  - příprava testovacích plánů, návrh testovacího scénáře a specifikace
- -  spouštění manuálních/automatizovaných testů a jejich vyhodnocování
+ - spouštění manuálních/automatizovaných testů a jejich vyhodnocování
  - funkční testování, testování výkonnosti, regresní testování
+ 
+ 
+#### Database developer [http://ysoft.jobs.cz/pd/809273832](http://ysoft.jobs.cz/pd/809273832?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=)
+Hledáme kolegy do Brna na pozici Database developer
 
+Náplní práce bude
 
-#### JAVA developer [http://ysoft.jobs.cz/pd/485385274](http://ysoft.jobs.cz/pd/485385274?&brand=g2&exportRCM=17763888&trackingBrand=www.ysoft.cz&rps=186&ep=)
-Hledáme kolegy do Brna i do Prahy na pozici Software Developer JAVA
-
-Náplní práce bude 
- - analýza, vývoj a implementace nových a údržba existujících softwarových komponent
- - podílení se na předávání technických znalostí a zkušeností v rámci firmy
- - vytvoření/udržování automatického buildovacího prostředí včetně automatických testů a statických kontrol
-
+ - činnost na všech úrovních životního cyklu (identifikace požadavků, analýza, …) s přesahem do JAVY
+ -  práce s relačními i No SQL databázemi
+ - spolupráce s odděleními skrz celou firemní strukturu (product managery, leda developery, QA, …)
 
 
 ### Seznam.cz
@@ -30,7 +31,8 @@ Zajímají tě nejmodernější technologie pro zpracování dat? Láká tě obl
 
 Jsi internetový nadšenec a máš Javascript v malíku? V Praze i v Brně právě hledáme Javascriptového programátora, který nám bude pomáhat s údržbou našich služeb. Zapoj se do mnoha unikátních projektů a poznej nejnovější technologie. Při práci používáme agilní metodiky Kanban a Scrum, takže nám práce odsýpá.
 
-###ČSFD
+
+### ČSFD
 #### ČSFD.cz příjme programátory!
  
 Jsi zkušený PHP programátor, ideálně i se znalostmi PostgreSQL?
@@ -39,3 +41,22 @@ Máš chuť se podílet na prestižním českém projektu, který denně navšt�
 Máš příležitost stát se členem vývojového týmu ČSFD.cz. Na pobočky PRAHA nebo BRNO přijmeme na full time senior PHP (nette) vývojáře. Nabízíme příjemné zázemí, přátelský kolektiv, notebook a kreativní technologické prostředí. Každý den je výzvou a příležitostí se naučit něco nového. V ČSFD.cz nikdy není nuda!
  
 Máš-li zájem, napiš na <kariera@csfd.cz>
+
+
+### GMC
+#### GMC Software Technology do pobočky v Olomouci hledá:
+ - Developer mobilních aplikací
+ - JAVA/Javascript developer
+ - JAVA developer
+ - .NET C# developer
+ - Tester webových aplikací
+ - <http://www.gmchk.cz/>
+
+ 
+#### GMC Software Technology do pobočky v Hradci Králové hledá:
+ - JAVA/Javascript developer
+ - JAVA developer
+ - .NET C# developer
+ - Tester webových aplikací
+ - SW konzultant
+ - <http://www.gmchk.cz/>
