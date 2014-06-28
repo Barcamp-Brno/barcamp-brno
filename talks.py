@@ -149,6 +149,9 @@ def _get_talks():
     try:
         talks.remove(False)
         talks.remove(False)
+        talks.remove(False)
+        talks.remove(False)
+        talks.remove(False)
     except:
         pass
 

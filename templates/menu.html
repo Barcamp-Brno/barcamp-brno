@@ -5,7 +5,7 @@
         <a href="{{url_for('program')}}">Program</a>
     {% endif %}
     {% if "END" in config.STAGES %}
-        <a href="{{url_for('static_page', page='zhodnoceni'}}">Zhodnocení</a>
+        <a href="{{url_for('static_page', page='zhodnoceni')}}">Zhodnocení</a>
     {% endif %}
     {% if not user %}
         <a href="{{url_for('login')}}">Přihlásit se</a>
