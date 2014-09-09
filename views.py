@@ -61,6 +61,16 @@ def sponsors():
         sponsors_other=markdown_markup('sponsors_other'),
     )
 
+@app.route('/%s/prednasky.html' % app.config['YEAR'])
+def talks_all():
+    talks, extra_talks = get_talks()
+    return render_template(
+        "talks.html",
+        user=check_auth(),
+        menu=menu(),
+        talks=talks
+    )
+
 @app.route('/profil/<user_hash>/')
 def profile(user_hash):
     data = get_account(user_hash)
