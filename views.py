@@ -68,7 +68,8 @@ def talks_all():
         "talks.html",
         user=check_auth(),
         menu=menu(),
-        talks=talks
+        talks=talks,
+        extra_talks=extra_talks
     )
 
 @app.route('/profil/<user_hash>/')

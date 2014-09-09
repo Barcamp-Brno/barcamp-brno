@@ -1,7 +1,6 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 <h2>Přednášející{% if "VOTING" in config.STAGES %} &amp; hlasování{% endif %}</h2>
-            
     {% if user and user['going_%s' % config.YEAR] %}    
     <form method="POST" action="{{url_for('vote_save')}}">
     {% endif %}
