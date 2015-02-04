@@ -1,13 +1,8 @@
 __original__
-*.wsgi
-*.uwsgi
 *.rdb
 
 .DS_Store
 *.py[cod]
-
-# C extensions
-*.so
 
 # Packages
 *.egg
