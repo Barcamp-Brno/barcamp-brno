@@ -9,6 +9,7 @@
 """
 
 from barcamp import create_app
+import os
 
 if __name__ == '__main__':
     app = create_app({
@@ -18,6 +19,7 @@ if __name__ == '__main__':
         'TWITTER_SECRET': 'cPmxDXCm3MgVPruiCjYXioZhUubLvehnTiVgI1M',
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
+        'REDISCLOUD_URL': os.environ.get('REDISCLOUD_URL', ''),
         'YEAR': "2014",
         'STAGES': ['REGISTER_TALKS', 'USERS', 'VOTING_END', 'PROGRAM_READY']
     })
