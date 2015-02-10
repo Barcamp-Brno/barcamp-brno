@@ -12,17 +12,19 @@ from barcamp import create_app
 import os
 
 if __name__ == '__main__':
-    app = create_app({
-        'FACEBOOK_ID': '536796489696963',
-        'FACEBOOK_SECRET': '1203f3bd7633d102e30cc02f7d61b3f8',
-        'TWITTER_KEY': 'H3YBefguk72B38Yt5KdDg',
-        'TWITTER_SECRET': 'cPmxDXCm3MgVPruiCjYXioZhUubLvehnTiVgI1M',
+    config = {
+        'FACEBOOK_ID': '',
+        'FACEBOOK_SECRET': '',
+        'TWITTER_KEY': '',
+        'TWITTER_SECRET': '',
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
-        'REDISCLOUD_URL': os.environ.get('REDISCLOUD_URL', ''),
-        'YEAR': "2014",
-        'STAGES': ['REGISTER_TALKS', 'USERS', 'VOTING_END', 'PROGRAM_READY']
-    })
+        'YEAR': "2015",
+        'STAGES': ['INTRO']
+    }
+
+    config.update(os.environ)
+    app = create_app(config)
 
     app.debug = True
     app.run("0", 9099)

@@ -28,8 +28,6 @@ def create_app(config):
 
     app.url_rule_class = GeneratorRule
 
-    print config
-
     app.redis = redis.Redis.from_url(config['REDISCLOUD_URL'])
 
     import views

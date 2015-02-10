@@ -2,8 +2,8 @@ import os
 from barcamp import create_app
 
 config = {
-    'YEAR': "2014",
-    'STAGES': ['PROGRAM_READY', 'END']
+    'YEAR': "2015",
+    'STAGES': ["INTRO"]
 }
 
 config.update(os.environ)

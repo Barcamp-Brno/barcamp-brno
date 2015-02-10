@@ -6,13 +6,14 @@ from barcamp import create_app
 
 PUBLISH_SKIP_URLS = (
     '/static/.*',
+    '/service/.*',
     '.*/$'
 )
 PUBLISH_ADD_FILES = (
     'static',
 )
 
-YEAR = "2013"
+YEAR = "2014"
 
 class Publisher(object):
     def __init__(self, app):
@@ -84,16 +85,20 @@ class Publisher(object):
 
 
 if __name__ == '__main__':
-    app = create_app({
-        'FACEBOOK_ID': '536796489696963',
-        'FACEBOOK_SECRET': '1203f3bd7633d102e30cc02f7d61b3f8',
-        'TWITTER_KEY': 'H3YBefguk72B38Yt5KdDg',
-        'TWITTER_SECRET': 'cPmxDXCm3MgVPruiCjYXioZhUubLvehnTiVgI1M',
+    config = {
+        'FACEBOOK_ID': '',
+        'FACEBOOK_SECRET': '',
+        'TWITTER_KEY': '',
+        'TWITTER_SECRET': '',
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
         'YEAR': YEAR,
-        'STAGE': FINAL,
+        'STAGES': ['PROGRAM_READY', 'END'],
         'ARCHIVE': True
-    })
+    }
+
+    config.update(os.environ)
+    app = create_app(config)
+    
     publisher = Publisher(app)
     publisher.copy_to("./archive/")

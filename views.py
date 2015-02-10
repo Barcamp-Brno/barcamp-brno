@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from barcamp import app
-from flask import render_template, abort
+from flask import render_template, abort, send_from_directory
 from login_misc import check_auth, get_account
 from talks import get_talks, get_talks_dict
 from utils import menu, markdown_static_page, markdown_markup
@@ -96,8 +96,9 @@ def stranky():
 def static_page(page):
     return markdown_static_page(page)
 
-@app.route('/2013/<path:path>')
-def archive_proxy(path):
+@app.route('/<int:year>/<path:path>')
+def archive_proxy(year, path):
+    year = str(year)
     # send_static_file will guess the correct MIME type
-    print os.path.join('./archive/2013/', path)
-    return app.send_static_file(os.path.join('./archive/2013/', path))
+    print os.path.join('./archive/', year, path)
+    return send_from_directory('archive', os.path.join(year, path))
