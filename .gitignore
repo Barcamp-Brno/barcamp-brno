@@ -1,5 +1,6 @@
 __original__
 *.rdb
+.env
 
 .DS_Store
 *.py[cod]
