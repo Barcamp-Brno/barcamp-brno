@@ -1,14 +1,15 @@
-Dobrý den,
+Zdravím,
 
-obdrželi jsme požadavek na vytvoření účtu %(mail)s z následujícího zařízení
+obdržel jsem požadavek na vytvoření účtu %(mail)s z následujícího zařízení
 
  - IP: %(ip)s
  - User-agent: %(user_agent)s
 
-registraci dokončíte stisknutím následujícího odkazu
+registraci lze dokončit navštívením následujícího odkazu:
 
 <%(url)s>
 
 S pozdravem
 
-Tým Barcamp Brno
+Petr Joachim
+za tým Barcamp Brno

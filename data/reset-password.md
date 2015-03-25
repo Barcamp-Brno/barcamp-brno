@@ -1,14 +1,15 @@
-Dobrý den,
+Zdravím,
 
-obdrželi jsme požadavek na resetování hesla pro účet %(mail)s z následujícího zařízení
+obdržel jsem požadavek na resetování hesla pro účet %(mail)s z následujícího zařízení
 
  - IP: %(ip)s
  - User-agent: %(user_agent)s
 
-obnovu hesla dokončíte stisknutím následujícího odkazu
+obnovu hesla lze dokončit stisknutím následujícího odkazu
 
 <%(url)s>
 
 S pozdravem
 
-Tým Barcamp Brno
+Petr Joachim
+za tým Barcamp Brno
