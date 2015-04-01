@@ -1,10 +1,9 @@
 Kontakty
 --------
 ### Organizátoři
- - [Tomáš Sotoniak](mailto:tomas@sotoniak.cz?subject=Barcamp Brno 2014) - [@sotoniak](http://twitter.com/sotoniak) - Partneři
-  - [Zdeněk Zicha](mailto:zdenek.zicha@gmail.com?subject=Barcamp Brno 2014) - [@zdenekzicha](http://twitter.com/zdenekzicha) - Organizace na místě
-
- - [Petr Joachim](mailto:petr@joachim.cz?subject=Barcamp Brno 2014) - [@petrjoachim](http://twitter.com/petrjoachim) - Přednášející
+ - [Petr Joachim](mailto:petr@joachim.cz?subject=Barcamp Brno 2015) - [@petrjoachim](http://twitter.com/petrjoachim) - Přednášející a program
+ - [Tomáš Sotoniak](mailto:tomas@sotoniak.cz?subject=Barcamp Brno 2015) - [@sotoniak](http://twitter.com/sotoniak) - Partneři
+ - [Zdeněk Zicha](mailto:zdenek.zicha@gmail.com?subject=Barcamp Brno 2015) - [@zdenekzicha](http://twitter.com/zdenekzicha) - Partneři
 
 ### Ostatní
  - [Petr Šiller](http://petrsiller.cz/) - design
@@ -13,4 +12,4 @@ Kontakty
  - [Martin Kacvinský](http://kaco.sk) - panorama Brna
 
 
-Zaštiťuje Barcamp Brno z.s.
+Akci zaštiťuje Barcamp Brno z.s.

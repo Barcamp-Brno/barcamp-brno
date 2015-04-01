@@ -1,6 +1,6 @@
 Informační stránka
 ------------------
-Vstup na Barcamp v Brně byl, je a _vždy_ bude zdarma.
+Vstup na Barcamp v Brně byl, je a **vždy** bude zdarma.
 
 ### Harmonogram
  - __Už nyní__ - registrace témat přednášek
@@ -9,9 +9,11 @@ Vstup na Barcamp v Brně byl, je a _vždy_ bude zdarma.
  - __13.5.2015__ - konec hlasování o tématech
  - __23.5.2015__ - den konání
 
-### Doprava a ubytování
+### Důležité odkazy
  - [Doprava](/2015/stranka/doprava.html)
  - [Ubytování](/2015/stranka/ubytovani.html)
+ - [Kontakty na pořadatele](/2015/stranka/kontakty.html)
+ - [Dobročinnost a Joseph Ainebabazi](/2015/stranka/charita.html)
 
 ### Sociální sítě
  - Sledujte BarCamp na twitteru [@bcbrno](https://twitter.com/bcbrno) a tweetujte hashtag [#bcbrno](https://twitter.com/search?q=%23bcbrno)
