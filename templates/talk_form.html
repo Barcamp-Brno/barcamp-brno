@@ -1,6 +1,9 @@
 {% extends "_base_form.html" %}
 {% block page_content %}
-<h2>Editace přednášky</h2>
+
+{{ informace }}
+
+<h2>{% if talk.talk_hash %}Editace{% else %}Registrace nové{% endif %} přednášky</h2>
 <form method="POST" class="form-horizontal" action=".">
     <fieldset>
         {{form.csrf_token}}
@@ -16,7 +19,9 @@
 
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Odeslat</button>
-        <a class="btn btn-danger" href="{{url_for('talk_delete', talk_hash=talk.talk_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete přednášku smazat?')">Smazat přednášku</a>
+        {% if talk.talk_hash %}
+            <a class="btn btn-danger" href="{{url_for('talk_delete', talk_hash=talk.talk_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete přednášku smazat?')">Smazat přednášku</a>
+        {% endif %}
     </div>
 </form>
 {% endblock %}

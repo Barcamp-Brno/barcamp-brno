@@ -8,7 +8,7 @@ from flask_wtf import Form
 from wtforms import TextField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
-from utils import menu
+from utils import menu, markdown_markup
 
 KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
@@ -80,6 +80,7 @@ def talk_edit(talk_hash=None):
         form = TalkForm(**talk_data)
     return render_template(
         'talk_form.html',
+        informace=markdown_markup('pro-prednasejici'),
         form=form, user=check_auth(), talk=talk_data, menu=menu())
 
 
