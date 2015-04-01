@@ -69,8 +69,10 @@
                         <tr class="{{'fail' if loop.index > 28 and 'VOTING_END' in config.STAGES }}">
                             <th>
                                 {% if "VOTING_END" in config.STAGES %}
-                                <span class="number">{{loop.index}}.</span> {% endif %} {{talk.user.name}}</th>
-                            <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                                <span class="number">{{loop.index}}.</span> {% endif %} 
+                                <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a>
+                            </th>
+                            <td class="shadow-name">{{talk.user.name}}</td>
                             {% if "VOTING" in config.STAGES or "VOTING_END" in config.STAGES %}
                                 <td>Počet&nbsp;hlasů&nbsp;<strong>{{talk.score or 0|int}}</strong></td>
                             {% endif %}
