@@ -35,6 +35,8 @@ def index():
         user_votes=get_user_votes(user_hash),
         novinky=markdown_markup('novinky'),
         sponsors_main=markdown_markup('sponsors_main'),
+        sponsors_medial=markdown_markup('sponsors_medial'),
+        workshops=markdown_markup('workshopy-program'),
         sponsors=markdown_markup('sponsors'),
         talks=talks, extra_talks=extra_talks,
         talks_dict=get_talks_dict())
@@ -58,6 +60,7 @@ def sponsors():
         user=check_auth(),
         menu=menu(),
         sponsors_main=markdown_markup('sponsors_main'),
+        sponsors_medial=markdown_markup('sponsors_medial'),
         sponsors=markdown_markup('sponsors'),
         sponsors_other=markdown_markup('sponsors_other'),
     )

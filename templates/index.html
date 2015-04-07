@@ -121,6 +121,9 @@
             {% endif %}
         {% endif %}
 
+        <!-- workshopy -->
+        {{ workshops }}
+
         <!-- sponzori -->
         <h2>Hlavní partneři akce</h2>
         <p class="sponsors">
@@ -130,6 +133,11 @@
 		<h2>Partneři akce</h2>
         <p class="sponsors">
             {{sponsors}}
+        </p>
+
+        <h2>Mediální partneři</h2>
+        <p class="sponsors">
+            {{sponsors_medial}}
         </p>
         <!-- / sponzori -->
         {% if "USERS" in config.STAGES %}
