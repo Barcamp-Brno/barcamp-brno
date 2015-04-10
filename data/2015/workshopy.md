@@ -12,7 +12,7 @@ Pro workshopy máme vyhrazeny 2 běžné posluchárny a celkem jsme schopni v ka
 Pro registraci workshopů nemáme žádný specializovaný formulář, takže kdo by měl zájem nabídnout nějaké téma workshopu napište mailem Petrovi Joachimovi - <petr@joachim.cz> a domluvíme to už individuálně.
 
 ### Seznam workshopů
-#### Coding Dojo / Peter Cipov [@pcipov](https://twitter.com/pcipov)
+#### Coding Dojo / Peter Cipov [@Peter_Cipov](https://twitter.com/Peter_Cipov)
  - celkem 10 míst
  - čas 2 hodiny
 

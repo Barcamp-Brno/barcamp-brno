@@ -4,7 +4,7 @@ Více podrobností k workshopům naleznete na speciální stránce pro [workshop
 
 ### Aktuální seznam workshopů
 
- - Coding Dojo / Peter Cipov [@pcipov](https://twitter.com/pcipov)
+ - Coding Dojo / Peter Cipov [@Peter_Cipov](https://twitter.com/Peter_Cipov)
 
 <!--
 <table class="table">
