@@ -3,7 +3,7 @@ from barcamp import create_app
 
 config = {
     'YEAR': "2015",
-    'STAGES': ["REGISTER_TALKS"],
+    'STAGES': ['REGISTER_TALKS', 'VOTING', 'USERS'],
     'MAIL_SERVER': 'smtp.mandrillapp.com',
     'MAIL_PORT': 587,
     'MAIL_USERNAME': os.environ.get('MANDRILL_USERNAME', ''),
