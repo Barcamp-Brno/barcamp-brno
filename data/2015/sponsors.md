@@ -1,2 +1,5 @@
 [![Kentico](/static/img/logos/kentico.png "Kentico")](http://www.kentico.com/)
 [![Tripomatic](/static/img/logos/tripomatic.png "Tripomatic")](http://www.tripomatic.com/)
+[![EmbedIT](/static/img/logos/embedit.png "EmbedIT")](https://www.embedit.cz/)
+[![Edhouse](/static/img/logos/edhouse.png "Edhouse")](http://edhouse.eu/cs/)
+[![Mergado.cz](/static/img/logos/mergado.png "Mergado.cz")](http://www.mergado.cz/)
