@@ -9,6 +9,10 @@ Více podrobností k workshopům naleznete na speciální stránce pro [workshop
  - Najdi svůj brand! / Regina Bednaříková [LinkedIn](https://www.linkedin.com/pub/regina-bedna%C5%99%C3%ADkov%C3%A1/96/781/558)
  - Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
  - Prezentační dovednosti v praxi / Jasmína Henniová
+ - Agile versus Waterfall fight / Martin Bobek [@martinbobek](https://twitter.com/martinbobek) & Petr Flégl [@panflegl](https://twitter.com/panflegl)
+ - Vyhackujte si webovou soutěž / Roman Kümmel [na LinkedIn](https://www.linkedin.com/pub/roman-k%C3%BCmmel/55/770/673)
+ - Agile testing prostřednictvím reality / Přemysl Krajčovič [na LinkedIn](https://www.linkedin.com/in/premyslkrajcovic)
+ - Uživatelské testování z tajné místnosti / Petr Šiller [@petrsiller](https://twitter.com/petrsiller)
 
 <!--
 <table class="table">

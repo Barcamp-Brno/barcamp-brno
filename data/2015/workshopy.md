@@ -64,3 +64,26 @@ Kdo se navíc osmělí a zapojí se plně do řady interaktivních komunikační
 
 Bojíte se mluvit na veřejnosti? Anebo si to užíváte a rádi byste se ještě zlepšili? Přijďte si to vyzkoušet na vlastní kůži v malé skupince lidí, kde každý dostane prostor. Přijďte si poslechnout tipy a triky jak mluvit před lidmi a jak se zbavit trémy. Přijďte se naučit něco, co využijete v praxi.
 
+#### Agile versus Waterfall fight / Martin Bobek [@martinbobek](https://twitter.com/martinbobek) & Petr Flégl [@panflegl](https://twitter.com/panflegl)
+ - celkem hodně lidí (v případě dobrého počasí neomezeně)
+ - čas 1 hodina
+
+Zažijete na vlastní kůži, jaké to je dělat věci vodopádovým modelem a agilním přístupem. Budeme si hodně hrát a bude to bolet.
+             
+#### Vyhackujte si webovou soutěž / Roman Kümmel [na LinkedIn](https://www.linkedin.com/pub/roman-k%C3%BCmmel/55/770/673)
+ - celkem 20 lidí
+ - čas 1 hodina
+
+Staňte se na hodinu členem hackerské komunity a vyhrajte webovou soutěž díky své šikovnosti a chabému zabezpečení aplikace
+ 
+#### Agile testing prostřednictvím reality / Přemysl Krajčovič [na LinkedIn](https://www.linkedin.com/in/premyslkrajcovic)
+ - celkem 20 lidí
+ - čas 1 hodina
+
+Bez počítače a technologií pomocí her zaměřených na reálné prostředí si zažijete situace, které vám pomůřou otevřít oči co, kdy, kým a jak testovat
+ 
+#### Uživatelské testování z tajné místnosti / Petr Šiller [@petrsiller](https://twitter.com/petrsiller)
+ - celkem 20 lidí
+ - čas 1 hodina
+
+Vyzkoušíte si celý process uživatelského testování, zanalyzujete si výstupy a navrhnete úpravy aplikace.
