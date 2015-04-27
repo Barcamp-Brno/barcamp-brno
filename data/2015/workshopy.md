@@ -16,5 +16,51 @@ Pro registraci workshopů nemáme žádný specializovaný formulář, takže kd
  - celkem 10 míst
  - čas 2 hodiny
 
-Riešite, že váš kód je neprehľadný, ťažko sa rozširuje a obsahuje veľa chýb? Tak toto je workshop určený práve pre vás.
-Môžem sľúbiť ryze praktický workshop s minimom buzzwordov, kde sa zameriame na návrh kódu a test-driven development. Všetko si budeme demonštrovať na konkrétnych jednoduchych príkladoch ktoré si sami prediskutujeme a naprogramujeme. Bude tu priestor aby sme prediskutovali aj vaše konkrétne problémy z praxe.
+Riešite, že váš kód je neprehľadný, ťažko sa rozširuje a obsahuje veľa chýb? Tak toto je workshop určený práve pre vás. Môžem sľúbiť ryze praktický workshop s minimom buzzwordov, kde sa zameriame na návrh kódu a test-driven development. 
+
+##### Čo si pod tým predstaviť ?
+1 zadanie, 1 počítač na ktorom sa budete striedať. Každý opraví padajúci test ktorý mu predtým niekto iný naprogramuje a potom doplní svoj test pre ďalšieho účastníka. Vyskúšame si tak na jednoduchom zadaní kontroverzný prístup TDD - najprv test a potom implementácia.
+
+Zo sebou nie je treba priniesť nič okrem dobrej nálady a vôle sa naučiť niečo nové ;)
+
+#### Drupal / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
+ - celkem 25 míst
+ - čas 2 hodiny
+
+Říká se, že umět programovat je něco jako mít superschopnosti. Co ale říkáte na to mít ty stejné superschopnosti, ale bez nutnosti učit se programovat? Co kdyby Vaše představa o webové aplikaci šla prostě naklikat?
+
+Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci od datových struktur, uživatelského rozhraní až třeba po automatizaci a řízení oprávnění. Pomáhat vám budou zkušení lektoři, takže se k cíli může dostat opravdu každý.
+ 
+Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
+
+#### Najdi svůj brand! / Regina Bednaříková [na LinkedIn](https://www.linkedin.com/pub/regina-bedna%C5%99%C3%ADkov%C3%A1/96/781/558)
+ - celkem 10 míst
+ - čas 2 hodiny
+
+Zaměříme se spolu na obsah Tvé prezentace. Někdy prostě nestačí jen vědět jak, ale je dobré zjistit také proč a co. Co mě to tedy vlastně charakterizuje :) Najdeš si svůj vlastní brand a dostaneš zpětnou vazbu netradiční metodou. Zjisti, kdo jsi... Najdi svůj brand!
+
+##### Ať přijde každý,
+kdo chce najít ten správný obsah své vlastní prezentace na networking, případně kamkoli, kde ho čeká prezentace sebe sama, jeho práce / podnikání / firmy. Dveře jsou otevřeny každému, kdo se chce ptát sám sebe na zajímavé otázky a taky odpovídat a tvořit.
+
+#### Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
+ - celkem 2x 30 lidí
+ - čas 2x 1 hodina
+
+##### O čem to bude?
+V dnešním extrémně kompetitivním prostředí byznysu jsou efektivní komunikační dovednosti naprosto nezbytné. Bez skvělého vyjadřování nedojdete nikam, ale s ním kamkoli jen budete chtít! 
+
+Ať už vás čeká prezentace klíčového projektu, žádost o sponzoring, náročná týmová porada či pracovní pohovor, schopnost smysluplně formulovat své názory a sebevědomě je přednést vám zaručí úspěch. A to i v případě, že na přípravu předem máte jen pár minut. 
+
+Náš workshop efektivní komunikace a argumentace pomůže k rozvoji vám i vaší organizaci. Vycházíme z metody "soutěžního debatování v britském parlamentním stylu", jež je nejpopulárnější formou extrakurikulárního vzdělávání na prestižních světových univerzitách.
+
+##### Pro koho je workshop určen?
+Pro každého, kdo se chce naučit komunikovat na vysoké úrovni a argumentovat se skálopevnou přesvědčivostí - jinými slovy umět se vyjadřovat s elegancí anglické královny a zároveň s výstižností šéfa nadnárodního koncernu. 
+
+Kdo se navíc osmělí a zapojí se plně do řady interaktivních komunikačních a argumentačních aktivit, připravovaných naším zkušeným týmem, si odnese vůbec nejvíc!
+
+#### Prezentační dovednosti v praxi / Jasmína Henniová
+ - celkem 10 lidí
+ - čas 90 minut
+
+Bojíte se mluvit na veřejnosti? Anebo si to užíváte a rádi byste se ještě zlepšili? Přijďte si to vyzkoušet na vlastní kůži v malé skupince lidí, kde každý dostane prostor. Přijďte si poslechnout tipy a triky jak mluvit před lidmi a jak se zbavit trémy. Přijďte se naučit něco, co využijete v praxi.
+

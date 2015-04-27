@@ -5,6 +5,10 @@ Více podrobností k workshopům naleznete na speciální stránce pro [workshop
 ### Aktuální seznam workshopů
 
  - Coding Dojo / Peter Cipov [@Peter_Cipov](https://twitter.com/Peter_Cipov)
+ - Drupal / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
+ - Najdi svůj brand! / Regina Bednaříková [LinkedIn](https://www.linkedin.com/pub/regina-bedna%C5%99%C3%ADkov%C3%A1/96/781/558)
+ - Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
+ - Prezentační dovednosti v praxi / Jasmína Henniová
 
 <!--
 <table class="table">
