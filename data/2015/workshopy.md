@@ -58,7 +58,7 @@ Pro každého, kdo se chce naučit komunikovat na vysoké úrovni a argumentovat
 
 Kdo se navíc osmělí a zapojí se plně do řady interaktivních komunikačních a argumentačních aktivit, připravovaných naším zkušeným týmem, si odnese vůbec nejvíc!
 
-#### Prezentační dovednosti v praxi / Jasmína Henniová
+#### Prezentační dovednosti v praxi / Jasmína Henniová [na LinkedIn](https://www.linkedin.com/pub/jasmina-henniova/75/625/126)
  - celkem 10 lidí
  - čas 90 minut
 
