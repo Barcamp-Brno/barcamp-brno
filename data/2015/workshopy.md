@@ -33,6 +33,16 @@ Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci o
  
 Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
 
+#### Pro-Action Café: Jak vyřešit problém a nepohádat se u toho / Veronika Klimešová [na LinkedIn](http://uk.linkedin.com/in/veroklimesova) & Radek Dobrovolný [na LinkedIn](http://www.linkedin.com/in/radekdobrovolny)
+ - celkem 20 míst
+ - čas 2 hodiny
+
+Už vás nebaví dlouhé týmové meetingy, na kterých se vlastně nic nevyřeší? Přijďte si vyzkoušet metodu, která je rychlá a konstruktivní. Po 60 minutách budete mít pocit z dobře vykonané práce.
+
+Na našem workshopu vám předáme naše know-how a zkusíme najít odpověď na otázky "Jak hacknout vysokou školu", "Jak nakopnout ostatní, aby se více zajímali o dění kolem sebe" a "Jak bude vypadat barcamp za 10 let".
+
+Pro-Action Café je efektivní metoda pro řešení problémů ve větším počtu lidí, úspěšně vyzkoušená na brněnských [Education Hackathonech](http://eduhackcz.weebly.com/).
+
 #### Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
  - celkem 2x 30 lidí
  - čas 2x 1 hodina
