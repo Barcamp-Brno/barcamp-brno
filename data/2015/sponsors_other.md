@@ -4,6 +4,11 @@
         <td><a href="https://twitter.com/mysulemys">@mysulemys</a></td>
         <td>Tisková grafika a trička</td>
     </tr>
+    <tr>
+        <td>Petr Štěpán</td>
+        <td><a href="http://petrstepan.eu/">petrstepan.eu</a></td>
+        <td>Fotky z akce</td>
+    </tr>
     
     <tr>
         <td>Jitka Kreslíková</td>
