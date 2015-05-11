@@ -3,3 +3,4 @@
 [![EmbedIT](/static/img/logos/embedit.png "EmbedIT")](https://www.embedit.cz/)
 [![Edhouse](/static/img/logos/edhouse.png "Edhouse")](http://edhouse.eu/cs/)
 [![Mergado.cz](/static/img/logos/mergado.png "Mergado.cz")](http://www.mergado.cz/)
+[![Liftago.cz](/static/img/logos/liftago.png "Liftago.cz")](https://www.liftago.com/)
