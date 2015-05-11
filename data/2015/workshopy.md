@@ -33,6 +33,15 @@ Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci o
  
 Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
 
+#### Symfony2 / František Kohout [na LinkedIn](https://cz.linkedin.com/pub/franti%C5%A1ek-kohout/34/1a3/8b8)
+Nejdříve si projdeme praktické základy Symfony2, nainstalujeme framework, zkusíme si nastavit jeho základní parametry a vytvoříme tzv. bundle, nebo-li projekt. 
+
+Dále představím MVC architekturu v tomto frameworku následuje první HELLO WORLD.
+
+V poslední hodince si zkusíme vytvořit nějaké testovací objekty, osaháme si teoreticky i prakticky práci s databází a vytvoříme k testovacím objektům také formuláře. 
+
+Minimální požadavky na workshop pokud budou chtít zájemci programovat a ne jen pozorovat a makat na svých strojích, je určitě dobré mít nainstalované a plně funkční prostředí pro vývoj PHP a MySQL. Ideálně třema XAMPP. Dále v případě Windows funkční globální proměnnou PHP aby jim šli spouštět příkazy začínající na PHP např php <? echo "HELLO WORLD"; ?> 
+
 #### Pro-Action Café: Jak vyřešit problém a nepohádat se u toho / Veronika Klimešová [na LinkedIn](http://uk.linkedin.com/in/veroklimesova) & Radek Dobrovolný [na LinkedIn](http://www.linkedin.com/in/radekdobrovolny)
  - celkem 20 míst
  - čas 2 hodiny
