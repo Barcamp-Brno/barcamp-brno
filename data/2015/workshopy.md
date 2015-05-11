@@ -23,7 +23,7 @@ Riešite, že váš kód je neprehľadný, ťažko sa rozširuje a obsahuje veľ
 
 Zo sebou nie je treba priniesť nič okrem dobrej nálady a vôle sa naučiť niečo nové ;)
 
-#### Drupal / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
+#### Drupal kickstart pro úplné začátečníky / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
  - celkem 25 míst
  - čas 2 hodiny
 

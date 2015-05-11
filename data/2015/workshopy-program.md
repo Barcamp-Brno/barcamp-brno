@@ -5,7 +5,7 @@ Více podrobností k workshopům naleznete na speciální stránce pro [workshop
 ### Aktuální seznam workshopů
 
  - Coding Dojo / Peter Cipov [@Peter_Cipov](https://twitter.com/Peter_Cipov)
- - Drupal / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
+ - Drupal kickstart pro úplné začátečníky / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
  - Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
  - Prezentační dovednosti v praxi / Jasmína Henniová [na LinkedIn](https://www.linkedin.com/pub/jasmina-henniova/75/625/126)
  - Agile versus Waterfall fight / Martin Bobek [@martinbobek](https://twitter.com/martinbobek) & Petr Flégl [@panflegl](https://twitter.com/panflegl)
