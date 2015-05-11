@@ -33,15 +33,6 @@ Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci o
  
 Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
 
-#### Najdi svůj brand! / Regina Bednaříková [na LinkedIn](https://www.linkedin.com/pub/regina-bedna%C5%99%C3%ADkov%C3%A1/96/781/558)
- - celkem 10 míst
- - čas 2 hodiny
-
-Zaměříme se spolu na obsah Tvé prezentace. Někdy prostě nestačí jen vědět jak, ale je dobré zjistit také proč a co. Co mě to tedy vlastně charakterizuje :) Najdeš si svůj vlastní brand a dostaneš zpětnou vazbu netradiční metodou. Zjisti, kdo jsi... Najdi svůj brand!
-
-##### Ať přijde každý,
-kdo chce najít ten správný obsah své vlastní prezentace na networking, případně kamkoli, kde ho čeká prezentace sebe sama, jeho práce / podnikání / firmy. Dveře jsou otevřeny každému, kdo se chce ptát sám sebe na zajímavé otázky a taky odpovídat a tvořit.
-
 #### Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
  - celkem 2x 30 lidí
  - čas 2x 1 hodina
