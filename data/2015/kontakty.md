@@ -4,7 +4,7 @@ Kontakty
  - Bára Buchtová - [@bbarbuska](https://twitter.com/bbarbuska) - Sociální sítě
  - [Petr Joachim](mailto:petr@joachim.cz?subject=Barcamp Brno 2015) - [@petrjoachim](https://twitter.com/petrjoachim) - Přednášející a program
  - [Tomáš Sotoniak](mailto:tomas@sotoniak.cz?subject=Barcamp Brno 2015) - [@sotoniak](https://twitter.com/sotoniak) - Partneři
- - [Zdeněk Zicha](mailto:zdenek.zicha@gmail.com?subject=Barcamp Brno 2015) - [@zdenekzicha](https://twitter.com/zdenekzicha) - Partneři
+ - [Zdeněk Zicha](mailto:zdenek.zicha@gmail.com?subject=Barcamp Brno 2015) - [@zdenekzicha](https://twitter.com/zdenekzicha) - Organizace na místě
 
 ### Ostatní
  - [Petr Šiller](http://petrsiller.cz/) - design
