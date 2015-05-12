@@ -4,4 +4,4 @@
 [![Edhouse](/static/img/logos/edhouse.png "Edhouse")](http://edhouse.eu/cs/)
 [![Mergado.cz](/static/img/logos/mergado.png "Mergado.cz")](http://www.mergado.cz/)
 [![Liftago.cz](/static/img/logos/liftago.png "Liftago.cz")](https://www.liftago.com/)
-[![Toastmasters Brno](/static/img/logos/toastmasters.png "Toastmasters Brno")](http://www.brnotoastmasters.cz/)
+[![Toastmasters Brno](/static/img/logos/toastmasters.png "Toastmasters Brno")](http://www.projevse.cz/)
