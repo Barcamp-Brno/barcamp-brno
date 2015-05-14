@@ -5,3 +5,4 @@
 [![Mergado.cz](/static/img/logos/mergado.png "Mergado.cz")](http://www.mergado.cz/)
 [![Liftago.cz](/static/img/logos/liftago.png "Liftago.cz")](https://www.liftago.com/)
 [![Toastmasters Brno](/static/img/logos/toastmasters.png "Toastmasters Brno")](http://www.projevse.cz/)
+[![FEI](/static/img/logos/fei.png "FEI")](http://www.fei.com/locations/fei-brno/)
