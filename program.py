@@ -6,66 +6,79 @@ from utils import menu
 from talks import get_talks_dict
 from datetime import time, date, datetime
 
-den_d = date(2014, 5, 31)
+den_d = date(2015, 5, 23)
 
 times = [
         {'block_from': time(8, 30), 'block_to': time(9, 0), 'date': den_d, 'data': u'Otevření vstupu a registrace'},
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': den_d, 'data': u'Oficiální zahájení - D105'},
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
-            'e112': '8f420b99', # XXX dopoledne / 95x Lukáš Maňásek / Obchodování v 50 °C 
-            'd105': 'bb4031aa', # 383x Peter Krutý / Psychologie v Prezentovani 
-            'd0206': '227b8f4b', # 216x Swenia Toupalik / Photoshop finty, které vám ulehčí život 
-            'd0207': 'a9207afa', # 170x Karel Koupil / Inteligentní e-mailový marketing 
-            'e105': 'e053f529', # 105x Peter Širka / ♛ node.js v praxi + tvoríme v ňom moderné aplikácie (WebSocket, Angular.js, atď.) 
+            'd105': 'cf5c5d27', # 604x Petr Ludwig / Jak zlepšit svoje myšlení? 
+            'd0206': 'f3a76e01', # !!! musi byt rano 313x Robert Němec / Proč reklamní kampaně nefungují 
+            'd0207': 'e72aa5e7', # 225x Michal 'may' Hrubý / K úspěchu skrze přátele a lidi kolem nás 
+            'e104': '929531d7', # 163x Přemysl Krajčovič / Temná strana SCRUMu 
+            'e105': 'bcc82a1c', # 156x Evel Meckarov / Super Vzdělávání - 7 tajemství efektivního rozvoje a vzdělávání 
+            'e112': '28941568', # 72x Roman Kümmel / Vyhackuj si motorku aneb internetové soutěže pod kontrolou hackerů 
+
         }},
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
-            'e112': 'ee34d277', # XXX dopoledne nebo po obede / 134x Marcel Fejtek / 100 zemí, 100 zákonů a ještě více norem… aneb jak prodat chytrou krabičku do celého světa 
-            'd105': '469849be', # 391x Petr Ludwig / Jak najít osobní vizi, nejsilnější motivátor našeho života 
-            'd0206': '10338554', # 183x Martin Lutonský / Myšlení, náš chléb - základy denní osobní efeftivity 
-            'd0207': '2c9679ba', # XXX prvni nebo druhy cas / 149x Jan Řezáč / Jak vypsat výběrové řízení na web
-            'e105': 'bf617a48', # 107x Richard Fridrich / Selfies - experiment, ktorý som nenávidel 
+            'd105': 'f791244d', # 493x Petr Jezevec Pouchlý /  ! Nežerte motivační bullshit 
+            'd0206': '7cf2346d', # 324x !!! musi byt dopoledne Jan Řezáč / Krysí závody ♦ aneb webdesignerem snadno a rychle 
+            'd0207': 'ded0b30f', # 224x Jan Pospíšil / Jak se dělá Booking.com 
+            'e104': '0730ebea', # 171x Adam Motvička / Chci podnikat, ale nevím v čem ani jak! 
+            'e105': '5ae653b1', # 153x Ondřej Materna / Pár právních rad pro startupisty 
+            'e112': 'af161fe1', # 35x Ondřej Krátký / Liftago: 5 překážek úspěchu ve start-upu   
+
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
-            'e112': 'd4505563', # XXX 10:30 - 15:30 / 6x Kateřina Andrlová / Jak se pomáhá dětem v Africe 
-            'd105': '383123cb', # 322x Adam Herout / Tři principy veřejného mluvení 
-            'd0206': '4967fc68', # 179x Jiří Vicherek / Sex, cigarety a štěňátka - základy pick-up a networkingu 
-            'd0207': '713cde0b', # 167x Daniel Gamrot / Evernote aneb Neztrácejte čas hledáním informací 
-            'e105': '4df11c67', # 109x Vladimír Šandera / Jak využívat live chat jako marketingový nástroj - nový způsob komunikace na webu 
+            'd105': '9d9ad7c5', # 403x David Grudl / Můj první sex 
+            'd0206': '396d8174', # 236x Tereza Venerová / Návod na použití UX designera / For Dummies 
+            'd0207': 'a7848677', # 210x Michal Toman / Najděte FLOW ve své práci! 
+            'e104': 'ef5df8f9', # 173x Milan Tříska / Úspěšné inzertní strategie na Facebooku 
+            'e105': '41037bba', # 144x Barbora Nevosadova / Jak se dostat do novin 
+            'e112': '4279dcd8', # 13x !!! musi byt dopoledne Marek Vacek / Seznam.cz: AB testy, izomorfní aplikace, docker a machine learning 
+
+
         }},
-        {'block_from': time(12, 30), 'block_to': time(13, 10), 'date': den_d, 'data': u'Oběd'},
-        {'block_from': time(13, 20), 'block_to': time(13, 45), 'date': den_d, 'data': 
-            Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/doprovodny-program.html#kentico">Polštářová bitva</a>')},
+        {'block_from': time(12, 30), 'block_to': time(13, 45), 'date': den_d, 'data': u'Oběd'},
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
-            'e112': '79868619', # Brian Barsky
-            'd105': '5f9818b6', # 293x Filip Dřímalka / Absolut Lifehacks // How to Hack Your Work and Life 
-            'd0206': '949089ea', # 183x Jan Tomáš / Návratnost User Experience 
-            'd0207': '0a83d27a', # 154x Honza Slavík / Jak na projekty a nezbláznit se 
-            'e105': '9c658519', # 111x Michal Lupečka / Neprogramuj, pokud to není nezbytně nutné 
+            'd105': '910ce464', # 399x Michal Ondra / Umění ušetřit čas a delegovat 
+            'd0206': '31547b2d', # 254x Filip Dřímalka / To nejlepší z digitálních inovací - startupy, aplikace, online služby, technologie. Speciální narozeninová přednáška :) 
+            'd0207': '758228ab', # 208x Dušan Vystrčil / Návod na přežití v informační době: Jak se nepřesytit? 
+            'e104': 'f67dd771', # 177x Daniel Gamrot / Evernote prakticky pro každodenní použití 
+            'e105': 'ed7c7b25', # 130x Jana Leitnerová / 1 metoda, jak hasit komunikační průšvihy na sociálních sítích 
+            'e112': 'de9ce362', # 27x Hynek Heřmanský / Co říká vaše ucho vašemu mozku? 
+
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
-            'e112': 'cf0012e7', # 85x Stanislav Hacker / Javascript. Dobrý sluha, špatný pán 
-            'd105': 'c4853366', # 257x Berka BerkaUX / Svoboda v práci prakticky 
-            'd0206': 'd058b3b7', # 183x Jan "Kali" Kalianko / Já dělám to SEO dobře, jen vyhledávače ho zatím nepochopily... 
-            'd0207': '687362c6', # 147x Petr Bechyně / Jak neuspět se svým webem na internetu 
-            'e105': 'd68de999', # 111x Lukáš Nevosád / Android vs. iOS aneb Platform Wars! 
+            'd105': '3aadfecd', # 397x Martin Zákostelský / Oslovil jsem 208 holek během dvou měsíců: Jak to dopadlo a co jsem se díky tomu dozvěděl o ženách i o sobě 
+            'd0206': 'b3022215', # 257x Michal Hanych / V jaké formě začít podnikat? OSVČ nebo s.r.o.? 
+            'd0207': 'cd31f05c', # 196x Pavel Šíma / SEO, které zachraňuje životy 
+            'e104': 'ad97130f', # 178x BoBMarvan / Redesign webu za 5 dní 
+            'e105': 'c6563967', # !!! musi byt odpoledne 147x Tereza Jechová / MOJE STARÁ UŽ MĚ NEBAVÍ aneb jak si najít tu pravou... práci! 
+            'e112': 'dbdd7c64', # 27x Jan Bareš / Jazykový Guláš – aneb jak správně uvařit zdroje pro překladatele 
+
         }},
         {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': den_d, 'data': {
-            'e112': '2203f3fe', # 36x Jaroslav Homolka / Fair Play je investice 
-            'd105': '1a9fa56d', # 241x Evel Meckarov / SuperProjekťák - 7 tajemství projektového řízení - řešte všechno přes projekt a uspějete!  
-            'd0206': 'd58978e8', # 189x Marek Mencl / ---Jak si najít smysluplnou práci?--- 
-            'd0207': '99373761', # 140x Petr Halík / PPC dnes - jak vypadat mají, jak ne a proč umí rychle odpovídat na byznysové otázky 
-            'e105': 'ba1c1e72', # 124x Petr Jezevec Pouchlý / ☞ Zpověď korporátčíka od srdíčka ☜ 
+            'd105': 'd616d02c', # 386x Kristýna FitCoach Baštářová / Sedíte často, sedíte hodně?  Jak si nevysedět bolesti zad a zdravotní komplikace. 
+            'd0206': '7e1d6ac1', # 320x Kamil Gregor / Jak kriticky myslet? Praktický návod 
+            'd0207': '9e775a20', # 193x Pavel Lasak / Nechte za sebe pracovat Excel  
+            'e104': 'b9b7d53a', # 180x Michal Mervart / Jak sestavit skvělý brief a pomoci tím klientovi i sobě 
+            'e105': '1a5ab764', # 128x Berka BerkaUX / Jak se stát UX profesionálem aneb vzdělávání jinak 
+            'e112': '30fe233f', # 14x Vanda Cabanová / Czechitas - jak a proč děláme, co děláme 
+
         }},
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
-            'e112': 'b48aa7cb', # XXX po obede / 31x Janek Rubes / Jak se tvoří na Stream.cz 
-            'd105': 'e78df29f', # 233x Michal Hantl / Google Analytics pro startupy 
-            'd0206': 'fc52c755', # 178x Robert Němec / 10 věcí, které jsem se naučil při tvorbě nového webu RobertNemec.com 
-            'd0207': 'fd876707', # XXX po 15:45 / 156x Stanislav Gálik / The Best of Psychologie přesvědčování COMPILATION sex tape 
-            'e105': 'ed5f993f', # 113x Matej Kvasňovský / Agilný redesign rozsiahlej webovej aplikácie Kentico 
+            'd105': '4473a121', # 358x Martin Lutonský / 90% životopisů končí v koši. Aneb jak zajistit, aby mezi nimi nebyl i ten Váš! 
+            'd0206': '2d8aa867', # 352x Pavel Čech / Jak přednášet, aby vám ostatní naslouchali 
+            'd0207': '12e8241f', # 186x Lukáš Nevosád / Agilní řízení firmy 
+            'e104': '0ee2dc57', # 183x Jaroslav Kováč / Mistrovství v prezentacích #2: Jak konečně zapůsobit na emoce publika? 
+            'e105': 'd936dd8e', # 126x Adam Herout / Jak (ne)prznit statistiku 
+            'e112': '4779786a', # 7x Vladimír Coufal / Jak se vyvíjí 3D tiskárna 
+
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
         {'block_from': time(19, 0), 'block_to': time(23, 0), 'date': den_d,
-            'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/afterparty.html">Kentico Afterpárty</a>')},
+            'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/afterparty.html">Afterpárty</a>')},
     ]
 
 

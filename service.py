@@ -26,16 +26,35 @@ def service_vyvoleni():
         abort(418)
 
     talks, extra_talks = get_talks()
-    talks = talks[:28]
+    talks = talks[:35]
     output = io.BytesIO()
     writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
 
+    writer.writerow([
+        'video',
+        'name',
+        'email',
+        'web',
+        'company',
+        'twitter',
+        'title',
+        'detail_url'
+        'description',
+        'purpose',
+        'other'
+    ])
+
     for talk in extra_talks + talks:
-        print talk.keys()
         user = talk['user']
-        print user.keys()
         _ = [
-            talk['video'], user['name'], user['email'], talk['web'], talk['company'], talk['twitter'], talk['title'], 
+            talk['video'],
+            user['name'],
+            user['email'],
+            talk['web'],
+            talk['company'],
+            talk['twitter'],
+            talk['title'], 
+            'http://www.barcampbrno.cz%s' % url_for('talk_detail', talk_hash=talk['talk_hash']),
             talk['description'].replace("\r\n", "<br/>"),
             talk['purpose'].replace("\r\n", "<br/>"),
             talk['other'].replace("\r\n", "<br/>")
@@ -53,19 +72,19 @@ def service_do_programu():
         abort(418)
 
     talks, extra_talks = get_talks()
-    talks = talks[:28]
+    talks = talks[:35]
     output = io.BytesIO()
 
     for talk in extra_talks:
         user = talk['user']
-        #output.write(("'e112': '%s', # %sx %s / %s \r\n" % (talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
-        output.write(("e112: <%s>\r\n" % (user['email'])).encode('utf-8'))
+        output.write(("'e112': '%s', # %sx %s / %s \r\n" % (talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        #output.write(("e112: <%s>\r\n" % (user['email'])).encode('utf-8'))
     
-    rooms =  'd105', 'd0206', 'd0207', 'e104'
+    rooms =  'd105', 'd0206', 'd0207', 'e104', 'e105'
     for i, talk in enumerate(talks):
         user = talk['user']
-        #output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
-        output.write(("%s: <%s>\r\n" % (rooms[i//7], user['email'])).encode('utf-8'))
+        output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        #output.write(("%s: <%s>\r\n" % (rooms[i//7], user['email'])).encode('utf-8'))
       
 
     return Response(output.getvalue(), mimetype="text/plain")
