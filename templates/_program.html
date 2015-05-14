@@ -11,6 +11,19 @@
 {% endif %}
 {%- endmacro %}
 
+{% macro format_workshop_td(workshop) -%}
+{% if workshop.user %}
+<td 
+    style="text-align: center; {% if workshop.rows > 1%}vertical-align: middle{% endif %}" 
+    {% if workshop.rows %}rowspan="{{workshop.rows}}"{% endif %}>
+    <p>
+        <strong>{{workshop.user}}</strong><br />
+        <small><a href="{{url_for('static_page', page='workshopy')}}">{{workshop.title}}</a></small>
+    </p>
+</td>
+{% endif %}
+{%- endmacro %}
+
 <h2>Program Barcampu</h2>
 <h3>Sobota 23.5.2015</h3>
 <ul>
@@ -26,6 +39,8 @@
     <th style="text-align: center">D0207</th>
     <th style="text-align: center">E104</th>
     <th style="text-align: center">E105</th>
+    <th style="text-align: center">A112</th>
+    <th style="text-align: center">A113</th>
 </tr>
 <tr>
     <th>Moderuje</th>
@@ -35,6 +50,7 @@
     <th style="text-align: center">Jan Markel a Michal Španěl</th>
     <th style="text-align: center">Pavla Doláková</th>
     <th style="text-align: center">Jiří Kaláček</th>
+    <th style="text-align: center" colspan="2">WORKSHOPY</th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
@@ -46,8 +62,12 @@
         {{format_talk_td(t.data.d0207)}}
         {{format_talk_td(t.data.e104)}}
         {{format_talk_td(t.data.e105)}}
-    {% else %}
+        {{format_workshop_td(t.data.a112)}}
+        {{format_workshop_td(t.data.a113)}}
+    {% elif t.data == "Oběd" %}
         <td colspan="6" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+    {% else %}
+        <td colspan="8" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% endif %}
 </tr>
 {% endfor %}

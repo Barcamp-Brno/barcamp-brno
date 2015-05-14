@@ -21,6 +21,8 @@
                 <li>D0206:{{format_talk_a(t.data.d0206)}}</li>
                 <li>D0207:{{format_talk_a(t.data.d0207)}}</li>
                 <li>E104:{{format_talk_a(t.data.e105)}}</li>
+                <li>A112:{{format_workshop_a(t.data.a112)}}</li>
+                <li>A113:{{format_workshop_a(t.data.a113)}}</li>
             </ul>
         {% else %}
             <p><strong>{{t.data}}</strong></p>
@@ -35,8 +37,18 @@
 {% endblock %}
 {% macro format_talk_a(hash) -%}
 {% if hash %}
+    Přednáška: 
     <strong>{{talks[hash].user.name}}</strong>
     <a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title}}</a>
+{% else %}
+&mdash;
+{% endif %}
+{%- endmacro %}
+{% macro format_workshop_a(workshop) -%}
+{% if workshop.user %}
+    Workshop: 
+    <strong>{{workshop.user}}</strong>
+    <a href="{{url_for('static_page', page="workshopy")}}">{{workshop.title}}</a>
 {% else %}
 &mdash;
 {% endif %}

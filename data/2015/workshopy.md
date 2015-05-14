@@ -34,6 +34,9 @@ Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci o
 Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
 
 #### Symfony2 / František Kohout [na LinkedIn](https://cz.linkedin.com/pub/franti%C5%A1ek-kohout/34/1a3/8b8)
+ - celkem 20 míst
+ - čas 2 hodiny
+ 
 Nejdříve si projdeme praktické základy Symfony2, nainstalujeme framework, zkusíme si nastavit jeho základní parametry a vytvoříme tzv. bundle, nebo-li projekt. 
 
 Dále představím MVC architekturu v tomto frameworku následuje první HELLO WORLD.
