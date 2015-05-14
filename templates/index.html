@@ -62,11 +62,11 @@
                     {% if loop.index == 1%}
                         <h3>Barcamp zve <small><a href="{{url_for('static_page', page='barcamp-zve')}}">Co je to?</a></small></h3>
                     {% else %}
-                        <h3>Volený program <small>(28 míst)</small></h3>
+                        <h3>Volený program <small>(35 míst)</small></h3>
                     {% endif %}
                     <table class="table" id="talks">
                         {% for talk in data %}
-                        <tr class="{{'fail' if loop.index > 28 and 'VOTING_END' in config.STAGES }}">
+                        <tr class="{{'fail' if loop.index > 35 and 'VOTING_END' in config.STAGES }}">
                             <th>
                                 {% if "VOTING_END" in config.STAGES %}
                                 <span class="number">{{loop.index}}.</span> {% endif %} 
