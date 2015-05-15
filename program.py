@@ -71,7 +71,7 @@ times = [
             'd105': 'd616d02c', # 386x Kristýna FitCoach Baštářová / Sedíte často, sedíte hodně?  Jak si nevysedět bolesti zad a zdravotní komplikace. 
             'd0206': '7e1d6ac1', # 320x Kamil Gregor / Jak kriticky myslet? Praktický návod 
             'd0207': '9e775a20', # 193x Pavel Lasak / Nechte za sebe pracovat Excel  
-            'e104': 'b9b7d53a', # 180x Michal Mervart / Jak sestavit skvělý brief a pomoci tím klientovi i sobě 
+            'e104': '0ee2dc57', # 183x Jaroslav Kováč / Mistrovství v prezentacích #2: Jak konečně zapůsobit na emoce publika? 
             'e105': '1a5ab764', # 128x Berka BerkaUX / Jak se stát UX profesionálem aneb vzdělávání jinak 
             'e112': '30fe233f', # 14x Vanda Cabanová / Czechitas - jak a proč děláme, co děláme 
             'a112': {'rows': 2, 'user': u'Veronika Klimešová & Radek Dobrovolný', 'title': u'Pro-Action Café: Jak vyřešit problém a nepohádat se u toho'},
@@ -81,7 +81,7 @@ times = [
             'd105': '4473a121', # 358x Martin Lutonský / 90% životopisů končí v koši. Aneb jak zajistit, aby mezi nimi nebyl i ten Váš! 
             'd0206': '2d8aa867', # 352x Pavel Čech / Jak přednášet, aby vám ostatní naslouchali 
             'd0207': '12e8241f', # 186x Lukáš Nevosád / Agilní řízení firmy 
-            'e104': '0ee2dc57', # 183x Jaroslav Kováč / Mistrovství v prezentacích #2: Jak konečně zapůsobit na emoce publika? 
+            'e104': 'b9b7d53a', # 180x Michal Mervart / Jak sestavit skvělý brief a pomoci tím klientovi i sobě 
             'e105': 'd936dd8e', # 126x Adam Herout / Jak (ne)prznit statistiku 
             'e112': '4779786a', # 7x Vladimír Coufal / Jak se vyvíjí 3D tiskárna 
             'a112': {},
