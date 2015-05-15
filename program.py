@@ -48,7 +48,7 @@ times = [
         }},
         {'block_from': time(12, 30), 'block_to': time(13, 45), 'date': den_d, 'data': u'Oběd'},
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
-            'd105': '910ce464', # 399x Michal Ondra / Umění ušetřit čas a delegovat 
+            'd105': '3aadfecd', # 397x Martin Zákostelský / Oslovil jsem 208 holek během dvou měsíců: Jak to dopadlo a co jsem se díky tomu dozvěděl o ženách i o sobě 
             'd0206': '31547b2d', # 254x Filip Dřímalka / To nejlepší z digitálních inovací - startupy, aplikace, online služby, technologie. Speciální narozeninová přednáška :) 
             'd0207': '758228ab', # 208x Dušan Vystrčil / Návod na přežití v informační době: Jak se nepřesytit? 
             'e104': 'f67dd771', # 177x Daniel Gamrot / Evernote prakticky pro každodenní použití 
@@ -58,7 +58,7 @@ times = [
             'a113': {'rows': 2, 'user': u'Jasmína Henniová', 'title': u'Prezentační dovednosti v praxi'},
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
-            'd105': '3aadfecd', # 397x Martin Zákostelský / Oslovil jsem 208 holek během dvou měsíců: Jak to dopadlo a co jsem se díky tomu dozvěděl o ženách i o sobě 
+            'd105': '910ce464', # 399x Michal Ondra / Umění ušetřit čas a delegovat 
             'd0206': 'b3022215', # 257x Michal Hanych / V jaké formě začít podnikat? OSVČ nebo s.r.o.? 
             'd0207': 'cd31f05c', # 196x Pavel Šíma / SEO, které zachraňuje životy 
             'e104': 'ad97130f', # 178x BoBMarvan / Redesign webu za 5 dní 
