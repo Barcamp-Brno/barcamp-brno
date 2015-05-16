@@ -14,7 +14,7 @@
 {% macro format_workshop_td(workshop) -%}
 {% if workshop.user %}
 <td 
-    style="text-align: center; {% if workshop.rows > 1%}vertical-align: middle{% endif %}" 
+    style="text-align: center;" 
     {% if workshop.rows %}rowspan="{{workshop.rows}}"{% endif %}>
     <p>
         <strong>{{workshop.user}}</strong><br />
