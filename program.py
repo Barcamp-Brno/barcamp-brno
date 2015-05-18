@@ -19,7 +19,7 @@ times = [
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'd105': 'cf5c5d27', # 604x Petr Ludwig / Jak zlepšit svoje myšlení? 
             'd0206': 'f3a76e01', # !!! musi byt rano 313x Robert Němec / Proč reklamní kampaně nefungují 
-            'd0207': 'e72aa5e7', # 225x Michal 'may' Hrubý / K úspěchu skrze přátele a lidi kolem nás 
+            'd0207': 'ded0b30f', # 224x Jan Pospíšil / Jak se dělá Booking.com
             'e104': '929531d7', # 163x Přemysl Krajčovič / Temná strana SCRUMu 
             'e105': 'bcc82a1c', # 156x Evel Meckarov / Super Vzdělávání - 7 tajemství efektivního rozvoje a vzdělávání 
             'e112': '28941568', # 72x Roman Kümmel / Vyhackuj si motorku aneb internetové soutěže pod kontrolou hackerů 
@@ -29,7 +29,7 @@ times = [
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
             'd105': 'f791244d', # 493x Petr Jezevec Pouchlý /  ! Nežerte motivační bullshit 
             'd0206': '7cf2346d', # 324x !!! musi byt dopoledne Jan Řezáč / Krysí závody ♦ aneb webdesignerem snadno a rychle 
-            'd0207': 'ded0b30f', # 224x Jan Pospíšil / Jak se dělá Booking.com 
+            'd0207': 'e72aa5e7', # 225x Michal 'may' Hrubý / K úspěchu skrze přátele a lidi kolem nás
             'e104': '0730ebea', # 171x Adam Motvička / Chci podnikat, ale nevím v čem ani jak! 
             'e105': '5ae653b1', # 153x Ondřej Materna / Pár právních rad pro startupisty 
             'e112': 'af161fe1', # 35x Ondřej Krátký / Liftago: 5 překážek úspěchu ve start-upu   
