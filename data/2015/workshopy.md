@@ -31,9 +31,9 @@ Zo sebou nie je treba priniesť nič okrem dobrej nálady a vôle sa naučiť ni
 
 Říká se, že umět programovat je něco jako mít superschopnosti. Co ale říkáte na to mít ty stejné superschopnosti, ale bez nutnosti učit se programovat? Co kdyby Vaše představa o webové aplikaci šla prostě naklikat?
 
-Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci od datových struktur, uživatelského rozhraní až třeba po automatizaci a řízení oprávnění. Pomáhat vám budou zkušení lektoři, takže se k cíli může dostat opravdu každý.
- 
-Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
+Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci od datových struktur, uživatelského rozhraní až třeba po automatizaci a řízení oprávnění. 
+
+Každý účastník dostane k dispozici připravenou instalaci Drupalu, na Vás bude si jen přinést svůj počítač s webovým prohlížečem.
 
 <a name="kohout"></a>
 #### Symfony2 / František Kohout [na LinkedIn](https://cz.linkedin.com/pub/franti%C5%A1ek-kohout/34/1a3/8b8)
