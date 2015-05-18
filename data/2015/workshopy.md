@@ -11,6 +11,7 @@ Pro workshopy máme vyhrazeny 2 běžné posluchárny a celkem jsme schopni v ka
 
 Pro registraci workshopů nemáme žádný specializovaný formulář, takže kdo by měl zájem nabídnout nějaké téma workshopu napište mailem Petrovi Joachimovi - <petr@joachim.cz> a domluvíme to už individuálně.
 
+<a name="cipov"></a>
 ### Seznam workshopů
 #### Coding Dojo / Peter Cipov [@Peter_Cipov](https://twitter.com/Peter_Cipov)
  - celkem 10 míst
@@ -23,6 +24,7 @@ Riešite, že váš kód je neprehľadný, ťažko sa rozširuje a obsahuje veľ
 
 Zo sebou nie je treba priniesť nič okrem dobrej nálady a vôle sa naučiť niečo nové ;)
 
+<a name="poboril"></a>
 #### Drupal kickstart pro úplné začátečníky / Jan Pobořil [@janpoboril](https://twitter.com/janpoboril)
  - celkem 25 míst
  - čas 2 hodiny
@@ -33,6 +35,7 @@ Na tomto workshopu se naučite v Drupalu sestavit jednoduchou webovou aplikaci o
  
 Abychom vám vyšli vstříc, tak v posledním týdnu před Barcampem rozešleme dotazník, kde se budete moci vyjádřit co si chcete zkusit postavit. Asi nevyhovíme všem, ale pokusíme se co nejvíce to půjde.
 
+<a name="kohout"></a>
 #### Symfony2 / František Kohout [na LinkedIn](https://cz.linkedin.com/pub/franti%C5%A1ek-kohout/34/1a3/8b8)
  - celkem 20 míst
  - čas 2 hodiny
@@ -45,6 +48,7 @@ V poslední hodince si zkusíme vytvořit nějaké testovací objekty, osaháme 
 
 Minimální požadavky na workshop pokud budou chtít zájemci programovat a ne jen pozorovat a makat na svých strojích, je určitě dobré mít nainstalované a plně funkční prostředí pro vývoj PHP a MySQL. Ideálně třema XAMPP. Dále v případě Windows funkční globální proměnnou PHP aby jim šli spouštět příkazy začínající na PHP např php <? echo "HELLO WORLD"; ?> 
 
+<a name="klimesova"></a>
 #### Pro-Action Café: Jak vyřešit problém a nepohádat se u toho / Veronika Klimešová [na LinkedIn](http://uk.linkedin.com/in/veroklimesova) & Radek Dobrovolný [na LinkedIn](http://www.linkedin.com/in/radekdobrovolny)
  - celkem 20 míst
  - čas 2 hodiny
@@ -55,6 +59,7 @@ Na našem workshopu vám předáme naše know-how a zkusíme najít odpověď na
 
 Pro-Action Café je efektivní metoda pro řešení problémů ve větším počtu lidí, úspěšně vyzkoušená na brněnských [Education Hackathonech](http://eduhackcz.weebly.com/).
 
+<a name="brumbalova"></a>
 #### Komunikační improvizace / Albina Brumbálová [@Brumbalova](https://twitter.com/Brumbalova) & Richard Gracla
  - celkem 2x 30 lidí
  - čas 2x 1 hodina
@@ -71,30 +76,35 @@ Pro každého, kdo se chce naučit komunikovat na vysoké úrovni a argumentovat
 
 Kdo se navíc osmělí a zapojí se plně do řady interaktivních komunikačních a argumentačních aktivit, připravovaných naším zkušeným týmem, si odnese vůbec nejvíc!
 
+<a name="henniova"></a>
 #### Prezentační dovednosti v praxi / Jasmína Henniová [na LinkedIn](https://www.linkedin.com/pub/jasmina-henniova/75/625/126)
  - celkem 10 lidí
  - čas 90 minut
 
 Bojíte se mluvit na veřejnosti? Anebo si to užíváte a rádi byste se ještě zlepšili? Přijďte si to vyzkoušet na vlastní kůži v malé skupince lidí, kde každý dostane prostor. Přijďte si poslechnout tipy a triky jak mluvit před lidmi a jak se zbavit trémy. Přijďte se naučit něco, co využijete v praxi.
 
+<a name="bobek"></a>
 #### Agile versus Waterfall fight / Martin Bobek [@martinbobek](https://twitter.com/martinbobek) & Petr Flégl [@panflegl](https://twitter.com/panflegl)
  - celkem hodně lidí (v případě dobrého počasí neomezeně)
  - čas 1 hodina
 
 Zažijete na vlastní kůži, jaké to je dělat věci vodopádovým modelem a agilním přístupem. Budeme si hodně hrát a bude to bolet.
              
+<a name="kummel"></a>
 #### Vyhackujte si webovou soutěž / Roman Kümmel [na LinkedIn](https://www.linkedin.com/pub/roman-k%C3%BCmmel/55/770/673)
  - celkem 20 lidí
  - čas 1 hodina
 
 Staňte se na hodinu členem hackerské komunity a vyhrajte webovou soutěž díky své šikovnosti a chabému zabezpečení aplikace
  
+<a name="krajcovic"></a>
 #### Agile testing prostřednictvím reality / Přemysl Krajčovič [na LinkedIn](https://www.linkedin.com/in/premyslkrajcovic)
  - celkem 20 lidí
  - čas 1 hodina
 
 Bez počítače a technologií pomocí her zaměřených na reálné prostředí si zažijete situace, které vám pomůřou otevřít oči co, kdy, kým a jak testovat
  
+<a name="siller"></a>
 #### Uživatelské testování z tajné místnosti / Petr Šiller [@petrsiller](https://twitter.com/petrsiller)
  - celkem 20 lidí
  - čas 1 hodina

@@ -48,7 +48,7 @@
 {% if workshop.user %}
     Workshop: 
     <strong>{{workshop.user}}</strong>
-    <a href="{{url_for('static_page', page="workshopy")}}">{{workshop.title}}</a>
+    <a href="{{url_for('static_page', page="workshopy")}}#{{workshop.anchor}}">{{workshop.title}}</a>
 {% else %}
 &mdash;
 {% endif %}

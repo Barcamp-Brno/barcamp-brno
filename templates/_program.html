@@ -18,7 +18,7 @@
     {% if workshop.rows %}rowspan="{{workshop.rows}}"{% endif %}>
     <p>
         <strong>{{workshop.user}}</strong><br />
-        <small><a href="{{url_for('static_page', page='workshopy')}}">{{workshop.title}}</a></small>
+        <small><a href="{{url_for('static_page', page='workshopy')}}#{{workshop.anchor}}">{{workshop.title}}</a></small>
     </p>
 </td>
 {% endif %}
