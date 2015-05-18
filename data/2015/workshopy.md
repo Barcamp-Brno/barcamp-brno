@@ -105,7 +105,7 @@ Staňte se na hodinu členem hackerské komunity a vyhrajte webovou soutěž dí
 Bez počítače a technologií pomocí her zaměřených na reálné prostředí si zažijete situace, které vám pomůřou otevřít oči co, kdy, kým a jak testovat
  
 <a name="siller"></a>
-#### Uživatelské testování z tajné místnosti / Petr Šiller [@petrsiller](https://twitter.com/petrsiller)
+#### Uživatelské testování v praxi / Petr Šiller [@petrsiller](https://twitter.com/petrsiller)
  - celkem 20 lidí
  - čas 1 hodina
 

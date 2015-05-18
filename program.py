@@ -64,7 +64,7 @@ times = [
             'e104': 'ad97130f', # 178x BoBMarvan / Redesign webu za 5 dní 
             'e105': 'c6563967', # !!! musi byt odpoledne 147x Tereza Jechová / MOJE STARÁ UŽ MĚ NEBAVÍ aneb jak si najít tu pravou... práci! 
             'e112': 'dbdd7c64', # 27x Jan Bareš / Jazykový Guláš – aneb jak správně uvařit zdroje pro překladatele 
-            'a112': {'rows': 1, 'anchor': 'siller', 'user': u'Petr Šiller', 'title': u'Uživatelské testování z tajné místnosti'},
+            'a112': {'rows': 1, 'anchor': 'siller', 'user': u'Petr Šiller', 'title': u'Uživatelské testování v praxi'},
             'a113': {},
         }},
         {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': den_d, 'data': {
