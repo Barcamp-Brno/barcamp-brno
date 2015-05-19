@@ -64,7 +64,7 @@
         {{format_talk_td(t.data.e105)}}
         {{format_workshop_td(t.data.a112)}}
         {{format_workshop_td(t.data.a113)}}
-    {% elif t.data == "Oběd" %}
+    {% elif t.data.find("Oběd") >= 0 %}
         <td colspan="6" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% else %}
         <td colspan="8" style="text-align: center; vertical-align: middle">{{t.data}}</td>
