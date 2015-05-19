@@ -21,7 +21,7 @@ times = [
             'd0206': 'f3a76e01', # !!! musi byt rano 313x Robert Němec / Proč reklamní kampaně nefungují 
             'd0207': 'ded0b30f', # 224x Jan Pospíšil / Jak se dělá Booking.com
             'e104': '929531d7', # 163x Přemysl Krajčovič / Temná strana SCRUMu 
-            'e105': 'bcc82a1c', # 156x Evel Meckarov / Super Vzdělávání - 7 tajemství efektivního rozvoje a vzdělávání 
+            'e105': 'fe443e30', # 0x Petr Joachim / MetaBarcamp - co jsou klíčové vlastnosti Barcampu?
             'e112': '28941568', # 72x Roman Kümmel / Vyhackuj si motorku aneb internetové soutěže pod kontrolou hackerů 
             'a112': {'rows': 2, 'anchor': 'cipov', 'user': u'Peter Cipov', 'title': u'Coding Dojo'},
             'a113': {'rows': 2, 'anchor': 'poboril', 'user': u'Jan Pobořil', 'title': u'Drupal kickstart pro úplné začátečníky'},
@@ -84,7 +84,7 @@ times = [
             'd0206': '2d8aa867', # 352x Pavel Čech / Jak přednášet, aby vám ostatní naslouchali 
             'd0207': '12e8241f', # 186x Lukáš Nevosád / Agilní řízení firmy 
             'e104': 'b9b7d53a', # 180x Michal Mervart / Jak sestavit skvělý brief a pomoci tím klientovi i sobě 
-            'e105': 'fe443e30', # 0x Petr Joachim / MetaBarcamp - co jsou klíčové vlastnosti Barcampu?
+            'e105': 'bcc82a1c', # 156x Evel Meckarov / Super Vzdělávání - 7 tajemství efektivního rozvoje a vzdělávání 
             'e112': '4779786a', # 7x Vladimír Coufal / Jak se vyvíjí 3D tiskárna 
             'a113': {'rows': 1, 'anchor': 'kummel', 'user': u'Roman Kümmel', 'title': u'Vyhackujte si webovou soutěž'},
             'a112': {},
