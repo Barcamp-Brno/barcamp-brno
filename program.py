@@ -56,7 +56,7 @@ times = [
             'e104': 'f67dd771', # 177x Daniel Gamrot / Evernote prakticky pro každodenní použití 
             'e105': 'ed7c7b25', # 130x Jana Leitnerová / 1 metoda, jak hasit komunikační průšvihy na sociálních sítích 
             'e112': 'de9ce362', # 27x Hynek Heřmanský / Co říká vaše ucho vašemu mozku? 
-            'a112': {'rows': 1, 'anchor': 'kummel', 'user': u'Roman Kümmel', 'title': u'Vyhackujte si webovou soutěž'},
+            'a112': {'rows': 1, 'anchor': 'krajcovic', 'user': u'Přemysl Krajčovič', 'title': u'Agile testing prostřednictvím reality'},
             'a113': {'rows': 2, 'anchor': 'henniova', 'user': u'Jasmína Henniová', 'title': u'Prezentační dovednosti v praxi'},
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
@@ -86,8 +86,8 @@ times = [
             'e104': 'b9b7d53a', # 180x Michal Mervart / Jak sestavit skvělý brief a pomoci tím klientovi i sobě 
             'e105': 'fe443e30', # 0x Petr Joachim / MetaBarcamp - co jsou klíčové vlastnosti Barcampu?
             'e112': '4779786a', # 7x Vladimír Coufal / Jak se vyvíjí 3D tiskárna 
+            'a113': {'rows': 1, 'anchor': 'kummel', 'user': u'Roman Kümmel', 'title': u'Vyhackujte si webovou soutěž'},
             'a112': {},
-            'a113': {'rows': 1, 'anchor': 'krajcovic', 'user': u'Přemysl Krajčovič', 'title': u'Agile testing prostřednictvím reality'},
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
         {'block_from': time(19, 0), 'block_to': time(23, 0), 'date': den_d,
