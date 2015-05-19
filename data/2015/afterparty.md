@@ -4,6 +4,7 @@ Afterpárty
 místo konání afterpárty je stejně jako loni *Risto Pizza Pub Tusto* na adrese:
 
  - [Nové sady 996/25, 602 00 Staré Brno](http://mapy.cz/s/i5kO)
+ - začátek v _19.00_
 
 na místo lze dojet tramvají číslo 1 přímo ze zastávky Semilasso (tam je Barcamp) na zastávku Nové Sady. Parkovat pak můžete na parkovišti u Tesca, které je pod nádražím (za podjezdem).
 
