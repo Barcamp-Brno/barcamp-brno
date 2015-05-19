@@ -14,10 +14,7 @@ Těší se na vás celý organizátorský tým včetně slovutného otce Fourase
 
 ### Pravidla hry a stručný průběh:
 
-Účastníci se do soutěže zapojí účastí na konkrétní hře u vybraného partnera viz výše.
-
-Cílem je dokončit popř. vyhrát jednotlivé minihry u celkem 5 vybraných partnerů a získat speciální pásky spolu s konkrétním písmenem tajenky. V případě neúspěchu lze získat indícii (hádanku) přispěním částky u stánku Bwindi. Tato indície povede k vyluštění tajenky
-
-Účastníci nárokují výhru v soutěži na recepci se vstupní registrací po předložení všech 5 pásků popř. zakoupených indicií a správným heslem tajenky
-
-Výhry se po splnění výše uvedeného předávají na recepci se vstupní registrací
+ 1. Účastníci se do soutěže zapojí účastí na konkrétní hře u vybraného partnera viz výše. 
+ 2. Cílem je dokončit popř. vyhrát jednotlivé minihry u celkem 5 vybraných partnerů a získat speciální pásky spolu s konkrétním písmenem tajenky. V případě neúspěchu lze získat indícii (hádanku) přispěním částky u stánku Bwindi. Tato indície povede k vyluštění tajenky
+ 3. Účastníci nárokují výhru v soutěži na recepci se vstupní registrací po předložení všech 5 pásků popř. zakoupených indicií a správným heslem tajenky
+ 4. Výhry se po splnění výše uvedeného předávají na recepci se vstupní registrací
