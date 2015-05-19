@@ -15,7 +15,7 @@ Letos nově jsme do programu zařadili na zkoušku i workshopy, které budou pro
 Doprovodný program
 ======================
 
-Během akce bude probíhat doprovodný program partnerů můžete se podívat na křupavé bugy u EmbedITu, obléknout se za bojivníka Sumo u Kentica či soutěžit o architektonické lego s Tripomaticem. Jo, a ještě si můžete prohlídnout Teslu Model S od Liftaga, které tento týden nastartovalo svou dráhu v Brně.
+Během akce bude probíhat doprovodný program partnerů můžete se podívat na křupavé bugy u EmbedITu, obléknout se za bojovníka Sumo u Kentica či soutěžit o architektonické lego s Tripomaticem. Jo, a ještě si můžete prohlídnout Teslu Model S od Liftaga, které tento týden nastartovalo svou dráhu v Brně.
 
 Občerstvení 
 =============
