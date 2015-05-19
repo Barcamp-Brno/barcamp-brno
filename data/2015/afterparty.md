@@ -1,7 +1,7 @@
 Afterpárty
 ----------
 
-místo konání afterpárty je stejně jako loni *Risto Pizza Pub Tusto* na adrese:
+místo konání afterpárty je stejně jako loni **Risto Pizza Pub Tusto** na adrese:
 
  - [Nové sady 996/25, 602 00 Staré Brno](http://mapy.cz/s/i5kO)
  - začátek v _19.00_
