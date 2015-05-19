@@ -46,7 +46,9 @@ times = [
             'a112': {'rows': 2, 'anchor': 'brumbalova', 'user': u'Albina Brumbálová & Richard Gracla', 'title': u'Komunikační improvizace'},
             'a113': {'rows': 2, 'anchor': 'kohout', 'user': u'František Kohout', 'title': u'Symfony2'},
         }},
-        {'block_from': time(12, 30), 'block_to': time(13, 45), 'date': den_d, 'data': u'Oběd'},
+        {'block_from': time(12, 30), 'block_to': time(13, 45), 'date': den_d, 'data':
+            Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/obcerstveni.html">Oběd</a>')
+        },
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
             'd105': '3aadfecd', # 397x Martin Zákostelský / Oslovil jsem 208 holek během dvou měsíců: Jak to dopadlo a co jsem se díky tomu dozvěděl o ženách i o sobě 
             'd0206': '31547b2d', # 254x Filip Dřímalka / To nejlepší z digitálních inovací - startupy, aplikace, online služby, technologie. Speciální narozeninová přednáška :) 
