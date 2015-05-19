@@ -128,9 +128,9 @@ def poslani_newsletteru():
         app.redis.srem('newsletter', mail)
 
         send_mail(
-            u'Barcamp Brno 2014, ohlédnutí za akcí',
+            u'Manuál návštěvníka Barcamp Brno 2015',
             '', #mail,
-            'data/newsletter.md')
+            'data/newsletter-before.md')
 
     return 'omg2'
 
@@ -142,9 +142,9 @@ def test_newsletteru():
         abort(418)
 
     send_mail(
-        u'Barcamp Brno 2013, ohlédnutí za akcí',
-        'tomas@sotoniak.cz',
-        'data/newsletter.md')
+        u'Manuál návštěvníka Barcamp Brno 2015',
+        'petr@joachim.cz',
+        'data/newsletter-before.md')
 
     return 'uff'
 
