@@ -20,7 +20,7 @@ if __name__ == '__main__':
         'TESTING': True,
         'SECRET_KEY': 'jednadvehonzajde',
         'YEAR': "2015",
-        'STAGES': ['VOTING_END', 'USERS']
+        'STAGES': ['VOTING_END', 'PROGRAM_READY', 'USERS']
     }
 
     config.update(os.environ)

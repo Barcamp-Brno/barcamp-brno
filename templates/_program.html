@@ -27,8 +27,8 @@
 <h2>Program Barcampu</h2>
 <h3>Sobota 23.5.2015</h3>
 <ul>
-    <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li>
-        <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
+    <!-- <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li> -->
+    <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
 </ul>
 <table class="table table-condensed">
 <tr>
@@ -50,7 +50,7 @@
     <th style="text-align: center">Jan Markel a Michal Španěl</th>
     <th style="text-align: center">Pavla Doláková</th>
     <th style="text-align: center">Jiří Kaláček</th>
-    <th style="text-align: center" colspan="2">WORKSHOPY</th>
+    <th style="text-align: center" colspan="2"><a href="{{url_for('static_page', page='workshopy')}}">Workshopy</a></th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
