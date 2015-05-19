@@ -14,7 +14,7 @@ Josepha bychom chtěli podpořit i letos, ale bez Vaší pomoci to však nezvlá
  - Zastav se na stánku bwindi
  - Ochutnejte kávu a nebo jinou dobrotu z Ugandy a přispějte na Josepha libovolnou částkou.
  - Zapoj se do soutěže [Pevnost Barcamp](/2015/stranka/soutez.html)
- - Udělej si fotku na [afterparty](/2015/stranka/afterparty.html)
+ - Udělej si fotku [na afterpárty](/2015/stranka/afterparty.html)
 
 Za odměnu pro vás na stánku Bwindi bude připravena ochutnávka Ugandské kávy a čokolády.
 
