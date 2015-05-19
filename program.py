@@ -84,7 +84,7 @@ times = [
             'd0206': '2d8aa867', # 352x Pavel Čech / Jak přednášet, aby vám ostatní naslouchali 
             'd0207': '12e8241f', # 186x Lukáš Nevosád / Agilní řízení firmy 
             'e104': 'b9b7d53a', # 180x Michal Mervart / Jak sestavit skvělý brief a pomoci tím klientovi i sobě 
-            'e105': 'd936dd8e', # 126x Adam Herout / Jak (ne)prznit statistiku 
+            'e105': 'fe443e30', # 0x Petr Joachim / MetaBarcamp - co jsou klíčové vlastnosti Barcampu?
             'e112': '4779786a', # 7x Vladimír Coufal / Jak se vyvíjí 3D tiskárna 
             'a112': {},
             'a113': {'rows': 1, 'anchor': 'krajcovic', 'user': u'Přemysl Krajčovič', 'title': u'Agile testing prostřednictvím reality'},
