@@ -17,7 +17,7 @@
 <div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
 {% endif %}
 {{talk.description|nl2br}}
-<h3>Pro koho je přednáška určena</h3>
+<h3>Pro koho je {% if talk.talk_hash == "fe443e30" %}NEpřednáška{% else %}přednáška{% endif %} určena</h3>
 {{talk.purpose|nl2br}}
 <h3>Komentáře</h3>
 <div id="disqus_thread"></div>
