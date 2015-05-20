@@ -39,7 +39,7 @@ Po celém dni přijde vhod se jít neformálně pobavit s ostatními na afterpá
 
 Kdyby Tě cokoli napadlo, dej nám vědět a rádi Ti odpovíme
 
-Petr Joachim_za celý tým Barcamp Brno_
+Petr Joachim _za celý tým Barcamp Brno_
 
 <http://www.barcampbrno.cz/2015/stranka/kontakty.html>
 
