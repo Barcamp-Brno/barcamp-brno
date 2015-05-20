@@ -14,7 +14,7 @@ den_d = date(2015, 5, 23)
 }
 
 times = [
-        {'block_from': time(8, 30), 'block_to': time(9, 0), 'date': den_d, 'data': u'Otevření vstupu a registrace'},
+        {'block_from': time(8, 30), 'block_to': time(9, 0), 'date': den_d, 'data': u'Otevření vstupu a registrací (ty jsou otevřeny po celý den)'},
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': den_d, 'data': u'Oficiální zahájení - D105'},
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'd105': 'cf5c5d27', # 604x Petr Ludwig / Jak zlepšit svoje myšlení? 
