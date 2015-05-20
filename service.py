@@ -129,7 +129,7 @@ def poslani_newsletteru():
 
         send_mail(
             u'Manuál návštěvníka Barcamp Brno 2015',
-            mail,
+            "", #mail,
             'data/newsletter-before.md')
 
     return 'omg2'
