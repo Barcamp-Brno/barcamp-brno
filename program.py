@@ -64,7 +64,7 @@ times = [
             'd0206': 'b3022215', # 257x Michal Hanych / V jaké formě začít podnikat? OSVČ nebo s.r.o.? 
             'd0207': 'cd31f05c', # 196x Pavel Šíma / SEO, které zachraňuje životy 
             #'e104': 'ad97130f', # 178x BoBMarvan / Redesign webu za 5 dní 
-            'e114': {},
+            'e104': '81ba8596', # kerbal space.
             'e105': 'c6563967', # !!! musi byt odpoledne 147x Tereza Jechová / MOJE STARÁ UŽ MĚ NEBAVÍ aneb jak si najít tu pravou... práci! 
             'e112': 'dbdd7c64', # 27x Jan Bareš / Jazykový Guláš – aneb jak správně uvařit zdroje pro překladatele 
             'a112': {'rows': 1, 'anchor': 'siller', 'user': u'Petr Šiller', 'title': u'Uživatelské testování v praxi'},
