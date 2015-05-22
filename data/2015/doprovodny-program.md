@@ -3,12 +3,12 @@ Doprovodný program
 
 ### Embedit
 #### O partnerovi
-EmbedIT je tým IT profesionálů, kteří poskytují servis pro Home Credit Group a Air Bank (PPF Group). Navrhují, vyvíjí a udržují systémy a aplikace, které slouží více než 44 milionům uživatelů v deseti zemích. 
+EmbedIT is a team of IT professionals providing services to the Home Credit Group and Air Bank (PPF Group). We internally design, develop and maintain systems and applications that serve more than 44 million customers in 10 countries.
 
 <http://www.embedit.cz>
 
 #### Doprovodny program - Hmyzí výzva
-Máme hmyz. Hodně hmyzu. Křupavé čerstvé šváby, červy a cvrčky připravené k vaší chuti na našem EmbedIT stánku. Přijďte přijmout výzvu.
+We have bugs. Lots of them. But not in our code. Crispy fresh cocroaches, zophobas and crickets prepared for all of you to taste at our EmbedIT stand. Ready to meet the real challenge? Be a real developer not just a bug-fixer!
 
 <img src="/static/img/extra/2015/embedit.jpg" alt="Embedit" style="max-width:100%"/>
 
