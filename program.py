@@ -18,7 +18,7 @@ times = [
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': den_d, 'data': u'Oficiální zahájení - D105'},
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'd105': 'cf5c5d27', # 604x Petr Ludwig / Jak zlepšit svoje myšlení? 
-            'd0206': '1718a8c8', # ad hoc flower checker 
+            'd0206': '32c8167a', # ad hoc flower checker 
             'd0207': 'ded0b30f', # 224x Jan Pospíšil / Jak se dělá Booking.com
             'e104': '929531d7', # 163x Přemysl Krajčovič / Temná strana SCRUMu 
             'e105': 'fe443e30', # 0x Petr Joachim / MetaBarcamp - co jsou klíčové vlastnosti Barcampu?
