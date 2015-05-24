@@ -8,11 +8,6 @@ from datetime import time, date, datetime
 
 den_d = date(2015, 5, 23)
 
-
-{
-
-}
-
 times = [
         {'block_from': time(8, 30), 'block_to': time(9, 0), 'date': den_d, 'data': u'Otevření vstupu a registrací (otevřeno je po celý den)'},
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': den_d, 'data': u'Oficiální zahájení - D105'},

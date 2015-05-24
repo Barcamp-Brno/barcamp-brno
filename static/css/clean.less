@@ -212,6 +212,49 @@ h1 {
     }
 }
 
+.medailonky {
+    max-width: 640px;
+
+    .medailonek {
+        margin-bottom: 20px;
+
+        img {
+            width: 100px;
+            margin: 20px;
+            border-radius: 50%;
+            display:inline-block;
+            vertical-align: top;
+        }
+
+        &:nth-child(odd){
+            .desc {
+                border-left: 1px solid #888;
+            }
+        }
+        &:nth-child(even){
+            img {
+                float: right;
+            }
+            .desc {
+                border-right: 1px solid #888;
+            }
+        }
+
+        h3 small {
+            display: block;
+        }
+
+        .desc {
+            display: inline-block;
+            max-width: 450px;
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            
+        }
+    }
+}
+
 #page-header {
     background: url("/static/img/photo_small.jpg") no-repeat center top;
     padding-top: 15px;
@@ -520,6 +563,24 @@ h1 {
     }
     .menu-button a {
         margin: 0;
+    }
+
+    .medailonek {
+        margin-bottom: 20px;
+
+        img {
+            width: 100px !important;
+            margin: 20px !important;
+            display:block !important;
+            float: none !important;
+        }
+        
+        .desc {
+            border: 0 none transparent !important;
+            display: block !important ;
+        }
+
+        
     }
 
 }

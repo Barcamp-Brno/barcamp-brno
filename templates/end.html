@@ -1,0 +1,74 @@
+{% extends "_base.html"%}
+{% block body %}
+<div id="hp-header" style="height: 345px; background-position-y: -370px">
+    <div class="wrapper">
+        <div class="social">
+            <div class="hashtag">
+                <a href="https://twitter.com/search?q=%23bcbrno" title="twitter">#bcbrno</a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com/bcbrno" title="twitter"><i class="fa fa-twitter"></i></a>
+            </div>
+            <div class="facebook">
+                <a href="https://www.facebook.com/barcamp.brno" title="facebook"><i class="fa fa-facebook"></i></a>
+            </div>
+        </div>
+        <h1 style="margin-top: 0px">Barcamp Brno {{config.YEAR}}</h1>
+        <h2 style="margin: 0">23 | 05 | {{config.YEAR}} | Brno</h2>
+        <div class="clearer"></div>
+        {% include "menu.html"%}
+        <div class="clearer"></div>
+    </div>
+</div> <!-- hp-head-->
+<div id="hp-content">
+    <div class="wrapper">
+        <div class="medailonky">
+            <!-- Petr Joachim -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/petr-joachim.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Petr Joachim
+                        &mdash; <a href="http://twitter.com/petrjoachim" target="_blank">@petrjoachim</a>
+                        <small>správa webu, program přednášek a workshopů</small>
+                    </h3>
+                    <p>Na Barcampu jste se se mnou mohli potkat v době přípravy programu, komunikoval jsem se všemi workshopisty a připravoval hlasování na webu. </p>
+                </div>
+            </div>
+            
+            <!-- Martina Joachim -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/martina-joachim.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Martina Joachim
+                        &mdash; <a href="http://twitter.com/mysulemys" target="_blank">@mysulemys</a>
+                        <small>tisková grafika, návrh triček a placek</small>
+                    </h3>
+                    <p>Z Barcampu jste si mohli odnést tričko s mým návrhem, taktéž i placku s mým motivem jste dostali při registraci hned ráno. Moje trička a placky jsou součástí Barcamp Brno již od roku 2012. </p>
+                </div>
+            </div>
+
+            <!-- Hledame posily -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/no-one.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Tady můžeš být i ty 
+                        <small><a href="mailto:petr@joachim.cz?subject=Chci organizovat Barcamp Brno" target="_blank">Napiš na petr@joachim.cz</a> co bys chtěl/chtěla dělat a jak chceš pomoci</small>
+                    </h3>
+                    <p>Chceme aby se do organizace Barcamp Brno zapojili, pokud možno, všichni kdo budou mít zájem. Práce je to opravdu hodně, takže budeme rádi za každou pomocnou ruku a za každý dobrý nápad.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="clearer"></div>
+    </div>
+</div>
+<div class="clearer"></div>
+<!-- pata -->
+<div id="footer">
+    <div class="wrapper">
+        <div>
+            &copy; Barcamp Brno {{config.YEAR}} &mdash; <a href="{{url_for('static_page', page='kontakty')}}">Kontakty</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

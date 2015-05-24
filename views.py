@@ -25,8 +25,13 @@ def index():
 
     if user:
         user_hash = user['user_hash']
+
+    stage_template = "index.html"
+    if "END" in app.config['STAGES']:
+        stage_template = "end.html"
+
     return render_template(
-        "index.html",
+        stage_template,
         user=user,
         menu=menu(),
         times=times,
