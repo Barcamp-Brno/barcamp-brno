@@ -9,6 +9,7 @@ from entrant import user_user_go
 from collections import defaultdict
 from entrant import get_entrants
 from datetime import time, date, datetime
+from program import times
 import io
 import csv
 
@@ -26,6 +27,15 @@ def service_vyvoleni():
         abort(418)
 
     talks, extra_talks = get_talks()
+    talk_hashed = get_talks_dict()
+    talks = []
+    for t in times:
+        if type(t['data']) is dict:
+            for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+                talk = talk_hashed.get(t['data'][room], None)
+                if talk:
+                    talks.append(talk)
+
     talks = talks[:35]
     output = io.BytesIO()
     writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
