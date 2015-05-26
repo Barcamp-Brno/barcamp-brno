@@ -1,7 +1,8 @@
 Zhodnocení Barcampu Brno 2015
 -----------------------------
 
-V sobotu 23.5. se konala konference Barcamp Brno 2015. Sešlo se nás tam asi 1500! Snědli jsme 200 klobás, 150 gulášů a 150 lasagní, 1 000 chlebíčků, pár beden ovoce a nějací ti brouci. Vypili jsme bezpočet litrů vody, kávy, limonády. V šesti místnostech se pořádalo 42 přednášek a ve dvou dalších proběhlo celkem 10 workshopů. Z téměř všech přednášek byl pořízený videozáznam, videa budou dostupná cca do 2 týdnů na stránkách [superlectures](http://www.superlectures.com/). Fotografie z celého dne pak na našem [flickru](https://www.flickr.com/photos/97646969@N07/albums) během týdne. Sledujte sociální média [facebook Barcamp Brno](https://cs-cz.facebook.com/barcamp.brno) a [twitter @bcbrno](https://twitter.com/bcbrno) pro aktuální informace.
+V sobotu 23. 5. 2015 se konala konference Barcamp Brno 2015. Sešlo se nás tam přes 1500! Snědli jsme 
+400 klobás, 150 gulášů a 150 lasagní, 1 000 chlebíčků, 4 bedeny ovoce a nějací ti brouci. Vypili jsme bezpočet litrů vody, kávy, limonády. V šesti místnostech se pořádalo 42 přednášek a ve dvou dalších proběhlo celkem 10 workshopů. Z téměř všech přednášek byl pořízený videozáznam, videa budou dostupná cca do dvou týdnů na stránkách [superlectures](http://www.superlectures.com/). Fotografie z celého dne pak na našem [flickru](https://www.flickr.com/photos/97646969@N07/albums) během týdne. Sledujte sociální média [facebook Barcamp Brno](https://cs-cz.facebook.com/barcamp.brno) a [twitter @bcbrno](https://twitter.com/bcbrno) pro aktuální informace.
 
 Celá akce byla zakončena afterpárty, která se protáhla až do ranních hodin a probíhala opět v restauraci Tusto na Nových sadech.
 
@@ -11,6 +12,10 @@ Chtěli bychom poprosit všechny přihlášené účastníky, včetně těch, kt
 
 Rádi bych jménem organizačního týmu poděkovali všem dobrovolníkům, kteří nám s akcí pomohli, vám všem, kteří jste se akce zúčastnili a v neposlední řadě také všem partnerům, kteří umožnili aby se akce konala.
 
+Rovněž děkujeme vedení [VUT FIT](http://www.fit.vutbr.cz/) za již tradiční podporu této akce. 
+
+Zvláštní poděkování pak patří paní [doc. RNDr. Jitce Kreslíkové, CSc.](http://www.fit.vutbr.cz/~kreslika/), která se již pátým rokem podílí na organizaci Barcamp Brno a stala se tak nepostradatelným členem organizačního týmu.
+
 Zase za rok na viděnou!
 
  - Petr Joachim [@petrjoachim](https://twitter.com/petrjoachim)
@@ -18,11 +23,11 @@ Zase za rok na viděnou!
  - Zdeněk Zicha [@zdenekzicha](https://twitter.com/zdenekzicha)
 
 ### Hlavní partneři
-
+ 
+ - VUT FIT <http://www.fit.vutbr.cz/>
  - Y soft <http://www.ysoft.cz/>
  - Seznam.cz <http://www.seznam.cz/>
  - Moravia IT <http://moravia.com>
- - VUT FIT <http://www.fit.vutbr.cz/>
 
 ### Partneři
 
@@ -40,4 +45,3 @@ Zase za rok na viděnou!
  - Collabim - <http://www.collabim.cz/>
  - Touch Art - <http://www.touchart.eu/>
  - Computer - <http://computer.zive.cz/>
-
