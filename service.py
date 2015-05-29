@@ -26,7 +26,7 @@ def service_vyvoleni():
     if user['email'] != u'petr@joachim.cz':
         abort(418)
 
-    talks, extra_talks = get_talks()
+    # talks, extra_talks = get_talks()
     talk_hashed = get_talks_dict()
     talks = []
     for t in times:
@@ -36,7 +36,7 @@ def service_vyvoleni():
                 if talk:
                     talks.append(talk)
 
-    talks = talks[:35]
+    # talks = talks[:35]
     output = io.BytesIO()
     writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
 
@@ -54,7 +54,7 @@ def service_vyvoleni():
         'other'
     ])
 
-    for talk in extra_talks + talks:
+    for talk in talks:
         user = talk['user']
         _ = [
             talk['video'],
