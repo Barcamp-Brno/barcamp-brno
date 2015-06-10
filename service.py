@@ -125,7 +125,7 @@ def poslani_newsletteru():
 
         send_mail(
             u'A je po Barcamp Brno 2015',
-            mail,
+            '', #mail,
             'data/newsletter-after.md')
 
     return 'omg2'
