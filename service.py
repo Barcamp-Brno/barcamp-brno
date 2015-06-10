@@ -99,21 +99,7 @@ def service_do_programu():
 
     return Response(output.getvalue(), mimetype="text/plain")
 
-@app.route('/service/ysoft-tisk')
-@auth_required
-def service_ysoft():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
-    entrants = get_entrants()
-    output = ''
-    for entrant in entrants:
-        output += "%s \r\n" % entrant['email']
-
-    return Response(output, mimetype="text/plain")
-
-@app.route('/jede-jede-postacek/')
+@app.route('/service/naplnit-newsletter/')
 @auth_required
 def plneni_newsletteru():
     user = check_auth()
@@ -127,7 +113,7 @@ def plneni_newsletteru():
     return 'omg'
 
 
-@app.route('/posli-osly/')
+@app.route('/service/poslat-newsletter/')
 def poslani_newsletteru():
     user = check_auth()
     if user['email'] != u'petr@joachim.cz':
@@ -138,23 +124,23 @@ def poslani_newsletteru():
         app.redis.srem('newsletter', mail)
 
         send_mail(
-            u'Manuál návštěvníka Barcamp Brno 2015',
-            "", #mail,
-            'data/newsletter-before.md')
+            u'A je po Barcamp Brno 2015',
+            mail,
+            'data/newsletter-after.md')
 
     return 'omg2'
 
 
-@app.route('/funguj-prosim/')
+@app.route('/service/test-newsletter/')
 def test_newsletteru():
     user = check_auth()
     if user['email'] != u'petr@joachim.cz':
         abort(418)
 
     send_mail(
-        u'Manuál návštěvníka Barcamp Brno 2015',
+        u'A je po Barcamp Brno 2015',
         'petr@joachim.cz',
-        'data/newsletter-before.md')
+        'data/newsletter-after.md')
 
     return 'uff'
 
