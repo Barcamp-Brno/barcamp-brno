@@ -1,6 +1,8 @@
 Zhodnocení Barcampu Brno 2015
 -----------------------------
 
+<img src="/static/img/extra/2015/infografika.png" alt="Infografika 2015" style="max-width:100%"/>
+
 V sobotu 23. 5. 2015 se konala konference Barcamp Brno 2015. Sešlo se nás tam přes 1500! Snědli jsme 400 klobás, 150 gulášů a 150 lasagní, 1 000 chlebíčků, 4 bedeny ovoce, 3l Banánových Cvrčků, 3l Brazilských Potemníků a 150 Argentinských Švábů. Vypili jsme bezpočet litrů vody, kávy, limonády. V šesti místnostech se pořádalo 42 přednášek a ve dvou dalších proběhlo celkem 10 workshopů. Z téměř všech přednášek byl pořízený videozáznam, videa budou dostupná na stránkách [superlectures](http://www.superlectures.com/barcampbrno2015/). Fotografie z celého dne jsou na našem [flickru](https://www.flickr.com/photos/97646969@N07/sets/72157653538258062). Dále sledujte sociální média [facebook Barcamp Brno](https://cs-cz.facebook.com/barcamp.brno) a [twitter @bcbrno](https://twitter.com/bcbrno) pro aktuální informace.
 
 Celá akce byla zakončena afterpárty, která se protáhla až do ranních hodin a probíhala opět v restauraci Tusto na Nových sadech.
