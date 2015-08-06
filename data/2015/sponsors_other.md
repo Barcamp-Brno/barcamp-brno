@@ -9,6 +9,11 @@
         <td><a href="http://petrstepan.eu/">petrstepan.eu</a></td>
         <td>Fotky z akce</td>
     </tr>
+    <tr>
+        <td>Magdaléna Katolická</td>
+        <td><a href="http://www.magdalenakatolicka.cz/">www.magdalenakatolicka.cz/</a></td>
+        <td>Dotazníkové šetření a infografika</td>
+    </tr>
     
     <tr>
         <td>Jitka Kreslíková</td>
