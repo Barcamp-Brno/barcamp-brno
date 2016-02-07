@@ -2,8 +2,8 @@ import os
 from barcamp import create_app
 
 config = {
-    'YEAR': "2015",
-    'STAGES': ['END', 'PROGRAM_READY'],
+    'YEAR': "2016",
+    'STAGES': [],
     'MAIL_SERVER': 'smtp.mandrillapp.com',
     'MAIL_PORT': 587,
     'MAIL_USERNAME': os.environ.get('MANDRILL_USERNAME', ''),
