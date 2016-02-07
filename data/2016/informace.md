@@ -43,7 +43,7 @@ První Barcamp v Brně se uskutečnil již v roce 2010, a na tuto tradici navazu
  - [Videa na superlectures.com](http://www.superlectures.com/barcampbrno2014/)
  - [Zhodnocení roku 2014](/2014/stranka/zhodnoceni.html)
 
-#### _2013_ 15.6.2013
+#### _2013_ 15.6.
  - [www.barcampbrno.cz/2013/](/2013/index.html) 
  - [Fotky na flickr.com](https://www.flickr.com/photos/97646969@N07/sets/72157634248667014/page3/) 
  - [Videa na superlectures.com](http://www.superlectures.com/barcampbrno2013/)
