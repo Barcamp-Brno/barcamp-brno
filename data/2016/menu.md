@@ -1,2 +1,2 @@
-<!-- [Informace](/2015/stranka/informace.html) -->
-<!-- [Partneři](/2015/partneri.html) -->
+[Informace](/2016/stranka/informace.html)
+[Partneři](/2016/partneri.html)
