@@ -13,7 +13,7 @@ PUBLISH_ADD_FILES = (
     'static',
 )
 
-YEAR = "2014"
+YEAR = "2015"
 
 class Publisher(object):
     def __init__(self, app):
@@ -94,7 +94,8 @@ if __name__ == '__main__':
         'SECRET_KEY': 'jednadvehonzajde',
         'YEAR': YEAR,
         'STAGES': ['PROGRAM_READY', 'END'],
-        'ARCHIVE': True
+        'ARCHIVE': True,
+        'REDISCLOUD_URL': os.environ.get('REDISCLOUD_URL', ''),
     }
 
     config.update(os.environ)
