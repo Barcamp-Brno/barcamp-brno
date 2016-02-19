@@ -30,6 +30,9 @@ def index():
     if "END" in app.config['STAGES']:
         stage_template = "end.html"
 
+    if "PREVIEW" in app.config['STAGES']:
+        stage_template = "preview.html"
+
     return render_template(
         stage_template,
         user=user,

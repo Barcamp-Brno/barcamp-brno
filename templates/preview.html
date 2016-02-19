@@ -1,0 +1,123 @@
+{% extends "_base.html"%}
+{% block body %}
+<div id="hp-header" style="height: 345px; background-position-y: -370px">
+    <div class="wrapper">
+        <div class="social">
+            <div class="hashtag">
+                <a href="https://twitter.com/search?q=%23bcbrno" title="twitter">#bcbrno</a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com/bcbrno" title="twitter"><i class="fa fa-twitter"></i></a>
+            </div>
+            <div class="facebook">
+                <a href="https://www.facebook.com/barcamp.brno" title="facebook"><i class="fa fa-facebook"></i></a>
+            </div>
+        </div>
+        <h1 style="margin-top: 0px">Barcamp Brno {{config.YEAR}}</h1>
+        <h2 style="margin: 0">23 | 05 | {{config.YEAR}} | Brno</h2>
+        <div class="clearer"></div>
+        {% include "menu.html"%}
+        <div class="clearer"></div>
+    </div>
+</div> <!-- hp-head-->
+<div id="hp-content">
+    <div class="wrapper">
+        <h2>Barcamp Brno 2016 pro připravují</h2>
+        <div class="medailonky">
+            <!-- Petr Joachim -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/petr-joachim.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Petr Joachim
+                        &mdash; <a href="http://twitter.com/petrjoachim" target="_blank">@petrjoachim</a>
+                        <small>správa webu, program přednášek a&nbsp;workshopů</small>
+                    </h3>
+                    <p>Na Barcampu jste se se mnou mohli potkat v&nbsp;době přípravy programu, komunikoval jsem se&nbsp;všemi workshopisty a&nbsp;připravoval hlasování na&nbsp;webu. </p>
+                </div>
+            </div>
+
+            <!-- Zdenek Zicha -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/zdenek-zicha.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Zdeněk Zicha
+                        &mdash; <a href="http://twitter.com/zdenekzicha" target="_blank">@zdenekzicha</a>
+                        <small>příprava doprovodného programu, organizace eventu na&nbsp;místě, charitativní&nbsp;sbírka</small>
+                    </h3>
+                    <p>Starám se hlavně o&nbsp;to, aby&nbsp;celý&nbsp;den Barcampu běžel jako namazané hodinky. Také mám to&nbsp;štěstí zaštiťovat charitativní sbírku, kterou&nbsp;se&nbsp;snažíme podpořit jednoho šikovného klučinu v&nbsp;Ugandě. </p>
+                </div>
+            </div>
+
+            <!-- Tomas Sotoniak -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/tomas-sotoniak.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Tomáš Sotoniak
+                        &mdash; <a href="http://twitter.com/sotoniak" target="_blank">@sotoniak</a>
+                        <small>partneři a doprovodný program</small>
+                    </h3>
+                    <p>Pro Barcamp&nbsp;Brno zajišťuji již tradičně financování a&nbsp;doprovodný&nbsp;program. Takže pokud máte zájem podpořit Barcamp&nbsp;Brno&nbsp;2016, tak&nbsp;mi&nbsp;napište. </p>
+                </div>
+            </div>
+            
+            <!-- Martina Joachim -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/martina-joachim.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Martina Joachim
+                        &mdash; <a href="http://twitter.com/mysulemys" target="_blank">@mysulemys</a>
+                        <small>tisková grafika, návrh triček a&nbsp;placek</small>
+                    </h3>
+                    <p>Z Barcampu jste si mohli odnést tričko s mým návrhem, taktéž&nbsp;i&nbsp;placku s&nbsp;mým motivem jste dostali při&nbsp;registraci hned&nbsp;ráno. Moje trička a&nbsp;placky jsou&nbsp;součástí Barcamp Brno již&nbsp;od&nbsp;roku&nbsp;2012. </p>
+                </div>
+            </div>
+
+            <!-- Bara Buchtova -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/bara-buchtova.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Bára Buchtová
+                        &mdash; <a href="http://twitter.com/bbarbuska" target="_blank">@bbarbuska</a>
+                        <small>sociální média</small>
+                    </h3>
+                    <p>Na Barcampu jsem plnila roli social-media přicmrdávače. Pokud jste&nbsp;se&nbsp;na&nbsp;něco ptali třeba na&nbsp;Facebooku, patrně jsem&nbsp;vám&nbsp;na&nbsp;to&nbsp;odpovídala&nbsp;já. Také jsem pomáhala klukům některé koncepty a&nbsp;novinky vymýšlet a&nbsp;vyřizovat nějaké pochůzky. </p>
+                </div>
+            </div>
+
+            <!-- Tomas Nespechal -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/tomas-nespechal.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Tomáš Nespěchal
+                        &mdash; <a href="https://cz.linkedin.com/pub/tomas-nespechal/3/618/581" target="_blank">LinkedIn</a>
+                        <small>pevnost&nbsp;barcamp</small>
+                    </h3>
+                    <p>Podílel jsem se na Barcampu při&nbsp;přípravě nového gamifikačního prvku v podobě hry "Pevnost&nbsp;Barcamp", který podpořil jednak zábavu během akce, a&nbsp;pak&nbsp;měl za úkol vybrat více peněz na dobročinnost a&nbsp;podpořit možnosti propagace partnerů. </p>
+                </div>
+            </div>
+
+            <!-- Hledame posily -->
+            <div class="medailonek">
+                <img src="/static/img/lidi/no-one.jpg" style="width: 100px" />
+                <div class="desc">
+                    <h3>Zde můžeš být i ty!
+                        <small><a href="mailto:petr@joachim.cz?subject=Chci organizovat Barcamp Brno" target="_blank">napiš mi na petr@joachim.cz</a> co bys chtěl/chtěla dělat a&nbsp;jak chceš pomoci</small>
+                    </h3>
+                    <p>Do&nbsp;organizace Barcamp Brno se&nbsp;mohou&nbsp;zapojit všichni, kdo&nbsp;o&nbsp;to&nbsp;mají zájem. Pokud chcete být u&nbsp;toho či&nbsp;máte nápad jak&nbsp;akci posunout o&nbsp;kus&nbsp;dál, chopte&nbsp;se&nbsp;příležitosti.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="clearer"></div>
+    </div>
+</div>
+<div class="clearer"></div>
+<!-- pata -->
+<div id="footer">
+    <div class="wrapper">
+        <div>
+            &copy; Barcamp Brno {{config.YEAR}} &mdash; <a href="{{url_for('static_page', page='kontakty')}}">Kontakty</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
