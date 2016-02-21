@@ -1,13 +1,13 @@
 Informační stránka
 ------------------
-Vstup na Barcamp v Brně byl, je a **vždy** bude zdarma.
+Vstup na Barcamp v Brně je zdarma.
 
-<!-- ### Harmonogram
- - __Už nyní__ - registrace témat přednášek
- - __23.4.2015__ - začátek registrace účastníků
- - __23.4.2015__ - začátek hlasování o tématech
- - __13.5.2015__ - konec hlasování o tématech
- - __23.5.2015__ - den konání -->
+### Harmonogram
+ - __13.3.2016__ - začátek registrace témat - call for papers
+ - __1.5.2016__ - začátek registrace účastníků
+ - __1.5.2016__ - začátek hlasování o tématech
+ - __21.5.2016__ - konec hlasování o tématech
+ - __4.6.2016__ - den konání
 
 ### Důležité odkazy
  - [Doprava](/2016/stranka/doprava.html)
