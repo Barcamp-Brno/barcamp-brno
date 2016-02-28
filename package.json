@@ -1,0 +1,19 @@
+{
+  "name": "barcamp-brno",
+  "version": "0.1.0",
+  "description": "Barcamp Brno ============ Webová aplikace řešící organizování Barcamp Brno 2013",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barcamp-Brno/barcamp-brno.git"
+  },
+  "author": "petr joachim <petr@joachim.cz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Barcamp-Brno/barcamp-brno/issues"
+  },
+  "homepage": "https://github.com/Barcamp-Brno/barcamp-brno#readme"
+}
