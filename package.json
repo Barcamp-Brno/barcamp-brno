@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Barcamp-Brno/barcamp-brno#readme",
   "scripts": {
-    "postinstall": "echo AAA",
+    "postinstall": "echo AAA"
   }
 }
