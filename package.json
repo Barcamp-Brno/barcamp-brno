@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Barcamp-Brno/barcamp-brno/issues"
   },
-  "homepage": "https://github.com/Barcamp-Brno/barcamp-brno#readme"
+  "homepage": "https://github.com/Barcamp-Brno/barcamp-brno#readme",
+  "scripts": {
+    "postinstall": "echo AAA",
+  }
 }
