@@ -39,3 +39,6 @@ nosetests.xml
 # Sublime
 *.sublime-project
 *.sublime-workspace
+
+# Node.js
+node_modules/
