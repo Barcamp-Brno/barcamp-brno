@@ -1,16 +1,27 @@
 Barcamp Brno
 ============
-Webová aplikace řešící organizování Barcamp Brno 2013
+Webová aplikace řešící organizování Barcamp Brno 2013+
 
 Requirements
 ------------
-flask
-redis
-markdown
-Flask-OAuth
-Flask-WTF
-Flask-Mail
+
+ - git
+ - python 2.7
+ - pip
+ - heroku toolbelt
+ - npm
+
+
+Debug
+-----
+
+ - `heroku config -s > .env`
+ - `pip install -r requirements.txt`
+ - `npm install`
+ - `grunt`
+ - `heroku local:run python debug.py`
 
 Deploy
 ------
-python debug.py
+
+ - `git push heroku master`
