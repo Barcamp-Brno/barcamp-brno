@@ -13,36 +13,42 @@
 
         <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/css/main.css" rel="stylesheet" type="text/css" media="screen" id="main_css" />
 
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/components/jquery/dist/jquery.min.js"></script>
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="http://api4.mapy.cz/loader.js"></script>
         <script>Loader.load();</script>
         {% block meta %}{% endblock %}
     </head>
-        <body>
-        
-    <div id="page">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                <div class="bar bar-{{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+    <body>
+        <div class="container-fluid">
+            {% include 'menu.html' %}
+        </div>
+        <div class="spacer"></div>
+        <div class="container-fluid">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="row bar bar-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
         {% block body %}{% endblock %}
 
-        <script type="text/javascript">
+            <script type="text/javascript">
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-25528595-1']);
-          _gaq.push(['_trackPageview']);
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-25528595-1']);
+              _gaq.push(['_trackPageview']);
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
 
-        </script>
-        <!-- /pata -->
-    </div>
-</body>
+            </script>
+            <!-- /pata -->
+        </div>
+    </body>
 </html>

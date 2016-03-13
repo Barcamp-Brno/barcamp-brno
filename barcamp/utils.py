@@ -3,7 +3,7 @@ from flask import render_template, Markup, abort
 from login_misc import check_auth
 import markdown
 from barcamp import app
-
+from datetime import datetime
 
 def markdown_static_page(page):
     try:
@@ -21,7 +21,6 @@ def markdown_static_page(page):
     return render_template(
         '_markdown.html',
         content=content,
-        menu=menu(),
         user=check_auth())
 
 
@@ -42,6 +41,18 @@ def markdown_markup(filename):
 
     return content
 
+def stage_is_active(year, stage):
+    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES'].keys():
+        return False
 
-def menu():
-    return markdown_markup('menu')
+    schedule = app.config['YEAR_SCHEDULE'][year]['STAGES'][stage]
+    day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
+    return schedule['from'] <= day and day <= schedule['to']
+
+def stage_in_past(year, stage):
+    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES'].keys():
+        return False
+
+    schedule = app.config['YEAR_SCHEDULE'][year]['STAGES'][stage]
+    day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
+    return day > schedule['to']

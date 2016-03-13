@@ -1,0 +1,17 @@
+{% extends "_base.html"%}
+{% block body %}
+<div id="hp-header" class="hidden-xs"></div> <!-- hp-head-->
+{% block content %}
+{% endblock %}
+<div class="clearer"></div>
+<div class="container-fluid">
+    <!-- pata -->
+    <div id="footer">
+        <div class="wrapper">
+            <div>
+                &copy; Barcamp Brno {{config.YEAR}} &mdash; <a href="{{url_for('static_page', page='kontakty')}}">Kontakty</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

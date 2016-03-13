@@ -4,7 +4,7 @@ from barcamp import app
 from flask import render_template, abort, send_from_directory
 from login_misc import check_auth, get_account
 from talks import get_talks, get_talks_dict
-from utils import menu, markdown_static_page, markdown_markup
+from utils import markdown_static_page, markdown_markup, stage_is_active
 from entrant import get_count, get_entrants
 from vote import get_user_votes
 from program import times
@@ -16,7 +16,7 @@ import os
 def index():
     user = check_auth()
     user_hash = None
-    if "PROGRAM_READY" in app.config['STAGES']:
+    if stage_is_active(app.config['YEAR'], 'PROGRAM_READY'):
         talks = get_talks_dict()
         extra_talks = []
     else:
@@ -27,16 +27,14 @@ def index():
         user_hash = user['user_hash']
 
     stage_template = "index.html"
-    if "END" in app.config['STAGES']:
+    if stage_is_active(app.config['YEAR'], 'END'):
         stage_template = "end.html"
 
-    if "PREVIEW" in app.config['STAGES']:
+    if stage_is_active(app.config['YEAR'], 'PREVIEW'):
         stage_template = "preview.html"
 
     return render_template(
         stage_template,
-        user=user,
-        menu=menu(),
         times=times,
         entrant_count=get_count(),
         entrants=get_entrants()[:50],
@@ -54,8 +52,6 @@ def index():
 def entrants():
     return render_template(
         "entrants.html",
-        user=check_auth(),
-        menu=menu(),
         entrant_count=get_count(),
         entrants=reversed(get_entrants())
     )
@@ -65,8 +61,6 @@ def entrants():
 def sponsors():
     return render_template(
         "partneri.html",
-        user=check_auth(),
-        menu=menu(),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors_medial=markdown_markup('sponsors_medial'),
         sponsors=markdown_markup('sponsors'),
@@ -78,8 +72,6 @@ def talks_all():
     talks, extra_talks = get_talks()
     return render_template(
         "talks.html",
-        user=check_auth(),
-        menu=menu(),
         talks=talks,
         extra_talks=extra_talks
     )
@@ -92,8 +84,6 @@ def profile(user_hash):
 
     return render_template(
         'profil.html',
-        user=check_auth(),
-        menu=menu(),
         profile=data
     )
 
@@ -108,9 +98,20 @@ def stranky():
 def static_page(page):
     return markdown_static_page(page)
 
-@app.route('/<int:year>/<path:path>')
+
 def archive_proxy(year, path):
     year = str(year)
     # send_static_file will guess the correct MIME type
-    print os.path.join('./archive/', year, path)
-    return send_from_directory('archive', os.path.join(year, path))
+    return send_from_directory(
+        os.path.abspath('archive'),
+        os.path.join(year, path)
+    )
+
+
+for year in app.config['YEAR_ARCHIVE']:
+    app.add_url_rule(
+        '/%s/<path:path>' % year,
+        defaults={'year': year},
+        view_func=archive_proxy
+    )
+

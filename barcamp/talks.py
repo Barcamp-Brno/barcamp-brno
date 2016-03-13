@@ -8,7 +8,7 @@ from flask_wtf import Form
 from wtforms import TextField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
-from utils import menu, markdown_markup
+from utils import markdown_markup
 
 KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
@@ -32,9 +32,8 @@ def talk_detail(talk_hash):
     return render_template(
         'talk_detail.html',
         talk=talk,
-        menu=menu(),
-        author=author,
-        user=check_auth())
+        author=author
+    )
 
 
 @app.route('/prednaska/odstranit/<talk_hash>/')
@@ -73,7 +72,7 @@ def talk_edit(talk_hash=None):
             old_hash = talk_hash
             talk_hash = create_or_update_talk(form.data, talk_hash)
             user_user_go(user_data)
-            flash(u'Přednáska byla uložena', 'success')
+            flash(u'Přednáška byla uložena', 'success')
             if talk_hash != old_hash:
                 return redirect(url_for('talk_edit', talk_hash=talk_hash))
     else:
@@ -81,7 +80,9 @@ def talk_edit(talk_hash=None):
     return render_template(
         'talk_form.html',
         informace=markdown_markup('pro-prednasejici'),
-        form=form, user=check_auth(), talk=talk_data, menu=menu())
+        form=form,
+        talk=talk_data
+    )
 
 
 def create_or_update_talk(data, talk_hash=None):

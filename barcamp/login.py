@@ -11,7 +11,6 @@ import base64
 from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
 from login_misc import update_password, create_update_profile
-from views import menu
 import markdown
 from flask.ext.mail import Mail, Message
 
@@ -47,7 +46,7 @@ def login():
         flash(u'Nyní jste přihlášen', 'success')
         return redirect(next or url_for('login_settings'))
 
-    return render_template("login.html", form=form, menu=menu())
+    return render_template("login.html", form=form)
 
 
 @app.route("/nastaveni-profilu/", methods=['GET', 'POST'])
@@ -62,7 +61,7 @@ def login_settings():
             return redirect(url_for('login_settings'))
     else:
         form = SettingsForm(**user)
-    return render_template('nastaveni.html', user=user, form=form, menu=menu())
+    return render_template('nastaveni.html', user=user, form=form)
 
 
 @app.route("/logout/")
@@ -161,7 +160,7 @@ def login_basic_data():
             return redirect(next or url_for('login_settings'))
     else:
         form = BasicForm()
-    return render_template('login_basic_data.html', form=form, menu=menu())
+    return render_template('login_basic_data.html', form=form)
 
 
 @app.route("/login/zapomenute-heslo/", methods=['POST', 'GET'])
@@ -194,7 +193,7 @@ def login_forgotten_password():
     else:
         form = EmailForm(request.args)
 
-    return render_template('login_forgotten.html', form=form, menu=menu())
+    return render_template('login_forgotten.html', form=form)
 
 
 @app.route("/login/resetovat-heslo/overeni-emailu/")
@@ -236,7 +235,7 @@ def login_reset_password():
             return redirect(next or url_for('index'))
     else:
         form = PasswordForm()
-    return render_template('login_reset_password.html', form=form, menu=menu())
+    return render_template('login_reset_password.html', form=form)
 
 
 ### MAIL ###

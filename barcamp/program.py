@@ -1,8 +1,6 @@
 # coding: utf-8
 from barcamp import app
 from flask import render_template, Markup, url_for
-from login_misc import check_auth
-from utils import menu
 from talks import get_talks_dict
 from datetime import time, date, datetime
 
@@ -95,10 +93,8 @@ times = [
 def program():
     return render_template(
         'program.html',
-        menu=menu(),
         times=times,
         talks=get_talks_dict(),
-        user=check_auth()
     )
 
 
@@ -119,8 +115,6 @@ def program_aktualne():
 
     return render_template(
         'aktualne.html',
-        menu=menu(),
         talks=get_talks_dict(),
         times=next_times,
-        user=check_auth()
     )

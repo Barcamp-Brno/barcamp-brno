@@ -4,7 +4,7 @@
 {% if profile.twitter %}
 <p><a href="https://twitter.com/{{profile.twitter}}">@{{profile.twitter}}</a>
 {% endif %}
-{% if profile['going_%s' % config.YEAR] %}
+{% if going(profile, config.YEAR) %}
 <p>Tento uživatel je přihlášen jako účastník</p>
 {% endif %}
 <h3>Bio</h3>

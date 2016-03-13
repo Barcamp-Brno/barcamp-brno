@@ -12,10 +12,10 @@
     </fieldset>
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Odeslat</button>
-        {% if user['going_%s' % config.YEAR] %}
+        {% if going(user, config.YEAR) %}
             <a class="btn btn-danger pull-right" href="{{url_for('attend_remove')}}">Nechci se zúčastnit ({{config.YEAR}})</a>
         {% else %}
-            {% if "USERS" in config.STAGES %}
+            {% if stage(config.YEAR, 'USERS') %}
             <a class="btn btn-success pull-right" href="{{url_for('attend_add')}}">Chci se zúčastnit ({{config.YEAR}})</a>
             {% endif %}
         {% endif %}
