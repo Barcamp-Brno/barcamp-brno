@@ -8,7 +8,8 @@
     https://dev.twitter.com/apps/4291778/show
 """
 
-from barcamp import create_app
+from barcamp import create_app, schedule
+from datetime import datetime
 import os
 
 if __name__ == '__main__':
@@ -19,14 +20,14 @@ if __name__ == '__main__':
         'TWITTER_SECRET': '',
         'TESTING': False,
         'SECRET_KEY': 'jednadvehonzajde',
-        'YEAR': "2016",
-        'STAGES': ['PREVIEW'],
         'MAIL_SERVER': 'smtp.mandrillapp.com',
         'MAIL_PORT': 587,
         'MAIL_USERNAME': os.environ.get('MANDRILL_USERNAME', ''),
         'MAIL_PASSWORD': os.environ.get('MANDRILL_APIKEY', ''),
+        'TEST_DATE': datetime(2016, 3, 13),
     }
 
+    config.update(schedule)
     config.update(os.environ)
     app = create_app(config)
 
