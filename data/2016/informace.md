@@ -52,3 +52,4 @@ První Barcamp v Brně se uskutečnil již v roce 2010, a na tuto tradici navazu
 #### _2012_ 23.6.
 #### _2011_ 15.10.
 #### _2010_ 26.6.
+

@@ -10,7 +10,7 @@ Kontakty
  - [Petr Šiller](http://petrsiller.cz/) - design
  - [Martina Joachim](http://www.twitter.com/mysulemys) - Tisková grafika
  - [@white_kate](http://www.twitter.com/white_kate) - logo Barcamp Brno
- - [Martin Kacvinský](http://kaco.sk) - panorama Brna
+ - [wikimedia.org/Millenium187](https://commons.wikimedia.org/wiki/File:Brno_-_panorama_II_-_2012.jpg) - panorama Brna
 
 
 Akci zaštiťuje Barcamp Brno z.s.
