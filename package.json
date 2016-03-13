@@ -22,5 +22,5 @@
     "grunt-contrib-less": "^1.2.0",
     "grunt-contrib-watch": "^0.6.1",
     "jit-grunt": "^0.10.0"
-  },
+  }
 }
