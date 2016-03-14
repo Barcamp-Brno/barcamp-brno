@@ -106,7 +106,7 @@ def login_create_account():
             return redirect(url_for('login_email_verify'))
     else:
         form = EmailForm()
-    return render_template('login_create_account.html', form=form, menu=menu())
+    return render_template('login_create_account.html', form=form)
 
 
 @app.route("/login/registrace/overeni-emailu/")
