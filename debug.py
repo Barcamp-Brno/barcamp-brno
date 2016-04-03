@@ -20,10 +20,10 @@ if __name__ == '__main__':
         'TWITTER_SECRET': '',
         'TESTING': False,
         'SECRET_KEY': 'jednadvehonzajde',
-        'MAIL_SERVER': 'smtp.mandrillapp.com',
+        'MAIL_SERVER': 'smtp.sendgrid.net',
         'MAIL_PORT': 587,
-        'MAIL_USERNAME': os.environ.get('MANDRILL_USERNAME', ''),
-        'MAIL_PASSWORD': os.environ.get('MANDRILL_APIKEY', ''),
+        'MAIL_USERNAME': os.environ.get('SENDGRID_USERNAME', ''),
+        'MAIL_PASSWORD': os.environ.get('SENDGRID_PASSWORD', ''),
         'TEST_DATE': datetime(2016, 3, 13),
     }
 
@@ -31,5 +31,5 @@ if __name__ == '__main__':
     config.update(os.environ)
     app = create_app(config)
 
-    app.debug = True
+    # app.debug = True
     app.run("0", 9099)
