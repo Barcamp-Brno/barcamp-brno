@@ -1,24 +1,32 @@
 {% extends "_base_page.html" %}
-{% block title %}{{talk.title}} - Barcamp Brno {{config.YEAR}}{% endblock %}
+{% block title %}{{workshop.title}} - Barcamp Brno {{config.YEAR}}{% endblock %}
 {% block meta%}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@bcbrno">
-<meta name="twitter:title" content="{{author.name}} - {{talk.title}}">
-<meta name="twitter:description" content="{{talk.description|truncate(180, True)}}">
+<meta name="twitter:title" content="{{author.name}} - {{workshop.title}}">
+<meta name="twitter:description" content="{{workshop.description|truncate(180, True)}}">
 {% if author.twitter %}
 <meta name="twitter:creator" content="{{author.twitter}}">
 {% endif %}
 <meta name="twitter:image:src" content="http://www.barcampbrno.cz/static/img/barcamp-square.png">
 {% endblock %}
 {% block page_content %}
-<h2>Přednáška &mdash; {{talk.title}}</h2>
+<h2>Workshop &mdash; {{workshop.title}}</h2>
 <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name}}</a></h3>
+<ul>
+	<li>Trvá {{workshop.minutes}} minut</li>
+	<li>Celkem {{workshop.max_count}} míst</li>
+</ul>
 {% if author.user_hash == user.user_hash %}
-<div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
+<div><a href="{{url_for('workshop_edit', workshop_hash=workshop.workshop_hash)}}">Upravit tento workshop</a></div>
 {% endif %}
-{{talk.description|nl2br}}
-<h3>Pro koho je přednáška určena</h3>
-{{talk.purpose|nl2br}}
+{{workshop.description|nl2br}}
+<h3>Pro koho je workshop určen</h3>
+{{workshop.purpose|nl2br}}
+{% if workshop.needs %}
+	<h3>Jak se připravit na workshop</h3>
+	{{workshop.needs|nl2br}}
+{% endif %}
 <h3>Komentáře</h3>
 <div id="disqus_thread"></div>
 <script type="text/javascript">

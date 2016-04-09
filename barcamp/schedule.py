@@ -23,6 +23,10 @@ schedule = {
                     'from': datetime(2016, 3, 13),
                     'to': datetime(2016, 5, 21),
                 },
+                'CALL-FOR-WORKSHOPS': {
+                    'from': datetime(2016, 3, 13),
+                    'to': datetime(2016, 5, 21),
+                },
             },
         },
         '2017': {

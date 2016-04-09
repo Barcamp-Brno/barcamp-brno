@@ -90,6 +90,7 @@ def create_or_update_talk(data, talk_hash=None):
     if talk_hash is None:
         talk_hash = get_talk_hash(data)
         data['talk_hash'] = talk_hash
+        # TODO send talk mail
 
     data.update({
         'user': user_data['user_hash'],

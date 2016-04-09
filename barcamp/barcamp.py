@@ -43,4 +43,5 @@ def create_app(config):
     import vote
     import filters
     import service
+    import workshops
     return app

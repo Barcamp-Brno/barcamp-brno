@@ -1,0 +1,29 @@
+{% extends "_base_form.html" %}
+{% block page_content %}
+
+{{ informace }}
+
+<h2>{% if workshop.workshop_hash %}Editace{% else %}Registrace nového{% endif %} workshopu</h2>
+<form method="POST" class="form-horizontal" action=".">
+    <fieldset>
+        {{form.csrf_token}}
+        {{input(form.title)}}
+        {{textarea(form.description)}}
+        {{textarea(form.purpose)}}
+        {{textarea(form.needs)}}
+        {{input(form.company)}}
+        {{input(form.web)}}
+        {{input(form.twitter)}}
+        {{textarea(form.other)}}
+        {{input(form.minutes)}}
+        {{input(form.max_count)}}
+    </fiedlset>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+        {% if workshop.workshop_hash %}
+            <a class="btn btn-danger" href="{{url_for('workshop_delete', workshop_hash=workshop.workshop_hash)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete workshop smazat?')">Smazat workshop</a>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

@@ -4,6 +4,7 @@ from barcamp import app
 from flask import render_template, abort, send_from_directory
 from login_misc import check_auth, get_account
 from talks import get_talks, get_talks_dict
+from workshops import get_workshops
 from utils import markdown_static_page, markdown_markup, stage_is_active
 from entrant import get_count, get_entrants
 from vote import get_user_votes
@@ -21,6 +22,9 @@ def index():
         extra_talks = []
     else:
         talks, extra_talks = get_talks()
+
+    workshops = get_workshops()
+
         # bez razeni talks = sorted(talks, key=lambda x: x['title'])
 
     if user:
@@ -42,10 +46,11 @@ def index():
         novinky=markdown_markup('novinky'),
         sponsors_main=markdown_markup('sponsors_main'),
         sponsors_medial=markdown_markup('sponsors_medial'),
-        workshops=markdown_markup('workshopy-program'),
         sponsors=markdown_markup('sponsors'),
         talks=talks, extra_talks=extra_talks,
-        talks_dict=get_talks_dict())
+        talks_dict=get_talks_dict(),
+        workshops=workshops
+    )
 
 
 @app.route('/%s/ucastnici.html' % app.config['YEAR'])

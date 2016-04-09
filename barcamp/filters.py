@@ -3,6 +3,7 @@ import re
 from jinja2 import evalcontextfilter, Markup, escape
 from barcamp import app
 from utils import stage_is_active, stage_in_past
+from workshops import translate_status
 from login_misc import check_auth
 
 _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
@@ -20,6 +21,11 @@ def nl2br(eval_ctx, value):
 @app.context_processor
 def stage():
     return {'stage': stage_is_active}
+
+
+@app.context_processor
+def workshop_status():
+    return {'status': translate_status}
 
 
 @app.context_processor

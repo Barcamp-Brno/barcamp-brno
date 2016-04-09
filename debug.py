@@ -18,7 +18,7 @@ if __name__ == '__main__':
         'FACEBOOK_SECRET': '',
         'TWITTER_KEY': '',
         'TWITTER_SECRET': '',
-        'TESTING': False,
+        'TESTING': True ,
         'SECRET_KEY': 'jednadvehonzajde',
         'MAIL_SERVER': 'smtp.sendgrid.net',
         'MAIL_PORT': 587,
@@ -31,5 +31,5 @@ if __name__ == '__main__':
     config.update(os.environ)
     app = create_app(config)
 
-    # app.debug = True
+    app.debug = True
     app.run("0", 9099)
