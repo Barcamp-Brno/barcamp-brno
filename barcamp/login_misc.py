@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from functools import wraps
-from flask import session, request, redirect, flash, url_for, json
+from flask import abort, session, request, redirect, flash, url_for, json
 from barcamp import app
 from hashlib import md5
 
@@ -22,6 +22,18 @@ def auth_required(fn):
                 "warning")
             session['next'] = path
             return redirect(url_for('login'))
+        return fn(*args, **kwargs)
+
+    return wrap
+
+
+def is_admin(fn):
+    @wraps(fn)
+    def wrap(*args, **kwargs):
+        user = check_auth()
+        if user['email'] != u'petr@joachim.cz':
+            abort(418)
+
         return fn(*args, **kwargs)
 
     return wrap

@@ -8,7 +8,7 @@ from flask_wtf import Form
 from wtforms import TextField, TextAreaField, IntegerField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
-from utils import markdown_markup
+from utils import markdown_markup, send_feedback_mail
 
 KEYS = {
     'workshop': 'workshop_%s_%%s' % app.config['YEAR'],
@@ -89,7 +89,18 @@ def create_or_update_workshop(data, workshop_hash=None):
         workshop_hash = get_workshop_hash(data)
         data['workshop_hash'] = workshop_hash
         data['status'] = 'waiting'
-        # TODO send workshop mail
+        # send workshop mail
+        send_feedback_mail(
+            u"Nový workshop: %s" % data['title'],
+            "data/new-workshop.md",
+            data,
+            user_data,
+            url_for(
+                'workshop_detail',
+                workshop_hash=workshop_hash,
+                _external=True
+            )
+        )
 
     data.update({
         'user': user_data['user_hash'],

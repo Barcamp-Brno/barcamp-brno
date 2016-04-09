@@ -8,7 +8,7 @@ from flask_wtf import Form
 from wtforms import TextField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
-from utils import markdown_markup
+from utils import markdown_markup, send_feedback_mail
 
 KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
@@ -90,7 +90,14 @@ def create_or_update_talk(data, talk_hash=None):
     if talk_hash is None:
         talk_hash = get_talk_hash(data)
         data['talk_hash'] = talk_hash
-        # TODO send talk mail
+        # send talk mail
+        send_feedback_mail(
+            u"Nová přednáška: %s" % data['title'],
+            "data/new-talk.md",
+            data,
+            user_data,
+            url_for('talk_detail', talk_hash=talk_hash, _external=True)
+        )
 
     data.update({
         'user': user_data['user_hash'],

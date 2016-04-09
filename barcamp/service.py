@@ -2,8 +2,8 @@
 
 from barcamp import app
 from flask import abort, redirect, url_for, flash, render_template, Response
-from login_misc import check_auth, auth_required
-from login import send_mail
+from login_misc import check_auth, auth_required, is_admin
+from utils import send_mail
 from talks import get_talks_dict, get_talks
 from entrant import user_user_go
 from collections import defaultdict
@@ -21,11 +21,8 @@ KEYS = {
 
 @app.route('/service/vyvoleni')
 @auth_required
+@is_admin
 def service_vyvoleni():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
     # talks, extra_talks = get_talks()
     talk_hashed = get_talks_dict()
     talks = []
@@ -76,11 +73,8 @@ def service_vyvoleni():
 
 @app.route('/service/do-programu')
 @auth_required
+@is_admin
 def service_do_programu():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
     talks, extra_talks = get_talks()
     talks = talks[:35]
     output = io.BytesIO()
@@ -101,11 +95,8 @@ def service_do_programu():
 
 @app.route('/service/naplnit-newsletter/')
 @auth_required
+@is_admin
 def plneni_newsletteru():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
     entrants = get_entrants()
     for entrant in entrants:
         app.redis.sadd('newsletter', entrant['email'])
@@ -114,11 +105,9 @@ def plneni_newsletteru():
 
 
 @app.route('/service/poslat-newsletter/')
+@auth_required
+@is_admin
 def poslani_newsletteru():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
     for mail in app.redis.smembers('newsletter'):
         print mail
         app.redis.srem('newsletter', mail)
@@ -132,11 +121,9 @@ def poslani_newsletteru():
 
 
 @app.route('/service/test-newsletter/')
+@auth_required
+@is_admin
 def test_newsletteru():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
     send_mail(
         u'A je po Barcamp Brno 2015',
         'petr@joachim.cz',
@@ -156,11 +143,8 @@ def rc_program():
 
 @app.route("/jedna-dve-tri-ctyri-pet/")
 @auth_required
+@is_admin
 def prepocet_hlasu():
-    user = check_auth()
-    if user['email'] != u'petr@joachim.cz':
-        abort(418)
-
     data = defaultdict(lambda: 0)
     keys = app.redis.keys('votes_%s_*' % app.config['YEAR'])
     for key in keys:
@@ -175,5 +159,4 @@ def prepocet_hlasu():
             app.redis.zadd(KEYS['talks'], talk, data.get(talk, 0))
 
     return "omg"
-
 

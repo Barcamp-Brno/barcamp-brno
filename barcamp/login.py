@@ -11,8 +11,6 @@ import base64
 from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
 from login_misc import update_password, create_update_profile
-import markdown
-from flask.ext.mail import Mail, Message
 
 KEYS = {
     'account': 'account_%s',
@@ -236,31 +234,6 @@ def login_reset_password():
     else:
         form = PasswordForm()
     return render_template('login_reset_password.html', form=form)
-
-
-### MAIL ###
-def send_mail(subject, to, message_file, url=""):
-    mail = Mail(app)
-    body = read_file(message_file) or ""
-    body = body % {
-        'url': url,
-        'ip': request.remote_addr,
-        'user_agent': request.user_agent,
-        'mail': to,
-    }
-
-    msg = Message(
-        subject,
-        recipients=[to],
-        sender=(u"Petr Joachim", "petr@joachim.cz")
-    )
-    msg.body = body
-    msg.html = markdown.markdown(body)
-    mail.send(msg)
-
-
-def read_file(filename):
-    return open(filename).read().decode('utf-8')
 
 
 ### FORMS ###

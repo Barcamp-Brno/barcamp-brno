@@ -1,6 +1,6 @@
 # coding: utf-8
 from barcamp import app
-from flask import render_template, Markup, url_for
+from flask import render_template, Markup
 from talks import get_talks_dict
 from datetime import time, date, datetime
 

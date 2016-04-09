@@ -1,6 +1,6 @@
 import re
 
-from jinja2 import evalcontextfilter, Markup, escape
+from jinja2 import evalcontextfilter, Markup
 from barcamp import app
 from utils import stage_is_active, stage_in_past
 from workshops import translate_status
