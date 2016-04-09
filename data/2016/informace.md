@@ -27,7 +27,7 @@ Více o barcampech u nás na [www.barcamp.cz](http://www.barcamp.cz/)
 
 ### A co Brno?
 
-První Barcamp v Brně se uskutečnil již v roce 2010, a na tuto tradici navazují i ostatní Barcampy každoročně. Poslední ročníky probíhají na půdě [FIT VUT](http://www.fit.vutbr.cz/) a účast se dosahuje až 15000 účastníků. Barcamp v Brně je největší akcí tohoto typu v ČR.
+První Barcamp v Brně se uskutečnil již v roce 2010, a na tuto tradici navazují i ostatní Barcampy každoročně. Poslední ročníky probíhají na půdě [FIT VUT](http://www.fit.vutbr.cz/) a účast se dosahuje až 1500 účastníků. Barcamp v Brně je největší akcí tohoto typu v ČR.
 
 ### Archiv Barcampů v Brně
 
