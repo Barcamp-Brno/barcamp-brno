@@ -1,1 +1,1 @@
-[![VUT-FIT](/static/img/logos/fit.jpg "VUT-FIT")](http://www.fit.vutbr.cz/)
+<a href="http://www.fit.vutbr.cz/" alt="VUT-FIT"><img src="/static/img/logos/fit.png" alt="VUT-FIT" height="100"></a>
