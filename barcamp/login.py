@@ -11,6 +11,7 @@ import base64
 from login_misc import auth_required, resolve_user_by_email
 from login_misc import check_auth, create_account, register_twitter
 from login_misc import update_password, create_update_profile
+from utils import send_mail
 
 KEYS = {
     'account': 'account_%s',
