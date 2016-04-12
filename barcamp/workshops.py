@@ -158,8 +158,10 @@ def _get_workshops():
         pass
 
     map(
-        lambda workshop: workshop.update(
-            {'score': int(workshop_scores.get(workshop['workshop_hash']) or 0)}),
+        lambda workshop: workshop.update({
+            'score': int(workshop_scores.get(workshop['workshop_hash']) or 0),
+            'status': 'waiting',
+        }),
         workshops
     )
 
