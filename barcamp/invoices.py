@@ -7,7 +7,7 @@ from flask import render_template, url_for, redirect, request, flash
 from login_misc import check_auth, auth_required, is_admin
 from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired, Email, ValidationError
 from utils import mail
 from entrant import user_user_go
 
@@ -115,20 +115,31 @@ def insert_invoice(invoice, user):
     )
     return invoice
 
+def at_least_one_piece(form, field):
+        have_some_pieces = any(
+            map(
+                lambda size: int(getattr(form, size).data) > 0,
+                SIZES
+            )
+        )
+        if not have_some_pieces:
+            raise  ValidationError(u'Musíš vybrat alespoň jeden kus')
 
 class InvoiceForm(Form):
-    name = TextField(u'Celé jméno', validators=[DataRequired()])
-    email = TextField(u'E-mail', validators=[DataRequired(), Email()])
-    phone = TextField(u'Telefon', validators=[DataRequired()])
-    street = TextField(u'Ulice', validators=[DataRequired()])
-    city_zip = IntegerField(u'PSČ', validators=[DataRequired()])
-    city = TextField(u'Město', validators=[DataRequired()])
+    name = TextField(u'Celé jméno', validators=[DataRequired(u'Tohle musíš zadat')])
+    email = TextField(u'E-mail', validators=[DataRequired(u'Tohle musíš zadat'), Email(u'A tohle je email?')])
+    phone = TextField(u'Telefon', validators=[DataRequired(u'Tohle musíš zadat')])
+    street = TextField(u'Ulice', validators=[DataRequired(u'Tohle musíš zadat')])
+    city_zip = IntegerField(u'PSČ', validators=[DataRequired(u'Tohle musíš zadat')])
+    city = TextField(u'Město', validators=[DataRequired(u'Tohle musíš zadat')])
     # company = TextField('Firma')
     # company_number = TextField(u'IČO')
     other = TextField(
         u'Poznámka k objednávce',
         widget=TextAreaField()
     )
+
+    sizes = TextField('', validators=[at_least_one_piece])
 
     man_s = IntegerField(u'S')
     man_m = IntegerField(u'M')
@@ -141,6 +152,3 @@ class InvoiceForm(Form):
     woman_m = IntegerField(u'M')
     woman_l = IntegerField(u'L')
     woman_xl = IntegerField(u'XL')
-
-
-
