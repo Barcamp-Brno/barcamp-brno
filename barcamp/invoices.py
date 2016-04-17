@@ -1,7 +1,6 @@
 # coding: utf-8
 
 import json
-import pprint
 from datetime import datetime
 from barcamp import app
 from flask import render_template, url_for, redirect, request, flash
@@ -10,6 +9,7 @@ from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Email
 from utils import mail
+from entrant import user_user_go
 
 INVOICE_NUMBER_START = 102016000;
 SIZES = ['man_s', 'man_m', 'man_l', 'man_xl', 'man_xxl', 'woman_xs', 'woman_s', 'woman_m', 'woman_l', 'woman_xl']
@@ -33,8 +33,8 @@ def invoices():
             invoice = form.data
             invoice['total_price'] = sum([UNIT_PRICE * invoice.get(size, 0) for size in SIZES])
             invoice = insert_invoice(invoice, user)
-            print(invoice)
             flash(u'Objednávka číslo {number} za {total_price} kč zaznamenána'.format(**invoice), 'success')
+            user_user_go(user)
             return redirect(url_for('my_invoices'))
     else:
         default = dict((size, 0) for size in SIZES)
@@ -48,7 +48,6 @@ def invoices():
 @app.route('/objednavky/moje')
 def my_invoices():
     user = check_auth()
-    print(KEYS['user_invoices'] % user['user_hash'])
     invoices = sorted(
         filter(
             lambda x: bool(x),
@@ -62,7 +61,6 @@ def my_invoices():
         key=lambda x: x['number'],
         reverse=True
     )
-    pprint.pprint(invoices)
     return render_template('moje-objednavky.html', user=user, invoices=invoices)
 
 
