@@ -44,4 +44,5 @@ def create_app(config):
     import filters
     import service
     import workshops
+    import invoices
     return app

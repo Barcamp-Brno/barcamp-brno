@@ -102,5 +102,25 @@ def send_mail(subject, to, message_file, url=""):
     mail.send(msg)
 
 
+def mail(subject, sender, recipient, file, data, sender_name=None):
+    body = read_file(file) or ""
+
+    body = body % data
+    if sender_name:
+        sender = (sender_name, sender)
+
+    msg = Message(
+        subject,
+        sender=sender,
+        recipients=[recipient]
+    )
+
+    msg.body = body
+    msg.html = markdown.markdown(body)
+
+    mail = Mail(app)
+    return mail.send(msg)
+
+
 def read_file(filename):
     return open(filename).read().decode('utf-8')

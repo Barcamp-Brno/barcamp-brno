@@ -1,0 +1,28 @@
+{% extends "_base_form.html" %}
+{% block page_content %}
+<h2>Moje objednávky</h2>
+{% if invoices %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>číslo</th>
+                <th>datum</th>
+                <th>cena</th>
+                <th>stav</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invoice in invoices %}
+            <tr>
+                <td>{{invoice.number}}</td>
+                <td>{{invoice.date[:19].replace('T', ' ')}}</td>
+                <td>{{invoice.total_price}} kč</td>
+                <td>{{invoice.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="warning">Žádné objednávky</div>
+{% endif %}
+{% endblock %}

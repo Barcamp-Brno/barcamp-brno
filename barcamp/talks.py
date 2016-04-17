@@ -152,9 +152,12 @@ def _get_talks():
     if not talk_hashes:
         return []
 
-    talks = map(
-        lambda talk: json.loads(talk or 'false'),
-        app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
+    talks = filter(
+        lambda x: bool(x),
+        map(
+            lambda talk: json.loads(talk or 'false'),
+            app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
+        )
     )
     try:
         talks.remove(False)
