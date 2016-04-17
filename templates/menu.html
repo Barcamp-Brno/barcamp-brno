@@ -1,3 +1,11 @@
+{%- macro active_li(url, text) %}
+    <li
+        {% if request.path == url %}
+            class="active"
+        {% endif %}>
+        <a href="{{url}}">{{text}}</a>
+    </li>
+{% endmacro -%}
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,19 +27,19 @@
                 <li><a href="http://mapy.cz/s/6ZKC" target="_blank">4. června<span class="hidden-sm"> &mdash; Božetěchova 2, Brno</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{url_for('static_page', page='informace')}}">Informace</a></li>
-                    <li><a href="{{url_for('sponsors')}}">Partneři</a></li>
+                    {{active_li(url_for('static_page', page='informace'), 'Informace')}}
+                    {{active_li(url_for('sponsors'), 'Partneři')}}
                 {% if "PROGRAM_READY" in config.STAGES %}
-                    <li><a href="{{url_for('program')}}">Program</a></li>
+                    {{active_li(url_for('program'), 'Program')}}
                 {% endif %}
                 {% if "END" in config.STAGES %}
-                    <li><a href="{{url_for('static_page', page='zhodnoceni')}}">Zhodnocení</a></li>
+                    {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
                 {% endif %}
                 {% if not user %}
-                    <li><a href="{{url_for('login')}}">Přihlásit se</a></li>
+                    {{active_li(url_for('login'), 'Přihlásit se')}}
                 {% else %}
-                    <li><a href="{{url_for('login_settings')}}">Profil</a></li>
-                    <li><a href="{{url_for('logout')}}">Odhlásit se</a></li>
+                    <li {% if request.path == url_for('login_settings') or request.path.startswith(url_for('my_invoices'))%}class="active"{% endif %}><a href="{{url_for('login_settings')}}">Profil</a></li>
+                    {{active_li(url_for('logout'), 'Odhlásit se')}}
                 {% endif %}
             </ul>
         </div><!-- /.navbar-collapse -->

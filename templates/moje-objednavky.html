@@ -1,5 +1,5 @@
-{% extends "_base_form.html" %}
-{% block page_content %}
+{% extends "_base_profile.html" %}
+{% block profile_content %}
 <h2>Moje objednávky</h2>
 {% if invoices %}
     <table class="table">
@@ -7,7 +7,7 @@
             <tr>
                 <th>číslo</th>
                 <th>datum</th>
-                <th>cena</th>
+                <th>obsah</th>
                 <th>stav</th>
             </tr>
         </thead>
@@ -16,7 +16,17 @@
             <tr>
                 <td>{{invoice.number}}</td>
                 <td>{{invoice.date[:19].replace('T', ' ')}}</td>
-                <td>{{invoice.total_price}} kč</td>
+                <td>
+                    <ul>
+                        {% for size in sizes %}
+                            {%- if invoice[size] > 0 %}
+                                {% set type, actual_size = size.split('_') %}
+                                <li>{{'Pánské' if type == 'man' else 'Dámské'}} <strong>{{actual_size|upper}}</strong>: {{invoice[size]}} ks</li>
+                            {% endif -%}
+                        {% endfor %}
+                        <li>Cena: <strong>{{invoice.total_price}}</strong> kč</li>
+                    </ul>
+                </td>
                 <td>{{invoice.status}}</td>
             </tr>
             {% endfor %}

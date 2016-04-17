@@ -61,7 +61,7 @@ def my_invoices():
         key=lambda x: x['number'],
         reverse=True
     )
-    return render_template('moje-objednavky.html', user=user, invoices=invoices)
+    return render_template('moje-objednavky.html', user=user, invoices=invoices, sizes=SIZES)
 
 
 @app.route('/objednavky/prehled')
@@ -81,7 +81,7 @@ def invoices_admin():
         key=lambda x: x['number'],
         reverse=True
     )
-    return render_template('prehled-objednavek.html', invoices=invoices)
+    return render_template('prehled-objednavek.html', invoices=invoices, sizes=SIZES)
 
 
 @app.route('/objednavky/zmenit/<new_state>/<order_number>')
