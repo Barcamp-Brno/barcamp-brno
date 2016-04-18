@@ -1,10 +1,10 @@
 Kontakty
 --------
 
-<div class="medailonky">
+<div class="kontakty">
     <!-- Petr Joachim -->
     <div class="medailonek">
-        <img src="/static/img/lidi/petr-joachim.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/petr-joachim.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Petr Joachim
                 &mdash; <a href="mailto:petr@joachim.cz?subject=Barcamp Brno 2016">petr@joachim.cz</a>
@@ -15,7 +15,7 @@ Kontakty
 
     <!-- Zdenek Zicha -->
     <div class="medailonek">
-        <img src="/static/img/lidi/zdenek-zicha.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/zdenek-zicha.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Zdeněk Zicha
                 &mdash; <a href="zdenek.zicha@gmail.com?subject=Barcamp Brno 2016" target="_blank">zdenek.zicha@gmail.com</a>
@@ -26,7 +26,7 @@ Kontakty
 
     <!-- Tomas Sotoniak -->
     <div class="medailonek">
-        <img src="/static/img/lidi/tomas-sotoniak.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/tomas-sotoniak.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Tomáš Sotoniak
                 &mdash; <a href="mailto:tomas@sotoniak.cz?subject=Barcamp Brno 2016" target="_blank">tomas@sotoniak.cz</a>
@@ -37,7 +37,7 @@ Kontakty
 
     <!-- Martina Joachim -->
     <div class="medailonek">
-        <img src="/static/img/lidi/martina-joachim.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/martina-joachim.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Martina Joachim
                 &mdash; <a href="http://twitter.com/mysulemys" target="_blank">@mysulemys</a>
@@ -48,7 +48,7 @@ Kontakty
 
     <!-- Bara Buchtova -->
     <div class="medailonek">
-        <img src="/static/img/lidi/bara-buchtova.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/bara-buchtova.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Bára Buchtová
                 &mdash; <a href="http://twitter.com/bbarbuska" target="_blank">@bbarbuska</a>
@@ -59,7 +59,7 @@ Kontakty
 
     <!-- Tomas Vrabec -->
     <div class="medailonek">
-        <img src="/static/img/lidi/tomas-vrabec.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/tomas-vrabec.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Tomáš Vrabec
                 &mdash; <a href="https://twitter.com/tvrabec" target="_blank">@tvrabec</a>
