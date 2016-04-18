@@ -71,7 +71,7 @@ Kontakty
 
     <!-- Tomas Nespechal -->
     <div class="medailonek">
-        <img src="/static/img/lidi/tomas-nespechal.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/tomas-nespechal.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Tomáš Nespěchal
                 &mdash; <a href="https://cz.linkedin.com/pub/tomas-nespechal/3/618/581" target="_blank">LinkedIn</a>
@@ -82,7 +82,7 @@ Kontakty
 
     <!-- Hledame posily -->
     <div class="medailonek">
-        <img src="/static/img/lidi/no-one.jpg" style="width: 75px" />
+        <img src="/static/img/lidi/no-one.jpg" style="width: 50px" />
         <div class="desc">
             <h3>Zde můžeš být i ty!
                 <small><a href="mailto:petr@joachim.cz?subject=Chci organizovat Barcamp Brno" target="_blank">napiš mi na petr@joachim.cz</a> co bys chtěl/chtěla dělat a&nbsp;jak chceš pomoci</small>
@@ -93,7 +93,6 @@ Kontakty
 
 ### Ostatní
  - [Petr Šiller](http://petrsiller.cz/) - design
- - [Martina Joachim](http://www.twitter.com/mysulemys) - Tisková grafika
  - [@white_kate](http://www.twitter.com/white_kate) - logo Barcamp Brno
  - [wikimedia.org/Millenium187](https://commons.wikimedia.org/wiki/File:Brno_-_panorama_II_-_2012.jpg) - panorama Brna
 
