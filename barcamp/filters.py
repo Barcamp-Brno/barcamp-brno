@@ -23,7 +23,6 @@ def nl2br(eval_ctx, value):
 @evalcontextfilter
 def no_emoji(eval_ctx, value):
     result = _emoji_re.sub('', value)
-    print result
     if eval_ctx.autoescape:
         result = Markup(result)
     return result
