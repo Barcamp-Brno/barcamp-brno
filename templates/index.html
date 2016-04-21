@@ -44,9 +44,9 @@
                             <th>
                                 {% if after_stage(config.YEAR, 'VOTING') %}
                                 <span class="number">{{loop.index}}.</span> {% endif %} 
-                                <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a>
+                                <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
                             </th>
-                            <td class="shadow-name">{{talk.user.name}}</td>
+                            <td class="shadow-name">{{talk.user.name|no_emoji}}</td>
                             {% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
                                 <td>Počet&nbsp;hlasů&nbsp;<strong>{{talk.score or 0|int}}</strong></td>
                             {% endif %}

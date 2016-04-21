@@ -1,5 +1,5 @@
 {% extends "_base_page.html" %}
-{% block title %}{{talk.title}} - Barcamp Brno {{config.YEAR}}{% endblock %}
+{% block title %}{{talk.title|no_emoji}} - Barcamp Brno {{config.YEAR}}{% endblock %}
 {% block meta%}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@bcbrno">
@@ -11,8 +11,8 @@
 <meta name="twitter:image:src" content="http://www.barcampbrno.cz/static/img/barcamp-square.png">
 {% endblock %}
 {% block page_content %}
-<h2>Přednáška &mdash; {{talk.title}}</h2>
-<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name}}</a></h3>
+<h2>Přednáška &mdash; {{talk.title|no_emoji}}</h2>
+<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name|no_emoji}}</a></h3>
 {% if author.user_hash == user.user_hash %}
 <div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
 {% endif %}

@@ -7,6 +7,7 @@ from workshops import translate_status
 from login_misc import check_auth
 
 _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
+_emoji_re = re.compile(r'[^\w -]+', re.UNICODE)
 
 
 @app.template_filter()
@@ -16,6 +17,16 @@ def nl2br(eval_ctx, value):
    if eval_ctx.autoescape:
        result = Markup(result)
    return result
+
+
+@app.template_filter()
+@evalcontextfilter
+def no_emoji(eval_ctx, value):
+    result = _emoji_re.sub('', value)
+    print result
+    if eval_ctx.autoescape:
+        result = Markup(result)
+    return result
 
 
 @app.context_processor
@@ -35,7 +46,7 @@ def after_stage():
 
 @app.context_processor
 def going():
-	return {'going': lambda user, year: user and 'going_%s' % year in user.keys() and user['going_%s' % year]}
+    return {'going': lambda user, year: user and 'going_%s' % year in user.keys() and user['going_%s' % year]}
 
 
 @app.context_processor
