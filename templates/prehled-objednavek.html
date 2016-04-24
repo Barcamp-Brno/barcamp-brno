@@ -1,0 +1,62 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<h2>Přehled</h2>
+<div class="rows">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Zbývá zaplatit</dt>
+            <dd>{{pending_price}} kč</dd>
+            {% for size in sizes %}
+                {% set type, actual_size = size.split('_') %}
+                <dt>{{pending_sizes[size]}} x</dt>
+                <dd>{{'Pánské' if type == 'man' else 'Dámské'}} {{actual_size|upper}}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Zaplaceno</dt>
+            <dd>{{collected_price}} kč</dd>
+            {% for size in sizes %}
+                {% set type, actual_size = size.split('_') %}
+                <dt>{{collected_sizes[size]}} x</dt>
+                <dd>{{'Pánské' if type == 'man' else 'Dámské'}} {{actual_size|upper}}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+</div>
+<h2>Všechny objednávky</h2>
+{% if invoices %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>číslo</th>
+                <th>datum</th>
+                <th>obsah</th>
+                <th>cena</th>
+                <th>stav</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invoice in invoices %}
+            <tr>
+                <td>{{invoice.number}}</td>
+                <td>{{invoice.date[:19].replace('T', ' ')}}</td>
+                <td>
+                        {% for size in sizes %}
+                            {%- if invoice[size] > 0 %}
+                                {% set type, actual_size = size.split('_') %}
+                                {{'Pánské' if type == 'man' else 'Dámské'}} <strong>{{actual_size|upper}}</strong>: {{invoice[size]}} ks<br />
+                            {% endif -%}
+                        {% endfor %}
+                </td>
+                <td><strong>{{invoice.total_price}}</strong> kč</td>
+                <td>{{invoice.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="warning">Žádné objednávky</div>
+{% endif %}
+{% endblock %}

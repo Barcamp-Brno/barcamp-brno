@@ -10,6 +10,7 @@ from wtforms import TextField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError
 from utils import mail
 from entrant import user_user_go
+from collections import defaultdict
 
 INVOICE_NUMBER_START = 102016000;
 SIZES = ['man_s', 'man_m', 'man_l', 'man_xl', 'man_xxl', 'woman_xs', 'woman_s', 'woman_m', 'woman_l', 'woman_xl']
@@ -74,14 +75,50 @@ def invoices_admin():
             map(
                 lambda invoice: json.loads(invoice or 'false'),
                 app.redis.mget(
-                    app.redis.get(KEYS['year_invoices'])
+                    app.redis.smembers(KEYS['year_invoices'])
                 )
             )
         ),
         key=lambda x: x['number'],
         reverse=True
     )
-    return render_template('prehled-objednavek.html', invoices=invoices, sizes=SIZES)
+    pending_price = reduce(
+        lambda x, y: x + y['total_price'],
+        filter(
+            lambda x: x['status'] == 'new',
+            invoices
+        ),
+        0
+    )
+    collected_price = reduce(
+        lambda x, y: x + y['total_price'],
+        filter(
+            lambda x: x['status'] == 'paid',
+            invoices
+        ),
+        0
+    )
+    collected_sizes = defaultdict(lambda: 0)
+    pending_sizes = defaultdict(lambda: 0)
+    for invoice in invoices:
+        if invoice['status'] == 'new':
+            target = pending_sizes
+        elif invoice['status'] == 'paid':
+            target = collected_sizes
+        else: continue
+
+        for size in SIZES:
+            target[size] += invoice[size]
+
+    return render_template(
+        'prehled-objednavek.html',
+        invoices=invoices,
+        sizes=SIZES,
+        pending_price=pending_price,
+        pending_sizes=pending_sizes,
+        collected_price=collected_price,
+        collected_sizes=collected_sizes,
+    )
 
 
 @app.route('/objednavky/zmenit/<new_state>/<order_number>')
