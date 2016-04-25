@@ -49,19 +49,22 @@ def invoices():
 @app.route('/objednavky/moje')
 def my_invoices():
     user = check_auth()
-    invoices = sorted(
-        filter(
-            lambda x: bool(x),
-            map(
-                lambda invoice: json.loads(invoice or 'false'),
-                app.redis.mget(
-                    app.redis.smembers(KEYS['user_invoices'] % user['user_hash'])
+    user_invoices = app.redis.smembers(KEYS['user_invoices'] % user['user_hash'])
+    invoices = []
+    if user_invoices:
+        invoices = sorted(
+            filter(
+                lambda x: bool(x),
+                map(
+                    lambda invoice: json.loads(invoice or 'false'),
+                    app.redis.mget(
+                        user_invoices
+                    )
                 )
-            )
-        ),
-        key=lambda x: x['number'],
-        reverse=True
-    )
+            ),
+            key=lambda x: x['number'],
+            reverse=True
+        )
     return render_template('moje-objednavky.html', user=user, invoices=invoices, sizes=SIZES)
 
 
@@ -69,13 +72,15 @@ def my_invoices():
 @auth_required
 @is_admin
 def invoices_admin():
+    all_invoices = app.redis.smembers(KEYS['year_invoices'])
+    invoices = []
     invoices = sorted(
         filter(
             lambda x: bool(x),
             map(
                 lambda invoice: json.loads(invoice or 'false'),
                 app.redis.mget(
-                    app.redis.smembers(KEYS['year_invoices'])
+                    all_invoices
                 )
             )
         ),
