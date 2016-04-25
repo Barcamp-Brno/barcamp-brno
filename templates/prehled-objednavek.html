@@ -32,6 +32,8 @@
             <tr>
                 <th>číslo</th>
                 <th>datum</th>
+                <th>jméno</th>
+                <th>mail</th>
                 <th>obsah</th>
                 <th>cena</th>
                 <th>stav</th>
@@ -42,6 +44,8 @@
             <tr>
                 <td>{{invoice.number}}</td>
                 <td>{{invoice.date[:19].replace('T', ' ')}}</td>
+                <td>{{invoice.name}}</td>
+                <td>{{invoice.email}}</td>
                 <td>
                         {% for size in sizes %}
                             {%- if invoice[size] > 0 %}
