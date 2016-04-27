@@ -7,7 +7,7 @@ from workshops import translate_status
 from login_misc import check_auth
 
 _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
-_emoji_re = re.compile(r'[^\w -]+', re.UNICODE)
+_emoji_re = re.compile(r'[^\w .-<>/?!,]+', re.UNICODE)
 
 
 @app.template_filter()
