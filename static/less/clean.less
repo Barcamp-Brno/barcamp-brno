@@ -101,6 +101,29 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.talk-block {
+    min-height: 100px;
+    display: inline-table;
+    text-align: left;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    &:hover {
+        background-color: #eee;
+    }
+
+    & .voting a, & .voting a:hover {
+        color: red;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    & .voting a .caption-hover {display: none;}
+    & .voting a:hover .caption {display: none;}
+    & .voting a:hover .caption-hover {display: inline;}
+}
+
 .medailonky {
     max-width: 640px;
 
