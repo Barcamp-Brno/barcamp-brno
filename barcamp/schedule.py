@@ -27,6 +27,10 @@ schedule = {
                     'from': datetime(2016, 4, 10),
                     'to': datetime(2016, 4, 24),
                 },
+                'VOTING': {
+                    'from': datetime(2016, 5, 1),
+                    'to': datetime(2016, 5, 21),
+                },
             },
         },
         '2017': {

@@ -22,6 +22,7 @@ def index():
         extra_talks = []
     else:
         talks, extra_talks = get_talks()
+        talks = sorted(talks, key=lambda x: len(x['title']))
 
     workshops = get_workshops()
 
