@@ -38,17 +38,33 @@
                 <h3>Témata volená účastníky <small>(42 míst)</small></h3>
                 <div id="talks" class="row">
                     {% for talk in talks %}
-                        <div class="talk-block col-md-3 col-sm-4 col-xs-12 {{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
+                        <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4 col-xs-12 {{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
                             <p>
                                 <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
                             </p>
                             <p>{{talk.user.name|no_emoji}}</p>
+                            <a href="#" class="pull-right" onclick="
+                                var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
+                                $('.more').removeClass('more');
+                                if(!hadClass){
+                                    $('#talk-{{talk.talk_hash}}').addClass('more');
+                                }
+                                return false;
+                            ">
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                    <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
+                                    <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
+                                </span>
+                            </a>
                             {% if stage(config.YEAR, 'VOTING') %}
                                 <div class="voting" style="
                                     /*text-align: left*/
                                 ">
                                     {% if going(user, config.YEAR) and stage(config.YEAR, 'VOTING') %}
-                                        <a href="#">
+                                        <a href="#" onclick="
+                                            return false;
+                                        ">
                                     {% endif %}
                                     {% if talk.talk_hash in user_votes %}
                                         <span class="caption">
@@ -67,9 +83,16 @@
                                     {% endif %}
                                     {% if going(user, config.YEAR) and stage(config.YEAR, 'VOTING') %}
                                         </a>
-                                    {% endif %}
+                                    {% endif %}    
                                 </div>
                             {% endif %}
+                            <div class="detail">
+                                <p>{{talk.description}}</p>
+                                <h3>Pro koho</h3>
+                                <p>{{talk.purpose or "---"}}</p>
+                                <h3>O autorovi</h3>
+                                <p>{{talk.user.bio or "---"}}</p>
+                            </div>
                         </div>
                     {% else %}
                         <div>Zatím zde nic není</div>

@@ -24,7 +24,7 @@ if __name__ == '__main__':
         'MAIL_PORT': 587,
         'MAIL_USERNAME': os.environ.get('SENDGRID_USERNAME', ''),
         'MAIL_PASSWORD': os.environ.get('SENDGRID_PASSWORD', ''),
-        #'TEST_DATE': datetime(2016, 3, 13),
+        'TEST_DATE': datetime(2016, 5, 13),
     }
 
     config.update(schedule)
