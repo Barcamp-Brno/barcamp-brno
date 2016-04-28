@@ -11,27 +11,26 @@ KEYS = {
 }
 
 
-@app.route('/zmenit-hlasy/', methods=['POST'])
+@app.route('/hlas-pro-prednasku/<talk_hash>')
 @auth_required
-def vote_save():
+def vote_for_talk(talk_hash):
     user = check_auth()
     user_hash = user['user_hash']
     old_votes = app.redis.smembers(KEYS['votes'] % user_hash) or set()
-    new_votes = set([item[0] for item in request.form.items()])
 
-    increment = new_votes - old_votes
-    decrement = old_votes - new_votes
-    # stand_still = old_votes & new_votes
+    method = request.args.get('method', 'decrease')
+    if method == 'increase' and talk_hash not in old_votes:
+        app.redis.zincrby(KEYS['talks'], talk_hash, 1)
+        app.redis.sadd(KEYS['votes'] % user_hash, talk_hash)
 
-    for vote in increment:
-        app.redis.sadd(KEYS['votes'] % user_hash, vote)
-        app.redis.zincrby(KEYS['talks'], vote, 1)
+    if method == 'decrease' and talk_hash in old_votes:
+        app.redis.zincrby(KEYS['talks'], talk_hash, -1)
+        app.redis.srem(KEYS['votes'] % user_hash, talk_hash)
 
-    for vote in decrement:
-        app.redis.srem(KEYS['votes'] % user_hash, vote)
-        app.redis.zincrby(KEYS['talks'], vote, -1)
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return str(app.redis.zscore(KEYS['talks'], talk_hash) or 0)
 
-    flash(u'Hlasy byly uloženy', 'success')
+    flash(u'Hlas byl zaznamenán', 'success')
     return redirect(url_for('index'))
 
 
