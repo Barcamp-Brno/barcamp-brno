@@ -18,7 +18,7 @@
 			Trička mají pevnou cenu 150 kč za kus, platí se předem pomocí bankovního převodu. Objednávat bude možné až do <strong>13. 5. 2016</strong> a platba musí dorazit na náš účet nejpozději 16. 5. ráno abychom stihli objednat výrobu. K vyzvednutí pak budou třička na místě v den konference. To znamená, že je nebudeme posílat poštou jindy, než v opravdu výjimečných případech.
 		</p>
 		<p>
-			<a class="btn btn-lg btn-danger" href="/chci-si-objednat/">Chci si tričko objednat</a> jedno stojí 150kč
+			<a class="btn btn-lg btn-danger" href="/chci-si-objednat/">Chcu si tričko objednat</a> jedno stojí 150kč
 		</p>
 	</div>
 	<div class="col-md-4">

@@ -3,7 +3,7 @@
     <p>Letos úplně jinak</p>
     <p>Trička bez log partnerů v předprodeji</p>
     <p>
-        <a class="btn btn-danger" href="/2016/stranka/tricka.html}}">
+        <a class="btn btn-danger" href="/2016/stranka/tricka.html">
             <i class="fa fa-credit-card"></i>
             Chcu mít taky tričko!
         </a>

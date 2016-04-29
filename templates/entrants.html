@@ -6,7 +6,7 @@
 {% if stage(config.YEAR, 'USERS') %}
     {% if going(user, config.YEAR) %}
         <p class="menu center menu-button"><a class="btn btn-default" href="{{url_for('attend_remove')}}">
-                <i class="fa fa-remove"></i>
+                <i class="fa fa-times"></i>
                 Už nechci přijít</a>
     {% else %}
         <a name="go"></a>
