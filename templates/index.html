@@ -39,58 +39,60 @@
                 <div id="talks" class="row">
                     {% for talk in talks %}
                         <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4 col-xs-12 {{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
-                            <p>
-                                <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
-                            </p>
-                            <p>{{talk.user.name|no_emoji}}</p>
-                            <a href="#" class="pull-right" onclick="
-                                var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
-                                $('.more').removeClass('more');
-                                if(!hadClass){
-                                    $('#talk-{{talk.talk_hash}}').addClass('more');
-                                }
-                                return false;
-                            ">
-                                <span class="fa-stack">
-                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                    <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
-                                    <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
-                                </span>
-                            </a>
-                            {% if stage(config.YEAR, 'VOTING') %}
-                                <div class="voting">
-                                    {% if going(user, config.YEAR) and stage(config.YEAR, 'VOTING') %}
+                            <div class="talk-content">
+                                <p class="talk-name">
+                                    <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
+                                </p>
+                                <p>{{talk.user.name|no_emoji}}</p>
+                                {% if stage(config.YEAR, 'VOTING') %}
+                                    <div class="voting">
+                                        
                                         <a href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
-                                            data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
-                                            data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
-                                            data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
-                                    {% endif %}
-                                    {% if talk.talk_hash in user_votes %}
-                                        <span class="caption">
-                                            <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
-                                        </span>
-                                        <span class="caption-hover">
-                                            <i class="fa fa-star-o"></i> zrušit hlas
-                                        </span>
-                                    {% else %}
-                                        <span class="caption">
-                                            <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
-                                        </span>
-                                        <span class="caption-hover">
-                                            <i class="fa fa-star"></i> přidat hlas
-                                        </span>
-                                    {% endif %}
-                                    {% if going(user, config.YEAR) and stage(config.YEAR, 'VOTING') %}
+                                                    data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
+                                                    data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
+                                                    data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
+                                            
+                                            {% if talk.talk_hash in user_votes %}
+                                                <span class="caption">
+                                                    <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
+                                                </span>
+                                                <span class="caption-hover">
+                                                    <i class="fa fa-star-o"></i> zrušit hlas
+                                                </span>
+                                            {% else %}
+                                                <span class="caption">
+                                                    <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
+                                                </span>
+                                                <span class="caption-hover">
+                                                    <i class="fa fa-star"></i> přidat hlas
+                                                </span>
+                                            {% endif %}
+                                            
                                         </a>
-                                    {% endif %}    
+                                        
+                                    </div>
+                                {% endif %}
+                                <a href="#" class="more-button" onclick="
+                                    var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
+                                    $('.more').removeClass('more');
+                                    if(!hadClass){
+                                        $('#talk-{{talk.talk_hash}}').addClass('more');
+                                    }
+                                    return false;
+                                ">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
+                                        <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
+                                    </span>
+                                </a>
+                                <div class="detail">
+                                    <p>{{talk.description}}</p>
+                                    <h3>Pro koho</h3>
+                                    <p>{{talk.purpose or "---"}}</p>
+                                    <h3>O autorovi</h3>
+                                    <p>{{talk.user.bio or "---"}}</p>
                                 </div>
-                            {% endif %}
-                            <div class="detail">
-                                <p>{{talk.description}}</p>
-                                <h3>Pro koho</h3>
-                                <p>{{talk.purpose or "---"}}</p>
-                                <h3>O autorovi</h3>
-                                <p>{{talk.user.bio or "---"}}</p>
                             </div>
                         </div>
                     {% else %}

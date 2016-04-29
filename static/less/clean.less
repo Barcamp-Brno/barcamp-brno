@@ -102,21 +102,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .talk-block {
-    min-height: 170px;
+    min-height: 220px;
     display: inline-table;
     text-align: left;
     padding: 10px 20px 10px 20px;
     margin-bottom: 10px;
     overflow: none;
 
+    & a{
+        color: #d92227;
+        & :hover{
+            color: #d92227;
+        };
+    }
+
+    & .talk-name{
+        font-weight: bold;
+    }
+    
+    & .more-button{
+        margin: 0 40% 10px;
+        display: block;
+    }
+
     & .detail {
-        margin-top: 10px;
+        margin-top: 20px;
         display: none;
-        position: absolute;
         z-index: 10;
         background-color: #eee;
-        margin-left: -20px;
-        padding-left: 20px;
     }
 
     & .icon-close {
@@ -129,6 +142,18 @@ h1, h2, h3, h4, h5, h6 {
 
     &.more {
         background-color: #eee;
+
+        & .talk-content{
+            position: absolute;
+            z-index: 1000;
+            box-shadow: 1px 1px 11px;
+            width: 100%;
+            margin-left: -20px;
+            margin-top: -10px;
+            padding: 10px 20px 20px;
+            background: #eee;
+        }
+
         & .detail {
             display: block;
         }
@@ -227,7 +252,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 25px;
     margin-bottom: 30px;
     color: @light-gray;
-    padding-left: 15px;
 }
 
 #hp-content {
