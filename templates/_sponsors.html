@@ -1,0 +1,14 @@
+<h2>Hlavní partneři</h2>
+<div class="row">
+{% for sponsor in sponsors.main %}
+    {{sponsors_data(sponsor, 'logo')}}  
+{% endfor %}
+</div>
+<h3>Partneři akce</h3>
+{% for sponsor in sponsors.regular %}
+    {{sponsors_data(sponsor, 'logo')}}  
+{% endfor %}
+<h3>Mediální partneři</h3>
+{% for sponsor in sponsors.medial %}
+    {{sponsors_data(sponsor, 'logo')}}  
+{% endfor %}

@@ -44,9 +44,6 @@ def index():
         entrants=get_entrants()[:50],
         user_votes=get_user_votes(user_hash),
         novinky=markdown_markup('novinky'),
-        sponsors_main=markdown_markup('sponsors_main'),
-        sponsors_medial=markdown_markup('sponsors_medial'),
-        sponsors=markdown_markup('sponsors'),
         talks=talks, extra_talks=extra_talks,
         talks_dict=get_talks_dict(),
         workshops=workshops
@@ -66,9 +63,6 @@ def entrants():
 def sponsors():
     return render_template(
         "partneri.html",
-        sponsors_main=markdown_markup('sponsors_main'),
-        sponsors_medial=markdown_markup('sponsors_medial'),
-        sponsors=markdown_markup('sponsors'),
         sponsors_other=markdown_markup('sponsors_other'),
     )
 

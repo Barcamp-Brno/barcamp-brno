@@ -2,7 +2,7 @@ import re
 
 from jinja2 import evalcontextfilter, Markup
 from barcamp import app
-from utils import stage_is_active, stage_in_past
+from utils import stage_is_active, stage_in_past, sponsors_data
 from workshops import translate_status
 from login_misc import check_auth
 
@@ -53,6 +53,39 @@ def stage():
 @app.context_processor
 def workshop_status():
     return {'status': translate_status}
+
+
+@app.context_processor
+def sponsors():
+    return {
+        'sponsors': {
+            'main': [
+                'vut',
+                'ysoft',
+                'fei',
+                'ibm',
+            ],
+            'regular': [
+                'seznam',
+                'moravia',
+                'edhouse',
+                'sygic',
+                'mergado',
+                'kentico',
+                'lmc',
+                'ymca',
+            ],
+            'medial': [
+                'touchart',
+            ],
+        }
+    }
+
+@app.context_processor
+def sponsors_d():
+    return {
+        'sponsors_data': sponsors_data,
+    }
 
 
 @app.context_processor

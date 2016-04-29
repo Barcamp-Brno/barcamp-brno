@@ -48,6 +48,27 @@ def markdown_static_page(page):
         user=check_auth())
 
 
+def sponsors_data(sponsor, data):
+    try:
+        with open(
+                'data/{year}/sponsors/{sponsor}/{data}.md'.format(** {
+                    'year': app.config['YEAR'],
+                    'sponsor': sponsor,
+                    'data': data,
+                })) as f:
+            raw_data = f.read().decode('utf-8')
+            content = Markup(markdown.markdown(raw_data))
+    except:
+        content = None
+        if app.debug:
+            raise
+
+    if not content:
+        content = Markup('')
+
+    return content
+
+
 def markdown_markup(filename):
     try:
         with open('data/%s/%s.md' % (app.config['YEAR'], filename)) as f:
