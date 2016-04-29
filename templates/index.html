@@ -118,6 +118,12 @@
                             Máš co říct? Přidej své téma</a>
                 </p><div class="clearer"></div>
                 {% endif %}
+                {% if after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+                <p class="menu center menu-button">
+                            <i class="fa fa-meh-o"></i>
+                            Registrace přednášek už je uzavřená.
+                </p><div class="clearer"></div>
+                {% endif %}
             {% endif %}
 
             {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') or after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
@@ -141,11 +147,13 @@
                             Chceš udělat na Barcampu workshop? Přidej ho!</a>
                 </p><div class="clearer"></div>
                 {% endif %}
+                {% if after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+                <p class="menu center menu-button">
+                            <i class="fa fa-meh-o"></i>
+                            Registrace workshopů už je uzavřená.
+                </p><div class="clearer"></div>
+                {% endif %}
             {% endif %}
-
-
-            <!-- workshopy -->
-            <!-- {{ workshops }} -->
 
             <!-- sponzori -->
             <!-- <h2>Hlavní partneři akce</h2>
