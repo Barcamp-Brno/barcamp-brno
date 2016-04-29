@@ -188,13 +188,13 @@
                 {% endif %}
             
                 {% if going(user, config.YEAR) %}
-                    <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
-                            <i class="icon-remove icon-white"></i>
+                    <p class="menu center menu-button"><a class="btn btn-default" href="{{url_for('attend_remove')}}">
+                            <i class="fa fa-times"></i>
                             Už nechci přijít</a>
                 {% else %}
                     <a name="go"></a>
-                    <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-                            <i class="icon-heart icon-white"></i>
+                    <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('attend_add')}}">
+                            <i class="fa fa-heart"></i>
                             Chci přijít na Barcamp</a>
                 </p><div class="clearer"></div>
                 {% endif %}
