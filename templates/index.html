@@ -43,7 +43,12 @@
                                 <p class="talk-name">
                                     <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
                                 </p>
-                                <p>{{talk.user.name|no_emoji}}</p>
+                                {% set speakers = extract_speakers(talk.user.name) %}
+                                <p>
+                                    {% for speaker in speakers %}
+                                        {{speaker}}{% if not loop.last %}<br/ >{% endif %}
+                                    {% endfor %}
+                                </p>
                                 {% if stage(config.YEAR, 'VOTING') %}
                                     <div class="voting">
                                         

@@ -28,7 +28,7 @@ def vote_for_talk(talk_hash):
         app.redis.srem(KEYS['votes'] % user_hash, talk_hash)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return str(app.redis.zscore(KEYS['talks'], talk_hash) or 0)
+        return str(int(app.redis.zscore(KEYS['talks'], talk_hash)) or 0)
 
     flash(u'Hlas byl zaznamenán', 'success')
     return redirect(url_for('index'))
