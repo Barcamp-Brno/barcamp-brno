@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from barcamp import app
-from flask import flash, url_for, redirect, request
+from flask import flash, url_for, redirect, request, session
 from login_misc import check_auth, auth_required
 
 KEYS = {
@@ -31,6 +31,19 @@ def vote_for_talk(talk_hash):
         return str(int(app.redis.zscore(KEYS['talks'], talk_hash)) or 0)
 
     flash(u'Hlas byl zaznamenán', 'success')
+    return redirect(url_for('index'))
+
+
+@app.route('/hlasovani-potrebuje-prihlaseni')
+def voting_require_login():
+    flash(u'Když chceš hlasovat, musíš se přihlásit ke svému účtu', 'warning')
+    session['next'] = url_for('index')
+    return redirect(url_for('login'))
+
+@app.route('/hlasovani-potrebuje-registraci')
+def voting_require_going():
+    flash(u'Když chceš hlasovat, musíš chtít přijít', 'warning')
+    session['next'] = url_for('index')
     return redirect(url_for('index'))
 
 

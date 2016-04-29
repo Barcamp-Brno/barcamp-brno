@@ -10,27 +10,28 @@
                 {% include '_program.html' %}
             {% endif %}
 
-            <!-- {% if stage(config.YEAR, 'USERS') %}
+            {% if stage(config.YEAR, 'USERS') %}
                 <h2>Moje účast</h2>
                 {% if going(user, config.YEAR) %}
-                    <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
-                            <i class="icon-remove icon-white"></i>
+                    <p class="menu center menu-button"><a class="btn btn-default" href="{{url_for('attend_remove')}}">
+                            <i class="fa fa-remove"></i>
                             Už nechci přijít</a>
                 {% else %}
                     <a name="go"></a>
-                    <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-                            <i class="icon-heart icon-white"></i>
+                    <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('attend_add')}}">
+                            <i class="fa fa-heart"></i>
                             Chci přijít na Barcamp</a>
+                    <div class="going-tooltip">Abys mohl hlasovat, musíš chtít přijít</div>
                 </p><div class="clearer"></div>
                 {% endif %}
             {% else %}
                 <h2>Kdy budou registrace účastníků?</h2>
                 <p></p>
                 <p class="menu center menu-button"><a href="{{url_for('static_page', page='informace')}}">
-                        <i class="icon-bullhorn icon-white"></i>
+                        <i class="fa fa-bullhorn"></i>
                         Registrace účasti začnou 1. 5. 2016</a>
                 </p>
-            {% endif %} -->
+            {% endif %}
             {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
                 <!-- prednasejici -->
                 <h2>Program{% if stage(config.YEAR, 'VOTING') %} &amp; hlasování{% endif %}</h2>
@@ -49,32 +50,38 @@
                                         {{speaker}}{% if not loop.last %}<br/ >{% endif %}
                                     {% endfor %}
                                 </p>
-                                {% if stage(config.YEAR, 'VOTING') %}
+                                {% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
                                     <div class="voting">
-                                        
-                                        <a href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
-                                                    data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
-                                                    data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
-                                                    data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
-                                            
-                                            {% if talk.talk_hash in user_votes %}
-                                                <span class="caption">
-                                                    <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
-                                                </span>
-                                                <span class="caption-hover">
-                                                    <i class="fa fa-star-o"></i> zrušit hlas
-                                                </span>
+                                        {% if stage(config.YEAR, 'VOTING') %}
+                                            {% if going(user, config.YEAR) %}
+                                                <a class="vote-button" href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
+                                                            data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
+                                                            data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
+                                                            data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
+                                            {% elif not user %}
+                                                <a href="{{url_for('voting_require_login')}}">
                                             {% else %}
-                                                <span class="caption">
-                                                    <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
-                                                </span>
-                                                <span class="caption-hover">
-                                                    <i class="fa fa-star"></i> přidat hlas
-                                                </span>
+                                                <a href="{{url_for('voting_require_going')}}">
                                             {% endif %}
-                                            
-                                        </a>
-                                        
+                                        {% endif %}
+                                        {% if talk.talk_hash in user_votes %}
+                                            <span class="caption">
+                                                <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
+                                            </span>
+                                            <span class="caption-hover">
+                                                <i class="fa fa-star-o"></i> zrušit hlas
+                                            </span>
+                                        {% else %}
+                                            <span class="caption">
+                                                <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
+                                            </span>
+                                            <span class="caption-hover">
+                                                <i class="fa fa-star"></i> přidat hlas
+                                            </span>
+                                        {% endif %}
+                                        {% if stage(config.YEAR, 'VOTING') %}
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 {% endif %}
                                 <a href="#" class="more-button" onclick="
@@ -192,7 +199,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.talk-block .voting a').click(function(event){
+    $('.talk-block .voting .vote-button').click(function(event){
         event.preventDefault();
         var self = $(this);
         var nextAction = self.data('next-action');

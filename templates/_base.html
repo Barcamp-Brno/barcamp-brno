@@ -24,15 +24,13 @@
             {% include 'menu.html' %}
         </div>
         <div class="spacer"></div>
-        <div class="container-fluid">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
-                    <div class="row bar bar-{{ category }}">{{ message }}</div>
+                    <div class="bar bar-{{ category }}">{{ message }}</div>
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-        </div>
         {% block body %}{% endblock %}
 
             <script type="text/javascript">
