@@ -1,0 +1,1 @@
+[![Seznam.cz](/static/img/logos/seznam.png "Seznam.cz")](http://seznam.cz)
