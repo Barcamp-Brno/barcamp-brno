@@ -60,6 +60,24 @@
                 </div>
                 {{novinky}}
             </div>
+            <div class="col-md-3 col-sm-4">
+                <h2>Hyde Park</h2>
+                    <p>Prapůvodní barcamp, venku pod stanem. Totální punková akce.</p>
+                    <a class="btn btn-danger" href="{{url_for('static_page', page='hyde-park')}}">
+                        <i class="fa fa-thumbs-o-up"></i>
+                        Chcu vědět více!
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <h2>Dětský koutek</h2>
+                    <p>Máte-li děti a chcete s nimi přijít, přijďte.</p>
+                    <a class="btn btn-danger" href="{{url_for('static_page', page='hyde-park')}}">
+                        <i class="fa fa-thumbs-o-up"></i>
+                        Chcu vědět více!
+                    </a>
+                </p>
+            </div>
 
             {% if stage(config.YEAR, 'PROGRAM') %}
                 {% include '_program.html' %}
