@@ -2,25 +2,35 @@
 {% block page_content %}
 <h2>Účastníci</h2>
 <p>Právě je přihlášeno <strong>{{entrant_count}}</strong> účastníků.</p>
+
+{% if stage(config.YEAR, 'USERS') %}
+    {% if going(user, config.YEAR) %}
+        <p class="menu center menu-button"><a class="btn btn-default" href="{{url_for('attend_remove')}}">
+                <i class="fa fa-remove"></i>
+                Už nechci přijít</a>
+    {% else %}
+        <a name="go"></a>
+        <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('attend_add')}}">
+                <i class="fa fa-heart"></i>
+                Chci přijít na Barcamp</a>
+        <div class="going-tooltip">Abys mohl hlasovat, musíš chtít přijít</div>
+    </p><div class="clearer"></div>
+    {% endif %}
+{% else %}
+    <h2>Kdy budou registrace účastníků?</h2>
+    <p></p>
+    <p class="menu center menu-button"><a href="{{url_for('static_page', page='informace')}}">
+            <i class="fa fa-bullhorn"></i>
+            Registrace účasti začnou 1. 5. 2016</a>
+    </p>
+{% endif %}
+
 {% if entrants %}
 <ul id="entrants">
 {% for entrant in entrants %}
-    <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name}}</a></li>
+    <li><a href="{{url_for('profile', user_hash=entrant.user_hash)}}">{{entrant.name|no_emoji}}</a></li>
 {% endfor %}
 </ul>
-{% endif %}
-
-{% if user and user['going_%s' % config.YEAR] %}
-    <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
-            <i class="icon-remove icon-white"></i>
-            Už nechci přijít ({{config.YEAR}})</a>
-{% else %}
-    {% if "USERS" in config.STAGES %}
-        <a name="go"></a>
-        <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-                <i class="icon-heart icon-white"></i>
-                Chci přijít na Barcamp Brno {{config.YEAR}}</a>
-    {% endif %}
 {% endif %}
 </p><div class="clearer"></div>
 {% endblock %}

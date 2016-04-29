@@ -81,6 +81,14 @@ def talks_all():
         extra_talks=extra_talks
     )
 
+@app.route('/%s/workshopy.html' % app.config['YEAR'])
+def workshops_all():
+    workshops = get_workshops()
+    return render_template(
+        "workshops.html",
+        workshops=workshops,
+    )
+
 @app.route('/profil/<user_hash>/')
 def profile(user_hash):
     data = get_account(user_hash)
