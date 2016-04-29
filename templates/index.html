@@ -58,12 +58,86 @@
                         </a>
                     </p>
                 </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Trička</h2>
+                    <p>Letos úplně jinak</p>
+                    <p>Trička bez log partnerů v předprodeji</p>
+                    <p>
+                        <a class="btn btn-info" href="/2016/stranka/tricka.html">
+                            <i class="fa fa-credit-card"></i>
+                            Chcu mít taky tričko!
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Hyde Park</h2>
+                        <p>Prapůvodní barcamp, venku pod stanem. Totální punková akce.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='hyde-park')}}">
+                            <i class="fa fa-thumbs-o-up"></i>
+                            Chcu více punku!
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Dětský koutek</h2>
+                        <p>Máte-li děti a chcete s nimi přijít, přijďte.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='detsky-koutek')}}">
+                            <i class="fa fa-child"></i>
+                            Chcu vzít své dítě
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Jídlo &amp; pití</h2>
+                        <p>Máte rádí jídlo a pití.<br/>My taky.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='catering')}}">
+                            <i class="fa fa-cutlery"></i>
+                            Chcu se najíst
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Král barcampu</h2>
+                        <p>Chcete se bavit.<br/>Tak zkuste soutěž.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='kral-barcampu')}}">
+                            <i class="fa fa-crosshairs"></i>
+                            Chcu vyhrát
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Warm-up event</h2>
+                        <p>Budeš v Brně už v pátek?<br/>Tak Warm-up párty.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='warm-up-social-event')}}">
+                            <i class="fa fa-beer"></i>
+                            Chcu se zahřát
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>After event</h2>
+                        <p>Nechce se ti hned domů?<br/>Tak se pojď seznamovat.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='after-social-event')}}">
+                            <i class="fa fa-users"></i>
+                            Chcu networkovat
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <h2>Organizátoři</h2>
+                        <p>Ti lidé, kteří stojí za touhle skvělou akcí.</p>
+                        <a class="btn btn-default" href="{{url_for('static_page', page='kontakty')}}">
+                            <i class="fa fa-compress"></i>
+                            Chcu vědět kdo to je
+                        </a>
+                    </p>
+                </div>
                 {{novinky}}
             </div>
 
-            {% if stage(config.YEAR, 'PROGRAM') %}
+            {# {% if stage(config.YEAR, 'PROGRAM') %}
                 {% include '_program.html' %}
-            {% endif %}
+            {% endif %} #}
 
             <!-- sponzori -->
             <!-- <h2>Hlavní partneři akce</h2>

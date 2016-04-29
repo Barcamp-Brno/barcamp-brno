@@ -2,7 +2,7 @@
 {% block page_content %}
 {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
     <!-- prednasejici -->
-    <h2>Program{% if stage(config.YEAR, 'VOTING') %} &amp; hlasování{% endif %}</h2>
+    <h2>Přednášky{% if stage(config.YEAR, 'VOTING') %} &amp; hlasování{% endif %}</h2>
     {% if stage(config.YEAR, 'CALL-FOR-PAPERS') %}
     <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('talk_edit')}}">
                 <i class="fa fa-bullhorn"></i>
