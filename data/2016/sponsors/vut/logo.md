@@ -1,0 +1,1 @@
+[![VUT-FIT](/static/img/logos/fit.png "VUT-FIT")](http://www.fit.vutbr.cz/)

@@ -1,0 +1,1 @@
+[![YMCA Brno](/static/img/logos/ymca.png "YMCA Brno")](http://www.ymcabrno.cz/)
