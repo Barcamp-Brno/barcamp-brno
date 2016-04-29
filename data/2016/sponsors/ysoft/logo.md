@@ -1,0 +1,1 @@
+[![Y Soft](/static/img/logos/ysoft.png "Y Soft")](http://www.ysoft.cz/)

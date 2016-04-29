@@ -1,0 +1,1 @@
+[![Mergado.cz](/static/img/logos/mergado.png "Mergado.cz")](http://www.mergado.cz/)

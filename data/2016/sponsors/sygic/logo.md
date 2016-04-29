@@ -1,0 +1,1 @@
+[![Sygic travel](/static/img/logos/sygic.png "Sygic travel")](http://travel.sygic.com/)

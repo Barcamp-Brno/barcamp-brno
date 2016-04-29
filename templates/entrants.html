@@ -7,12 +7,12 @@
     {% if going(user, config.YEAR) %}
         <p class="menu center menu-button"><a class="btn btn-default" href="{{url_for('attend_remove')}}">
                 <i class="fa fa-times"></i>
-                Už nechci přijít</a>
+                Ale já už nechcu přijít</a>
     {% else %}
         <a name="go"></a>
         <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('attend_add')}}">
                 <i class="fa fa-heart"></i>
-                Chci přijít na Barcamp</a>
+                Chcu přijít na Barcamp</a>
         <div class="going-tooltip">Abys mohl hlasovat, musíš chtít přijít</div>
     </p><div class="clearer"></div>
     {% endif %}
