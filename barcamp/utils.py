@@ -53,9 +53,6 @@ def markdown_markup(filename):
         with open('data/%s/%s.md' % (app.config['YEAR'], filename)) as f:
             raw_data = f.read().decode('utf-8')
             md_data = markdown.markdown(raw_data)
-            md_data = md_data\
-                .replace('<p>', '')\
-                .replace('</p>', '')
             content = Markup(md_data)
     except:
         content = None

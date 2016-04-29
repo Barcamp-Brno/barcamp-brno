@@ -7,7 +7,6 @@ from login_misc import check_auth, auth_required
 KEYS = {
     'votes': 'votes_%s_%%s' % app.config['YEAR'],  # set
     'talks': 'talks_%s' % app.config['YEAR'],
-
 }
 
 
@@ -31,13 +30,13 @@ def vote_for_talk(talk_hash):
         return str(int(app.redis.zscore(KEYS['talks'], talk_hash)) or 0)
 
     flash(u'Hlas byl zaznamenán', 'success')
-    return redirect(url_for('index'))
+    return redirect(url_for('talks_all'))
 
 
 @app.route('/hlasovani-potrebuje-prihlaseni')
 def voting_require_login():
     flash(u'Když chceš hlasovat, musíš se přihlásit ke svému účtu', 'warning')
-    session['next'] = url_for('index')
+    session['next'] = url_for('talks_all')
     return redirect(url_for('login'))
 
 @app.route('/hlasovani-potrebuje-registraci')

@@ -2,19 +2,6 @@
 {% block page_content %}
 {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') or after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
     <h2>Přihlášené workshopy</h2>
-     <table class="table" id="workshops">
-        {% for workshop in workshops %}
-            <tr class="{% if workshop.status != 'approved' %}fail{% endif %}">
-                <th>
-                    <a href="{{url_for('workshop_detail', workshop_hash=workshop.workshop_hash)}}">{{workshop.title}}</a>
-                </th>
-                <td>{{workshop.user.name}}</td>
-                <td class="shadow-name">{{status(workshop.status)}}</td>
-            </tr>
-        {% else %}
-            <div>Zatím zde nic není</div>
-        {% endfor %}
-    </table>
     {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
     <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('workshop_edit')}}">
                 <i class="fa fa-bullhorn"></i>
@@ -27,5 +14,19 @@
                 Registrace workshopů už je uzavřená.
     </p><div class="clearer"></div>
     {% endif %}
+    <table class="table" id="workshops">
+        {% for workshop in workshops %}
+            <tr class="{% if workshop.status != 'approved' %}fail{% endif %}">
+                <th>
+                    <a href="{{url_for('workshop_detail', workshop_hash=workshop.workshop_hash)}}">{{workshop.title}}</a>
+                </th>
+                <td>{{workshop.user.name}}</td>
+                <td class="shadow-name">{{status(workshop.status)}}</td>
+            </tr>
+        {% else %}
+            <div>Zatím zde nic není</div>
+        {% endfor %}
+    </table>
+    
 {% endif %}
 {% endblock %}
