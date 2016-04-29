@@ -101,6 +101,81 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.talk-block {
+    min-height: 220px;
+    display: inline-table;
+    text-align: left;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 10px;
+    overflow: none;
+
+    & a{
+        color: #d92227;
+        & :hover{
+            color: #d92227;
+        };
+    }
+
+    & .talk-name{
+        font-weight: bold;
+    }
+    
+    & .more-button{
+        margin: 10px 40% 0px;
+        display: block;
+    }
+
+    & .detail {
+        margin-top: 20px;
+        display: none;
+        z-index: 10;
+        background-color: #eee;
+    }
+
+    & .icon-close {
+        display: none;
+    }
+
+    &:hover {
+        background-color: #eee;
+    }
+
+    &.more {
+        background-color: #eee;
+
+        & .talk-content{
+            position: absolute;
+            z-index: 1000;
+            box-shadow: 1px 1px 11px;
+            width: 100%;
+            margin-left: -20px;
+            margin-top: -10px;
+            padding: 10px 20px 20px;
+            background: #eee;
+        }
+
+        & .detail {
+            display: block;
+        }
+        & .icon-open {
+            display: none;
+        }
+        & .icon-close {
+            display: block;
+        }
+    }
+
+    & .voting a, & .voting a:hover {
+        color: red;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    & .voting .caption-hover {display: none;}
+    & .voting a:hover .caption {display: none;}
+    & .voting a:hover .caption-hover {display: inline;}
+}
+
 .medailonky {
     max-width: 640px;
 
@@ -177,7 +252,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 25px;
     margin-bottom: 30px;
     color: @light-gray;
-    padding-left: 15px;
 }
 
 #hp-content {

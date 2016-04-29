@@ -1,95 +1,127 @@
 {% extends "_base_landing.html"%}
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <div id="hp-content">
         <div class="wrapper">
+
             {{novinky}}
 
             {% if stage(config.YEAR, 'PROGRAM') %}
                 {% include '_program.html' %}
             {% endif %}
 
-            <!-- {% if stage(config.YEAR, 'USERS') %}
+            {% if stage(config.YEAR, 'USERS') %}
                 <h2>Moje účast</h2>
                 {% if going(user, config.YEAR) %}
-                    <p class="menu center menu-button"><a class="gray" href="{{url_for('attend_remove')}}">
-                            <i class="icon-remove icon-white"></i>
+                    <p class="menu center menu-button"><a class="btn btn-default" href="{{url_for('attend_remove')}}">
+                            <i class="fa fa-remove"></i>
                             Už nechci přijít</a>
                 {% else %}
                     <a name="go"></a>
-                    <p class="menu center menu-button"><a href="{{url_for('attend_add')}}">
-                            <i class="icon-heart icon-white"></i>
+                    <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('attend_add')}}">
+                            <i class="fa fa-heart"></i>
                             Chci přijít na Barcamp</a>
+                    <div class="going-tooltip">Abys mohl hlasovat, musíš chtít přijít</div>
                 </p><div class="clearer"></div>
                 {% endif %}
             {% else %}
                 <h2>Kdy budou registrace účastníků?</h2>
                 <p></p>
                 <p class="menu center menu-button"><a href="{{url_for('static_page', page='informace')}}">
-                        <i class="icon-bullhorn icon-white"></i>
+                        <i class="fa fa-bullhorn"></i>
                         Registrace účasti začnou 1. 5. 2016</a>
                 </p>
-            {% endif %} -->
+            {% endif %}
             {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
                 <!-- prednasejici -->
                 <h2>Program{% if stage(config.YEAR, 'VOTING') %} &amp; hlasování{% endif %}</h2>
                 
-                {% if going(user, config.YEAR) %}    
-                <form method="POST" action="{{url_for('vote_save')}}">
-                {% endif %}
                 <h3>Témata volená účastníky <small>(42 míst)</small></h3>
-                <table class="table" id="talks">
+                <div id="talks" class="row">
                     {% for talk in talks %}
-                        <tr class="{{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
-                            <th>
-                                {% if after_stage(config.YEAR, 'VOTING') %}
-                                <span class="number">{{loop.index}}.</span> {% endif %} 
-                                <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
-                            </th>
-                            <td class="shadow-name">{{talk.user.name|no_emoji}}</td>
-                            {% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
-                                <td>Počet&nbsp;hlasů&nbsp;<strong>{{talk.score or 0|int}}</strong></td>
-                            {% endif %}
-                            {% if going(user, config.YEAR) and stage(config.YEAR, 'VOTING') %}
-                                <td><label><input
-                                    type="checkbox"
-                                    {{'checked' if talk.talk_hash in user_votes}}
-                                    name="{{talk.talk_hash}}"/> 
-                                    Chci vidět</label>
-                                </td>
-                            {% endif %}
-                        </tr>
+                        <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4 col-xs-12 {{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
+                            <div class="talk-content">
+                                <p class="talk-name">
+                                    <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
+                                </p>
+                                {% set speakers = extract_speakers(talk.user.name) %}
+                                <p>
+                                    {% for speaker in speakers %}
+                                        {{speaker}}{% if not loop.last %}<br/ >{% endif %}
+                                    {% endfor %}
+                                </p>
+                                {% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
+                                    <div class="voting">
+                                        {% if stage(config.YEAR, 'VOTING') %}
+                                            {% if going(user, config.YEAR) %}
+                                                <a class="vote-button" href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
+                                                            data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
+                                                            data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
+                                                            data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
+                                            {% elif not user %}
+                                                <a href="{{url_for('voting_require_login')}}">
+                                            {% else %}
+                                                <a href="{{url_for('voting_require_going')}}">
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if talk.talk_hash in user_votes %}
+                                            <span class="caption">
+                                                <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
+                                            </span>
+                                            <span class="caption-hover">
+                                                <i class="fa fa-star-o"></i> zrušit hlas
+                                            </span>
+                                        {% else %}
+                                            <span class="caption">
+                                                <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
+                                            </span>
+                                            <span class="caption-hover">
+                                                <i class="fa fa-star"></i> přidat hlas
+                                            </span>
+                                        {% endif %}
+                                        {% if stage(config.YEAR, 'VOTING') %}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                <a href="#" class="more-button" onclick="
+                                    var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
+                                    $('.more').removeClass('more');
+                                    if(!hadClass){
+                                        $('#talk-{{talk.talk_hash}}').addClass('more');
+                                    }
+                                    return false;
+                                ">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
+                                        <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
+                                    </span>
+                                </a>
+                                <div class="detail">
+                                    <p>{{talk.description}}</p>
+                                    <h3>Pro koho</h3>
+                                    <p>{{talk.purpose or "---"}}</p>
+                                    <h3>O autorovi</h3>
+                                    <p>{{talk.user.bio or "---"}}</p>
+                                </div>
+                            </div>
+                        </div>
                     {% else %}
                         <div>Zatím zde nic není</div>
                     {% endfor %}
-
-                    {% if going(user, config.YEAR) and stage(config.YEAR, 'VOTING') %}
-                    <tr>
-                        <td colspan="3"></td>
-                        <td><input type="submit" id="save-button" value="Uložit hlasy"></td>
-                    </tr>
-                    {% elif stage(config.YEAR, 'VOTING') %}
-                    <tr>
-                        <td colspan="2"></td>
-                        <td>
-                            <p class="alert alert-danger">Hlasovat mohou jen ti, kteří chtějí přijít. (<a href="#go">přihlášení dole</a>)</p>
-                        </td></tr>
-                    {% endif %}
-                    {% if after_stage(config.YEAR, 'VOTING') %}
-                    <tr>
-                        <td colspan="4">
-                            <p class="alert alert-danger pull-right">Hlasování bylo ukončeno.</p>
-                        </td></tr>
-                    {% endif %}
-                </table>
-                {% if going(user, config.YEAR) %}
-                </form>
-                {% endif %}
+                </div>
                 
                 {% if stage(config.YEAR, 'CALL-FOR-PAPERS') %}
-                <p class="menu center menu-button"><a href="{{url_for('talk_edit')}}">
-                            <i class="icon-bullhorn icon-white"></i>
+                <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('talk_edit')}}">
+                            <i class="fa fa-bullhorn"></i>
                             Máš co říct? Přidej své téma</a>
+                </p><div class="clearer"></div>
+                {% endif %}
+                {% if after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+                <p class="menu center menu-button">
+                            <i class="fa fa-meh-o"></i>
+                            Registrace přednášek už je uzavřená.
                 </p><div class="clearer"></div>
                 {% endif %}
             {% endif %}
@@ -110,16 +142,18 @@
                     {% endfor %}
                 </table>
                 {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
-                <p class="menu center menu-button"><a href="{{url_for('workshop_edit')}}">
-                            <i class="icon-bullhorn icon-white"></i>
+                <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('workshop_edit')}}">
+                            <i class="fa fa-bullhorn"></i>
                             Chceš udělat na Barcampu workshop? Přidej ho!</a>
                 </p><div class="clearer"></div>
                 {% endif %}
+                {% if after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+                <p class="menu center menu-button">
+                            <i class="fa fa-meh-o"></i>
+                            Registrace workshopů už je uzavřená.
+                </p><div class="clearer"></div>
+                {% endif %}
             {% endif %}
-
-
-            <!-- workshopy -->
-            <!-- {{ workshops }} -->
 
             <!-- sponzori -->
             <!-- <h2>Hlavní partneři akce</h2>
@@ -170,4 +204,44 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.talk-block .voting .vote-button').click(function(event){
+        event.preventDefault();
+        var self = $(this);
+        var nextAction = self.data('next-action');
+        var action = self.data(nextAction);
+
+        var caption = "přidávám tvůj hlas";
+        if (nextAction == 'decrease') {
+            caption = "odebírám tvůj hlas";
+        }
+        $('.caption', self).html('<i class="fa fa-spinner fa-pulse"></i> ' + caption);
+        $('.caption-hover', self).html('<i class="fa fa-spinner fa-pulse"></i> ' + caption);
+
+        $.ajax(action, {
+            'accept': 'application/json',
+            'success': function(data){
+                var voteCount = parseInt(data);
+
+                if (nextAction == 'increase') {
+                    $('.caption', self).html('<i class="fa fa-star"></i> ty a ' + (voteCount - 1) + ' hlasů');
+                    $('.caption-hover', self).html('<i class="fa fa-star-o"></i> zrušit hlas');
+                    self.data('next-action', 'decrease');
+                } else {
+                    $('.caption', self).html('<i class="fa fa-star-o"></i> ' + voteCount + ' hlasů');
+                    $('.caption-hover', self).html('<i class="fa fa-star"></i> přidat hlas');
+                    self.data('next-action', 'increase');
+                }
+            },
+            'error':  function(){
+
+            },
+        });
+
+        return false;
+    });
+});
+</script>
 {% endblock %}

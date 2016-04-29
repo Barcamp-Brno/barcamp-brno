@@ -31,6 +31,10 @@ schedule = {
                     'from': datetime(2016, 5, 1),
                     'to': datetime(2016, 5, 21),
                 },
+                'USERS': {
+                    'from': datetime(2016, 5, 1),
+                    'to': datetime(2016, 6, 4),
+                },
             },
         },
         '2017': {

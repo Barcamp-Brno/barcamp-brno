@@ -7,16 +7,17 @@ from workshops import translate_status
 from login_misc import check_auth
 
 _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
-_emoji_re = re.compile(r'[^\w .-<>/?!,]+', re.UNICODE)
+_emoji_re = re.compile(r'[^\w .-<>/?!,()]+', re.UNICODE)
+_spaces = re.compile(r'\s+')
 
 
 @app.template_filter()
 @evalcontextfilter
 def nl2br(eval_ctx, value):
-   result = u'\n\n'.join(u'<p>%s</p>' % p.replace(u'\r\n', u'<br/>') for p in _paragraph_re.split(value))
-   if eval_ctx.autoescape:
-       result = Markup(result)
-   return result
+    result = u'\n\n'.join(u'<p>%s</p>' % p.replace(u'\r\n', u'<br/>') for p in _paragraph_re.split(value))
+    if eval_ctx.autoescape:
+        result = Markup(result)
+    return result
 
 
 @app.template_filter()
@@ -27,6 +28,22 @@ def no_emoji(eval_ctx, value):
         result = Markup(result)
     return result
 
+
+def extract_speakers(value):
+    words = _spaces.sub(' ', _emoji_re.sub('', value)).split(' ')
+    count = len(words)
+    speakers = []
+
+    if count <= 3:
+        speakers.append(" ".join(words))
+    else:
+        speakers.append(" ".join(words[:2]))
+        speakers.append(" ".join(words[2:]))
+    return speakers
+
+@app.context_processor
+def speakers():
+    return {'extract_speakers': extract_speakers}
 
 @app.context_processor
 def stage():
