@@ -66,6 +66,12 @@ def sponsors():
         sponsors_other=markdown_markup('sponsors_other'),
     )
 
+@app.route('/%s/doprovodny-program.html' % app.config['YEAR'])
+def co_program():
+    return render_template(
+        "doprovodny-program.html"
+    )
+
 @app.route('/%s/prednasky.html' % app.config['YEAR'])
 def talks_all():
     talks, extra_talks = get_talks()
