@@ -1,28 +1,41 @@
 {% extends "_base_page.html"%}
 {% block page_content %}
-<style>
-    h4 p {
-        display: inline;
-    }
-    h4 img {
-        max-height: 30px;
-    }
-</style>
 <h2>Hlavní partneři</h2>
+
 {% for sponsor in sponsors.main %}
-    <h4>{{sponsors_data(sponsor, 'name')}}{{sponsors_data(sponsor, 'logo')}}</h4>
-    {{sponsors_data(sponsor, 'about')}}
+    <div class="partner clearfix">
+        <div class="pic">{{sponsors_data(sponsor, 'logo')}}</div>
+        <div class="company">
+            <h3>{{sponsors_data(sponsor, 'name')}}</h3>
+            <div class="desc">{{sponsors_data(sponsor, 'about')}}</div>
+        </div>
+    </div>
 {% endfor %}
+
 <h3>Partneři akce</h3>
 {% for sponsor in sponsors.regular %}
-    <h4>{{sponsors_data(sponsor, 'name')}}</h4>
-    {{sponsors_data(sponsor, 'about')}}
+    <div class="partner clearfix">
+        <div class="pic">{{sponsors_data(sponsor, 'logo')}}</div>
+        <div class="company">
+            <h3>{{sponsors_data(sponsor, 'name')}}</h3>
+            <div class="desc">{{sponsors_data(sponsor, 'about')}}</div>
+        </div>
+    </div>
 {% endfor %}
+
 <h3>Mediální partneři</h3>
 {% for sponsor in sponsors.medial %}
-    <h4>{{sponsors_data(sponsor, 'name')}}</h4>
-    {{sponsors_data(sponsor, 'about')}}
+    <div class="partner clearfix">
+        <div class="pic">{{sponsors_data(sponsor, 'logo')}}</div>
+        <div class="company">
+            <h3>{{sponsors_data(sponsor, 'name')}}</h3>
+            <div class="desc">{{sponsors_data(sponsor, 'about')}}</div>
+        </div>
+    </div>
 {% endfor %}
+
 <h3>Ostatní partneři a podporovatelé</h3>
 {{sponsors_other}}
+
+
 {% endblock %}
