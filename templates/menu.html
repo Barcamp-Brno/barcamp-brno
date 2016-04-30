@@ -23,15 +23,18 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="http://mapy.cz/s/6ZKC" target="_blank">4. června<span class="hidden-sm"> &mdash; Božetěchova 2, Brno</span></a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-                    {{active_li(url_for('static_page', page='informace'), 'Informace')}}
-                    {{active_li(url_for('sponsors'), 'Partneři')}}
+                    
                 {% if "PROGRAM_READY" in config.STAGES %}
                     {{active_li(url_for('program'), 'Program')}}
+                {% else %}
+                    {{active_li(url_for('program'), 'Přednášky')}}
                 {% endif %}
+                    
+                    {{active_li(url_for('program'), 'Workshopy')}}
+                    {{active_li(url_for('static_page', page='informace'), 'Informace')}}
+                    {{active_li(url_for('sponsors'), 'Partneři')}}
+                
                 {% if "END" in config.STAGES %}
                     {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
                 {% endif %}
