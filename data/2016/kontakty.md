@@ -68,6 +68,16 @@ Kontakty
         </div>
     </div>
 
+    <!-- Lenka Zichová -->
+    <div class="medailonek">
+        <img src="/static/img/lidi/lenka-zichova.jpg" style="width: 50px" />
+        <div class="desc">
+            <h3>Lenka Zichová
+                &mdash; <a href="http://twitter.com/missmaxmara" target="_blank">@missmaxmara</a>
+                <small>catering</small>
+            </h3>
+        </div>
+    </div>
 
     <!-- Tomas Nespechal -->
     <div class="medailonek">
@@ -76,6 +86,17 @@ Kontakty
             <h3>Tomáš Nespěchal
                 &mdash; <a href="https://cz.linkedin.com/pub/tomas-nespechal/3/618/581" target="_blank">LinkedIn</a>
                 <small>pevnost&nbsp;barcamp</small>
+            </h3>
+        </div>
+    </div>
+
+    <!-- Jan Bleha -->
+    <div class="medailonek">
+        <img src="/static/img/lidi/honza-bleha.jpg" style="width: 50px" />
+        <div class="desc">
+            <h3>Jan Bleha 
+                &mdash; <a href="https://cz.linkedin.com/in/janbleha" target="_blank">LinkedIn</a>
+                <small>organizace na místě</small>
             </h3>
         </div>
     </div>
