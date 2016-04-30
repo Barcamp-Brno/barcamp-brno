@@ -2,7 +2,7 @@
 {% block body %}
 <div class="container-fluid">
     <div class="detail {{page_style or ''}}">
-        <div class="wrapper">
+        <div class="wrapper container">
             <div class="content">
                 {% block page_content %}{% endblock %}
             </div>
@@ -10,7 +10,7 @@
     </div>
     <!-- pata -->
     <div id="footer" class="detail {{page_style or ''}}">
-        <div class="wrapper">
+        <div class="wrapper container">
             <div>
                 &copy; Barcamp Brno {{config.YEAR}} &mdash; <a href="{{url_for('static_page', page='kontakty')}}">Kontakty</a>
             </div>
