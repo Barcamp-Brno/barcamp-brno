@@ -1,10 +1,10 @@
 Food festival
 -------------
 
-V letošním roce jsme si pro Váš připravili novinku v podobě menšího food festivalu.
+V letošním roce jsme si pro Vás připravili novinku v podobě menšího food festivalu. 
 
-Těšit se můžete na dobrý oběd, ovoce, cupcaky, makronky a spoustu dalších dobrot.
+Zdarma pro Vás budeme mít 100% ovocné džusy a ovoce. 
 
-Kávu, kromě tradičních Kofi-Kofi, budou zajišťovat i kluci z Rebelbean.
+Dále si můžete koupit dobrý oběd, cupcaky či dezerty ze sweet baru od Cupcake kitten, domácí perníčky, francouzské palačinky, makronky nebo sushi. Kávu, kromě tradičních Kofi-Kofi, budou zajišťovat i kluci z Rebelbean http://www.rebelbean.cz. 
 
-Budeme mít také k dispozici skvělé pivo od Lucky Bastard.
+Budeme mít také k dispozici skvělé pivo od Lucky Bastard http://www.lucky-bastard.cz.
