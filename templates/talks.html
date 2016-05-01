@@ -1,4 +1,42 @@
 {% extends "_base_page.html" %}
+
+{% macro talk_voting(talk) %}
+{% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
+    <div class="voting">
+        {% if stage(config.YEAR, 'VOTING') %}
+            {% if going(user, config.YEAR) %}
+                <a class="vote-button" href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
+                            data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
+                            data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
+                            data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
+            {% elif not user %}
+                <a href="{{url_for('voting_require_login')}}">
+            {% else %}
+                <a href="{{url_for('voting_require_going')}}">
+            {% endif %}
+        {% endif %}
+        {% if talk.talk_hash in user_votes %}
+            <span class="caption">
+                <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
+            </span>
+            <span class="caption-hover">
+                <i class="fa fa-star-o"></i> zrušit hlas
+            </span>
+        {% else %}
+            <span class="caption">
+                <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
+            </span>
+            <span class="caption-hover">
+                <i class="fa fa-star"></i> přidat hlas
+            </span>
+        {% endif %}
+        {% if stage(config.YEAR, 'VOTING') %}
+            </a>
+        {% endif %}
+    </div>
+{% endif %}
+{% endmacro %}
+
 {% block page_content %}
 {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
     <!-- prednasejici -->
@@ -16,8 +54,25 @@
     </p><div class="clearer"></div>
     {% endif %}
     
-    <h3>Témata volená účastníky <small>(42 míst)</small></h3>
-    <div id="talks" class="row">
+    <h3>
+        Témata volená účastníky
+        <small>(42 míst)</small>
+        <div class="pull-right">
+            <a class="btn btn-default" onclick="showView('table'); return false"><i class="fa fa-list"></i></a>
+            <a class="btn btn-default" onclick="showView('tiles'); return false"><i class="fa fa-table"></i></a>
+        </div>
+    </h3>
+
+    <table class="table talks talks-table">
+        {% for talk in talks %}
+            <tr>
+                <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a></td>
+                <td>{{talk.user.name|no_emoji}}</td>
+                <td>{{ talk_voting(talk) }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div id="talks" class="row talks talks-tiles">
         {% for talk in talks %}
             <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4 col-xs-12 {{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
                 <div class="talk-content">
@@ -30,40 +85,7 @@
                             {{speaker}}{% if not loop.last %}<br/ >{% endif %}
                         {% endfor %}
                     </p>
-                    {% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
-                        <div class="voting">
-                            {% if stage(config.YEAR, 'VOTING') %}
-                                {% if going(user, config.YEAR) %}
-                                    <a class="vote-button" href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
-                                                data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
-                                                data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
-                                                data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
-                                {% elif not user %}
-                                    <a href="{{url_for('voting_require_login')}}">
-                                {% else %}
-                                    <a href="{{url_for('voting_require_going')}}">
-                                {% endif %}
-                            {% endif %}
-                            {% if talk.talk_hash in user_votes %}
-                                <span class="caption">
-                                    <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
-                                </span>
-                                <span class="caption-hover">
-                                    <i class="fa fa-star-o"></i> zrušit hlas
-                                </span>
-                            {% else %}
-                                <span class="caption">
-                                    <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
-                                </span>
-                                <span class="caption-hover">
-                                    <i class="fa fa-star"></i> přidat hlas
-                                </span>
-                            {% endif %}
-                            {% if stage(config.YEAR, 'VOTING') %}
-                                </a>
-                            {% endif %}
-                        </div>
-                    {% endif %}
+                    {{ talk_voting(talk) }}
                     <a href="#" class="more-button" onclick="
                         var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
                         $('.more').removeClass('more');
@@ -93,8 +115,17 @@
     </div>
 {% endif %}
 <script type="text/javascript">
+function showView(view){
+    localStorage.setItem('talks-view', view);
+    $('.talks').hide();
+    $('.talks-' + view).show();
+}
 $(document).ready(function(){
-    $('.talk-block .voting .vote-button').click(function(event){
+    var view = localStorage.getItem('talks-view');
+    view = view ? view : 'tiles';
+    showView(view);
+
+    $('.voting .vote-button').click(function(event){
         event.preventDefault();
         var self = $(this);
         var nextAction = self.data('next-action');

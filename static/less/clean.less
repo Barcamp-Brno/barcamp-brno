@@ -114,6 +114,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.talks-table {
+    display: none;
+}
+
 .talk-block {
     min-height: 220px;
     display: inline-table;
@@ -177,16 +181,20 @@ h1, h2, h3, h4, h5, h6 {
             display: block;
         }
     }
+}
 
-    & .voting a, & .voting a:hover {
+.voting {
+    width: 8em;
+    & a, & a:hover {
         color: red;
         text-decoration: none;
         font-weight: bold;
+        white-space: nowrap;
     }
 
-    & .voting .caption-hover {display: none;}
-    & .voting a:hover .caption {display: none;}
-    & .voting a:hover .caption-hover {display: inline;}
+    & .caption-hover {display: none;}
+    & a:hover .caption {display: none;}
+    & a:hover .caption-hover {display: inline;}
 }
 
 .medailonky {
