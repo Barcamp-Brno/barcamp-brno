@@ -40,12 +40,22 @@
                 </div>
                 
                 <div class="col-md-3 col-sm-4">
-                    <h2>Přednášky</h2>
+                    <h2>{%- if stage(config.YEAR, 'VOTING') %}
+                            Hlasování
+                        {% else %}
+                            Přednášky
+                        {% endif -%}
+                    </h2>
                     <p>{{talks|count}} přednášek v hlasování</p>
                     <p>42 z nich v programu</p>
                     <p><a class="btn btn-danger" href="{{url_for('talks_all')}}">
                         <i class="fa fa-play-circle"></i>
-                        Chcu vidět přednášky
+                        {%- if stage(config.YEAR, 'VOTING') %}
+                            Chcu hlasovat
+                        {% else %}
+                            Chcu vidět přednášky
+                        {% endif -%}
+                        
                     </a></p>
                 </div>
                 <div class="col-md-3 col-sm-4">
