@@ -2,7 +2,7 @@
 from barcamp import app
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
-from login_misc import check_auth, auth_required, get_account
+from login_misc import check_auth, auth_required, get_account, is_admin
 from entrant import user_user_go
 from flask_wtf import Form
 from wtforms import TextField, TextAreaField, IntegerField
@@ -14,6 +14,12 @@ KEYS = {
     'workshop': 'workshop_%s_%%s' % app.config['YEAR'],
     'workshops': 'workshops_%s' % app.config['YEAR'],
     'account': 'account_%s',
+}
+
+STATUSES = {
+    'waiting': u'Čeká na schválení',
+    'approved': u'Zařazen do programu',
+    'disapproved': u'Nezařazen do programu',
 }
 
 def workshopy():
@@ -47,6 +53,19 @@ def workshop_delete(workshop_hash):
     app.redis.zrem(KEYS['workshops'], workshop_hash)
     flash(u'Workshop byl smazán', 'success')
     return redirect(url_for('index'))
+
+
+@app.route('/workshop/zmenit-stav/<workshop_hash>/<status>')
+@auth_required
+@is_admin
+def workshop_status(workshop_hash, status):
+    if status in STATUSES:
+        workshop_data = get_workshop(workshop_hash)
+        workshop_data['status'] = status
+        app.redis.set(KEYS['workshop'] % workshop_hash, json.dumps(workshop_data))
+        return redirect(url_for('workshop_detail', workshop_hash=workshop_hash))
+    else:
+        abort(404)
 
 
 @app.route(
@@ -160,7 +179,6 @@ def _get_workshops():
     map(
         lambda workshop: workshop.update({
             'score': int(workshop_scores.get(workshop['workshop_hash']) or 0),
-            'status': 'waiting',
         }),
         workshops
     )
@@ -181,11 +199,7 @@ def _get_workshops():
 
 
 def translate_status(status):
-    return {
-        'waiting': u'Čeká na schválení',
-        'approved': u'Schválen',
-        'disapproved': u'Neschválen',
-    }[status]
+    return STATUSES[status or 'waiting']
 
 
 class WorkshopForm(Form):

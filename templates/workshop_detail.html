@@ -20,6 +20,12 @@
 {% if author.user_hash == user.user_hash %}
 <div><a href="{{url_for('workshop_edit', workshop_hash=workshop.workshop_hash)}}">Upravit tento workshop</a></div>
 {% endif %}
+{% if admin() %}
+<div>
+<a class="btn btn-success" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='approved')}}">Zařadit</a>
+<a class="btn btn-danger" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='disapproved')}}">Vyřadit</a>
+</div>
+{% endif %}
 {{workshop.description|nl2br}}
 <h3>Pro koho je workshop určen</h3>
 {{workshop.purpose|nl2br}}

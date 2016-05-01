@@ -30,14 +30,17 @@ def auth_required(fn):
 def is_admin(fn):
     @wraps(fn)
     def wrap(*args, **kwargs):
-        user = check_auth()
-        if user['email'] != u'petr@joachim.cz':
+        if not check_admin():
             abort(418)
 
         return fn(*args, **kwargs)
 
     return wrap
 
+
+def check_admin():
+    user = check_auth()
+    return user['email'] == u'petr@joachim.cz'
 
 def check_auth():
     user_hash = session.get('user_hash', None)

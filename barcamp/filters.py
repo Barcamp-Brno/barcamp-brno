@@ -4,7 +4,7 @@ from jinja2 import evalcontextfilter, Markup
 from barcamp import app
 from utils import stage_is_active, stage_in_past, sponsors_data
 from workshops import translate_status
-from login_misc import check_auth
+from login_misc import check_auth, check_admin
 
 _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
 _emoji_re = re.compile(r'[^\w .-<>/?!,()*]+', re.UNICODE)
@@ -101,3 +101,7 @@ def going():
 @app.context_processor
 def user():
     return {'user': check_auth()}
+
+@app.context_processor
+def admin():
+    return {'admin': check_admin}
