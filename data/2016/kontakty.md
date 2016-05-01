@@ -85,7 +85,7 @@ Kontakty
         <div class="desc">
             <h3>Tomáš Nespěchal
                 &mdash; <a href="https://cz.linkedin.com/pub/tomas-nespechal/3/618/581" target="_blank">LinkedIn</a>
-                <small>pevnost&nbsp;barcamp</small>
+                <small>organizace&nbsp;krále&nbsp;barcamp</small>
             </h3>
         </div>
     </div>
