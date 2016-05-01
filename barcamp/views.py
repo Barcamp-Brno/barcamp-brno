@@ -15,8 +15,6 @@ import os
 @app.route("/%s/" % app.config['YEAR'], redirect_to="/%s/index.html" % app.config['YEAR'])
 @app.route("/%s/index.html" % app.config['YEAR'])
 def index():
-    user = check_auth()
-    user_hash = None
     if stage_is_active(app.config['YEAR'], 'PROGRAM_READY'):
         talks = get_talks_dict()
         extra_talks = []
@@ -26,9 +24,6 @@ def index():
     workshops = get_workshops()
 
         # bez razeni talks = sorted(talks, key=lambda x: x['title'])
-
-    if user:
-        user_hash = user['user_hash']
 
     stage_template = "index.html"
     if stage_is_active(app.config['YEAR'], 'END'):
@@ -42,7 +37,6 @@ def index():
         times=times,
         entrant_count=get_count(),
         entrants=get_entrants()[:50],
-        user_votes=get_user_votes(user_hash),
         novinky=markdown_markup('novinky'),
         talks=talks, extra_talks=extra_talks,
         talks_dict=get_talks_dict(),
@@ -74,10 +68,17 @@ def co_program():
 
 @app.route('/%s/prednasky.html' % app.config['YEAR'])
 def talks_all():
+    user = check_auth()
+    user_hash = None
     talks, extra_talks = get_talks()
+
+    if user:
+        user_hash = user['user_hash']
+
     return render_template(
         "talks.html",
         talks=talks,
+        user_votes=get_user_votes(user_hash),
         extra_talks=extra_talks
     )
 
