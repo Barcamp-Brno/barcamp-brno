@@ -11,6 +11,8 @@ Na místě bude možné se občerstvit v rámci jídelního a nápojového líst
 
 Začátek warm-up párty je stanoven na **18:00**.
 
+Novinky a vše ohledně warm-up párty najdete také na [Facebooku](https://www.facebook.com/events/1580497152260797/)!
+
 <div id="mapa" style="width:600px; height:400px;"></div>
 <script type="text/javascript">
     var stred = SMap.Coords.fromWGS84(16.6092111, 49.1906997);
