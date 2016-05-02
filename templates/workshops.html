@@ -1,6 +1,13 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') or after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+    <h2>Chci jít na workshop</h2>
+    <div class="row">
+        <p class="col-md-7">Registrace na workshopy bude probíhat až v den konference, přímo na místě. Každý kdo má zájem workshop navštívit, se může po příchodu na Barcamp zajít zapsat na účastnický list (papírový), který bude viset na dveřích místnosti, kde se budou konat workshopy. Počet míst na jednotlivé workshopy je omezený.</p>
+
+        <p class="col-md-7">Každé místo na workshopu je rezervováno pouze do doby 5 minut před začátkem workshopu, takže <strong>přijďte včas</strong> a pro ty, kteří se nevešli zkuste své stěstí a přijďte před začátkem a nahraďte ty, kteří se nedostavili.</p>
+    </div>
+
     <h2>Přihlášené workshopy</h2>
     {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
     <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('workshop_edit')}}">
