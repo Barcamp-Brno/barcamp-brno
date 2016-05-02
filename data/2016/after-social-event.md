@@ -11,6 +11,8 @@ Mimo připraveného občerstvení bude možné na místě zakoupit několik tepl
 
 Novinkou v Café MorGal je pak akceptace všech běžných platebních karet. Afterpárty vypukne v **19 hodin**. Těšíme se vás!
 
+Aktuální dění z příprav afterpárty můžete sledovat na [Facebookovém eventu](https://www.facebook.com/events/1141176582580909/).
+
 <div id="mapa" style="width:600px; height:400px;"></div>
 <script type="text/javascript">
     var stred = SMap.Coords.fromWGS84(16.6083031, 49.1978289);
