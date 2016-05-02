@@ -1,4 +1,4 @@
-{% extends "_base_page.html" %}
+{% extends "_base_voting.html" %}
 {% block title %}{{talk.title|no_emoji}} - Barcamp Brno {{config.YEAR}}{% endblock %}
 {% block meta%}
 <meta name="twitter:card" content="summary">
@@ -12,6 +12,7 @@
 {% endblock %}
 {% block page_content %}
 <h2>Přednáška &mdash; {{talk.title|no_emoji}}</h2>
+{{ talk_voting(talk) }}
 <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name|no_emoji}}</a></h3>
 {% if author.user_hash == user.user_hash %}
 <div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
@@ -34,5 +35,43 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.voting .vote-button').click(function(event){
+        event.preventDefault();
+        var self = $(this);
+        var nextAction = self.data('next-action');
+        var action = self.data(nextAction);
+
+        var caption = "přidávám tvůj hlas";
+        if (nextAction == 'decrease') {
+            caption = "odebírám tvůj hlas";
+        }
+        $('.caption', self).html('<i class="fa fa-spinner fa-pulse"></i> ' + caption);
+        $('.caption-hover', self).html('<i class="fa fa-spinner fa-pulse"></i> ' + caption);
+
+        $.ajax(action, {
+            'accept': 'application/json',
+            'success': function(data){
+                var voteCount = parseInt(data);
+
+                if (nextAction == 'increase') {
+                    $('.caption', self).html('<i class="fa fa-star"></i> ty a ' + (voteCount - 1) + ' hlasů');
+                    $('.caption-hover', self).html('<i class="fa fa-star-o"></i> zrušit hlas');
+                    self.data('next-action', 'decrease');
+                } else {
+                    $('.caption', self).html('<i class="fa fa-star-o"></i> ' + voteCount + ' hlasů');
+                    $('.caption-hover', self).html('<i class="fa fa-star"></i> přidat hlas');
+                    self.data('next-action', 'increase');
+                }
+            },
+            'error':  function(){
+
+            },
+        });
+
+        return false;
+    });
+});
+</script>
 {% endblock %}

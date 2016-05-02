@@ -1,41 +1,4 @@
-{% extends "_base_page.html" %}
-
-{% macro talk_voting(talk) %}
-{% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}
-    <div class="voting">
-        {% if stage(config.YEAR, 'VOTING') %}
-            {% if going(user, config.YEAR) %}
-                <a class="vote-button" href="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease' if talk.talk_hash in user_votes else 'increase')}}"
-                            data-increase="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='increase')}}"
-                            data-decrease="{{url_for('vote_for_talk', talk_hash=talk.talk_hash, method='decrease')}}"
-                            data-next-action="{{'decrease' if talk.talk_hash in user_votes else 'increase'}}">
-            {% elif not user %}
-                <a href="{{url_for('voting_require_login')}}">
-            {% else %}
-                <a href="{{url_for('voting_require_going')}}">
-            {% endif %}
-        {% endif %}
-        {% if talk.talk_hash in user_votes %}
-            <span class="caption">
-                <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
-            </span>
-            <span class="caption-hover">
-                <i class="fa fa-star-o"></i> zrušit hlas
-            </span>
-        {% else %}
-            <span class="caption">
-                <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
-            </span>
-            <span class="caption-hover">
-                <i class="fa fa-star"></i> přidat hlas
-            </span>
-        {% endif %}
-        {% if stage(config.YEAR, 'VOTING') %}
-            </a>
-        {% endif %}
-    </div>
-{% endif %}
-{% endmacro %}
+{% extends "_base_voting.html" %}
 
 {% block page_content %}
 {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}

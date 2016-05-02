@@ -9,6 +9,8 @@ from wtforms import TextField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
 from utils import markdown_markup, send_feedback_mail
+from vote import get_user_votes
+
 
 KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
@@ -29,9 +31,16 @@ def talk_detail(talk_hash):
 
     author = get_account(talk['user'])
 
+    user = check_auth()
+    user_hash = None
+
+    if user:
+        user_hash = user['user_hash']
+
     return render_template(
         'talk_detail.html',
         talk=talk,
+        user_votes=get_user_votes(user_hash),
         author=author
     )
 
@@ -120,7 +129,10 @@ def get_talk_hash(data, depth=5):
 
 
 def get_talk(talk_hash):
-    return json.loads(app.redis.get(KEYS['talk'] % talk_hash) or 'false')
+    talk = json.loads(app.redis.get(KEYS['talk'] % talk_hash) or 'false')
+    score = int(app.redis.zscore(KEYS['talks'], talk_hash))
+    talk['score'] = score
+    return talk
 
 
 def get_talks(user_hash=None):
