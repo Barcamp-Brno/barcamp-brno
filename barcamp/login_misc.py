@@ -40,7 +40,7 @@ def is_admin(fn):
 
 def check_admin():
     user = check_auth()
-    return user['email'] == u'petr@joachim.cz'
+    return user and user['email'] == u'petr@joachim.cz'
 
 def check_auth():
     user_hash = session.get('user_hash', None)
