@@ -1,0 +1,3 @@
+V FEI Company věříme na ostrost. Přesněji ostrost obrazu. Rozlišení až na úrovni atomů umožňuje našim zákazníkům z řad prestižních výzkumných center, polovodičového, těžebního či farmaceutického průmyslu nacházet odpovědi, které urychlují objevy, zvyšují produktivitu a mění svět.
+
+Snaha objevovat a řešit globální výzvy jsou tím, co nás motivuje. Kombinací špičkových znalostí hardwaru a softwaru na poli elektronové, iontové a světelné mikroskopie, spolu s aplikační znalostí materiálových, přírodních věd, elektroniky a přírodních zdrojů, pomáháme posouvat hranice lidského poznání.
