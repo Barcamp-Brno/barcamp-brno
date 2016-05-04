@@ -60,8 +60,6 @@ def sponsors_data(sponsor, data):
             content = Markup(markdown.markdown(raw_data))
     except:
         content = None
-        if app.debug:
-            raise
 
     if not content:
         content = Markup('')

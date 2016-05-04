@@ -1,0 +1,15 @@
+{% extends "_base_page.html"%}
+{% block page_content %}
+<div clas="row">
+{% set index = 0 %}
+{% for sponsors_category in ['main', 'regular', 'other'] %}
+    {% for sponsor in sponsors[sponsors_category] if sponsors_data(sponsor, 'jobs') %}
+        {% set index = index + 1 %}
+        <h2>{{sponsors_data(sponsor, 'name')}}</h2>
+        {{sponsors_data(sponsor, 'jobs')}}
+        <div class="clearfix"></div>
+    {% endfor %}
+{% endfor %}
+</div>
+
+{% endblock %}

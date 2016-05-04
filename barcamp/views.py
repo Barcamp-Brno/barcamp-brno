@@ -66,6 +66,14 @@ def co_program():
         "doprovodny-program.html"
     )
 
+
+@app.route('/%s/pracovni-nabidky.html' % app.config['YEAR'])
+def job_wall():
+    return render_template(
+        "job-wall.html"
+    )
+
+
 @app.route('/%s/prednasky.html' % app.config['YEAR'])
 def talks_all():
     user = check_auth()
