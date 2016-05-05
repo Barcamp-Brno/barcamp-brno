@@ -1,15 +1,16 @@
 {% extends "_base_page.html"%}
 {% block page_content %}
+
+{% set i = [0] %}
 <div clas="row">
-{% set index = 0 %}
 {% for sponsors_category in ['main', 'regular', 'other'] %}
     {% for sponsor in sponsors[sponsors_category] if sponsors_data(sponsor, 'activity') %}
-        {% set index = index + 1 %}
+        {% if i.append(i.pop() + 1) %}{% endif %}
         <div class="partner col-md-6">
             <h2>{{sponsors_data(sponsor, 'name')}}</h2>
             <div class="desc">{{sponsors_data(sponsor, 'activity')}}</div>
         </div>
-        {% if index % 2 == 0 %}
+        {% if i[0] % 2 == 0 %}
             <div class="clearfix"></div>
         {% endif %}
     {% endfor %}
