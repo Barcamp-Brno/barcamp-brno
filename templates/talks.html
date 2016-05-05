@@ -37,7 +37,7 @@
     </table>
     <div id="talks" class="row talks talks-tiles">
         {% for talk in talks %}
-            <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4 col-xs-12 {{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
+            <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4{{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
                 <div class="talk-content">
                     <p class="talk-name">
                         <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
@@ -72,6 +72,8 @@
                     </div>
                 </div>
             </div>
+            {% if loop.index % 3 == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
+            {% if loop.index % 4 == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
         {% else %}
             <div>Zatím zde nic není</div>
         {% endfor %}
