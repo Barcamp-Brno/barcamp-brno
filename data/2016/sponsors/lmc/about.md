@@ -1,0 +1,1 @@
+Jsme především provozovatelem největších českých kariérních portálů Jobs.cz a Prace.cz s celkem více než milionem uživatelů, ale i těch menších s nabídkou specifických služeb (Práce za rohem, Easytask, Jobote.com). Provozujeme také online vzdělávací portál Seduo.cz a vyvíjíme řešení pro správu náboru (Teamio.com).
