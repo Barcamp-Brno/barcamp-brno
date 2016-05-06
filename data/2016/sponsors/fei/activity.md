@@ -3,4 +3,4 @@ Pro nás je elektronová mikroskopie prostě “hot”! Abyste ochutnali i vy, n
 Pokud by to bylo málo, můžete se zapojit do soutěže o ceny nabité kapsaicinem.  
 Vítěze soutěže budeme losovat v 15 hodin.
 
-<img src="/static/img/extra/2016/fei.png" alt=""/>
+<img src="/static/img/extra/2016/fei.png?1" alt=""/>
