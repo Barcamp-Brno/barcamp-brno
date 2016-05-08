@@ -115,10 +115,13 @@ def invoices_admin():
         for size in SIZES:
             target[size] += invoice[size]
 
+    form = InvoicePaidForm()
+
     return render_template(
         'prehled-objednavek.html',
         invoices=invoices,
         sizes=SIZES,
+        form=form,
         pending_price=pending_price,
         pending_sizes=pending_sizes,
         collected_price=collected_price,
@@ -126,11 +129,33 @@ def invoices_admin():
     )
 
 
-@app.route('/objednavky/zmenit/<new_state>/<order_number>')
+@app.route('/objednavky/zaplatit/', methods=['POST'])
 @auth_required
 @is_admin
-def invoice_update_status(new_state, order_number):
-    pass
+def invoice_update_status():
+    if request.method == "POST":
+        form = InvoicePaidForm(request.form)
+        if form.validate():
+            invoice_number = form.data.get('order_number')
+            invoice = json.loads(app.redis.get(KEYS['invoice'] % invoice_number))
+            old_status = invoice['status']
+            if old_status != 'paid':
+                #send mail
+                mail(
+                    u'Objednávka zaplacena',
+                    'petr@joachim.cz',
+                    invoice['email'],
+                    'data/paid-order.md',
+                    invoice,
+                    sender_name=u'Petr Joachim / Barcamp Brno'
+                )
+
+            invoice['status'] = 'new'
+            app.redis.set(KEYS['invoice'] % invoice_number, json.dumps(invoice))
+            flash(u'Objednávka číslo {number} za {total_price} kč zaplacena'.format(**invoice), 'success')
+            return redirect(url_for('invoices_admin'))
+    flash()
+    return redirect(url_for('invoices_admin'))
 
 
 def insert_invoice(invoice, user):
@@ -194,3 +219,6 @@ class InvoiceForm(Form):
     woman_m = IntegerField(u'M')
     woman_l = IntegerField(u'L')
     woman_xl = IntegerField(u'XL')
+
+class InvoicePaidForm(Form):
+    order_number = IntegerField(u'Objednávka', validators=[DataRequired(u'Tohle musíš zadat')])
