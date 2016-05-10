@@ -150,7 +150,7 @@ def invoice_update_status():
                     sender_name=u'Petr Joachim / Barcamp Brno'
                 )
 
-            invoice['status'] = 'new'
+            invoice['status'] = 'paid'
             app.redis.set(KEYS['invoice'] % invoice_number, json.dumps(invoice))
             flash(u'Objednávka číslo {number} za {total_price} kč zaplacena'.format(**invoice), 'success')
             return redirect(url_for('invoices_admin'))
