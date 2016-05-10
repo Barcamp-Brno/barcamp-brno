@@ -142,7 +142,7 @@ def invoice_update_status():
             if old_status != 'paid':
                 #send mail
                 mail(
-                    u'Objednávka zaplacena',
+                    u'Objednávka zaplacena - {0}'.format(invoice_number),
                     'petr@joachim.cz',
                     invoice['email'],
                     'data/paid-order.md',
