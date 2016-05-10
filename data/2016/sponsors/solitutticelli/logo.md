@@ -1,0 +1,1 @@
+[![Sygic travel](/static/img/extra/2016/solitutticelli.png "solitutticelli")](http://www.solitutticelli.cz/home-page/)

@@ -77,6 +77,7 @@ def sponsors():
             ],
             'medial': [
                 'touchart',
+                'solitutticelli',
             ],
         }
     }
