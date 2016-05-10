@@ -62,8 +62,8 @@ def sponsors():
             'main': [
                 'vut',
                 'ysoft',
-                'fei',
                 'ibm',
+                'fei',
             ],
             'regular': [
                 'seznam',
