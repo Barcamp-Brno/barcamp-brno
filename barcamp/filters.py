@@ -69,6 +69,7 @@ def sponsors():
                 'seznam',
                 'moravia',
                 'edhouse',
+                'embedit',
                 'sygic',
                 'mergado',
                 'kentico',
