@@ -50,7 +50,8 @@
             </tr>
         </thead>
         <tbody>
-            {% for invoice in invoices %}
+            {% for _ in invoices %}
+            {% for invoice in _ %}
             <tr>
                 <td>{{invoice.number}}</td>
                 <td>{{invoice.date[:19].replace('T', ' ')}}</td>
@@ -67,6 +68,7 @@
                 <td><strong>{{invoice.total_price}}</strong> kč</td>
                 <td>{{invoice.status}}</td>
             </tr>
+            {% endfor %}
             {% endfor %}
         </tbody>
     </table>

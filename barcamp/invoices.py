@@ -87,6 +87,8 @@ def invoices_admin():
         key=lambda x: x['number'],
         reverse=True
     )
+    paid = [invoice for invoice in invoices if invoice['status'] == 'paid']
+    unpaid = [invoice for invoice in invoices if invoice['status'] != 'paid']
     pending_price = reduce(
         lambda x, y: x + y['total_price'],
         filter(
@@ -119,7 +121,7 @@ def invoices_admin():
 
     return render_template(
         'prehled-objednavek.html',
-        invoices=invoices,
+        invoices=(paid, unpaid),
         sizes=SIZES,
         form=form,
         pending_price=pending_price,
