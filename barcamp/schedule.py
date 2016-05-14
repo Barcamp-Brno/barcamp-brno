@@ -35,6 +35,10 @@ schedule = {
                     'from': datetime(2016, 5, 1),
                     'to': datetime(2016, 6, 4),
                 },
+                'T-SHIRTS': {
+                    'from': datetime(2016, 4, 22),
+                    'to': datetime(2016, 5, 11),
+                },
             },
         },
         '2017': {
