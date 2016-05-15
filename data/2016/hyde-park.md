@@ -7,7 +7,7 @@ Princip Hyde parku je jednoduchý. Doufáme, že se najde dostatek odvážných 
 
 I zde chceme, aby obsah akce byl na samotných účastnících, takže i o těchto tématech se bude hlasovat.
 
-Ten kdo bude mít zájem si zadiskutovat na nějaké téma, bude jej moci vypsat na hlasovací arch (flip nebo tabule) umístěný hned za hlavním vchodem na nádvoří a účastníci o nich následně budou hlasovat. Jak? prostě fixou k tématu co je zaujme udělají fixou čárku.
+Ten kdo bude mít zájem si zadiskutovat na nějaké téma, bude jej moci vypsat na hlasovací arch (flip nebo tabule) umístěný hned za hlavním vchodem na nádvoří a účastníci o nich následně budou hlasovat. Jak? Prostě udělají fixou čáru u tématu, které je zaujme.
 
 Na hlasování budou mít účastnící dost času, necháme je o programu Hyde parku hlasovat do začátku druhého bloku přednášek.
 
