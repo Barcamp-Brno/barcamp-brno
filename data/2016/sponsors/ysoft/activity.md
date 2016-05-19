@@ -1,0 +1,3 @@
+Hlad, zábava nebo zájem o zajímavou práci... Je jedno, co vás přivede na stánek Y Soft, my se postaráme o všechno. Na venkovním stánku ugrilujeme čuníka, vevnitř chystáme závody 3D tištěných autíček na balónkový pohon o zajímavé ceny. A všude budete mít po ruce přehled otevřených pozic a tým lidí, kteří vám o práci ve Y Soft řeknou vše, co vás bude zajímat. Tešíme se na vás!
+
+<img src="/static/img/extra/2016/ysoft-cunik.jpg" alt=""/>
