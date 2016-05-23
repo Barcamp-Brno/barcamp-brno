@@ -9,6 +9,6 @@ Zdarma pro Vás budeme mít 100% ovocné džusy a ovoce.
 
 Pokud budete mít chuť na něco sladkého můžete si koupit cupcaky či dezerty ze sweet baru od [Cupcake kitten](https://www.facebook.com/kapkejk.kote/?fref=ts), domácí perníčky, francouzské palačinky nebo domácí makronky. 
 
-Kávu, kromě tradičních Kofi-Kofi (http://www.kofikofi.cz), budou zajišťovat i kluci z [Rebelbean](http://www.rebelbean.cz).
+Kávu, kromě tradičních [Kofi-Kofi](http://www.kofikofi.cz), budou zajišťovat i kluci z [Rebelbean](http://www.rebelbean.cz).
 
 Budeme mít také k dispozici skvělé pivo od [Lucky Bastard](http://www.lucky-bastard.cz).
