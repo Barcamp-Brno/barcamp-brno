@@ -92,7 +92,7 @@ times = [
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
         {'block_from': time(19, 0), 'block_to': time(23, 0), 'date': den_d,
-            'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/afterparty.html">Afterpárty</a>')},
+            'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/after-social-event.html">Afterpárty</a>')},
     ]
 
 
