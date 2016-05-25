@@ -45,6 +45,7 @@
     <th style="text-align: center">E105</th>
     <th style="text-align: center">A112</th>
     <th style="text-align: center">A113</th>
+    <th style="text-align: center">C228</th>
 </tr>
 <tr>
     <th>Moderuje</th>
@@ -54,7 +55,7 @@
     <th style="text-align: center">Jan Markel a Michal Španěl</th>
     <th style="text-align: center">Pavla Doláková</th>
     <th style="text-align: center">Jiří Kaláček</th>
-    <th style="text-align: center" colspan="2"><a href="{{url_for('static_page', page='workshopy')}}">Workshopy</a></th>
+    <th style="text-align: center" colspan="3"><a href="{{url_for('workshops_all')}}">Workshopy</a></th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
@@ -66,12 +67,11 @@
         {{format_talk_td(t.data.d0207)}}
         {{format_talk_td(t.data.e104)}}
         {{format_talk_td(t.data.e105)}}
-        {{format_workshop_td(t.data.a112)}}
+{#         {{format_workshop_td(t.data.a112)}}
         {{format_workshop_td(t.data.a113)}}
-    {% elif t.data.find("Oběd") >= 0 %}
-        <td colspan="6" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+        {{format_workshop_td(t.data.c228)}} #}
     {% else %}
-        <td colspan="8" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+        <td colspan="9" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% endif %}
 </tr>
 {% endfor %}
