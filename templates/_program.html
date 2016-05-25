@@ -25,14 +25,16 @@
 {%- endmacro %}
 
 <h2>Program Barcampu</h2>
-<h3>Sobota 23.5.2015</h3>
+<h3>Sobota 4.6.2016</h3>
 <ul>
-    <li><a href="{{url_for('static_page', page='doprovodny-program')}}">Bohatý doprovodný program</a></li>
+    <li><a href="{{url_for('co_program')}}">Bohatý doprovodný program</a></li>
     <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
-    <li><a href="{{url_for('static_page', page='pevnost-barcamp')}}">Soutěž o Pevnost Barcampu Brno</a></li>
+    <li><a href="{{url_for('static_page', page='kral-barcampu')}}">Soutěž o Pevnost Barcampu Brno</a></li>
+{#     
     <li></li>
     <li><a href="http://play.google.com/store/apps/details?id=eu.touchart.barcamp">Aplikace Barcamp Brno pro Android</a></li>
     <li><a href="https://itunes.apple.com/us/app/barcamp-brno/id981443541?ls=1&amp;mt=8">Aplikace Barcamp Brno pro iOS</a></li>
+ #}
 </ul>
 <table class="table table-condensed">
 <tr>
@@ -49,12 +51,12 @@
 </tr>
 <tr>
     <th>Moderuje</th>
-    <th style="text-align: center">Jan Řehák</th>
-    <th style="text-align: center">Šimon Berka</th>
-    <th style="text-align: center">Richard Kunovský a Jan Mondek</th>
-    <th style="text-align: center">Jan Markel a Michal Španěl</th>
-    <th style="text-align: center">Pavla Doláková</th>
-    <th style="text-align: center">Jiří Kaláček</th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
+    <th style="text-align: center"></th>
     <th style="text-align: center" colspan="3"><a href="{{url_for('workshops_all')}}">Workshopy</a></th>
 </tr>
 {% for t in times %}
@@ -71,7 +73,7 @@
         {{format_workshop_td(t.data.a113)}}
         {{format_workshop_td(t.data.c228)}} #}
     {% else %}
-        <td colspan="9" style="text-align: center; vertical-align: middle">{{t.data}}</td>
+        <td colspan="9n" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% endif %}
 </tr>
 {% endfor %}
