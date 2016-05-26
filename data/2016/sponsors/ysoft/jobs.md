@@ -5,9 +5,11 @@
 
     <p>We’re currently seeking an Interaction Designer specialist to join our fast growing UX team in the Czech Republic. As a designer with Y Soft, you’ll partner with product development teams to bring the best experience for thousands of customers around the world. You’ll work on our Y Soft SafeQ, our flagship platform which includes 3D Printers. Additionally, you can join the development of our upcoming strategic initiatives.  </p>
     <h4>What Interaction Designer does?</h4>
-    <p>needs to learn and understand complex systems, processes and relationships between people and products colaborates with design and development teams on delivering new products, new functions and improved product qualities to the market.</p>
-    <p>Cooperates with the Product management on definition and execution of user research activities.  </p>
-    <p>Want to learn more about the position? Visit us on https://www.ysoft.com/en/company/career/vacancies/interaction-designer</p>
+    <ul>
+        <li>needs to learn and understand complex systems, processes and relationships between people and products.</li>
+        <li>colaborates with design and development teams on delivering new products, new functions and improved product qualities to the market.</li>
+        <li>cooperates with the Product management on definition and execution of user research activities.</li>
+    </ul>
     <p><a href="https://www.ysoft.com/en/company/career/vacancies/interaction-designer">Learn more on our site!</a></p>
 </div>
 <div class="col-md-4">
