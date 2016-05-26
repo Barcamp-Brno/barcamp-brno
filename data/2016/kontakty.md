@@ -101,6 +101,17 @@ Kontakty
         </div>
     </div>
 
+    <!-- doc. RNDr. Jitka Kreslikova, CSc. -->
+    <div class="medailonek">
+        <img src="/static/img/lidi/no-one.jpg" style="width: 50px" />
+        <div class="desc">
+            <h3>Jitka Kreslíková
+                &mdash; <a href="mailto:kreslika@fit.vutbr.cz">kreslika@fit.vutbr.cz</a>
+                <small>koordinátor za VUT FIT</small>
+            </h3>
+        </div>
+    </div>
+
     <!-- Hledame posily -->
     <div class="medailonek">
         <img src="/static/img/lidi/no-one.jpg" style="width: 50px" />
