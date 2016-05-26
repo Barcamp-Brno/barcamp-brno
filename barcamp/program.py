@@ -24,7 +24,7 @@ times = [
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
             'd105': 'f3ebffbe', # 1 218x Kristýna FitCoach Baštářová / Sedavé zaměstnání - hoaxy a pravdy o dlouhodobém sezení. 
             'e112': 'e5aedaf5', # 12 139x Vojtěch Kounovský / Jak si říci o zvýšení platu -  Co dělat pro svůj vysněný plat a jak funguje kompenzace, co nadřízeného potěší a co už méně. 
-            'd0206': '5af5faba', # 15 133x Martin Lutonský / CV-hack aneb jak zaválet na přijímacím pohovoru a ne tam jen tak hekat... 
+            'd0206': '88490216', # 18 118x Dominik Tilp / JavaScript kouzel zbavený 
             'd0207': 'e69e8f6e', # 23 111x Jirka Chomát / Špičkový produkt nepotřebuje marketing
             'e104': '4a7c0e50', # 29 93x Tomáš Švec / Babysitting miliardy liber 
             'e105': 'a938d504', # 40 75x Petr Hýna / Škálování agilního vývoje 
@@ -60,7 +60,7 @@ times = [
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
             'd105': 'c42e63a8', # 4 202x Pavel Čech / UX Design aneb jak tvořit pro lidi 
             'e112': '07fe9d4b', # 9 154x František Churý / Podnikání prakticky aneb jak ověřit podnikatelský nápad během 48 hodin (ukázky na příkladech) 
-            'd0206': '88490216', # 18 118x Dominik Tilp / JavaScript kouzel zbavený 
+            'd0206': '5af5faba', # 15 133x Martin Lutonský / CV-hack aneb jak zaválet na přijímacím pohovoru a ne tam jen tak hekat... 
             'd0207': '4d6793a6', # 26 97x František Churý / Digitální deformace aneb jak dle aktuálních výzkumů seriály či porno mění naše chování a co s tím? 
             'e104': '47ba7b20', # 32 82x Martin Bazala / 500.000 Kč rozpočet, know-how, špičkoví dodavatelé. Stejně byl nový web klasické peklo. 
             'e105': '93480356', # 38 76x Jan Markel / Prodej svoje know-how online 
