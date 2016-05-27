@@ -1,11 +1,15 @@
 {% macro format_talk_td(hash) -%}
 {% if hash %}
-<td style="text-align: center">
-    <p>
-        <strong>{{talks[hash].user.name}}</strong><br />
-        <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
-    </p>
-</td>
+    {% if hash in talks %}
+        <td style="text-align: center">
+            <p>
+                <strong>{{talks[hash].user.name}}</strong><br />
+                <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
+            </p>
+        </td>
+    {% else %}
+        <td></td>
+    {% endif %}
 {% else %}
 <td style="vertical-align: middle; text-align: center;"></td>
 {% endif %}
