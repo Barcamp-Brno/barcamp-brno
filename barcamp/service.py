@@ -76,15 +76,10 @@ def service_vyvoleni():
 @is_admin
 def service_do_programu():
     talks, extra_talks = get_talks()
-    talks = talks[:35]
+    talks = talks[:42]
     output = io.BytesIO()
-
-    for talk in extra_talks:
-        user = talk['user']
-        #output.write(("'e112': '%s', # %sx %s / %s \r\n" % (talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
-        output.write(("e112: <%s>\r\n" % (user['email'])).encode('utf-8'))
     
-    rooms =  'd105', 'd0206', 'd0207', 'e104', 'e105'
+    rooms =  'd105', 'e112', 'd0206', 'd0207', 'e104', 'e105'
     for i, talk in enumerate(talks):
         user = talk['user']
         #output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))

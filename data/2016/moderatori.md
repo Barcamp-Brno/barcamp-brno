@@ -20,7 +20,7 @@
 <div class="row moderators-profiles">
 	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/lenka-trandova.jpg"> Lenka Trandová <a href="https://www.facebook.com/lenka.trandova"><i class="fa fa-facebook-square"></i> Facebook</a></div>
 	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/petr-kotas.jpg"> Petr Kotas <a href="https://www.linkedin.com/in/petrkotas"><i class="fa fa-linkedin-square"></i> LinkedIn</a></div>
-	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/eva-voretova.jpg"> Eva Voretová <a href="https://cz.linkedin.com/in/vorrethovaeva"><i class="fa fa-linkedin-square"></i> LinkedIn</a></div>
+	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/eva-voretova.jpg"> Eva Vorrethová <a href="https://cz.linkedin.com/in/vorrethovaeva"><i class="fa fa-linkedin-square"></i> LinkedIn</a></div>
 	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/tomas-liszka.jpg"> Tomáš Liszka <a href="https://cz.linkedin.com/in/tomáš-liszka-83899011b"><i class="fa fa-linkedin-square"></i> LinkedIn</a></div>
 	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/pavla-dolakova.jpg"> Pavla Doláková <a href="mailto:pavladolakova@gmail.com"><i class="fa fa-envelope"></i> Mail</a></div>
 	<div class="col-md-3 col-sm-4 col-xs-6"><img src="/static/img/extra/2016/moderators/evza-kobzeva.jpg"> Evža Kobzeva <a href="https://www.facebook.com/evza.kobzeva"><i class="fa fa-facebook-square"></i> Facebook</a></div>

@@ -70,6 +70,7 @@ def sponsors():
                 'moravia',
                 'edhouse',
                 'embedit',
+                'kiwi',
                 'sygic',
                 'mergado',
                 'kentico',

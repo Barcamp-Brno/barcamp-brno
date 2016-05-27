@@ -1,13 +1,13 @@
 {% extends "_base_page.html"%}
 {% block page_content %}
-<div clas="row">
 {% for sponsors_category in ['main', 'regular', 'other'] %}
+<div clas="row">
     {% for sponsor in sponsors[sponsors_category] if sponsors_data(sponsor, 'jobs') %}
         <h2 style="height: 100px" class="partner">{{sponsors_data(sponsor, 'logo')}}</h2>
         {{sponsors_data(sponsor, 'jobs')}}
         <div class="clearfix"></div>
     {% endfor %}
-{% endfor %}
 </div>
+{% endfor %}
 
 {% endblock %}
