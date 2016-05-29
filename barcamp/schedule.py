@@ -39,6 +39,14 @@ schedule = {
                     'from': datetime(2016, 4, 22),
                     'to': datetime(2016, 5, 13),
                 },
+                'PROGRAM': {
+                    'from': datetime(2016, 5, 29),
+                    'to': datetime(2020, 12, 31),
+                },
+                'PROGRAM-MENU': {
+                    'from': datetime(2016, 5, 29),
+                    'to': datetime(2020, 6, 4),
+                },
             },
         },
         '2017': {

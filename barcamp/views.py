@@ -4,7 +4,7 @@ from barcamp import app
 from flask import render_template, abort, send_from_directory
 from login_misc import check_auth, get_account
 from talks import get_talks, get_talks_dict
-from workshops import get_workshops
+from workshops import get_workshops, get_workshops_dict
 from utils import markdown_static_page, markdown_markup, stage_is_active
 from entrant import get_count, get_entrants
 from vote import get_user_votes
@@ -15,15 +15,8 @@ import os
 @app.route("/%s/" % app.config['YEAR'], redirect_to="/%s/index.html" % app.config['YEAR'])
 @app.route("/%s/index.html" % app.config['YEAR'])
 def index():
-    if stage_is_active(app.config['YEAR'], 'PROGRAM_READY'):
-        talks = get_talks_dict()
-        extra_talks = []
-    else:
-        talks, extra_talks = get_talks()
-
+    talks, extra_talks = get_talks()
     workshops = get_workshops()
-
-        # bez razeni talks = sorted(talks, key=lambda x: x['title'])
 
     stage_template = "index.html"
     if stage_is_active(app.config['YEAR'], 'END'):
@@ -78,7 +71,12 @@ def job_wall():
 def talks_all():
     user = check_auth()
     user_hash = None
-    talks, extra_talks = get_talks()
+
+    if stage_is_active(app.config['YEAR'], 'PROGRAM'):
+        talks = get_talks_dict()
+        extra_talks = []
+    else:
+        talks, extra_talks = get_talks()
 
     if user:
         user_hash = user['user_hash']
@@ -86,15 +84,21 @@ def talks_all():
     return render_template(
         "talks.html",
         talks=talks,
+        times=times,
         user_votes=get_user_votes(user_hash),
         extra_talks=extra_talks
     )
 
 @app.route('/%s/workshopy.html' % app.config['YEAR'])
 def workshops_all():
-    workshops = get_workshops()
+    if stage_is_active(app.config['YEAR'], 'PROGRAM'):
+        workshops = get_workshops_dict()
+    else:
+        workshops = get_workshops()
+
     return render_template(
         "workshops.html",
+        times=times,
         workshops=workshops,
     )
 

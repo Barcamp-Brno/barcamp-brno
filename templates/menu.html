@@ -25,17 +25,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                     
-                {% if "PROGRAM_READY" in config.STAGES %}
-                    {{active_li(url_for('program'), 'Program')}}
-                {% else %}
-                    {{active_li(url_for('talks_all'), 'Přednášky')}}
+                {% if stage(config.YEAR, 'PROGRAM-MENU') %}
+                    {{active_li(url_for('program_aktualne'), 'Program')}}
                 {% endif %}
-                    
-                    {{active_li(url_for('workshops_all'), 'Workshopy')}}
-                    {{active_li(url_for('static_page', page='informace'), 'Informace')}}
-                    {{active_li(url_for('sponsors'), 'Partneři')}}
-                
-                {% if "END" in config.STAGES %}
+
+                {{active_li(url_for('talks_all'), 'Přednášky')}}
+                {{active_li(url_for('workshops_all'), 'Workshopy')}}
+                {{active_li(url_for('static_page', page='informace'), 'Informace')}}
+                {{active_li(url_for('sponsors'), 'Partneři')}}
+
+                {% if stage(config.YEAR, 'END') %}
                     {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
                 {% endif %}
                 {% if not user %}

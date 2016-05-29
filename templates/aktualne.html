@@ -22,8 +22,10 @@
                 <li>D0207:{{format_talk_a(t.data.d0207)}}</li>
                 <li>E104:{{format_talk_a(t.data.e104)}}</li>
                 <li>E105:{{format_talk_a(t.data.e105)}}</li>
+                <br />
                 <li>A112:{{format_workshop_a(t.data.a112)}}</li>
                 <li>A113:{{format_workshop_a(t.data.a113)}}</li>
+                <li>C228:{{format_workshop_a(t.data.c228)}}</li>
             </ul>
         {% else %}
             <p><strong>{{t.data}}</strong></p>
@@ -37,7 +39,7 @@
 
 {% endblock %}
 {% macro format_talk_a(hash) -%}
-{% if hash %}
+{% if hash and hash in talks %}
     Přednáška: 
     <strong>{{talks[hash].user.name}}</strong>
     <a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title}}</a>
@@ -45,12 +47,14 @@
 &mdash;
 {% endif %}
 {%- endmacro %}
-{% macro format_workshop_a(workshop) -%}
-{% if workshop.user %}
-    Workshop: 
-    <strong>{{workshop.user}}</strong>
-    <a href="{{url_for('static_page', page="workshopy")}}#{{workshop.anchor}}">{{workshop.title}}</a>
+
+{% macro format_workshop_a(hash) -%}
+{% if hash %}
+    {% set workshop = workshops[hash]%}
+    Workshop ({{workshop.minutes}} minut):
+    <strong>{{workshop.user.name}}</strong>
+    <a href="{{url_for('workshop_detail', workshop_hash=hash)}}">{{workshop.title}}</a>
 {% else %}
-&mdash;
+    Pokračování předchozího workshopu
 {% endif %}
 {%- endmacro %}

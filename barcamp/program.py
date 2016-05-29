@@ -96,22 +96,12 @@ times = [
     ]
 
 
-@app.route('/%s/program.html' % app.config['YEAR'])
-def program():
-    return render_template(
-        'program.html',
-        times=times,
-        talks=get_talks_dict(),
-        workshops=get_workshops_dict(),
-    )
-
-
 @app.route('/%s/aktualne.html' % app.config['YEAR'])
 def program_aktualne():
     t = times[::]
-    t.insert(1, 
-        {'block_from': time(20, 0), 'block_to': time(23, 59), 'date': date(2015, 2, 22),
-            'data': Markup(u'<a href="/stranka/warmup/">Warm-up párty</a>')}
+    t.insert(0,
+        {'block_from': time(19, 0), 'block_to': time(23, 59), 'date': date(2016, 6, 3),
+            'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/warm-up-social-event.html">Warm-up párty</a>')}
     )
     actual_date = datetime.now().date()
     actual_time = datetime.now().time()
@@ -125,4 +115,5 @@ def program_aktualne():
         'aktualne.html',
         talks=get_talks_dict(),
         times=next_times,
+        workshops=get_workshops_dict(),
     )
