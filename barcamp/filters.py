@@ -80,6 +80,7 @@ def sponsors():
             'medial': [
                 'touchart',
                 'solitutticelli',
+                'themedia',
             ],
         }
     }
