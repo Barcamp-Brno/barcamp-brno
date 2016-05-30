@@ -1,0 +1,1 @@
+Na Barcamp dodáme software Enplug a zajistíme tak atraktivní propojení Barcampu s návštěvníky prostřednictvím sociálních sítí. Veškeré Vaše názory, dojmy a příspěvky uvidíte na obrazovkách na Barcampu.
