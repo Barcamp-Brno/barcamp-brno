@@ -68,6 +68,7 @@ def job_wall():
 
 
 @app.route('/%s/prednasky.html' % app.config['YEAR'])
+@app.route('/%s/program.html' % app.config['YEAR'])
 def talks_all():
     user = check_auth()
     user_hash = None
