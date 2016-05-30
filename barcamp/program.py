@@ -48,7 +48,7 @@ times = [
         },
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
             'd105': '4fdd20c7', # 3 215x Honza Řehák / Ovládni pozornost, nakopni motivaci! 
-            'e112': '5c3610a6', # 10 144x Evel Meckarov / Kariera Budoucnosti. 6 Trendu ktere ovlivni vasi karieru do 6ti let 
+            'e112': '07fe9d4b', # 9 154x František Churý / Podnikání prakticky aneb jak ověřit podnikatelský nápad během 48 hodin (ukázky na příkladech) 
             'd0206': '5094a664', # 17 125x Tonda Moravec / 10 způsobů jak zaručeně dovrtat firemní kulturu 
             'd0207': 'e84e68b1', # 24 105x Petr Urbánek / KODÉR. — bez pičovin! 
             'e104': '95145ab7', # 31 86x Jana Meinlschmidtova / Mluv dřív, než otevřeš pusu. 
@@ -59,9 +59,9 @@ times = [
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
             'd105': 'c42e63a8', # 4 202x Pavel Čech / UX Design aneb jak tvořit pro lidi 
-            'e112': '07fe9d4b', # 9 154x František Churý / Podnikání prakticky aneb jak ověřit podnikatelský nápad během 48 hodin (ukázky na příkladech) 
+            'e112': '5c3610a6', # 10 144x Evel Meckarov / Kariera Budoucnosti. 6 Trendu ktere ovlivni vasi karieru do 6ti let 
             'd0206': '5af5faba', # 15 133x Martin Lutonský / CV-hack aneb jak zaválet na přijímacím pohovoru a ne tam jen tak hekat... 
-            'd0207': '4d6793a6', # 26 97x František Churý / Digitální deformace aneb jak dle aktuálních výzkumů seriály či porno mění naše chování a co s tím? 
+            'd0207': 'f76d29d1', # 22 111x Michal Talanda / Co by se měl každý manažer naučit od dětí v mateřské školce. 
             'e104': '47ba7b20', # 32 82x Martin Bazala / 500.000 Kč rozpočet, know-how, špičkoví dodavatelé. Stejně byl nový web klasické peklo. 
             'e105': '93480356', # 38 76x Jan Markel / Prodej svoje know-how online 
             'a112': '',
@@ -72,7 +72,7 @@ times = [
             'd105': '104422b4', # 5 172x Daniel Danny Dubravec / Když si založíte eshop a za měsíc si pro vás přijde policie 
             'e112': '5fc37b64', # 8 159x Mirka Papajiková /  Jak stav těla ovlivňuje kvalitu života 
             'd0206': '99b14a70', # 19 117x Janek Rubes / Jak dostat taxikáře do polepšovny - Praha vs. Prachy 
-            'd0207': 'f76d29d1', # 22 111x Michal Talanda / Co by se měl každý manažer naučit od dětí v mateřské školce. 
+            'd0207': '4d6793a6', # 26 97x František Churý / Digitální deformace aneb jak dle aktuálních výzkumů seriály či porno mění naše chování a co s tím? 
             'e104': 'f89ae7e6', # 33 80x Veronika Dohnalová & Barbora Pečeňová / 5 klíčů k organizaci úspěšné konference 
             'e105': '278c27e6', # 36 78x Berka BerkaUX / 20 let zaměstnancem aneb mýty volnonožců 
             'a112': '101ffdb9', # Peter Cipov / Workshop — TDD coding dojo
