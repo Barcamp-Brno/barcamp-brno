@@ -35,7 +35,7 @@ times = [
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'd105': '39a76dc8', # 2 216x Martin Kuchař / IT Soft skills v 21. století 
             'e112': '13c8cc19', # 11 142x Marian Hurta  Filip Holec / Jak začít s IT a najít práci do 3 měsíců? 
-            'd0206': '609b12f6', # 16 126x Jezevec | Court of Moravia / Byznys vám valí, ale lidi v týmu... 
+            'd0206': 'ae1f401e', # 20 112x Lubo Smid / STRV Silicon Valley Story 
             'd0207': 'c015334c', # 25 104x Roman Dušek / Co se reálně vyhledává na Seznam.cz? 
             'e104': 'e77603fa', # 34 80x Petr Bláha / A/B testováním proti hrochovi 
             'e105': '941166e3', # 37 76x Corinth / Proč udává v Silicon Valley trendy pro ne-herní VR a AR zrovna startup z Brna? 
@@ -82,7 +82,7 @@ times = [
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
            'd105': 'c79e143e', # 6 171x Matěj Krejčí / F*ck It, F*ck them, F*ck them all
             'e112': '4ec235aa', # 7 170x Martin Halík / Jak designujeme Skypicker #UX #design 
-            'd0206': 'ae1f401e', # 20 112x Lubo Smid / STRV Silicon Valley Story 
+            'd0206': '609b12f6', # 16 126x Jezevec | Court of Moravia / Byznys vám valí, ale lidi v týmu... 
             'd0207': 'b49da296', # 27 96x Marek Hnátek / Linkbuilding včera a dnes – jak získat kvalitní odkazy pro libovolný web 
             'e104': 'd79e3e0b', # 28 95x Petr Cikán & Vladimír Voda  / Inteligentní e-mailový marketing 
             'e105': '8a0b1c0f', # 35 79x Honza Slavík / Strasti a pasti projektového řízení 
