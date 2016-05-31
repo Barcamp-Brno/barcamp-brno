@@ -25,16 +25,14 @@
     <p><a href="https://www.ysoft.com/en/company/career/vacancies/qa-engineer">Learn more on our site!</a></p>
 </div>
 <div class="col-md-4">
-    <h3>Sales Product Specialist for 3D print</h3>
-    <p>It isn’t often you have the opportunity to be at the beginning of an industry on the verge of exploding – 3D print. To support the development of our be3D products, we are actively searching for the right person to join the Y Soft team. You will work with internal sales teams and departments across the organization to drive sales. </p>
-    <h4>What the Sales Product Specialist for 3D print does?</h4>
+    <h3>3D Printer FW Programmer </h3>
+    <p>We are searching for an FW programmer to join our team. The ideal candidate will be looking to play a role in the development of electronic and support devices, helping us provide access to 3D printing not only to professionals, but also to the general public.</p>
+    <h4>What 3D Programmer does?</h4>
     <ul>
-        <li>Works with internal colleagues to ensure all tools are delivered to Sales teams to enable them to sell</li>
-        <li>Proposes positioning based on analysis of competitors, be3D products, and vertical applications</li>
-        <li>Identifies potential channels and distributors and works with sales team to grow partner network</li>
-        <li>Identifies trade shows, prepares budget, gains approval, and owns such events</li>
-
+        <li>Programs microprocessors in C, C++, Arduino</li>
+        <li>Develops and optimatizes existing 3D printer algorithms</li>
+        <li>cooperates with the software team on developing new products and improving the existing ones</li>
     </ul>
 
-    <p><a href="https://www.ysoft.com/en/company/career/vacancies/sales-product-specialist-be3d">Learn more on our site!</a></p>
+    <p><a href="https://www.ysoft.com/en/company/career/vacancies/programator-fw-pro-3d-tiskarny">Learn more on our site!</a></p>
 </div>
