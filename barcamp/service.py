@@ -10,6 +10,7 @@ from collections import defaultdict
 from entrant import get_entrants
 from datetime import time, date, datetime
 from program import times
+import requests
 import io
 import csv
 
@@ -17,7 +18,101 @@ KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
     'talks': 'talks_%s' % app.config['YEAR'],
     'extra': 'extra_talks_%s' % app.config['YEAR'],
+    'eventee': 'eventee_%s' % app.config['YEAR'],
 }
+
+@app.route('/service/aplikace')
+@auth_required
+@is_admin
+def fill_eventee_app():
+    headers = app.eventee
+    redis_key = KEYS['eventee']
+
+    # r = requests.get('https://eventee.co/api/public/all?date=2016-06-01', headers=headers)
+
+    # sync rooms
+    rooms = (
+        ('d105', u'Prygl'),
+        ('e112', u'Špilas'),
+        ('d0206', u'Rola'),
+        ('d0207', u'Šalina'),
+        ('e104', u'Škopek'),
+        ('e105', u'Čára'),
+        ('a112', u'workshopy'),
+        ('a113', u'workshopy'),
+        ('c228', u'workshopy'),
+    )
+
+    for room, desc in rooms:
+        room_key = 'room_%s' % room
+        resource_id = app.redis.hget(redis_key, room_key)
+        endpoint = 'https://eventee.co/api/public/hall'
+        if resource_id:
+            endpoint = 'https://eventee.co/api/public/hall/{}'.format(resource_id)
+        data = {
+            'name': u'{} {}'.format(room.upper(), desc)
+        }
+        response = requests.post(
+            endpoint,
+            json=data,
+            headers=headers
+        )
+        status = response.json()
+        app.redis.hset(redis_key, room_key, int(status['id']))
+        print data, endpoint, status
+
+    # sync breaks
+    for t in times:
+        if type(t['data']) is not dict:
+            print t['data']
+
+    # sync talks & speakers
+
+    return Response("ok", mimetype="text/plain")
+
+
+@app.route('/service/program-mistnosti')
+@auth_required
+@is_admin
+def room_program():
+    output = io.BytesIO()
+    writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
+    writer.writerow([
+        'room',
+        'title',
+        'name'
+        'from',
+        'to',
+        'next_title',
+        'next_name',
+        'next_from',
+        'next_to',
+    ])
+    talk_hashed = get_talks_dict()
+
+    for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+        talks = []
+        for i, t in enumerate(times):
+            if type(t['data']) is dict and t['data'][room] in talk_hashed:
+                talk = talk_hashed.get(t['data'][room], None)
+            else:
+                continue
+
+            talks.append([
+                talk['title'],
+                talk['user']['name'],
+                t['block_from'].strftime('%H:%M'),
+                t['block_to'].strftime('%H:%M')
+            ])
+
+        for i in range(len(talks)):
+            if i == len(talks) - 1:
+                _ = [room] + talks[i] + ['', '', '', '']
+            else:
+                _ = [room] + talks[i] +  talks[i+1]
+            writer.writerow([unicode(s).encode("utf-8") for s in _])
+
+    return Response(output.getvalue(), mimetype="text/plain")
 
 @app.route('/service/vyvoleni')
 @auth_required
