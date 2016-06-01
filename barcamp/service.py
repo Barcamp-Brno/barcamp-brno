@@ -13,6 +13,7 @@ from program import times
 import requests
 import io
 import csv
+import re
 
 KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
@@ -21,14 +22,39 @@ KEYS = {
     'eventee': 'eventee_%s' % app.config['YEAR'],
 }
 
+ENDPOINT = {
+    'break': 'https://eventee.co/api/public/break',
+    'room': 'https://eventee.co/api/public/hall',
+    'talk': 'https://eventee.co/api/public/lecture',
+    'speaker': 'https://eventee.co/api/public/user/register/speaker',
+}
+
 @app.route('/service/aplikace')
 @auth_required
 @is_admin
 def fill_eventee_app():
     headers = app.eventee
     redis_key = KEYS['eventee']
+    ids = {
+        'breaks': [],
+        'rooms': [],
+        'talks': [],
+        'speakers': [],
+    }
 
-    # r = requests.get('https://eventee.co/api/public/all?date=2016-06-01', headers=headers)
+    data = requests.get('https://eventee.co/api/public/all?date=2016-06-04', headers=headers).json()
+
+    for hall in data['halls'].values():
+        ids['rooms'].append(hall['id'])
+        if type(hall['lectures']) is dict:
+            for lecture in hall['lectures'].values():
+                ids['talks'].append(lecture['id'])
+
+    for b in data['breaks'].values():
+        ids['breaks'].append(b['id'])
+
+    for lecturer in data['lecturers'].values():
+        ids['speakers'].append(lecturer['id'])
 
     # sync rooms
     rooms = (
@@ -41,30 +67,58 @@ def fill_eventee_app():
         ('a112', u'workshopy'),
         ('a113', u'workshopy'),
         ('c228', u'workshopy'),
+        ('Hyde', 'Park'),
     )
 
-    for room, desc in rooms:
-        room_key = 'room_%s' % room
-        resource_id = app.redis.hget(redis_key, room_key)
-        endpoint = 'https://eventee.co/api/public/hall'
-        if resource_id:
-            endpoint = 'https://eventee.co/api/public/hall/{}'.format(resource_id)
-        data = {
-            'name': u'{} {}'.format(room.upper(), desc)
-        }
-        response = requests.post(
-            endpoint,
-            json=data,
-            headers=headers
-        )
-        status = response.json()
-        app.redis.hset(redis_key, room_key, int(status['id']))
-        print data, endpoint, status
+    # for room, desc in rooms:
+    #     room_key = 'room_%s' % room
+    #     resource_id = app.redis.hget(redis_key, room_key)
+    #     endpoint = ENDPOINT['room']
+    #     if resource_id:
+    #         ids['rooms'].remove(int(resource_id))
+    #         endpoint = '{}/{}'.format(endpoint, resource_id)
+    #     data = {
+    #         'name': u'{} {}'.format(room.upper(), desc)
+    #     }
+    #     response = requests.post(
+    #         endpoint,
+    #         json=data,
+    #         headers=headers
+    #     )
+    #     status = response.json()
+    #     app.redis.hset(redis_key, room_key, int(status['id']))
+
+    # for room_id in ids['rooms']:
+    #     endpoint = "{}/{}".format(ENDPOINT['room'], room_id)
+    #     requests.delete(endpoint, headers=headers)
 
     # sync breaks
-    for t in times:
-        if type(t['data']) is not dict:
-            print t['data']
+    # for t in times:
+    #     if type(t['data']) is not dict:
+    #         break_key = 'break_{}_{}'.format(t['date'], t['block_from'])
+    #         endpoint = ENDPOINT['break']
+    #         resource_id = app.redis.hget(redis_key, break_key)
+
+    #         if resource_id:
+    #             ids['breaks'].remove(int(resource_id))
+    #             endpoint = "{}/{}".format(endpoint, resource_id)
+    #         data = {
+    #             'name': re.sub('<[^<]+?>', '', t['data']),
+    #             'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
+    #             'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+    #         }
+    #         response = requests.post(
+    #             endpoint,
+    #             json=data,
+    #             headers=headers
+    #         )
+    #         status = response.json()
+    #         app.redis.hset(redis_key, break_key, int(status['id']))
+
+    # for break_id in ids['breaks']:
+    #     endpoint = "{}/{}".format(ENDPOINT['break'], break_id)
+    #     requests.delete(endpoint, headers=headers)
+
 
     # sync talks & speakers
 
@@ -76,11 +130,11 @@ def fill_eventee_app():
 @is_admin
 def room_program():
     output = io.BytesIO()
-    writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
+    writer = csv.writer(output, delimiter=",", dialect="excel", quotechar='"')
     writer.writerow([
         'room',
         'title',
-        'name'
+        'name',
         'from',
         'to',
         'next_title',
