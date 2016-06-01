@@ -76,6 +76,7 @@ def sponsors():
                 'kentico',
                 'lmc',
                 'ymca',
+                'corinth',
             ],
             'medial': [
                 'toastmasters',
