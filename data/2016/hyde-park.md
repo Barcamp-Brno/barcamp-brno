@@ -11,6 +11,6 @@ Ten kdo bude mít zájem si zadiskutovat na nějaké téma, bude jej moci vypsat
 
 Na hlasování budou mít účastnící dost času, necháme je o programu Hyde parku hlasovat do začátku druhého bloku přednášek.
 
-Hyde park se poté odehraje na hlavním nádvoří pod stanem, takže se nemusíte bát špatného počasí.
+Hyde park se poté odehraje na hlavním nádvoří a v případě špatného počasí vevnitř u workshopové místnosti C228.
 
 Těšíme se, že se najde dostatek odvážných řečníků, tak i dostatek odvážných diskutujících.
