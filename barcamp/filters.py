@@ -78,6 +78,7 @@ def sponsors():
                 'ymca',
             ],
             'medial': [
+                'toastmasters',
                 'touchart',
                 'solitutticelli',
                 'themedia',

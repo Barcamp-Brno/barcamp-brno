@@ -1,0 +1,1 @@
+[![Toastmasters Brno](/static/img/logos/toastmasters.png "Toastmasters Brno")](http://www.projevse.cz/)
