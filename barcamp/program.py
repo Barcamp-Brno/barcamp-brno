@@ -87,7 +87,7 @@ times = [
             'e112': '4ec235aa', # 7 170x Martin Halík / Jak designujeme Skypicker #UX #design 
             'd0206': '609b12f6', # 16 126x Jezevec | Court of Moravia / Byznys vám valí, ale lidi v týmu... 
             'd0207': 'b49da296', # 27 96x Marek Hnátek / Linkbuilding včera a dnes – jak získat kvalitní odkazy pro libovolný web 
-            'e104': '',
+            'e104': 'ef7342b7', # nahrada
             'e105': '8a0b1c0f', # 35 79x Honza Slavík / Strasti a pasti projektového řízení 
             'a112': '',
             'a113': '',

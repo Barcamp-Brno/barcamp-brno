@@ -262,8 +262,8 @@ def room_program():
                 else:
                     talks.append([
                         '','', 
-                        t['block_from'].strftime('%H:%M'),
-                        t['block_to'].strftime('%H:%M')])
+                        t['block_from'].strftime('%H.%M'),
+                        t['block_to'].strftime('%H.%M')])
                     continue
             else:
                 continue
@@ -271,15 +271,15 @@ def room_program():
             talks.append([
                 talk['title'],
                 talk['user']['name'],
-                t['block_from'].strftime('%H:%M'),
-                t['block_to'].strftime('%H:%M')
+                t['block_from'].strftime('%H.%M'),
+                t['block_to'].strftime('%H.%M')
             ])
 
         for i in range(len(talks)):
             if i == len(talks) - 1:
-                _ = [room, room_name] + talks[i] + ['', '', '', '']
+                _ = [room.upper(), room_name] + talks[i] + ['', '', '', '']
             else:
-                _ = [room, room_name] + talks[i] +  talks[i+1]
+                _ = [room.upper(), room_name] + talks[i] +  talks[i+1]
             writer.writerow([unicode(s).encode("utf-8") for s in _])
 
     return Response(output.getvalue(), mimetype="text/plain")
