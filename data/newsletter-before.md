@@ -1,17 +1,17 @@
 Milá návštěvnice, milý návštěvníku,
 
-píšeme ti tento mail, protože jsi nám dal vědět, že chceš jít na Barcamp Brno. Ten se koná již tuto sobotu __4.6.2016__. Program letošního ročníku je poměrně složitý, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
+jsme velice rádi, že ses rozhodl zúčastnit letošního Barcamp Brno, který se koná již tuto sobotu __4.6.2016__. Protože sobota je už za dveřmi, rádi bychom tě informovali o důležitých věcech. Program letošního ročníku je poměrně složitý, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
 
-Akce začíná registrací. Tu jsme zjednodušili co to šlo. Jen si vezmeš visačku, napíšeš na ni své jméno a jdeš dovnitř. Visačky jsou rozlišené pro řečníky, organizátory a účastníky. Tak se snad lépe rozlišíme v průběhu akce. Svůj příchod naplánuj mezi __8:30__ a __9:00__ jinak nestihněš zahájení v hlavní přednáškové hale.
+Jako každý rok, budeme i letos začínat náš den registrací. Nově jsme se ji ale rozhodli zjednodušit. Jen si vezmeš visačku, napíšeš na ni své jméno a jdeš dovnitř. Visačky jsou rozlišené pro řečníky, organizátory a účastníky. Tak se snad lépe rozlišíme v průběhu akce. Jde nám o to zrychlit a zefektivnit registraci, proto prosím svůj příchod naplánuj mezi __8:30__ a __9:00__ a stihneš i zahájení v hlavní přednáškové hale.
 
 Program přednášek a workshopů
 =============================
-Letos jsme pro pohodlnost připravili ve spolupráci s Touch Art aplikaci pro iOS a Android platformu, takže můžete mít přehled o tom co se na Barcampu děje přímo v telefonu.
+Letos jsme pro tvou pohodlnost připravili ve spolupráci s Touch Art aplikaci pro iOS a Android platformu, takže můžete mít přehled o tom co se na Barcampu děje přímo v telefonu.
 
  - iOS: <http://bit.ly/ios-barcamp-brno>
  - Android: <http://bit.ly/android-barcamp-brno>
 
-Přednášky jsou zvoleny podle toho jaký o ně byl zájem a workshopy podle toho, jaký nám přišel užitečný.
+Volba přednášek probíhala na internetu ve formě hlasování. Workshopy jsme pak vybírali přímo my, ale samozřejmě s citem, láskou a ohledem na vás.
 
 Na workshopy není možné se přihlásit předem, ale pouze přímo na místě. Pokud máš zájem se workshopu zůčastnit podívej se na detailní informace. Registrace pak probíhají nejvíce retro jak to šlo. Tedy ráno až přijdeš, zajdeš se napsat na nástěnku, která bude viset u místnosti s tvým vybraným workshopem.
 
@@ -21,19 +21,19 @@ Pro ostatní, kteří mají co říct, ať už formálně nebo neformálně jsme
  - <http://www.barcampbrno.cz/2016/workshopy.html>
  - <http://www.barcampbrno.cz/2016/stranka/hyde-park.html>
 
-Pokud nemáš možnost a nebo necheš instalovat naši aplikaci, můžeš přehledně sledovat dění na stránce uzpůsobené tomuto použití pro mobily.
+Pokud nemáš možnost a nebo nechceš instalovat naši aplikaci, můžeš přehledně sledovat dění na stránce uzpůsobené tomuto použití pro mobily.
 
 <http://www.barcampbrno.cz/2016/aktualne.html>
 
 Doprovodný program
 ======================
-Během akce bude probíhat doprovodný program partnerů. Můžeš prohnat 3D tištěné autíčko, zahřát se pálivým ciderem nebo čajem, zahrát si pár kvízů, podívat se do IT muzea. A pokud jsi velký agro hipster, můžeš podojit i krávu, samosebou jen na simulátoru. Pro milovníky vážné hudby jsme zařadili i koncert.
+Během akce bude probíhat doprovodný program partnerů. Můžeš prohnat 3D tištěné autíčko, zahřát se pálivým ciderem nebo čajem, zahrát si pár kvízů, podívat se do IT muzea. A pokud jsi velký agro hipster, můžeš podojit i krávu, samo sebou jen na simulátoru. Pro milovníky vážné hudby jsme zařadili i koncert. Je opravdu na co se těšit.
 
 Více zde: <http://www.barcampbrno.cz/2016/doprovodny-program.html>
 
 Občerstvení
 ===========
-Letos jsme přepracovali koncept občerstvení, takže kromě nabídky obědů z My Foodu budou k dispozici různé sladké dobroty, burgry a hotdogy, pečené selátko od Y Softu nebo Kodo Sushi. Přidali jsme i kávu, letos tak bude na výbeř Kofi Kofi a Rebelbean.
+Letos jsme přepracovali koncept občerstvení, takže kromě nabídky obědů z My Foodu budou k dispozici různé sladké dobroty, burgery a hotdogy, pečené selátko od Y Softu nebo Kodo Sushi. Přidali jsme i kávu, letos tak bude na výber Kofi Kofi a Rebelbean.
 
 <http://www.barcampbrno.cz/2016/stranka/catering.html>
 
@@ -45,9 +45,9 @@ Máš-li dobrodružného ducha a nebojíš se výzev, neváhej a zapoj se. Po sp
 
 Afterparty
 ==========
-Po celém dni ti přijde vhod se jít neformálně pobavit s ostatními na afterpárty. Ta se bude konat v Moravské Galerii na Moravském Náměstí, začínat bude okolo 19.00 a pokračovat, dokud bude probíhat zábava. Ale protože jsme v Brně, poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
+Po celém dni přijde vhod se jít neformálně pobavit s ostatními barcampery na afterpárty. Ta se bude konat v Moravské Galerii (Moragal) na Moravském Náměstí. Začátek je v 19:00 a konec…bohužel jsme v Brně, takže poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
 
-Letos jsou prostory mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
+Co je velkým plusem, to jsou prostory. Letos jsou mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
 
 <http://www.barcampbrno.cz/2016/stranka/after-social-event.html>
 
@@ -60,7 +60,7 @@ Naše díky patří partnerům, kteří pro nás připravili většinu doprovodn
 
 Trička
 ======
-Letos jsou trička jen pro výherce souteží a pro ty co si jej objednali předem. Pokud máš tričko objednané a zaplacené dostaneš jej u dobrovolnic na recepci, tak se pro něj zastav.
+Letos jsou trička jen pro výherce soutěží a pro ty co si je objednali předem. Pokud máš tričko objednané a zaplacené dostaneš jej u dobrovolnic na recepci, tak se pro něj nezapomeň zastavit.
 
 Lucky Barcamp
 =============
