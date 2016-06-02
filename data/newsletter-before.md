@@ -45,7 +45,7 @@ Máš-li dobrodružného ducha a nebojíš se výzev, neváhej a zapoj se. Po sp
 
 Afterparty
 ==========
-Po celém dni přijde vhod se jít neformálně pobavit s ostatními barcampery na afterpárty. Ta se bude konat v Místodržitelském Paláci Moravské Galerie v Brně ve spolupráci s kavárnou [MorGal] (http://www.morgal.cz/). Palác MG se nachází na Moravském Náměstí v bezprostřední blízkosti přestupního uzlu MHD Česká. Začátek je v 19:00 a konec…bohužel jsme v Brně, takže poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
+Po celém dni přijde vhod se jít neformálně pobavit s ostatními barcampery na afterpárty. Ta se bude konat v Místodržitelském Paláci Moravské Galerie v Brně ve spolupráci s kavárnou [MorGal] (http://www.morgal.cz/barcamp-afterparty). Palác MG se nachází na Moravském Náměstí v bezprostřední blízkosti přestupního uzlu MHD Česká. Začátek je v 19:00 a konec…bohužel jsme v Brně, takže poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
 
 Velkým plusem, jsou prostory. Letos jsou mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
 
