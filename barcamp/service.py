@@ -5,11 +5,14 @@ from flask import abort, redirect, url_for, flash, render_template, Response
 from login_misc import check_auth, auth_required, is_admin
 from utils import send_mail
 from talks import get_talks_dict, get_talks
+from workshops import get_workshops_dict
 from entrant import user_user_go
 from collections import defaultdict
 from entrant import get_entrants
 from datetime import time, date, datetime
 from program import times
+from copy import copy
+from pprint import pprint
 import requests
 import io
 import csv
@@ -42,7 +45,8 @@ def fill_eventee_app():
         'speakers': [],
     }
 
-    data = requests.get('https://eventee.co/api/public/all?date=2016-06-04', headers=headers).json()
+    data = requests.get('https://eventee.co/api/public/all?date=2016-06-04', headers=headers)
+    data = data.json()
 
     for hall in data['halls'].values():
         ids['rooms'].append(hall['id'])
@@ -70,57 +74,152 @@ def fill_eventee_app():
         ('Hyde', 'Park'),
     )
 
-    # for room, desc in rooms:
-    #     room_key = 'room_%s' % room
-    #     resource_id = app.redis.hget(redis_key, room_key)
-    #     endpoint = ENDPOINT['room']
-    #     if resource_id:
-    #         ids['rooms'].remove(int(resource_id))
-    #         endpoint = '{}/{}'.format(endpoint, resource_id)
-    #     data = {
-    #         'name': u'{} {}'.format(room.upper(), desc)
-    #     }
-    #     response = requests.post(
-    #         endpoint,
-    #         json=data,
-    #         headers=headers
-    #     )
-    #     status = response.json()
-    #     app.redis.hset(redis_key, room_key, int(status['id']))
+    for room, desc in rooms:
+        room_key = 'room_%s' % room
+        resource_id = app.redis.hget(redis_key, room_key)
+        endpoint = ENDPOINT['room']
+        if resource_id:
+            ids['rooms'].remove(int(resource_id))
+            endpoint = '{}/{}'.format(endpoint, resource_id)
+        data = {
+            'name': u'{} {}'.format(room.upper(), desc)
+        }
+        response = requests.post(
+            endpoint,
+            json=data,
+            headers=headers
+        )
+        status = response.json()
+        app.redis.hset(redis_key, room_key, int(status['id']))
 
-    # for room_id in ids['rooms']:
-    #     endpoint = "{}/{}".format(ENDPOINT['room'], room_id)
-    #     requests.delete(endpoint, headers=headers)
+    for room_id in ids['rooms']:
+        endpoint = "{}/{}".format(ENDPOINT['room'], room_id)
+        requests.delete(endpoint, headers=headers)
 
     # sync breaks
-    # for t in times:
-    #     if type(t['data']) is not dict:
-    #         break_key = 'break_{}_{}'.format(t['date'], t['block_from'])
-    #         endpoint = ENDPOINT['break']
-    #         resource_id = app.redis.hget(redis_key, break_key)
+    for t in times:
+        if type(t['data']) is not dict:
+            break_key = 'break_{}_{}'.format(t['date'], t['block_from'])
+            endpoint = ENDPOINT['break']
+            resource_id = app.redis.hget(redis_key, break_key)
 
-    #         if resource_id:
-    #             ids['breaks'].remove(int(resource_id))
-    #             endpoint = "{}/{}".format(endpoint, resource_id)
-    #         data = {
-    #             'name': re.sub('<[^<]+?>', '', t['data']),
-    #             'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
-    #             'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
-    #         }
-    #         response = requests.post(
-    #             endpoint,
-    #             json=data,
-    #             headers=headers
-    #         )
-    #         status = response.json()
-    #         app.redis.hset(redis_key, break_key, int(status['id']))
+            if resource_id:
+                ids['breaks'].remove(int(resource_id))
+                endpoint = "{}/{}".format(endpoint, resource_id)
+            data = {
+                'name': re.sub('<[^<]+?>', '', t['data']),
+                'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
+                'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+            }
+            response = requests.post(
+                endpoint,
+                json=data,
+                headers=headers
+            )
+            status = response.json()
+            app.redis.hset(redis_key, break_key, int(status['id']))
 
-    # for break_id in ids['breaks']:
-    #     endpoint = "{}/{}".format(ENDPOINT['break'], break_id)
-    #     requests.delete(endpoint, headers=headers)
+    for break_id in ids['breaks']:
+        endpoint = "{}/{}".format(ENDPOINT['break'], break_id)
+        requests.delete(endpoint, headers=headers)
 
 
     # sync talks & speakers
+    talk_rooms = ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105')
+    workshop_rooms = ('a112', 'a113', 'c228')
+    talks = get_talks_dict()
+    workshops = get_workshops_dict()
+    _shit_re = re.compile(r'[^\w .-/?!,()*\n\r]+', re.UNICODE)
+    _spaces = re.compile(r'\s\s+')
+    explode_speakers = ('bea84558', 'f89ae7e6')
+    def clear(s):
+        s = _shit_re.sub('', s)
+        s = _spaces.sub(' ', s)
+        return s.strip()
+
+    i = 0
+    for t in times:
+        if type(t['data']) is not dict:
+            continue
+
+        for room in talk_rooms + workshop_rooms:
+            room_id = app.redis.hget(redis_key, 'room_%s' % room)
+            h = t['data'].get(room, False)
+            if not h:
+                continue
+
+            if room in talk_rooms:
+                lecture = talks.get(h, False)
+                hash_key = 'talk_hash'
+            else:
+                lecture = workshops.get(h, False)
+                hash_key = 'workshop_hash'
+
+            if not lecture:
+                continue
+
+            speakers = [lecture['user']]
+
+            if h in explode_speakers:
+                words = speakers[0]['name'].split(' ')
+                speaker1 = copy(speakers[0])
+                speaker1['name'] = ' '.join(words[0:2])
+                speaker1['user_hash'] += '_1'
+                speaker2 = copy(speakers[0])
+                speaker2['name'] = ' '.join(words[3:5])
+                speaker2['user_hash'] += '_2'
+                speakers = [speaker1, speaker2]
+
+            speaker_ids = []
+
+            for speaker in speakers:
+                speaker_key = 'speaker_{}'.format(speaker['user_hash'])
+                resource_id = app.redis.hget(redis_key, speaker_key)
+                if not resource_id:
+                    endpoint = ENDPOINT['speaker']
+                    data = {
+                        'name': clear(speaker['name']),
+                        'bio': '',
+                    }
+                    response = requests.post(
+                        endpoint,
+                        json=data,
+                        headers=headers
+                    )
+                    status = response.json()
+                    resource_id = int(status['id'])
+                    app.redis.hset(redis_key, speaker_key, resource_id)
+                speaker_ids.append(resource_id)
+
+            #talk
+            talk_key = "talk_{}".format(lecture[hash_key])
+            endpoint = ENDPOINT['talk']
+            resource_id = app.redis.hget(redis_key, talk_key)
+
+            if resource_id:
+                ids['talks'].remove(int(resource_id))
+                endpoint = "{}/{}".format(endpoint, resource_id)
+
+            data = {
+                'name': clear(lecture['title']),
+                'description': clear(lecture['description']),
+                'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
+                'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+                'speakers': speaker_ids,
+                'hallId': room_id,
+            }
+
+            response = requests.post(
+                endpoint,
+                json=data,
+                headers=headers
+            )
+            status = response.json()
+            app.redis.hset(redis_key, talk_key, int(status['id']))
+
+    for talk_id in ids['talks']:
+        endpoint = "{}/{}".format(ENDPOINT['talk'], talk_id)
+        requests.delete(endpoint, headers=headers)
 
     return Response("ok", mimetype="text/plain")
 

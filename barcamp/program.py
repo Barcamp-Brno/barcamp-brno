@@ -43,8 +43,11 @@ times = [
             'a113': '91f920f6', # Radek Zahradník / Workshop — Windows deployment v licenčně omezeném prostředí aneb vaříme widle pouze a jenom s pomocí W10
             'c228': '',
         }},
-        {'block_from': time(12, 30), 'block_to': time(13, 45), 'date': den_d, 'data':
+        {'block_from': time(12, 30), 'block_to': time(13, 00), 'date': den_d, 'data':
             Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/catering.html">Oběd</a>')
+        },
+        {'block_from': time(13, 00), 'block_to': time(13, 45), 'date': den_d, 'data':
+            Markup(u'Koncert Solitutticelli Cello Ensemble')
         },
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
             'd105': '4fdd20c7', # 3 215x Honza Řehák / Ovládni pozornost, nakopni motivaci! 
@@ -91,8 +94,16 @@ times = [
             'c228': '',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
-        {'block_from': time(19, 0), 'block_to': time(23, 0), 'date': den_d,
+        {'block_from': time(19, 0), 'block_to': time(20, 0), 'date': den_d,
             'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/after-social-event.html">Afterpárty</a>')},
+        {'block_from': time(20, 0), 'block_to': time(21, 0), 'date': den_d,
+            'data': Markup(u'Začátek diskuzí se speakry souběžně se zahájením networkingového eventu Impact HUB Brno')},
+        {'block_from': time(21, 0), 'block_to': time(21, 30), 'date': den_d,
+            'data': Markup(u'Charitativní dražba třech unikátních kusů triček Barcamp Brno 2016 na podporu Josepha')},
+        {'block_from': time(21, 30), 'block_to': time(22, 30), 'date': den_d,
+            'data': Markup(u'Vsuvka v podobě živého hudebního překvapení od LMC')},
+        {'block_from': time(23, 45), 'block_to': time(23, 59), 'date': den_d,
+            'data': Markup(u'Poslední objednávky')},
     ]
 
 
