@@ -336,6 +336,22 @@ def service_do_programu():
 
     return Response(output.getvalue(), mimetype="text/plain")
 
+@app.route('/service/bad-luck')
+@auth_required
+@is_admin
+def service_bad_luck():
+    talks, extra_talks = get_talks()
+    talks = talks[42:]
+    output = io.BytesIO()
+    
+    for i, talk in enumerate(talks):
+        user = talk['user']
+        #output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+        output.write(("%s <%s>: %s\r\n" % (user['name'], user['email'], talk['title'])).encode('utf-8'))
+      
+
+    return Response(output.getvalue(), mimetype="text/plain")
+
 @app.route('/service/naplnit-newsletter/')
 @auth_required
 @is_admin
