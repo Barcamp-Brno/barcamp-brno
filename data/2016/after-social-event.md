@@ -28,7 +28,12 @@ Diskuze, aneb Borec na konec, potvrdili:
 - Matěj Krejčí - Fck It, Fck them, Fck them all 
 - Daniel Dubravec - Do temnoty a zpět aneb jak se točí peníze v internetovém podsvětí
 
-<div id="mapa" style="width:600px; height:400px;"></div>
+<div class="row">
+<div class="col-md-6">
+<img src="/static/img/extra/2016/afterparty.png" alt="" style="width:90%;" />
+</div>
+<div class="col-md-6">
+<div id="mapa" style="max-width:600px; height:400px;"></div>
 <script type="text/javascript">
     var stred = SMap.Coords.fromWGS84(16.6083031, 49.1978289);
     var m = new SMap(JAK.gel("mapa"), stred, 16);
@@ -41,3 +46,4 @@ Diskuze, aneb Borec na konec, potvrdili:
     var marker = new SMap.Marker(stred, "myMarker", options);
     layer.addMarker(marker);
 </script>
+</div>
