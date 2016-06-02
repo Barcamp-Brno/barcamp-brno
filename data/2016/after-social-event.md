@@ -1,17 +1,27 @@
 After social event
 ------------------
 
-K Barcampu Brno neodmyslitelně patří i skvělá afterparty.
+K brněnskému Barcampu neodmyslitelně patří i skvělá afterpárty.
 
-Abychom se nepotkávali stále na stejném místě, přesunuli jsme afterpárty do Café MorGal v Místodržitelském paláci.
+Abychom se nepotkávali stále na stejném místě, přesunuli jsme afterpárty do [Café MorGal] (http://www.morgal.cz/) v Místodržitelském paláci.
 
 Těšit se můžete na diskuze s vybranými speakry, občerstvení a v neposlední řadě také na bohatý networking.
 
 Mimo připraveného občerstvení bude možné na místě zakoupit několik teplých jídel, včetně jednoho vegetariánského.
 
+Na místě bude k dostání samozřejmě také pivní speciál Lucky Barcamp, od pivovaru [Lucky Bastard] (http://www.lucky-bastard.cz/).
+
 Novinkou v Café MorGal je pak akceptace všech běžných platebních karet. Afterpárty vypukne v **19 hodin**. Těšíme se vás!
 
 Aktuální dění z příprav afterpárty můžete sledovat na [Facebookovém eventu](https://www.facebook.com/events/1141176582580909/).
+
+Program:
+- 19:00 Zahájení afterpárty, samoobslužný raut
+- 20:00 Začátek diskuzí se speakry souběžně se zahájením networkingového eventu [Impact HUB Brno] (http://www.hubbrno.cz/)
+- 21:00 Charitativní dražba třech unikátních kusů triček Barcamp Brno 2016 na podporu Josepha
+- 21:30 Vsuvka v podobě živého hudebního překvapení od [LMC] (https://www.lmc.eu/)
+- 24:00 Poslední objednávky
+- 01:00 Uzavření Místodržitelského Paláce, zahájení volného after afterpárty programu :)
 
 <div id="mapa" style="width:600px; height:400px;"></div>
 <script type="text/javascript">
