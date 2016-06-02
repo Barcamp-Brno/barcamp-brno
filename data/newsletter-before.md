@@ -15,8 +15,11 @@ Přednášky jsou zvoleny podle toho jaký o ně byl zájem a workshopy podle to
 
 Na workshopy není možné se přihlásit předem, ale pouze přímo na místě. Pokud máš zájem se workshopu zůčastnit podívej se na detailní informace. Registrace pak probíhají nejvíce retro jak to šlo. Tedy ráno až přijdeš, zajdeš se napsat na nástěnku, která bude viset u místnosti s tvým vybraným workshopem.
 
+Pro ostatní, kteří mají co říct, ať už formálně nebo neformálně jsme připravili pravý barcampový koutek, nazvali jsme ho Hyde Park, podívej se jak bude fungovat a pokud chceš využij ho a nebo se přijď podívat.
+
  - <http://www.barcampbrno.cz/2016/prednasky.html>
  - <http://www.barcampbrno.cz/2016/workshopy.html>
+ - <http://www.barcampbrno.cz/2016/stranka/hyde-park.html>
 
 Pokud nemáš možnost a nebo necheš instalovat naši aplikaci, můžeš přehledně sledovat dění na stránce uzpůsobené tomuto použití pro mobily.
 
@@ -47,6 +50,13 @@ Po celém dni ti přijde vhod se jít neformálně pobavit s ostatními na after
 Letos jsou prostory mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
 
 <http://www.barcampbrno.cz/2016/stranka/after-social-event.html>
+
+Partneři
+========
+Naše díky patří partnerům, kteří pro nás připravili většinu doprovodného programu a umožnili, aby se Barcamp Brno vůbec konal. Podívej se, kdo za to může.
+
+ - <http://www.barcampbrno.cz/2016/partneri.html>
+ - <http://www.barcampbrno.cz/2016/pracovni-nabidky.html>
 
 Trička
 ======
