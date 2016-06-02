@@ -16,17 +16,18 @@ Novinkou v Café MorGal je pak akceptace všech běžných platebních karet. Af
 Aktuální dění z příprav afterpárty můžete sledovat na [Facebookovém eventu](https://www.facebook.com/events/1141176582580909/).
 
 Program:
-- 19:00 Zahájení afterpárty, samoobslužný raut
-- 20:00 Začátek diskuzí se speakry souběžně se zahájením networkingového eventu [Impact HUB Brno](http://www.hubbrno.cz/)
-- 21:00 Charitativní dražba třech unikátních kusů triček Barcamp Brno 2016 na podporu Josepha
-- 21:30 Vsuvka v podobě živého hudebního překvapení od [LMC](https://www.lmc.eu/)
-- 24:00 Poslední objednávky
-- 01:00 Uzavření Místodržitelského Paláce, zahájení volného after afterpárty programu :)
+
+ - 19:00 Zahájení afterpárty, samoobslužný raut
+ - 20:00 Začátek diskuzí se speakry souběžně se zahájením networkingového eventu [Impact HUB Brno](http://www.hubbrno.cz/)
+ - 21:00 Charitativní dražba třech unikátních kusů triček Barcamp Brno 2016 na podporu Josepha
+ - 21:30 Vsuvka v podobě živého hudebního překvapení od [LMC](https://www.lmc.eu/)
+ - 24:00 Poslední objednávky
+ - 01:00 Uzavření Místodržitelského Paláce, zahájení volného after afterpárty programu :)
  
 Diskuze, aneb Borec na konec, potvrdili:
-- Honza Řehák - Pozornost, hlavně její nelineární část (adhd, add, multipotence)
-- Matěj Krejčí - Fck It, Fck them, Fck them all 
-- Daniel Dubravec - Do temnoty a zpět aneb jak se točí peníze v internetovém podsvětí
+ - Honza Řehák - Pozornost, hlavně její nelineární část (adhd, add, multipotence)
+ - Matěj Krejčí - Fck It, Fck them, Fck them all 
+ - Daniel Dubravec - Do temnoty a zpět aneb jak se točí peníze v internetovém podsvětí
 
 <div class="row">
 <div class="col-md-6">
