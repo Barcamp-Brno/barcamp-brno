@@ -83,6 +83,7 @@ def sponsors():
                 'touchart',
                 'solitutticelli',
                 'themedia',
+                'jakumedia',
             ],
         }
     }
