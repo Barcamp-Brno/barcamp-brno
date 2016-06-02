@@ -20,6 +20,21 @@
 
         <p>Účastníci nárokují výhru u spanilých hostesek na registraci po splnění všech úkolů a odevzdání všech královských pečetí na účastnickém glejtu (plně orazítkované karty).</p>
 
+        <h3>Soutěž bude probíhat na stáncích těchto partnerů</h3>
+        <ul>
+            <li>Y Soft</li>
+            <li>IBM</li>
+            <li>FEI</li>
+            <li>Seznam.cz</li>
+            <li>Moravia</li>
+            <li>Edhouse</li>
+            <li>EmbedIT</li>
+            <li>Kiwi.com</li>
+            <li>Sygic Travel</li>
+            <li>Kentico</li>
+            <li>LMC</li>
+        </ul>
+
         <h3>Výhry v soutěži</h3>
         <ul>
             <li>Královský háv (Barcamp Tričko)</li>
