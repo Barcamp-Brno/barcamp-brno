@@ -3,7 +3,7 @@ After social event
 
 K brněnskému Barcampu neodmyslitelně patří i skvělá afterpárty.
 
-Abychom se nepotkávali stále na stejném místě, přesunuli jsme afterpárty do [Café MorGal] (http://www.morgal.cz/) v Místodržitelském paláci.
+Abychom se nepotkávali stále na stejném místě, přesunuli jsme afterpárty do [Café MorGal] (http://www.morgal.cz/barcamp-afterparty) v Místodržitelském paláci.
 
 Těšit se můžete na diskuze s vybranými speakry, občerstvení a v neposlední řadě také na bohatý networking.
 
