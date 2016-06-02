@@ -232,6 +232,7 @@ def room_program():
     writer = csv.writer(output, delimiter=",", dialect="excel", quotechar='"')
     writer.writerow([
         'room',
+        'room_name',
         'title',
         'name',
         'from',
@@ -243,11 +244,27 @@ def room_program():
     ])
     talk_hashed = get_talks_dict()
 
-    for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+    rooms = (
+        ('d105', u'Prygl'),
+        ('e112', u'Špilas'),
+        ('d0206', u'Rola'),
+        ('d0207', u'Šalina'),
+        ('e104', u'Škopek'),
+        ('e105', u'Čára'),
+    )
+
+    for room, room_name in rooms:
         talks = []
         for i, t in enumerate(times):
-            if type(t['data']) is dict and t['data'][room] in talk_hashed:
-                talk = talk_hashed.get(t['data'][room], None)
+            if type(t['data']) is dict:
+                if t['data'][room] in talk_hashed:
+                    talk = talk_hashed.get(t['data'][room], None)
+                else:
+                    talks.append([
+                        '','', 
+                        t['block_from'].strftime('%H:%M'),
+                        t['block_to'].strftime('%H:%M')])
+                    continue
             else:
                 continue
 
@@ -260,9 +277,9 @@ def room_program():
 
         for i in range(len(talks)):
             if i == len(talks) - 1:
-                _ = [room] + talks[i] + ['', '', '', '']
+                _ = [room, room_name] + talks[i] + ['', '', '', '']
             else:
-                _ = [room] + talks[i] +  talks[i+1]
+                _ = [room, room_name] + talks[i] +  talks[i+1]
             writer.writerow([unicode(s).encode("utf-8") for s in _])
 
     return Response(output.getvalue(), mimetype="text/plain")
