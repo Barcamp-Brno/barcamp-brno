@@ -65,7 +65,7 @@ times = [
             'e112': '5c3610a6', # 10 144x Evel Meckarov / Kariera Budoucnosti. 6 Trendu ktere ovlivni vasi karieru do 6ti let 
             'd0206': '5af5faba', # 15 133x Martin Lutonský / CV-hack aneb jak zaválet na přijímacím pohovoru a ne tam jen tak hekat... 
             'd0207': 'f76d29d1', # 22 111x Michal Talanda / Co by se měl každý manažer naučit od dětí v mateřské školce. 
-            'e104': '',
+            'e104': '70915aec', # nahrada Petr Svoboda
             'e105': '93480356', # 38 76x Jan Markel / Prodej svoje know-how online 
             'a112': '',
             'a113': '',
@@ -75,7 +75,7 @@ times = [
             'd105': '104422b4', # 5 172x Daniel Danny Dubravec / Když si založíte eshop a za měsíc si pro vás přijde policie 
             'e112': '5fc37b64', # 8 159x Mirka Papajiková /  Jak stav těla ovlivňuje kvalitu života 
             'd0206': '99b14a70', # 19 117x Janek Rubes / Jak dostat taxikáře do polepšovny - Praha vs. Prachy 
-            'd0207': '',
+            'd0207': 'be2d7b58', # nahrada Michal Ergens
             'e104': 'f89ae7e6', # 33 80x Veronika Dohnalová & Barbora Pečeňová / 5 klíčů k organizaci úspěšné konference 
             'e105': '278c27e6', # 36 78x Berka BerkaUX / 20 let zaměstnancem aneb mýty volnonožců 
             'a112': '101ffdb9', # Peter Cipov / Workshop — TDD coding dojo
@@ -87,7 +87,7 @@ times = [
             'e112': '4ec235aa', # 7 170x Martin Halík / Jak designujeme Skypicker #UX #design 
             'd0206': '609b12f6', # 16 126x Jezevec | Court of Moravia / Byznys vám valí, ale lidi v týmu... 
             'd0207': 'b49da296', # 27 96x Marek Hnátek / Linkbuilding včera a dnes – jak získat kvalitní odkazy pro libovolný web 
-            'e104': 'ef7342b7', # nahrada
+            'e104': 'ef7342b7', # nahrada Jan Kalianko
             'e105': '8a0b1c0f', # 35 79x Honza Slavík / Strasti a pasti projektového řízení 
             'a112': '',
             'a113': '',
