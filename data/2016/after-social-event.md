@@ -22,6 +22,11 @@ Program:
 - 21:30 Vsuvka v podobě živého hudebního překvapení od [LMC] (https://www.lmc.eu/)
 - 24:00 Poslední objednávky
 - 01:00 Uzavření Místodržitelského Paláce, zahájení volného after afterpárty programu :)
+ 
+Diskuze, aneb Borec na konec, potvrdili:
+- Honza Řehák - Pozornost, hlavně její nelineární část (adhd, add, multipotence)
+- Matěj Krejčí - Fck It, Fck them, Fck them all 
+- Daniel Dubravec - Do temnoty a zpět aneb jak se točí peníze v internetovém podsvětí
 
 <div id="mapa" style="width:600px; height:400px;"></div>
 <script type="text/javascript">
