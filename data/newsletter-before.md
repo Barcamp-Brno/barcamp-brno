@@ -1,6 +1,6 @@
 Milá návštěvnice, milý návštěvníku,
 
-jsme velice rádi, že ses rozhodl zúčastnit letošního Barcamp Brno, který se koná již tuto sobotu __4.6.2016__. Protože sobota je už za dveřmi, rádi bychom tě informovali o důležitých věcech. Program letošního ročníku je poměrně složitý, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
+jsme velice rádi, že ses rozhodl zúčastnit letošního Barcamp Brno, který se koná již tuto sobotu __4.6.2016__. Protože sobota je už za dveřmi, rádi bychom tě informovali o důležitých věcech. Program letošního ročníku je značně komplexní, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
 
 Jako každý rok, budeme i letos začínat náš den registrací. Nově jsme se ji ale rozhodli zjednodušit. Jen si vezmeš visačku, napíšeš na ni své jméno a jdeš dovnitř. Visačky jsou rozlišené pro řečníky, organizátory a účastníky. Tak se snad lépe rozlišíme v průběhu akce. Jde nám o to zrychlit a zefektivnit registraci, proto prosím svůj příchod naplánuj mezi __8:30__ a __9:00__ a stihneš i zahájení v hlavní přednáškové hale.
 
@@ -35,21 +35,22 @@ Občerstvení
 ===========
 Letos jsme přepracovali koncept občerstvení, takže kromě nabídky obědů z My Foodu budou k dispozici různé sladké dobroty, burgery a hotdogy, pečené selátko od Y Softu nebo Kodo Sushi. Přidali jsme i kávu, letos tak bude na výber Kofi Kofi a Rebelbean.
 
-<http://www.barcampbrno.cz/2016/stranka/catering.html>
+- <http://www.barcampbrno.cz/2016/stranka/catering.html>
 
 Soutěž 
 =======
 Máš-li dobrodružného ducha a nebojíš se výzev, neváhej a zapoj se. Po splnění úkolů můžeš vyhrát limitované tričko Barcampu a několik dalších cen. Počet balíčků pro výherce je 30 a určitě stojí za to to zkusit.
 
-<http://www.barcampbrno.cz/2016/stranka/kral-barcampu.html>
+- <http://www.barcampbrno.cz/2016/stranka/kral-barcampu.html>
 
 Afterparty
 ==========
-Po celém dni přijde vhod se jít neformálně pobavit s ostatními barcampery na afterpárty. Ta se bude konat v Moravské Galerii (Moragal) na Moravském Náměstí. Začátek je v 19:00 a konec…bohužel jsme v Brně, takže poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
+Po celém dni přijde vhod se jít neformálně pobavit s ostatními barcampery na afterpárty. Ta se bude konat v Místodržitelském Paláci Moravské Galerie v Brně ve spolupráci s kavárnou [MorGal] (http://www.morgal.cz/). Palác MG se nachází na Moravském Náměstí v bezprostřední blízkosti přestupního uzlu MHD Česká. Začátek je v 19:00 a konec…bohužel jsme v Brně, takže poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
 
-Co je velkým plusem, to jsou prostory. Letos jsou mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
+Velkým plusem, jsou prostory. Letos jsou mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
 
-<http://www.barcampbrno.cz/2016/stranka/after-social-event.html>
+Podrobný program najdeš na:
+- <http://www.barcampbrno.cz/2016/stranka/after-social-event.html>
 
 Partneři
 ========
@@ -64,7 +65,7 @@ Letos jsou trička jen pro výherce soutěží a pro ty co si je objednali před
 
 Lucky Barcamp
 =============
-A jako _hořká_ tečka nakonec nutno dodat, že ... počkej si ... Lucky Bastard pro nás uvařil speciální letní 11 stupňový Red Ale. Nazvali jsme ho __Lucky Barcamp Brno__. Budeme ho čepovat na nádvoří a na after párty.
+A jako _hořká_ tečka nakonec nutno dodat, že ... počkej si ... Lucky Bastard pro nás uvařil speciální pivo. Nutno podotknout, že ne ledajaké, ALE letní 11 stupňový Red ALE. Nazvali jsme ho __Lucky Barcamp Brno__. Budeme ho čepovat na nádvoří i na after párty.
 
 
 
