@@ -72,7 +72,7 @@ times = [
             'd105': '104422b4', # 5 172x Daniel Danny Dubravec / Když si založíte eshop a za měsíc si pro vás přijde policie 
             'e112': '5fc37b64', # 8 159x Mirka Papajiková /  Jak stav těla ovlivňuje kvalitu života 
             'd0206': '99b14a70', # 19 117x Janek Rubes / Jak dostat taxikáře do polepšovny - Praha vs. Prachy 
-            'd0207': '4d6793a6', # 26 97x František Churý / Digitální deformace aneb jak dle aktuálních výzkumů seriály či porno mění naše chování a co s tím? 
+            'd0207': '',
             'e104': 'f89ae7e6', # 33 80x Veronika Dohnalová & Barbora Pečeňová / 5 klíčů k organizaci úspěšné konference 
             'e105': '278c27e6', # 36 78x Berka BerkaUX / 20 let zaměstnancem aneb mýty volnonožců 
             'a112': '101ffdb9', # Peter Cipov / Workshop — TDD coding dojo
