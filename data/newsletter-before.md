@@ -23,13 +23,13 @@ Pro ostatní, kteří mají co říct, ať už formálně nebo neformálně jsme
 
 Pokud nemáš možnost a nebo nechceš instalovat naši aplikaci, můžeš přehledně sledovat dění na stránce uzpůsobené tomuto použití pro mobily.
 
-<http://www.barcampbrno.cz/2016/aktualne.html>
+- <http://www.barcampbrno.cz/2016/aktualne.html>
 
 Doprovodný program
 ======================
 Během akce bude probíhat doprovodný program partnerů. Můžeš prohnat 3D tištěné autíčko, zahřát se pálivým ciderem nebo čajem, zahrát si pár kvízů, podívat se do IT muzea. A pokud jsi velký agro hipster, můžeš podojit i krávu, samo sebou jen na simulátoru. Pro milovníky vážné hudby jsme zařadili i koncert. Je opravdu na co se těšit.
 
-Více zde: <http://www.barcampbrno.cz/2016/doprovodny-program.html>
+- <http://www.barcampbrno.cz/2016/doprovodny-program.html>
 
 Občerstvení
 ===========
