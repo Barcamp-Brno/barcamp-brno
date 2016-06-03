@@ -111,7 +111,7 @@ times = [
 def program_aktualne():
     t = times[::]
     t.insert(0,
-        {'block_from': time(19, 0), 'block_to': time(23, 59), 'date': date(2016, 6, 3),
+        {'block_from': time(18, 0), 'block_to': time(23, 59), 'date': date(2016, 6, 3),
             'data': Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/warm-up-social-event.html">Warm-up párty</a>')}
     )
     actual_date = datetime.now().date()
