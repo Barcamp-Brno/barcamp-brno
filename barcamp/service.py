@@ -9,7 +9,7 @@ from workshops import get_workshops_dict
 from entrant import user_user_go
 from collections import defaultdict
 from entrant import get_entrants
-from datetime import time, date, datetime
+from datetime import time, date, datetime, timedelta
 from program import times
 from copy import copy
 from pprint import pprint
@@ -175,6 +175,7 @@ def fill_eventee_app():
             for speaker in speakers:
                 speaker_key = 'speaker_{}'.format(speaker['user_hash'])
                 resource_id = app.redis.hget(redis_key, speaker_key)
+                print speaker['name']
                 if not resource_id:
                     endpoint = ENDPOINT['speaker']
                     data = {
@@ -208,6 +209,11 @@ def fill_eventee_app():
                 'speakers': speaker_ids,
                 'hallId': room_id,
             }
+
+            if room in workshop_rooms:
+                minutes = 45 if lecture['minutes'] <= 60 else 105
+                end = datetime.combine(t['date'], t['block_from']) + timedelta(minutes=minutes)
+                data['end'] = str(end)
 
             response = requests.post(
                 endpoint,
