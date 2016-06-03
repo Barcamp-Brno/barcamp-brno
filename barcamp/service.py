@@ -383,23 +383,25 @@ def plneni_newsletteru():
     for entrant in entrants:
         app.redis.sadd('newsletter', entrant['email'])
 
-    return 'omg'
+    return 'filled {} entrants'.format(len(entrants))
 
 
 @app.route('/service/poslat-newsletter/')
 @auth_required
 @is_admin
 def poslani_newsletteru():
+    i = 0
     for mail in app.redis.smembers('newsletter'):
+        i += 1
         print mail
         app.redis.srem('newsletter', mail)
 
         send_mail(
-            u'A je po Barcamp Brno 2015',
+            u'Barcamp Brno 2016 je již zítra',
             '', #mail,
-            'data/newsletter-after.md')
+            'data/newsletter-before.md')
 
-    return 'omg2'
+    return 'newsletter done {} emails'.format(i)
 
 
 @app.route('/service/test-newsletter/')
@@ -407,11 +409,11 @@ def poslani_newsletteru():
 @is_admin
 def test_newsletteru():
     send_mail(
-        u'A je po Barcamp Brno 2015',
+        u'Barcamp Brno 2016 je již zítra',
         'petr@joachim.cz',
-        'data/newsletter-after.md')
+        'data/newsletter-before.md')
 
-    return 'uff'
+    return 'done'
 
 @app.route('/program-rc/')
 def rc_program():
