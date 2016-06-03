@@ -1,6 +1,6 @@
 Milá návštěvnice, milý návštěvníku,
 
-jsme velice rádi, že ses rozhodl zúčastnit letošního Barcamp Brno, který se koná již tuto sobotu __4.6.2016__. Protože sobota je už za dveřmi, rádi bychom tě informovali o důležitých věcech. Program letošního ročníku je značně komplexní, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
+jsme velice rádi, že ses rozhodl zúčastnit letošního Barcamp Brno, který se koná již zítra __4.6.2016__. Protože je to už za dveřmi, rádi bychom tě informovali o důležitých věcech. Program letošního ročníku je značně komplexní, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
 
 Jako každý rok, budeme i letos začínat náš den registrací. Nově jsme se ji ale rozhodli zjednodušit. Jen si vezmeš visačku, napíšeš na ni své jméno a jdeš dovnitř. Visačky jsou rozlišené pro řečníky, organizátory a účastníky. Tak se snad lépe rozlišíme v průběhu akce. Jde nám o to zrychlit a zefektivnit registraci, proto prosím svůj příchod naplánuj mezi __8:30__ a __9:00__ a stihneš i zahájení v hlavní přednáškové hale.
 
