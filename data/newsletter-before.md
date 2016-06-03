@@ -9,7 +9,7 @@ Program přednášek a workshopů
 Letos jsme pro tvou pohodlnost připravili ve spolupráci s Touch Art aplikaci pro iOS a Android platformu, takže můžete mít přehled o tom co se na Barcampu děje přímo v telefonu.
 
  - iOS: <http://bit.ly/ios-barcamp-brno>
- - Android: <http://bit.ly/android-barcamp-brno>
+ - Android: <http://bit.ly/play-barcamp-brno>
 
 Volba přednášek probíhala na internetu ve formě hlasování. Workshopy jsme pak vybírali přímo my, ale samozřejmě s citem, láskou a ohledem na vás.
 
