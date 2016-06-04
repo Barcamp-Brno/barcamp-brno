@@ -29,7 +29,6 @@
             <li>Moravia</li>
             <li>Edhouse</li>
             <li>EmbedIT</li>
-            <li>Kiwi.com</li>
             <li>Sygic Travel</li>
             <li>Kentico</li>
             <li>LMC</li>
