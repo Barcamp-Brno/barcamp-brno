@@ -29,7 +29,8 @@ Diskuze, aneb Borec na konec, potvrdili:
  - Honza Řehák: Pozornost, hlavně její nelineární část (adhd, add, multipotence)
  - Matěj Krejčí: Fck It, Fck them, Fck them all 
  - Daniel Dubravec: Do temnoty a zpět aneb jak se točí peníze v internetovém podsvětí
- -  Kristýna FitCoach Baštářová: Sedavé zaměstnání, hoaxy a pravdy o dlouhodobém sezení 
+ - Kristýna FitCoach Baštářová: Sedavé zaměstnání, hoaxy a pravdy o dlouhodobém sezení 
+ - Radek Berka: Alternativní vzdělávání
 
 <div class="row">
 <div class="col-md-6">
