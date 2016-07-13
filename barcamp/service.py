@@ -290,6 +290,36 @@ def room_program():
 
     return Response(output.getvalue(), mimetype="text/plain")
 
+
+@app.route('/service/speakers-mails/')
+@auth_required
+@is_admin
+def service_speaker_mail():
+    talk_hashed = get_talks_dict()
+    talks = []
+    for t in times:
+        if type(t['data']) is dict:
+            for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+                talk = talk_hashed.get(t['data'][room], None)
+                if talk:
+                    talks.append(talk)
+    workshop_hashed = get_workshops_dict()
+    workshops = []
+    for t in times:
+        if type(t['data']) is dict:
+            for room in ('a112', 'a113', 'c228'):
+                workshop = workshop_hashed.get(t['data'][room], None)
+                if workshop:
+                    workshops.append(workshop)
+
+    output = io.BytesIO()
+    writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
+    for lecture in talks + workshops:
+        writer.writerow([lecture['user']['email']])
+
+    return Response(output.getvalue(), mimetype="text/plain")
+
+
 @app.route('/service/vyvoleni')
 @auth_required
 @is_admin

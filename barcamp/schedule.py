@@ -47,6 +47,10 @@ schedule = {
                     'from': datetime(2016, 5, 29),
                     'to': datetime(2020, 6, 4),
                 },
+                'REVIEW-MENU': {
+                    'from': datetime(2016, 6, 15),
+                    'to': datetime(2020, 6, 4),
+                }
             },
         },
         '2017': {

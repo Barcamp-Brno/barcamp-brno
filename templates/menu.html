@@ -24,7 +24,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                    
+                {% if stage(config.YEAR, 'REVIEW-MENU') %}
+                    {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
+                {% endif %}                    
                 {% if stage(config.YEAR, 'PROGRAM-MENU') %}
                     {{active_li(url_for('program_aktualne'), 'Program')}}
                 {% endif %}
