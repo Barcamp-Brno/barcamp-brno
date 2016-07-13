@@ -7,13 +7,13 @@ Tento rok jsme snědli jedno celé prsátko, 300 makronek, 100 hamburgerů, 50 h
 
 Z téměř všech přednášek byl pořízený videozáznam, videa jsou dostupná na stránkách [superlectures](http://www.superlectures.com/barcampbrno2016/). Fotografie z celého dne jsou na našem [flickru](https://www.flickr.com/photos/97646969@N07/sets/72157669419251582). Dále sledujte sociální média [facebook Barcamp Brno](https://cs-cz.facebook.com/barcamp.brno) a [twitter @bcbrno](https://twitter.com/bcbrno) pro aktuální informace.
 
-Celá akce byla zakončena afterpárty, která se protáhla až do ranních hodin a nově v prostorách Moravské galerie na náměstí u Brněnské žirafy.
+Celá akce byla zakončena afterpárty, která se protáhla až do ranních hodin, nově v prostorách Moravské galerie na náměstí u brněnské žirafy.
 
-Jako každý rok, i letos jsme na Barcampu uspořádali sbírku, jejíž cílem letos bylo finančně podpořit Josepha z Ugandy a umožnit mu tak studium na střední škole. Vybrali jsme i díky soutěži o Krále Barcampu přes 10 000 Kč a v výtěžek jsme již předali organizaci Bwindi Orphans. Děkujeme všem, kteří přispěli. <http://www.barcampbrno.cz/2016/stranka/charita.html>
+Jako každý rok, i letos jsme na Barcampu uspořádali sbírku, jejímž cílem bylo finančně podpořit Josepha z Ugandy a umožnit mu tak studium na střední škole. Vybrali jsme, také díky soutěži o Krále Barcampu, přes 10 000 Kč a v výtěžek jsme již předali organizaci Bwindi Orphans. Děkujeme všem, jenž přispěli. <http://www.barcampbrno.cz/2016/stranka/charita.html>
 
 Chtěli bychom poprosit všechny přihlášené účastníky, včetně těch, kteří na Barcamp nepřišli o vyplnění dotazníku. Budeme rádi za jakékoliv podněty, které pomohou vylepšit Barcamp Brno 2016. Dotazník najdete na adrese <https://www.survio.com/survey/d/barcamp-brno-2016>.
 
-Rádi bych jménem organizačního týmu poděkovali všem dobrovolníkům, kteří nám s akcí pomohli, vám všem, kteří jste se akce zúčastnili a v neposlední řadě také všem partnerům, kteří umožnili aby se akce konala.
+Rádi bychom jménem organizačního týmu poděkovali všem dobrovolníkům, kteří nám s akcí pomohli, vám všem, kteří jste se akce zúčastnili a v neposlední řadě také všem partnerům, kteří umožnili aby se akce konala.
 
 Rovněž děkujeme vedení [VUT FIT](http://www.fit.vutbr.cz/) za již tradiční podporu této akce. 
 
