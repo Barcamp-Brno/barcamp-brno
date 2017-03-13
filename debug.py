@@ -18,7 +18,7 @@ if __name__ == '__main__':
         'FACEBOOK_SECRET': '',
         'TWITTER_KEY': '',
         'TWITTER_SECRET': '',
-        'TESTING': True ,
+        #'TESTING': True ,
         'SECRET_KEY': 'jednadvehonzajde',
         'MAIL_SERVER': 'smtp.sendgrid.net',
         'MAIL_PORT': 587,

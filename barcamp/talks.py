@@ -130,6 +130,9 @@ def get_talk_hash(data, depth=5):
 
 def get_talk(talk_hash):
     talk = json.loads(app.redis.get(KEYS['talk'] % talk_hash) or 'false')
+    if not talk: 
+        return False
+
     score = int(app.redis.zscore(KEYS['talks'], talk_hash))
     talk['score'] = score
     return talk

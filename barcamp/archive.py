@@ -2,18 +2,20 @@
 
 import re
 import os
-from barcamp import create_app
+from . import create_app, schedule
 
 PUBLISH_SKIP_URLS = (
     '/static/.*',
     '/service/.*',
-    '.*/$'
+    '/chci-si-objednat/',
+    '/objednavky/.*',
+    '.*/$',
 )
 PUBLISH_ADD_FILES = (
     'static',
 )
 
-YEAR = "2015"
+YEAR = "2016"
 
 class Publisher(object):
     def __init__(self, app):
@@ -99,6 +101,8 @@ if __name__ == '__main__':
     }
 
     config.update(os.environ)
+    config.update(schedule)
+
     app = create_app(config)
     
     publisher = Publisher(app)
