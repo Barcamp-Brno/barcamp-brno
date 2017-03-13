@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <title>Barcamp Brno 2016</title> 
+        <meta name="author" content="Barcamp Brno 2016" />
+        <link rel="shortcut icon" href="/2016/static/favicon.ico" />
+
+        <meta name="viewport" content="width=device-width" />
+
+        <meta name="description" content="Barcamp Brno 2016" />
+        <meta name="keywords" content="Barcamp Brno 2016" />
+
+        <link href="/2016/static/css/main.css?2016-06-02" rel="stylesheet" type="text/css" media="screen" id="main_css" />
+
+
+        <script src="/2016/static/components/jquery/dist/jquery.min.js"></script>
+        <script src="/2016/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="http://api4.mapy.cz/loader.js"></script>
+        <script src="/2016/static/components/jquery/dist/jquery.min.js"></script>
+
+        <script src="//code.optimcore.com/185649.js"></script>
+        
+        <script>Loader.load();</script>
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="logo" href="/2016/index.html">
+                <img alt="Barcamp Brno 2016" src="/2016/static/img/barcamp-square-transparent.png">
+                Barcamp Brno 2016</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    
+    <li
+        >
+        <a href="/2016/stranka/zhodnoceni.html">Zhodnocení</a>
+    </li>
+
+                                    
+                
+                    
+    <li
+        >
+        <a href="/2016/aktualne.html">Program</a>
+    </li>
+
+                
+
+                
+    <li
+        >
+        <a href="/2016/program.html">Přednášky</a>
+    </li>
+
+                
+    <li
+        >
+        <a href="/2016/workshopy.html">Workshopy</a>
+    </li>
+
+                
+    <li
+        >
+        <a href="/2016/stranka/informace.html">Informace</a>
+    </li>
+
+                
+    <li
+        >
+        <a href="/2016/partneri.html">Partneři</a>
+    </li>
+
+
+                
+                
+                    
+    <li
+        >
+        <a href="/login/">Přihlásit se</a>
+    </li>
+
+                
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+        </div>
+        <div class="spacer"></div>
+            
+                
+            
+        
+<div class="container-fluid">
+    <div class="detail ">
+        <div class="wrapper container">
+            <div class="content">
+                  
+<h2>Warm-up social event</h2>
+<p>Stejně jako každý rok i letos se můžeš seznámit s účastníky a organizátory večer před Barcampem na oficiální warm-up párty!</p>
+<p>Jelikož se loňské prostory více než osvědčily, tak i letos se potkáme v uzavřeném horním patře brněnského Mamut Pubu na ulici Bašty.</p>
+<p>Těšit se můžete na soutěž s brněnským Impact HUBem a něco malého na zub.</p>
+<p>Na místě bude možné se občerstvit v rámci jídelního a nápojového lístku.</p>
+<p>Začátek warm-up párty je stanoven na <strong>18:00</strong>.</p>
+<p>Novinky a vše ohledně warm-up párty najdete také na <a href="https://www.facebook.com/events/1580497152260797/">Facebooku</a>!</p>
+<div id="mapa" style="width:600px; height:400px;"></div>
+
+<script type="text/javascript">
+    var stred = SMap.Coords.fromWGS84(16.6092111, 49.1906997);
+    var m = new SMap(JAK.gel("mapa"), stred, 16);
+    m.addDefaultLayer(SMap.DEF_BASE).enable();
+    m.addDefaultControls();
+    var layer = new SMap.Layer.Marker();
+    m.addLayer(layer);
+    layer.enable();
+    var options = {};
+    var marker = new SMap.Marker(stred, "myMarker", options);
+    layer.addMarker(marker);
+</script>
+
+            </div>
+        </div>
+    </div>
+    <!-- pata -->
+    <div id="footer" class="detail ">
+        <div class="wrapper container">
+            <div>
+                &copy; Barcamp Brno 2016 &mdash; <a href="/2016/stranka/kontakty.html">Kontakty</a>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+            <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-25528595-1']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+            </script>
+            <!-- /pata -->
+        </div>
+    </body>
+</html>
