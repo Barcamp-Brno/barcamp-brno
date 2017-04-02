@@ -1,0 +1,1 @@
+<a href="http://www.fit.vutbr.cz/" alt="VUT-FIT"><img src="/static/img/logos/fit.png" alt="VUT-FIT" height="100"></a>

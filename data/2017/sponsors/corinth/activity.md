@@ -1,0 +1,3 @@
+O virtuální realitě všichni mluví, ale málokdo ji viděl na vlastní oči. Není to celé až příliš virtuální? Corinth vám na svém interaktivním 3D obsahu ukáže, že VR se dá reálně používat i mimo oblast počítačových her. Stav se za námi vyzkoušet si na vlastní kůži zařízení od HTC Vive a zSpace a projdi se mezi dinosaury nebo se podívej dovnitř motoru.
+
+<img src="/static/img/extra/2016/corinth_activity.jpg?1" alt=""/>

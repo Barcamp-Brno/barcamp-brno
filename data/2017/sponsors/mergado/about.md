@@ -1,0 +1,1 @@
+Pomáhám e-shopům získat více z Heureky, Zboží.cz a dalších vyhledávačů zboží. Denně vylepšuji jejich inzerci tak, abychom navyšovali tržby e-shopu, při rozumných nákladech.

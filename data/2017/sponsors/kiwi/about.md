@@ -1,0 +1,1 @@
+Kiwi.com, dříve známo jako Skypicker, je internetová cestovní agentura s průlomovou technologií nazvanou Virtuální propojování a soustředí se také na jedinečnou zákaznickou podporu. Unikátní kombinační algoritmus umožňuje našim zákazníkům kombinovat lety aerolinek, které spolu nespolupracují, a vytváří jim tak jedinečný plán cesty, často značně levnější než kdekoliv jinde.

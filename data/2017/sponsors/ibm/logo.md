@@ -1,0 +1,1 @@
+[![IBM](/static/img/extra/2016/ibm.png "IBM")](http://www-05.ibm.com/employment/cz/ibm_centre_brno/index.shtml)

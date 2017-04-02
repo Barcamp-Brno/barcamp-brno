@@ -5,7 +5,7 @@ from flask import url_for, abort
 from login_misc import check_auth, auth_required, get_account
 from entrant import user_user_go
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField, BooleanField
+from wtforms import TextField, TextAreaField, BooleanField, RadioField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
 from utils import markdown_markup, send_feedback_mail
@@ -206,6 +206,29 @@ def _get_talks():
 
 class TalkForm(Form):
     title = TextField(u'Název', validators=[DataRequired()])
+
+    category = RadioField(
+        u'Kategorie',
+        choices=[
+            ('business', u'Byznys'),
+            ('design', u'Design'),
+            ('inovations', u'Inovace'),
+            ('marketing', u'Marketing'),
+            ('inspirational', u'Osobní rozvoj'),
+            ('development', u'Vývoj'),
+        ],
+        validators=[DataRequired()],
+    )
+
+    length = RadioField(
+        u'Formát',
+        choices=[
+            ('22', u'22 minut - volený formát'),
+            ('45', u'45 minut - vybírá tým Barcamp Brno'),
+        ],
+        validators=[DataRequired()],
+    )
+
     company = TextField(u'Firma')
     twitter = TextField(u'Twitter')
     web = TextField(u'Web', validators=[Optional(), URL()])

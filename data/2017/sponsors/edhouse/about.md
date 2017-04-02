@@ -1,0 +1,3 @@
+Jsme největší softwarová společnost ve Zlíně. Od roku 2014 působíme také na Vsetíně, kde rozvíjíme pobočku vývojového centra Edhouse.
+Pracujeme pro světové jedničky na mezinárodním trhu a tím naplňujeme náš cíl přinášet zajímavou práci do našeho regionu – Zlínského kraje.
+Mezi naše klíčové zákazníky patří společnosti FEI, NCR, ON Semiconductor a ComAp přičemž stavíme na technologiích C++, Java, C# .NET.

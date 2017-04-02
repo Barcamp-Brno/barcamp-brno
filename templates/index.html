@@ -3,7 +3,7 @@
 <meta name="google-site-verification" content="uaKNVsyJozxJS1QF4u-sSqcKAwQjJYwqZQ_9teQyPsY" />
 {% endblock %}
 {% block content %}
-<div class="container blind">
+<div class="container">
     <div id="hp-content">
         <div class="wrapper">
             <div class="row">
@@ -49,7 +49,7 @@
                         {% endif -%}
                     </h2>
                     <p>{{talks|count}} přednášek v hlasování</p>
-                    <p>42 z nich v programu</p>
+                    <p>60 z nich v programu</p>
                     <p><a class="btn btn-danger" href="{{url_for('talks_all')}}">
                         <i class="fa fa-play-circle"></i>
                         {%- if stage(config.YEAR, 'VOTING') %}
@@ -60,7 +60,7 @@
                         
                     </a></p>
                 </div>
-                <div class="col-md-3 col-sm-4">
+                <div class="col-md-3 col-sm-4 blind">
                     <h2>Workshopy</h2>
                     <p>{{workshops|count}}</span> přihlášených workshopů</p>
                     <p>8 z nich v programu</p>
@@ -73,17 +73,19 @@
                 </div>
                 <!-- 3 -->
                 <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-3 col-sm-4" style="transform: rotate(7deg)">
+                <div class="col-md-3 col-sm-4 blind">
                     <h2>Trička</h2>
                     <p>Letos trička bez log partnerů</p>
                     <p>v předprodeji!</p>
                     <p>
-                        <a class="btn btn-info" href="/2016/stranka/tricka.html">
+                        <a class="btn btn-info" href="{{url_for('static_page', page='tricka')}}">
                             <i class="fa fa-credit-card"></i>
                             Chcu mít taky tričko!
                         </a>
                     </p>
                 </div>
+            </div>
+            <div class="row blind">
                 <!-- 4 -->
                 <div class="clearfix visible-md-block"></div>
                 <div class="col-md-3 col-sm-4">

@@ -1,0 +1,3 @@
+Corinth je celosvětově nejoceňovanějším startupem ve vzdělávacích technologiích pro základní a střední školy v roce 2015. Česká firma vyrábí interaktivní vzdělávací obsah za použití špičkových technologií jako interaktivní 3D, augmentovaná realita, virtuální realita, mikroskopické zoom snímky, nebo 3D tisk. 
+
+V současnosti jeho pomůcky používají tisíce škol, učitelů a studentů v 114 zemích po celém světe. Vzdělávací obsah Corinthu je vytvořen ve spolupráci s prestižními světovými univerzitami jako je kalifornský Stanford nebo Karlova univerzita. Corinth patří mezi hlavní partnery Microsoftu ve vzdělávání. Mezi jeho dalšími partnery jsou HP, Dell, zSpace nebo Qualcomm. Pomůcky Corinthu prezentuje také Intel jako příklad špičkové technologické inovace.

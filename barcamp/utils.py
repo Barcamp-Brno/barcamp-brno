@@ -82,7 +82,7 @@ def markdown_markup(filename):
     return content
 
 def stage_is_active(year, stage):
-    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES'].keys():
+    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES']:
         return False
 
     schedule = app.config['YEAR_SCHEDULE'][year]['STAGES'][stage]
@@ -90,7 +90,7 @@ def stage_is_active(year, stage):
     return schedule['from'] <= day and day <= schedule['to']
 
 def stage_in_past(year, stage):
-    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES'].keys():
+    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES']:
         return False
 
     schedule = app.config['YEAR_SCHEDULE'][year]['STAGES'][stage]

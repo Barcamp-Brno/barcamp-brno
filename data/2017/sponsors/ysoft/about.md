@@ -1,0 +1,3 @@
+Y Soft poskytuje chytrá podniková řešení, díky nimž organizace fungují efektivněji. Naše platforma YSoft SafeQ zákazníkům pomáhá řídit, optimalizovat a zabezpečit tisk i digitalizaci dokumentů. Produktová skupina 3D tiskáren YSoft be3D zase nabízí řešení pro uživatelsky přívětivý, spolehlivý a kvalitní 3D tisk v segmentech vzdělávání a výrobních firem. Projekt interních startupů YSoft Labs a venture kapitálové rameno Y Soft Ventures pomáhají udržet společnosti Y Soft tempo s technologickým vývojem a nalézat nové obchodní příležitosti.
+ 
+Y Soft vznikl v roce 2000. Společnost sídlí v Brně, celosvětovou sítí poboček pokrývá Severní a Latinskou Ameriku, Evropu, Blízký východ a Afriku a region Asie a Pacifiku včetně Austrálie. Více informací naleznete na <www.ysoft.com>.

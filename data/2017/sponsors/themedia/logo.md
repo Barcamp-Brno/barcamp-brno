@@ -1,0 +1,1 @@
+[![THE MEDIA](/static/img/extra/2016/themedia.png "THE MEDIA")](http://www.themedia.cz/)

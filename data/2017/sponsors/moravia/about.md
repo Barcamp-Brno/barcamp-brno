@@ -1,0 +1,1 @@
+Jsme původem česká firma, patřící mezi 10 největších poskytovatelů globalizačních řešení na světě. Jednodušeji řečeno, pomáháme našim klientům, aby si lidé po celém světě mohli přečíst webové stránky, různé instrukce, nebo používat SW či mobilní aplikace ve svém rodném jazyce. Pracujeme pro nejprestižnější a nejobdivovanější značky z oblasti IT a medicínských technologií.

@@ -1,0 +1,3 @@
+<p>
+	Jsme brněnská firma, která byla založena v roce 2004. V současné době máme 200 zaměstnanců a máme čtyři zahraniční pobočky. Software Kentico integruje CMS, E-commerce a Online Marketing do jednoho systému, který pomáhá firmám všech velikostí úspěšně dosahovat obchodních cílů prostřednictvím jejich webových stránek. Kentico nabízí serverové i cloudové řešení a dává tak svým uživatelům možnost vytvářet skvělé weby. Díky celé řadě komplexních nástrojů umožňuje pohodlně spravovat customer experience návštěvníků webu z jediného místa.
+</p>

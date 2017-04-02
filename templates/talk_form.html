@@ -8,6 +8,8 @@
     <fieldset>
         {{form.csrf_token}}
         {{input(form.title)}}
+        {{radiobox(form.category)}}
+        {{radiobox(form.length)}}
         {{textarea(form.description)}}
         {{textarea(form.purpose)}}
         {{input(form.company)}}

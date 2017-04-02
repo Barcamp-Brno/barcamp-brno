@@ -1,0 +1,1 @@
+Na BarCampu nejde jen o poznatky, ale také o zábavu. Přijďte si oddechnout u oblíbeného stolního fotbálku a neformálně si pokecat. U stánku budeme hledat nejoriginálnejší nápady pro automatizaci jakéhokoliv typu a budete mít možnost odnést si spoustu dárků. Naši IBMeři už jsou v dobré náladě a těší se na setkání s Vámi!
