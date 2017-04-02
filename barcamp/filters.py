@@ -60,30 +60,10 @@ def sponsors():
     return {
         'sponsors': {
             'main': [
-                'vut',
-                'ysoft',
-                'ibm',
-                'fei',
             ],
             'regular': [
-                'seznam',
-                'moravia',
-                'edhouse',
-                'embedit',
-                'kiwi',
-                'sygic',
-                'mergado',
-                'kentico',
-                'lmc',
-                'ymca',
-                'corinth',
             ],
             'medial': [
-                'toastmasters',
-                'touchart',
-                'solitutticelli',
-                'themedia',
-                'jakumedia',
             ],
         }
     }
