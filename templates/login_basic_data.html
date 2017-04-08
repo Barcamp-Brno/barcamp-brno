@@ -1,13 +1,13 @@
-{% extends "_base_form.html" %}
+{% extends "_base.html" %}
 {% block page_content %}
 <!-- krok 3 -->
 <h2>Vytvoření účtu</h2>
-{{step_box(3)}}
+{{forms.step_box(3)}}
 <form method="post" class="form-horizontal" action=".">
         {{form.csrf_token}}
     <fieldset>
-        {{input(form.fullname)}}
-        {{input(form.password, type='password')}}
+        {{forms.input(form.fullname)}}
+        {{forms.input(form.password, type='password')}}
     </fieldset>
     <div class="form-actions">
       <button type="submit" class="btn btn-primary">Odeslat</button>

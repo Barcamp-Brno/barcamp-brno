@@ -8,6 +8,8 @@ from datetime import datetime
 from flask.ext.mail import Mail, Message
 from copy import copy
 
+from models.pages import Pages
+
 def send_feedback_mail(subject, template, data, user, url):
     mail = Mail(app)
     body = read_file(template) or ""
@@ -29,22 +31,17 @@ def send_feedback_mail(subject, template, data, user, url):
     mail.send(msg)
 
 
-def markdown_static_page(page):
-    try:
-        with open('data/%s/%s.md' % (app.config['YEAR'], page)) as f:
-            raw_data = f.read().decode('utf-8')
-            content = Markup(markdown.markdown(raw_data))
-    except:
-        content = None
-        if app.debug:
-            raise
+def markdown_static_page(uri):
+    pages = Pages(app.redis, app.config['YEAR'])
+    page = pages.get(uri)
 
-    if content is None:
+    if not page:
         abort(404)
 
     return render_template(
         '_markdown.html',
-        content=content,
+        content=Markup(markdown.markdown(page['body'])),
+        title=page['title'],
         user=check_auth())
 
 
@@ -68,16 +65,13 @@ def sponsors_data(sponsor, data):
 
 
 def markdown_markup(filename):
-    try:
-        with open('data/%s/%s.md' % (app.config['YEAR'], filename)) as f:
-            raw_data = f.read().decode('utf-8')
-            md_data = markdown.markdown(raw_data)
-            content = Markup(md_data)
-    except:
-        content = None
+    pages = Pages(app.redis, app.config['YEAR'])
+    page = pages.get(filename)
 
-    if not content:
-        content = Markup('')
+    if page:
+        content=Markup(markdown.markdown(page['body']))
+    else:
+        content=Markup('')
 
     return content
 

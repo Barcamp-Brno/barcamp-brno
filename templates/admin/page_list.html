@@ -1,0 +1,33 @@
+{% extends "admin/_base.html" %}
+{% block title %}Seznam stránek{% endblock %}
+{% block header %}Seznam stránek{% endblock %}
+{% block body %}
+<p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('admin.page_edit')}}">
+        <i class="fa fa-plus"></i>
+        Přidat stránku</a>
+</p><div class="clearer"></div>
+
+{% if pages %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulek</th>
+                <th>Adresa</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for page in pages %}
+            <tr>
+                <td>{{page.title}}</td>
+                <td>{{page.uri}}</td>
+                <td><a href="{{url_for('admin.page_edit', uri=page.uri)}}"><i class="fa fa-pencil"> </i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="warning">Žádné stránky</div>
+{% endif %}
+
+{% endblock %}

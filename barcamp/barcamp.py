@@ -49,4 +49,8 @@ def create_app(config):
     import service
     import workshops
     import invoices
+
+    from admin import admin
+
+    app.register_blueprint(admin, url_prefix='/admin')
     return app

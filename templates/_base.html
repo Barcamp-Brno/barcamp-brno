@@ -1,8 +1,9 @@
+{% import "_forms.html" as forms %}
 <!doctype html>
 <html lang="cs">
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}Barcamp Brno {{config.YEAR}}{% endblock %}</title> 
+        <title>Barcamp Brno {{config.YEAR}}{% if self.title() %} | {% endif %}{% block title %}{% endblock %}</title> 
         <meta name="author" content="Barcamp Brno {{config.YEAR}}" />
         <link rel="shortcut icon" href="{{"/" + config.YEAR if config.ARCHIVE}}/static/favicon.ico" />
 

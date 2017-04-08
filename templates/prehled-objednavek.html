@@ -1,4 +1,4 @@
-{% extends "_base_form.html" %}
+{% extends "_base.html" %}
 {% block page_content %}
 <h2>Přehled</h2>
 <div class="rows">
@@ -26,7 +26,7 @@
     </div>
     <form method="POST" action="{{url_for('invoice_update_status')}}">
         {{ form.csrf_token }}
-        {{ input(form.order_number) }}
+        {{ forms.input(form.order_number) }}
         <div class="form-actions">
             <button class="btn btn-primary pull-right" type="submit">
                 <i class="fa fa-money"></i> Zaplaceno</button>

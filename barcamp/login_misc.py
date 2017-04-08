@@ -12,16 +12,19 @@ KEYS = {
 }
 
 
+def login_redirect():
+    path = request.path
+    flash(
+        u"Stránka [%s] je dostupná jen přihlášenému uživateli" % path,
+        "warning")
+    session['next'] = path
+    return redirect(url_for('login'))
+
 def auth_required(fn):
     @wraps(fn)
     def wrap(*args, **kwargs):
         if not session.get('user_hash', False):
-            path = request.path
-            flash(
-                u"Stránka [%s] je dostupná jen přihlášenému uživateli" % path,
-                "warning")
-            session['next'] = path
-            return redirect(url_for('login'))
+            return login_redirect()
         return fn(*args, **kwargs)
 
     return wrap
@@ -40,7 +43,7 @@ def is_admin(fn):
 
 def check_admin():
     user = check_auth()
-    return user and user['email'] == u'petr@joachim.cz'
+    return user and (user['email'] == u'petr@joachim.cz' or user['email'].endswith('@barcampbrno.cz'))
 
 def check_auth():
     user_hash = session.get('user_hash', None)

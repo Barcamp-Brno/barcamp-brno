@@ -1,4 +1,4 @@
-{% extends "_base_form.html" %}
+{% extends "_base_page.html" %}
 {% block page_content %}
 
 {{ informace }}
@@ -7,16 +7,16 @@
 <form method="POST" class="form-horizontal" action=".">
     <fieldset>
         {{form.csrf_token}}
-        {{input(form.title)}}
-        {{textarea(form.description)}}
-        {{textarea(form.purpose)}}
-        {{textarea(form.needs)}}
-        {{input(form.company)}}
-        {{input(form.web)}}
-        {{input(form.twitter)}}
-        {{textarea(form.other)}}
-        {{input(form.minutes)}}
-        {{input(form.max_count)}}
+        {{forms.input(form.title)}}
+        {{forms.textarea(form.description)}}
+        {{forms.textarea(form.purpose)}}
+        {{forms.textarea(form.needs)}}
+        {{forms.input(form.company)}}
+        {{forms.input(form.web)}}
+        {{forms.input(form.twitter)}}
+        {{forms.textarea(form.other)}}
+        {{forms.input(form.minutes)}}
+        {{forms.input(form.max_count)}}
     </fiedlset>
 
     <div class="form-actions">

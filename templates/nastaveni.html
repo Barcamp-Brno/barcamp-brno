@@ -4,11 +4,11 @@
 <form action="." class="form-horizontal" method="post">
     <fieldset>
         {{form.csrf_token}}
-        {{input(form.name)}}
-        {{textarea(form.bio)}}
-        {{input(form.company)}}
-        {{input(form.web)}}
-        {{input(form.twitter)}}
+        {{forms.input(form.name)}}
+        {{forms.textarea(form.bio)}}
+        {{forms.input(form.company)}}
+        {{forms.input(form.web)}}
+        {{forms.input(form.twitter)}}
     </fieldset>
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Odeslat</button>

@@ -1,4 +1,4 @@
-{% extends "_base_form.html" %}
+{% extends "_base_page.html" %}
 {% block page_content %}
 
 {{ informace }}
@@ -7,16 +7,16 @@
 <form method="POST" class="form-horizontal" action=".">
     <fieldset>
         {{form.csrf_token}}
-        {{input(form.title)}}
-        {{radiobox(form.category)}}
-        {{radiobox(form.length)}}
-        {{textarea(form.description)}}
-        {{textarea(form.purpose)}}
-        {{input(form.company)}}
-        {{input(form.web)}}
-        {{input(form.twitter)}}
-        {{textarea(form.other)}}
-        {{checkbox(form.video)}}
+        {{forms.input(form.title)}}
+        {{forms.radiobox(form.category)}}
+        {{forms.radiobox(form.length)}}
+        {{forms.textarea(form.description)}}
+        {{forms.textarea(form.purpose)}}
+        {{forms.input(form.company)}}
+        {{forms.input(form.web)}}
+        {{forms.input(form.twitter)}}
+        {{forms.textarea(form.other)}}
+        {{forms.checkbox(form.video)}}
     </fiedlset>
 
     <div class="form-actions">

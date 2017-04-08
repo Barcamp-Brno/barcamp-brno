@@ -1,4 +1,4 @@
-{% extends "_base_form.html" %}
+{% extends "_base.html" %}
 {%- macro size_input(field) %}
 <div class="col-sm-2 center">
     <label class="" for="{{field.id}}">{{field.label.text}}</label>
@@ -23,15 +23,15 @@
                 <p><small>Abychom mohli vystavit daňový doklad a věděli komu můžeme tričko vydat</small></p>
 
                 {{form.csrf_token}}
-                {{input(form.name)}}
-                {{input(form.email)}}
-                {{input(form.phone)}}
-                {{input(form.street)}}
-                {{input(form.city_zip)}}
-                {{input(form.city)}}
+                {{forms.input(form.name)}}
+                {{forms.input(form.email)}}
+                {{forms.input(form.phone)}}
+                {{forms.input(form.street)}}
+                {{forms.input(form.city_zip)}}
+                {{forms.input(form.city)}}
                 {# {{input(form.company)}} #}
                 {# {{input(form.company_number)}} #}
-                {{textarea(form.other)}}
+                {{forms.textarea(form.other)}}
 
                 <h3>Velikosti a varianty trička</h3>
                 <p><small>Vepiš číslo pro počet kusů do kolonky, která je pro tebe ta pravá</small></p>
