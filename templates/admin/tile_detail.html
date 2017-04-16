@@ -1,0 +1,28 @@
+{% extends "admin/_base.html" %}
+{% block title %}{% if tile.idx %}Editace {{tile.title}}{% else %}Vytvoření boxíku{% endif %}{% endblock %}
+{% block header %}{% if tile.idx %}Editace {{tile.title}}{% else %}Vytvoření boxíku{% endif %}{% endblock %}
+{% block body %}
+<form method="POST" class="form-horizontal" action=".">
+    <fieldset>
+        {{form.csrf_token}}
+        {{forms.input(form.title)}}
+        {{forms.input(form.score)}}
+        {{forms.textarea(form.body, rows=5, monospace=True)}}
+        <h4>Call to action</h4>
+        {{forms.input(form.action_caption)}}
+        {{forms.input(form.action_icon)}}
+        {{forms.input(form.action_class)}}
+        {{forms.input(form.action_url)}}
+        <h4>Časování</h4>
+        {{forms.radiobox(form.visible_from)}}
+        {{forms.checkbox(form.visible_after_stage)}}
+    </fiedlset>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+        {% if tile.idx %}
+            <a class="btn btn-danger" href="{{url_for('admin.tile_delete', idx=tile.idx)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete boxík smazat?')">Smazat boxík</a>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

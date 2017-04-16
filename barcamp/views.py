@@ -9,6 +9,7 @@ from utils import markdown_static_page, markdown_markup, stage_is_active
 from entrant import get_count, get_entrants
 from vote import get_user_votes
 from program import times
+from models.tiles import Tiles
 import os
 
 @app.route("/", redirect_to="/%s/index.html" % app.config['YEAR'])
@@ -17,6 +18,7 @@ import os
 def index():
     talks, extra_talks = get_talks()
     workshops = get_workshops()
+    tiles = Tiles(app.redis, app.config['YEAR'])
 
     stage_template = "index.html"
     if stage_is_active(app.config['YEAR'], 'END'):
@@ -33,7 +35,8 @@ def index():
         novinky=markdown_markup('novinky'),
         talks=talks, extra_talks=extra_talks,
         talks_dict=get_talks_dict(),
-        workshops=workshops
+        workshops=workshops,
+        tiles=tiles.get_all(),
     )
 
 

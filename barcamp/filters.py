@@ -5,11 +5,17 @@ from barcamp import app
 from utils import stage_is_active, stage_in_past, sponsors_data
 from workshops import translate_status
 from login_misc import check_auth, check_admin
+import markdown
+
 
 _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
 _emoji_re = re.compile(r'[^\w .-<>/?!,()*]+', re.UNICODE)
 _spaces = re.compile(r'\s+')
 
+
+@app.template_filter()
+def md(value):
+    return Markup(markdown.markdown(value))
 
 @app.template_filter()
 @evalcontextfilter

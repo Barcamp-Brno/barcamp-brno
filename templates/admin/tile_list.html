@@ -1,0 +1,35 @@
+{% extends "admin/_base.html" %}
+{% block title %}Seznam boxíků{% endblock %}
+{% block header %}Seznam boxíků{% endblock %}
+{% block body %}
+<p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('admin.tile_edit')}}">
+        <i class="fa fa-plus"></i>
+        Přidat boxík</a>
+</p><div class="clearer"></div>
+
+{% if tiles %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulek</th>
+                <th>Adresa</th>
+                <th>Váha</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tile in tiles %}
+            <tr>
+                <td>{{tile.title}}</td>
+                <td>{{tile.action_url}}</td>
+                <td>{{tile.score}}</td>
+                <td><a href="{{url_for('admin.tile_edit', idx=tile.idx)}}"><i class="fa fa-pencil"> </i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="warning">Žádné boxíky</div>
+{% endif %}
+
+{% endblock %}

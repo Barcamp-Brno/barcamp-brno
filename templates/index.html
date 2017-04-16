@@ -2,12 +2,19 @@
 {% block meta %}
 <meta name="google-site-verification" content="uaKNVsyJozxJS1QF4u-sSqcKAwQjJYwqZQ_9teQyPsY" />
 {% endblock %}
+{%- macro clearfix(index) %}
+{% if index % 3 == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
+{% if index % 4 == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
+{% endmacro -%}
 {% block content %}
 <div class="container">
     <div id="hp-content">
         <div class="wrapper">
             <div class="row">
+                {% set offset = 0 %}
+                {{ clearfix(offset) }}
                 <div class="col-md-3 col-sm-4">
+                    {% set offset = offset + 1 %}
                     {% if not after_stage(config.YEAR, 'USERS') %}
                         {% if stage(config.YEAR, 'USERS') %}
                             <h2>Účastníci</h2>
@@ -41,7 +48,9 @@
                         <p>1300 lidí přišlo</p>
                     {% endif %}
                 </div>
+                {{ clearfix(offset) }}
                 <div class="col-md-3 col-sm-4">
+                    {% set offset = offset + 1 %}
                     <h2>{%- if stage(config.YEAR, 'VOTING') %}
                             Hlasování
                         {% else %}
@@ -60,7 +69,9 @@
                         
                     </a></p>
                 </div>
-                <div class="col-md-3 col-sm-4 blind">
+                {{ clearfix(offset) }}
+                <div class="col-md-3 col-sm-4">
+                    {% set offset = offset + 1 %}
                     <h2>Workshopy</h2>
                     <p>{{workshops|count}}</span> přihlášených workshopů</p>
                     <p>8 z nich v programu</p>
@@ -71,6 +82,24 @@
                         </a>
                     </p>
                 </div>
+                {% for tile in tiles %}
+                    {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}
+                        {{ clearfix(offset + loop.index0) }}
+                        <div class="col-md-3 col-sm-4 ">
+                            <h2>{{tile.title}}</h2>
+                            {{tile.body|md}}
+                            <p>
+                                <a class="btn {{tile.action_class}}" href="{{tile.action_url}}">
+                                    <i class="fa {{tile.action_icon}}"></i>
+                                    {{tile.action_caption}}
+                                </a>
+                            </p>
+                        </div>
+                    {% else %}
+                        {% set offset = offset -1 %}
+                    {% endif %}
+                {% endfor %}
+            </div>
                 <!-- 3 -->
                 <div class="clearfix visible-sm-block"></div>
                 <div class="col-md-3 col-sm-4 blind">
@@ -85,124 +114,7 @@
                     </p>
                 </div>
             </div>
-            <div class="row blind">
-                <!-- 4 -->
-                <div class="clearfix visible-md-block"></div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Hyde Park</h2>
-                        <p>Prapůvodní barcamp, venku pod stanem. Totální punková akce.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='hyde-park')}}">
-                            <i class="fa fa-thumbs-o-up"></i>
-                            Chcu více punku!
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Dětský koutek</h2>
-                        <p>Máte-li děti a chcete s nimi přijít,<br/>přiďte!</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='detsky-koutek')}}">
-                            <i class="fa fa-child"></i>
-                            Chcu vzít své dítě
-                        </a>
-                    </p>
-                </div>
-                <!-- 3 -->
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Jídlo &amp; pití</h2>
-                        <p>Máte rádí jídlo a pití.<br/>My taky.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='catering')}}">
-                            <i class="fa fa-cutlery"></i>
-                            Chcu se najíst
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Barcamp pomáhá</h2>
-                        <p>Podpořte Josepha<br/>ať může dostudovat.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='charita')}}">
-                            <i class="fa fa-crosshairs"></i>
-                            Chcu pomoct
-                        </a>
-                    </p>
-                </div>
-                <!-- 4 -->
-                <div class="clearfix visible-md-block"></div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Král barcampu</h2>
-                        <p>Chcete se bavit.<br/>Tak zkuste soutěž.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='kral-barcampu')}}">
-                            <i class="fa fa-crosshairs"></i>
-                            Chcu vyhrát
-                        </a>
-                    </p>
-                </div>
-                <!-- 3 -->
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Warm-up event</h2>
-                        <p>Budeš v Brně už v pátek?<br/>Tak Warm-up párty.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='warm-up-social-event')}}">
-                            <i class="fa fa-beer"></i>
-                            Chcu se zahřát
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>After event</h2>
-                        <p>Nechce se ti hned domů?<br/>Tak se pojď seznamovat.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='after-social-event')}}">
-                            <i class="fa fa-users"></i>
-                            Chcu networkovat
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Organizátoři</h2>
-                        <p>Ti lidé, kteří pro vás tuto skvělou akci připravují.</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='kontakty')}}">
-                            <i class="fa fa-compress"></i>
-                            Chcu vědět kdo to je
-                        </a>
-                    </p>
-                </div>
-                <!-- 4 -->
-                <div class="clearfix visible-md-block"></div>
-                <!-- 3 -->
-                <div class="clearfix visible-sm-block"></div>
-
-                <div class="col-md-3 col-sm-4">
-                    <h2>Moderátoři</h2>
-                        <p>Již tradičně<br/>Máme zkušené moderátory</p>
-                        <a class="btn btn-default" href="{{url_for('static_page', page='moderatori')}}">
-                            <i class="fa fa-users"></i>
-                            Chcu se podívat
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Doprovodný program</h2>
-                        <p>Co si letos připravili partneři?</p>
-                        <a class="btn btn-default" href="{{url_for('co_program')}}">
-                            <i class="fa fa-rocket"></i>
-                            Chcu se bavit
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <h2>Pracovní místa</h2>
-                        <p>Hledáš novou práci?<br/>Zkus to u jednoho z partnerů.</p>
-                        <a class="btn btn-default" href="{{url_for('job_wall')}}">
-                            <i class="fa fa-btc"></i>
-                            Chcu pracovat
-                        </a>
-                    </p>
-                </div>
-                <!-- 3 -->
-                <div class="clearfix visible-sm-block"></div>
-
-                <!-- 4 -->
-                <div class="clearfix visible-md-block"></div>
+            <div class="row">
                 {{novinky}}
             </div>
 
