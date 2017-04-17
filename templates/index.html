@@ -13,6 +13,24 @@
             <div class="row">
                 {% set offset = 0 %}
                 {{ clearfix(offset) }}
+                {% for tile in hi_tiles %}
+                    {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}
+                        {{ clearfix(offset + loop.index0) }}
+                        <div class="col-md-3 col-sm-4 ">
+                            <h2>{{tile.title}}</h2>
+                            {{tile.body|md}}
+                            <p>
+                                <a class="btn {{tile.action_class}}" href="{{tile.action_url}}">
+                                    <i class="fa {{tile.action_icon}}"></i>
+                                    {{tile.action_caption}}
+                                </a>
+                            </p>
+                        </div>
+                    {% else %}
+                        {% set offset = offset -1 %}
+                    {% endif %}
+                {% endfor %}
+                {% set offset=offset + hi_tiles|count %}
                 <div class="col-md-3 col-sm-4">
                     {% set offset = offset + 1 %}
                     {% if not after_stage(config.YEAR, 'USERS') %}
@@ -82,7 +100,7 @@
                         </a>
                     </p>
                 </div>
-                {% for tile in tiles %}
+                {% for tile in low_tiles %}
                     {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}
                         {{ clearfix(offset + loop.index0) }}
                         <div class="col-md-3 col-sm-4 ">
@@ -99,20 +117,6 @@
                         {% set offset = offset -1 %}
                     {% endif %}
                 {% endfor %}
-            </div>
-                <!-- 3 -->
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-3 col-sm-4 blind">
-                    <h2>Trička</h2>
-                    <p>Letos trička bez log partnerů</p>
-                    <p>v předprodeji!</p>
-                    <p>
-                        <a class="btn btn-info" href="{{url_for('static_page', page='tricka')}}">
-                            <i class="fa fa-credit-card"></i>
-                            Chcu mít taky tričko!
-                        </a>
-                    </p>
-                </div>
             </div>
             <div class="row">
                 {{novinky}}
