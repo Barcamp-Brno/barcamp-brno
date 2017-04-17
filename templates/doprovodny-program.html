@@ -3,12 +3,12 @@
 
 {% set i = [0] %}
 <div clas="row">
-{% for sponsors_category in ['main', 'regular', 'medial'] %}
-    {% for sponsor in sponsors[sponsors_category] if sponsors_data(sponsor, 'activity') %}
+{% for sponsors_category in ['gold', 'silver', 'medial'] %}
+    {% for sponsor in sponsors[sponsors_category] if sponsor.activity_body %}
         {% if i.append(i.pop() + 1) %}{% endif %}
         <div class="partner col-md-6">
-            <h2>{{sponsors_data(sponsor, 'name')}}</h2>
-            <div class="desc">{{sponsors_data(sponsor, 'activity')}}</div>
+            <h2>{{sponsor.title}}</h2>
+            <div class="desc">{{ sponsor.activity_body|md }}</div>
         </div>
         {% if i[0] % 2 == 0 %}
             <div class="clearfix"></div>

@@ -1,0 +1,35 @@
+{% extends "admin/_base.html" %}
+{% block title %}Seznam sponzorů{% endblock %}
+{% block header %}Seznam sponzorů{% endblock %}
+{% block body %}
+<p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('admin.sponsor_edit')}}">
+        <i class="fa fa-plus"></i>
+        Přidat sponzora</a>
+</p><div class="clearer"></div>
+
+{% if sponsors %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulek</th>
+                <th>Typ sponzorství</th>
+                <th>Váha</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sponsor in sponsors %}
+            <tr>
+                <td>{{sponsor.title}}</td>
+                <td>{{sponsor.sponsorship}}</td>
+                <td>{{sponsor.score}}</td>
+                <td><a href="{{url_for('admin.sponsor_edit', uri=sponsor.uri)}}"><i class="fa fa-pencil"> </i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="warning">Žádní sponzoři</div>
+{% endif %}
+
+{% endblock %}

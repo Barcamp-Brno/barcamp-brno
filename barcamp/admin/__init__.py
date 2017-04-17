@@ -5,6 +5,7 @@ from jinja2 import TemplateNotFound
 from ..login_misc import check_admin, login_redirect
 from ..models.pages import Pages, PageForm
 from ..models.tiles import Tiles, TileForm
+from ..models.sponsors import Sponsors, SponsorForm
 from ..barcamp import app
 
 admin = Blueprint('admin', __name__)
@@ -110,4 +111,48 @@ def tile_edit(idx):
         'admin/tile_detail.html',
         form=form,
         tile=tile
+    )
+
+@admin.route('/sponzori/')
+def sponsor_list():
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
+    return render_template(
+        'admin/sponsor_list.html',
+        sponsors=sponsors.get_all()
+    )
+
+
+@admin.route('/sponzori/odstranit/<uri>/')
+def sponsor_delete(uri):
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
+    sponsors.delete(uri)
+    flash(u'Stránka byla smazána', 'success')
+    return redirect(url_for('admin.sponsor_list'))
+
+
+@admin.route(
+    "/sponzori/pridat/",
+    methods=['GET', 'POST'],
+    defaults={'uri': None})
+@admin.route('/sponzori/<uri>/', methods=['GET', 'POST'])
+def sponsor_edit(uri):
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
+    sponsor = {}
+    if uri:
+        data = sponsors.get(uri)
+        if data:
+            sponsor = data
+
+    if request.method == "POST":
+        form = SponsorForm(request.form)
+        if form.validate():
+            sponsor = sponsors.update(form.data)
+            flash(u'Stránka byla uložena', 'success')
+            return redirect(url_for('admin.sponsor_edit', uri=sponsor['uri']))
+    else:
+        form = SponsorForm(**sponsor)
+    return render_template(
+        'admin/sponsor_detail.html',
+        form=form,
+        sponsor=sponsor
     )

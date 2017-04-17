@@ -10,6 +10,7 @@ from entrant import get_count, get_entrants
 from vote import get_user_votes
 from program import times
 from models.tiles import Tiles
+from models.sponsors import Sponsors
 import os
 
 @app.route("/", redirect_to="/%s/index.html" % app.config['YEAR'])
@@ -19,6 +20,7 @@ def index():
     talks, extra_talks = get_talks()
     workshops = get_workshops()
     tiles = Tiles(app.redis, app.config['YEAR'])
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
 
     stage_template = "index.html"
     if stage_is_active(app.config['YEAR'], 'END'):
@@ -37,6 +39,7 @@ def index():
         talks_dict=get_talks_dict(),
         workshops=workshops,
         tiles=tiles.get_all(),
+        sponsors=sponsors.get_all_by_type(),
     )
 
 
@@ -51,15 +54,21 @@ def entrants():
 
 @app.route('/%s/partneri.html' % app.config['YEAR'])
 def sponsors():
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
+
     return render_template(
         "partneri.html",
+        sponsors=sponsors.get_all_by_type(),
         sponsors_other=markdown_markup('sponsors_other'),
     )
 
 @app.route('/%s/doprovodny-program.html' % app.config['YEAR'])
 def co_program():
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
+
     return render_template(
-        "doprovodny-program.html"
+        "doprovodny-program.html", 
+        sponsors=sponsors.get_all_by_type(),
     )
 
 

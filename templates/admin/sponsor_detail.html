@@ -1,0 +1,27 @@
+{% extends "admin/_base.html" %}
+{% block title %}{% if sponsor.uri %}Editace {{sponsor.title}}{% else %}Vytvoření sponzora{% endif %}{% endblock %}
+{% block header %}{% if sponsor.uri %}Editace {{sponsor.title}}{% else %}Vytvoření sponzora{% endif %}{% endblock %}
+{% block body %}
+<form method="POST" class="form-horizontal" action=".">
+    <fieldset>
+        {{form.csrf_token}}
+        {{forms.input(form.title)}}
+        {{forms.input(form.uri)}}
+        {{forms.input(form.score)}}
+        {{forms.input(form.action_url)}}
+
+        {{forms.radiobox(form.sponsorship)}}
+
+        {{forms.textarea(form.logo, rows=3, monospace=True)}}
+        {{forms.textarea(form.body, rows=5, monospace=True)}}
+        {{forms.textarea(form.activity_body, rows=5, monospace=True)}}
+    </fiedlset>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+        {% if sponsor.uri %}
+            <a class="btn btn-danger" href="{{url_for('admin.sponsor_delete', uri=sponsor.uri)}}" onclick="return confirm('Odstranění nelze vrátit, opravdu chcete sponzora smazat?')">Smazat sponzora</a>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}
