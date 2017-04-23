@@ -111,6 +111,28 @@ def send_mail(subject, to, message_file, url=""):
     msg.html = markdown.markdown(body)
     mail.send(msg)
 
+def mail_bulk_connection():
+    mail = Mail(app)
+    return mail.connect()
+
+def send_bulk_mail(conn, subject, to, message_file, url=""):
+    body = read_file(message_file) or ""
+    body = body % {
+        'url': url,
+        'ip': request.remote_addr,
+        'user_agent': request.user_agent,
+        'mail': to,
+    }
+
+    msg = Message(
+        subject,
+        recipients=[to],
+        sender=(u"Petr Joachim", "petr@joachim.cz")
+    )
+    msg.body = body
+    msg.html = markdown.markdown(body)
+    conn.send(msg)
+
 
 def mail(subject, sender, recipient, file, data, sender_name=None):
     body = read_file(file) or ""

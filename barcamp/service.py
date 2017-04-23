@@ -3,7 +3,7 @@
 from barcamp import app
 from flask import abort, redirect, url_for, flash, render_template, Response
 from login_misc import check_auth, auth_required, is_admin
-from utils import send_mail
+from utils import send_mail, send_bulk_mail, mail_bulk_connection
 from talks import get_talks_dict, get_talks
 from workshops import get_workshops_dict
 from entrant import user_user_go
@@ -421,15 +421,18 @@ def plneni_newsletteru():
 @is_admin
 def poslani_newsletteru():
     i = 0
-    for mail in app.redis.smembers('newsletter'):
-        i += 1
-        print mail
-        app.redis.srem('newsletter', mail)
+    with mail_bulk_connection() as conn:
+        for mail in app.redis.smembers('newsletter'):
+            i += 1
+            print mail
+            app.redis.srem('newsletter', mail)
 
-        send_mail(
-            u'Je po Barcamp Brno 2016',
-            mail,
-            'data/newsletter-after.md')
+            send_bulk_mail(
+                conn,
+                u'Hodně budem někde - Barcamp Brno 2017',
+                mail,
+                'data/newsletter-reminder.md')
+
 
     return 'newsletter done {} emails'.format(i)
 
@@ -439,9 +442,9 @@ def poslani_newsletteru():
 @is_admin
 def test_newsletteru():
     send_mail(
-        u'Barcamp Brno 2016 je již zítra',
+        u'Hodně budem někde - Barcamp Brno 2017',
         'petr@joachim.cz',
-        'data/newsletter-after.md')
+        'data/newsletter-reminder.md')
 
     return 'done'
 
