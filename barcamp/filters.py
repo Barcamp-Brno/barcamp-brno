@@ -4,6 +4,7 @@ from jinja2 import evalcontextfilter, Markup
 from barcamp import app
 from utils import stage_is_active, stage_in_past, sponsors_data
 from workshops import translate_status
+from talks import translate_category
 from login_misc import check_auth, check_admin
 import markdown
 
@@ -59,6 +60,10 @@ def stage():
 @app.context_processor
 def workshop_status():
     return {'status': translate_status}
+
+@app.context_processor
+def talk_category():
+    return {'talk_category': translate_category}
 
 
 @app.context_processor

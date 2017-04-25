@@ -13,7 +13,7 @@
 {% block page_content %}
 <h2>Přednáška &mdash; {{talk.title|no_emoji}}</h2>
 {{ talk_voting(talk) }}
-<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name|no_emoji}}</a></h3>
+<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name|no_emoji}}</a> &mdash; {{talk_category(talk.category)}} &mdash; {{talk.length}} minut</h3>
 {% if author.user_hash == user.user_hash %}
 <div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
 {% endif %}

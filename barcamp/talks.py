@@ -1,13 +1,16 @@
 # coding: utf-8
-from barcamp import app
+from collections import defaultdict
+from hashlib import md5
+
+from flask_wtf import Form
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
-from login_misc import check_auth, auth_required, get_account
-from entrant import user_user_go
-from flask_wtf import Form
 from wtforms import TextField, TextAreaField, BooleanField, RadioField
 from wtforms.validators import DataRequired, URL, Optional
-from hashlib import md5
+
+from barcamp import app
+from login_misc import check_auth, auth_required, get_account
+from entrant import user_user_go
 from utils import markdown_markup, send_feedback_mail
 from vote import get_user_votes
 
@@ -17,8 +20,16 @@ KEYS = {
     'talks': 'talks_%s' % app.config['YEAR'],
     'extra': 'extra_talks_%s' % app.config['YEAR'],
     'account': 'account_%s',
-
 }
+
+CATEGORIES = [
+    ('business', u'Byznys'),
+    ('design', u'Design'),
+    ('inovations', u'Inovace'),
+    ('marketing', u'Marketing'),
+    ('inspirational', u'Osobní rozvoj'),
+    ('development', u'Vývoj'),
+]
 
 def prednasky():
     return [{"talk_hash": key} for key in app.redis.zrange(KEYS['talks'], 0, -1)]
@@ -153,6 +164,17 @@ def get_talks(user_hash=None):
 
     return ordinary_talks, extra_talks
 
+def get_talks_by_type():
+    talks = _get_talks()
+
+    talk_dict = defaultdict(list)
+    for talk in talks:
+        talk_dict[talk['category']].append(talk)
+
+    import pprint
+    pprint.pprint(talk_dict)
+    return talk_dict
+
 
 def get_talks_dict():
     talks = _get_talks()
@@ -203,20 +225,16 @@ def _get_talks():
 
     return talks
 
+def translate_category(category):
+    return dict(CATEGORIES).get(category)
+
 
 class TalkForm(Form):
     title = TextField(u'Název', validators=[DataRequired()])
 
     category = RadioField(
         u'Kategorie',
-        choices=[
-            ('business', u'Byznys'),
-            ('design', u'Design'),
-            ('inovations', u'Inovace'),
-            ('marketing', u'Marketing'),
-            ('inspirational', u'Osobní rozvoj'),
-            ('development', u'Vývoj'),
-        ],
+        choices=CATEGORIES,
         validators=[DataRequired()],
     )
 

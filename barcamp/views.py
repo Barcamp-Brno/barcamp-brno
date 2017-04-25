@@ -3,7 +3,7 @@
 from barcamp import app
 from flask import render_template, abort, send_from_directory
 from login_misc import check_auth, get_account
-from talks import get_talks, get_talks_dict
+from talks import get_talks, get_talks_dict, get_talks_by_type
 from workshops import get_workshops, get_workshops_dict
 from utils import markdown_static_page, markdown_markup, stage_is_active
 from entrant import get_count, get_entrants
@@ -97,9 +97,8 @@ def talks_all():
 
     if stage_is_active(app.config['YEAR'], 'PROGRAM'):
         talks = get_talks_dict()
-        extra_talks = []
     else:
-        talks, extra_talks = get_talks()
+        talks = get_talks_by_type()
 
     if user:
         user_hash = user['user_hash']
@@ -108,8 +107,7 @@ def talks_all():
         "talks.html",
         talks=talks,
         times=times,
-        user_votes=get_user_votes(user_hash),
-        extra_talks=extra_talks
+        user_votes=get_user_votes(user_hash)
     )
 
 @app.route('/%s/workshopy.html' % app.config['YEAR'])

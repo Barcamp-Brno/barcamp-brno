@@ -29,55 +29,62 @@
     </h3>
 
     <table class="table talks talks-table">
-        {% for talk in talks %}
-            <tr>
-                <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a></td>
-                <td>{{talk.user.name|no_emoji}}</td>
-                <td>{{ talk_voting(talk) }}</td>
-            </tr>
+        {% for category in ('business', 'design', 'inovations', 'marketing', 'inspirational', 'development') %}
+            {% for talk in talks[category] %}
+                <tr>
+                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a> ({{talk.length}} minut)</td>
+                    <td>{{talk.user.name|no_emoji}}</td>
+                    <td>{{talk_category(category)}}</td>
+                    <td>{{ talk_voting(talk) }}</td>
+                </tr>
+            {% endfor %}
         {% endfor %}
     </table>
     <div id="talks" class="row talks talks-tiles">
-        {% for talk in talks %}
-            <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4{{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
-                <div class="talk-content">
-                    <p class="talk-name">
-                        <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
-                    </p>
-                    {% set speakers = extract_speakers(talk.user.name) %}
-                    <p>
-                        {% for speaker in speakers %}
-                            {{speaker}}{% if not loop.last %}<br/ >{% endif %}
-                        {% endfor %}
-                    </p>
-                    {{ talk_voting(talk) }}
-                    <a href="#" class="more-button" onclick="
-                        var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
-                        $('.more').removeClass('more');
-                        if(!hadClass){
-                            $('#talk-{{talk.talk_hash}}').addClass('more');
-                        }
-                        return false;
-                    ">
-                        <span class="fa-stack">
-                            <i class="fa fa-circle-thin fa-stack-2x"></i>
-                            <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
-                            <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
-                        </span>
-                    </a>
-                    <div class="detail">
-                        <p>{{talk.description}}</p>
-                        <h3>Pro koho</h3>
-                        <p>{{talk.purpose or "---"}}</p>
-                        <h3>O autorovi</h3>
-                        <p>{{talk.user.bio or "---"}}</p>
+        {% for category in ('business', 'design', 'inovations', 'marketing', 'inspirational', 'development') %}
+            <h2>{{talk_category(category)}}</h2>
+            {% for talk in talks[category] %}
+                <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4{{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
+                    <div class="talk-content">
+                        <p class="talk-name">
+                            <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
+                        </p>
+                        {% set speakers = extract_speakers(talk.user.name) %}
+                        <p>
+                            <div class="pull-right small">{{talk.length}} minut</div>
+                            {% for speaker in speakers %}
+                                {{speaker}}{% if not loop.last %}<br/ >{% endif %}
+                            {% endfor %}
+
+                        </p>
+                        {{ talk_voting(talk) }}
+                        <a href="#" class="more-button" onclick="
+                            var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
+                            $('.more').removeClass('more');
+                            if(!hadClass){
+                                $('#talk-{{talk.talk_hash}}').addClass('more');
+                            }
+                            return false;
+                        ">
+                            <span class="fa-stack">
+                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
+                                <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
+                            </span>
+                        </a>
+                        <div class="detail">
+                            <p>{{talk.description}}</p>
+                            <h3>Pro koho</h3>
+                            <p>{{talk.purpose or "---"}}</p>
+                            <h3>O autorovi</h3>
+                            <p>{{talk.user.bio or "---"}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% if loop.index % 3 == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-            {% if loop.index % 4 == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
-        {% else %}
-            <div>Zatím zde nic není</div>
+                {% if loop.index % 3 == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
+                {% if loop.index % 4 == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
+            {% endfor %}
+            <div class="clearfix"></div>
         {% endfor %}
     </div>
 {% endif %}
