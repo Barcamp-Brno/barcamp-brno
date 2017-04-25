@@ -81,6 +81,7 @@ class SponsorForm(Form):
             (u'silver', u'Stříbrný'),
             (u'social', u'Sociální'),
             (u'medial', u'Mediální'),
+            (u'catering', u'Catering'),
             (u'other', u'Ostatní'),
         ],
         validators=[DataRequired()],

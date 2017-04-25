@@ -1,0 +1,18 @@
+{% extends "_base_page.html"%}
+{% block title %}Občerstvení{% endblock %}
+{% block page_content %}
+{% if sponsors.catering %}
+    <h2>Partneři občerstevní</h2>
+
+    {% for sponsor in sponsors.catering %}
+        <div class="partner clearfix">
+            <div class="pic">{{ sponsor.logo|md }}</div>
+            <div class="company">
+                <h3 class="hidden-xs">{{ sponsor.title }}</h3>
+                <div class="desc">{{ sponsor.body|md }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

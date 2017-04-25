@@ -1,5 +1,5 @@
 {% extends "_base_voting.html" %}
-
+{% block title %}Přednášky{% endblock %}
 {% block page_content %}
 {% if stage(config.YEAR, 'PROGRAM') %}
     {% include 'program/prednasky.html' %}

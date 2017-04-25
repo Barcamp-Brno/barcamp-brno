@@ -63,6 +63,15 @@ def sponsors():
         sponsors_other=markdown_markup('sponsors_other'),
     )
 
+@app.route('/%s/catering.html' % app.config['YEAR'])
+def catering():
+    sponsors = Sponsors(app.redis, app.config['YEAR'])
+
+    return render_template(
+        "catering.html",
+        sponsors=sponsors.get_all_by_type(),
+    )
+
 @app.route('/%s/doprovodny-program.html' % app.config['YEAR'])
 def co_program():
     sponsors = Sponsors(app.redis, app.config['YEAR'])
