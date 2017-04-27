@@ -242,7 +242,7 @@ class TalkForm(Form):
         u'Formát',
         choices=[
             ('22', u'22 minut - volený formát'),
-            ('45', u'45 minut - vybírá tým Barcamp Brno'),
+            ('45', u'45 minut - volený formát'),
         ],
         validators=[DataRequired()],
     )
