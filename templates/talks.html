@@ -32,10 +32,10 @@
         {% for category in ('business', 'design', 'inovations', 'marketing', 'inspirational', 'development') %}
             {% for talk in talks[category] %}
                 <tr>
-                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a> ({{talk.length}} minut)</td>
-                    <td>{{talk.user.name|no_emoji}}</td>
-                    <td>{{talk_category(category)}}</td>
-                    <td>{{ talk_voting(talk) }}</td>
+                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a> <span class="text-nowrap">({{talk.length}} minut)</span></td>
+                    <td class="text-nowrap">{{talk.user.name|no_emoji}}</td>
+                    <td class="text-nowrap">{{talk_category(category)}}</td>
+                    <td class="text-nowrap">{{ talk_voting(talk) }}</td>
                 </tr>
             {% endfor %}
         {% endfor %}
