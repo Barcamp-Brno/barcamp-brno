@@ -18,13 +18,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for sponsor in sponsors %}
-            <tr>
-                <td>{{sponsor.title}}</td>
-                <td>{{sponsor.sponsorship}}</td>
-                <td>{{sponsor.score}}</td>
-                <td><a href="{{url_for('admin.sponsor_edit', uri=sponsor.uri)}}"><i class="fa fa-pencil"> </i></a></td>
-            </tr>
+            {% for type in sponsors.keys() %}
+                {% for sponsor in sponsors[type] %}
+                <tr>
+                    <td>{{sponsor.title}}</td>
+                    <td>{{sponsor.sponsorship}}</td>
+                    <td>{{sponsor.score}}</td>
+                    <td><a href="{{url_for('admin.sponsor_edit', uri=sponsor.uri)}}"><i class="fa fa-pencil"> </i></a></td>
+                </tr>
+                {% endfor %}
             {% endfor %}
         </tbody>
     </table>

@@ -118,7 +118,7 @@ def sponsor_list():
     sponsors = Sponsors(app.redis, app.config['YEAR'])
     return render_template(
         'admin/sponsor_list.html',
-        sponsors=sponsors.get_all()
+        sponsors=sponsors.get_all_by_type()
     )
 
 

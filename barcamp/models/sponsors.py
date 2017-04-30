@@ -85,10 +85,14 @@ class SponsorForm(Form):
             (u'other', u'Ostatní'),
         ],
         validators=[DataRequired()],
-        default='silver',
+        default='other',
     )
 
-    logo =  TextField(u'Kód loga', validators=[DataRequired()])
+    logo =  TextField(
+        u'Kód loga',
+        validators=[DataRequired()],
+        default='[![XXX](https://barcamp-brno.github.io/static/partners/ "XXX")](http://xx.xxx)',
+    )
 
     activity_body = TextField(
         u'Popis aktivity',
