@@ -15,7 +15,7 @@
 {{ talk_voting(talk) }}
 <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name|no_emoji}}</a> &mdash; {{talk_category(talk.category)}} &mdash; {{talk.length}} minut</h3>
 {% if author.user_hash == user.user_hash %}
-<div><a href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></div>
+<p><a class="btn btn-danger" href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></p>
 {% endif %}
 {{talk.description|nl2br}}
 <h3>Pro koho je přednáška určena</h3>

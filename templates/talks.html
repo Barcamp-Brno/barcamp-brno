@@ -44,7 +44,7 @@
         {% for category in ('business', 'design', 'inovations', 'marketing', 'inspirational', 'development') %}
             <h2>{{talk_category(category)}}</h2>
             {% for talk in talks[category] %}
-                <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4{{'fail' if loop.index > 42 and after_stage(config.YEAR, 'VOTING') }}">
+                <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4">
                     <div class="talk-content">
                         <p class="talk-name">
                             <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
