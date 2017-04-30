@@ -22,3 +22,11 @@
     {% endfor %}
     </div>
 {% endif %}
+{% if sponsors.other %}
+    <h3>Ostatní partneři</h3>
+    <div class="row">
+    {% for sponsor in sponsors.other %}
+        <div class="mister-egg-logo col-md-3 col-sm-4 col-xs-6">{{ sponsor.logo|md }}</div>
+    {% endfor %}
+    </div>
+{% endif %}

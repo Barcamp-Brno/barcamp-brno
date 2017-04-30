@@ -40,6 +40,19 @@
     {% endfor %}
 {% endif %}
 
+{% if sponsors.other %}
+    <h3>Ostatní partneři</h3>
+    {% for sponsor in sponsors.other %}
+        <div class="partner clearfix">
+            <div class="pic">{{ sponsor.logo|md }}</div>
+            <div class="company">
+                <h3 class="hidden-xs">{{ sponsor.title }}</h3>
+                <div class="desc">{{ sponsor.body|md }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
 
 {% if sponsors_other %}
     <h3>Ostatní partneři a podporovatelé</h3>
