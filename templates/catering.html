@@ -1,9 +1,10 @@
 {% extends "_base_page.html"%}
 {% block title %}Občerstvení{% endblock %}
 {% block page_content %}
-{% if sponsors.catering %}
-    <h2>Partneři občerstevní</h2>
 
+{{ informace }}
+
+{% if sponsors.catering %}
     {% for sponsor in sponsors.catering %}
         <div class="partner clearfix">
             <div class="pic">{{ sponsor.logo|md }}</div>

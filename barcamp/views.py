@@ -69,6 +69,7 @@ def catering():
 
     return render_template(
         "catering.html",
+        informace=markdown_markup('catering'),
         sponsors=sponsors.get_all_by_type(),
     )
 
