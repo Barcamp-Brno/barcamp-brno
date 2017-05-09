@@ -18,7 +18,7 @@
     <h3>Mediální partneři</h3>
     <div class="row">
     {% for sponsor in sponsors.medial %}
-        <div class="mister-egg-logo col-md-3 col-sm-4 col-xs-6">{{ sponsor.logo|md }}</div>
+        <div class="mister-egg-logo col-md-2 col-sm-3 col-xs-4">{{ sponsor.logo|md }}</div>
     {% endfor %}
     </div>
 {% endif %}
@@ -26,7 +26,7 @@
     <h3>Ostatní partneři</h3>
     <div class="row">
     {% for sponsor in sponsors.other %}
-        <div class="mister-egg-logo col-md-3 col-sm-4 col-xs-6">{{ sponsor.logo|md }}</div>
+        <div class="mister-egg-logo col-md-2 col-sm-3 col-xs-4">{{ sponsor.logo|md }}</div>
     {% endfor %}
     </div>
 {% endif %}
