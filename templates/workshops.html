@@ -7,7 +7,7 @@
 
     <p class="col-md-7">Každé místo na workshopu je rezervováno pouze do doby 5 minut před začátkem workshopu, takže <strong>přijďte včas</strong> a pro ty, kteří se nevešli zkuste své stěstí a přijďte před začátkem a nahraďte ty, kteří se nedostavili.</p>
 </div>
-{% if stage(config.YEAR, 'PROGRAM') %}
+{% if stage(config.YEAR, 'WORKSHOPS-PROGRAM') %}
     {% include 'program/workshopy.html' %}
 {% elif stage(config.YEAR, 'CALL-FOR-WORKSHOPS') or after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
     <h2>Přihlášené workshopy</h2>

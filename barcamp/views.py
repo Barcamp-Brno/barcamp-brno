@@ -113,7 +113,7 @@ def talks_all():
 
 @app.route('/%s/workshopy.html' % app.config['YEAR'])
 def workshops_all():
-    if stage_is_active(app.config['YEAR'], 'PROGRAM'):
+    if stage_is_active(app.config['YEAR'], 'WORKSHOPS-PROGRAM'):
         workshops = get_workshops_dict()
     else:
         workshops = get_workshops()
