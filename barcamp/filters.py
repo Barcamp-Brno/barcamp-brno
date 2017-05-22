@@ -103,3 +103,7 @@ def user():
 @app.context_processor
 def admin():
     return {'admin': check_admin}
+
+@app.context_processor
+def is_tuple():
+    return {'is_tuple': lambda value: isinstance(value, tuple)}
