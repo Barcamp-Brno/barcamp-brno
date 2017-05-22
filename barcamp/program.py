@@ -51,7 +51,7 @@ times = [
                     '9d7fc7b3', # xxx 45 7x HeliScan z FIT do Austrálie a zpět (aneb jak jsem na opačném konci světa přebíral novou technologii)
                     ),
             'e105': (
-                    '7c7e0a23', # inovations 22 29x Lukáš Nevosád / 360° videa: Jak natočit svět a přinést ho uživatelům do obýváku pomocí VR
+                    '41ac43d2', # inovations 22 74x Ondřej Zukal / Chci se zautomatizovat
                     'fb972b52', # inovations 22 28x Dominik Pinter / Jak měníme hotelový průmysl bez jediného vlastního serveru.
                     ),
             'a112': '',
@@ -72,7 +72,8 @@ times = [
                     '840326a8', # development 22 40x Marek Salát / React, Redux ES6 starter pack
                     ),
             'd0207': (
-                    '6e2b4a88', # business 45 96x Petr Janošík / Jak z Brna rozjet globální startup se 100 000 uživateli za 10 měsíců a dostat investici 10M?
+                    'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
+                    '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
                     ),
             'e104': {
                     'category': 'inovations', # inovations L
@@ -146,7 +147,7 @@ times = [
                     ),
             'e112': (
                     '0b790a2b', # inovations 22 80x Honza Vaňhara / Home 2.0 aneb Inteligentní bydlení
-                    '41ac43d2', # inovations 22 74x Ondřej Zukal / Chci se zautomatizovat
+                    '7c7e0a23', # inovations 22 29x Lukáš Nevosád / 360° videa: Jak natočit svět a přinést ho uživatelům do obýváku pomocí VR
                     ),
             'd0206': {
                     'category': 'business', # inovace L
@@ -180,8 +181,7 @@ times = [
                     'e9cf09fa', # inovations 45 52x Senta Čermáková / Až naši práci převezmou roboti ...
                     ),
             'e104': (
-                    'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
-                    '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
+                    '6e2b4a88', # business 45 96x Petr Janošík / Jak z Brna rozjet globální startup se 100 000 uživateli za 10 měsíců a dostat investici 10M?
                     ),
             'e105': (
                     '185772c6', # inspirational 45 48x Berka BerkaUX / Odstraňme tabu, bavme se o smrti
