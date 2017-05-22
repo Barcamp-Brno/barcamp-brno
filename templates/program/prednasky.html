@@ -1,22 +1,35 @@
 {% macro format_talk_td(hash) -%}
 {% if hash %}
-    {% if hash in talks %}
+    {% if is_tuple(hash) %}
         <td style="text-align: center">
-            <p>
-                <strong>{{talks[hash].user.name}}</strong><br />
-                <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
-            </p>
+            {% for h in hash %}
+                {{ display_talk_inner(h)}}
+            {% endfor %}
         </td>
     {% else %}
-        <td></td>
+        <td style="text-align: center"><p>
+            <strong>Překvapení</strong><br />
+            <small>{{talk_category(hash.category)}}</small><br />
+            <small><a href="{{url_for('static_page', page='obsah')}}">Lightning talks</a></small>
+        </p></td>
     {% endif %}
 {% else %}
 <td style="vertical-align: middle; text-align: center;"></td>
 {% endif %}
 {%- endmacro %}
 
+{% macro display_talk_inner(hash) -%}
+{% if hash in talks %}
+<p>
+    <strong>{{talks[hash].user.name}}</strong><br />
+    <small>{{talk_category(talks[hash].category)}}</small><br />
+    <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
+</p>
+{% endif %}
+{%- endmacro %}
+
 <h2>Program přednášek na Barcampu</h2>
-<h3>Sobota 4.6.2016</h3>
+<h3>Sobota 3.6.2017</h3>
 <ul>
     <li><a href="{{url_for('co_program')}}">Bohatý doprovodný program</a></li>
     <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
@@ -34,12 +47,12 @@
 </tr>
 <tr>
     <th>Moderuje</th>
-    <th style="text-align: center">Jan Mondek<br />Vítek Skalický</th>
-    <th style="text-align: center">Michal Španěl<br />Jan Řehák</th>
-    <th style="text-align: center">Pavla Doláková<br />Eva Vorrethová</th>
-    <th style="text-align: center">Evža Kobzeva</th>
-    <th style="text-align: center">Petr Kotas<br />Lenka Trandová</th>
-    <th style="text-align: center">Tomáš Liszka<br />Eva Bližňáková</th>
+    <th style="text-align: center">Tom Brukner<br />Jan Mondek</th>
+    <th style="text-align: center">Vít Skaická<br />Petr Sax</th>
+    <th style="text-align: center">Tom Šárocký</th>
+    <th style="text-align: center">Evža Kobzeva<br />Gragor Šoltys</th>
+    <th style="text-align: center">Dan Bednář<br />Tomáš Herůdek</th>
+    <th style="text-align: center">Martin Hruzík</th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
