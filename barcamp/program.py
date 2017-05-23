@@ -51,8 +51,8 @@ times = [
                     '9d7fc7b3', # xxx 45 7x HeliScan z FIT do Austrálie a zpět (aneb jak jsem na opačném konci světa přebíral novou technologii)
                     ),
             'e105': (
-                    '41ac43d2', # inovations 22 74x Ondřej Zukal / Chci se zautomatizovat
-                    'fb972b52', # inovations 22 28x Dominik Pinter / Jak měníme hotelový průmysl bez jediného vlastního serveru.
+                    '0b790a2b', # inovations 22 80x Honza Vaňhara / Home 2.0 aneb Inteligentní bydlení
+                    '7c7e0a23', # inovations 22 29x Lukáš Nevosád / 360° videa: Jak natočit svět a přinést ho uživatelům do obýváku pomocí VR
                     ),
             'a112': '',
             'a113': '',
@@ -146,8 +146,8 @@ times = [
                     '1fba4a51', # design 22 88x Hana Klimentová / Grafika pro negrafiky aneb Když grafik nemá čas
                     ),
             'e112': (
-                    '0b790a2b', # inovations 22 80x Honza Vaňhara / Home 2.0 aneb Inteligentní bydlení
-                    '7c7e0a23', # inovations 22 29x Lukáš Nevosád / 360° videa: Jak natočit svět a přinést ho uživatelům do obýváku pomocí VR
+                    '41ac43d2', # inovations 22 74x Ondřej Zukal / Chci se zautomatizovat
+                    'fb972b52', # inovations 22 28x Dominik Pinter / Jak měníme hotelový průmysl bez jediného vlastního serveru.
                     ),
             'd0206': {
                     'category': 'business', # inovace L
