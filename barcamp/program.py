@@ -37,8 +37,8 @@ times = [
                     '20f2e876', # marketing 45 123x Marek Hnátek / Jak na účinný marketing webu, když nemáme velký rozpočet?
                     ),
             'e112': (
-                    '9018ea0b', # inspirational 22 74x Karel Fuksa / Co takhle vzít svou kariéru do vlastních rukou?
                     'fbd65388', # inspirational 22 122x Matouš Kutypa / Dostaň více peněz za svou práci
+                    '9018ea0b', # inspirational 22 74x Karel Fuksa / Co takhle vzít svou kariéru do vlastních rukou?
                     ),
             'd0206': (
                     'fe798c31', # business 45 99x Jaroslav Kováč / Realita brněnských realit :-X
@@ -68,8 +68,8 @@ times = [
                     '95f1cf54', # marketing 22 74x Jan Kužel / Jak za pár dnů z nuly najít a oslovit emailem stovky potenciálních klientů a neposrat se z toho
                     ),
             'd0206': (
-                    '0ee9a8ff', # development 22 44x Matouš Kutypa / Jak zajistit bezpečnost Vaší webové aplikace
                     '840326a8', # development 22 40x Marek Salát / React, Redux ES6 starter pack
+                    '0ee9a8ff', # development 22 44x Matouš Kutypa / Jak zajistit bezpečnost Vaší webové aplikace
                     ),
             'd0207': (
                     'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
