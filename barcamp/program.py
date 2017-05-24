@@ -184,7 +184,7 @@ times = [
                     '6e2b4a88', # business 45 96x Petr Janošík / Jak z Brna rozjet globální startup se 100 000 uživateli za 10 měsíců a dostat investici 10M?
                     ),
             'e105': (
-                    '185772c6', # inspirational 45 48x Berka BerkaUX / Odstraňme tabu, bavme se o smrti
+                    '',
                     ),
             'a112': '',
             'a113': '',
