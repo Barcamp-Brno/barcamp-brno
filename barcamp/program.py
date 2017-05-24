@@ -37,8 +37,8 @@ times = [
                     '20f2e876', # marketing 45 123x Marek Hnátek / Jak na účinný marketing webu, když nemáme velký rozpočet?
                     ),
             'e112': (
-                    '4b30589d', # inspirational 22 80x Hanka Březinová / Nežerte sendviče!! ... aneb jak někomu sdělit, že je "debil" a neurazit ho
                     '9018ea0b', # inspirational 22 74x Karel Fuksa / Co takhle vzít svou kariéru do vlastních rukou?
+                    'fbd65388', # inspirational 22 122x Matouš Kutypa / Dostaň více peněz za svou práci
                     ),
             'd0206': (
                     'fe798c31', # business 45 99x Jaroslav Kováč / Realita brněnských realit :-X
@@ -60,16 +60,17 @@ times = [
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'd105': (
-                    'fbd65388', # inspirational 22 122x Matouš Kutypa / Dostaň více peněz za svou práci
                     '9bfab62e', # inspirational 22 105x Radek Zahradník / Hackujeme Tinder! Aneb sex snadno, rychle a zadarmo!
+                    '4b30589d', # inspirational 22 80x Hanka Březinová / Nežerte sendviče!! ... aneb jak někomu sdělit, že je "debil" a neurazit ho
                     ),
             'e112': (
                     '928bc4a5', # marketing 22 82x Pavel Ungr / Zeptej se na co chceš v SEO! #TrueBarcamp
                     '95f1cf54', # marketing 22 74x Jan Kužel / Jak za pár dnů z nuly najít a oslovit emailem stovky potenciálních klientů a neposrat se z toho
                     ),
-            'd0206': {
-                    'category': 'development', # development L
-                    },
+            'd0206': (
+                    '0ee9a8ff', # development 22 44x Matouš Kutypa / Jak zajistit bezpečnost Vaší webové aplikace
+                    '840326a8', # development 22 40x Marek Salát / React, Redux ES6 starter pack
+                    ),
             'd0207': (
                     'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
                     '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
@@ -95,10 +96,9 @@ times = [
             'e112': (
                     '6ad55d76', # inspirational 45 54x Aleš Vrána / Jak vypadá koučování živě?
                     ),
-            'd0206': (
-                    '0ee9a8ff', # development 22 44x Matouš Kutypa / Jak zajistit bezpečnost Vaší webové aplikace
-                    '840326a8', # development 22 40x Marek Salát / React, Redux ES6 starter pack
-                    ),
+            'd0206': {
+                    'category': 'development', # development L
+                    },
             'd0207': {
                     'category': 'design', # design L
                     },
@@ -184,7 +184,7 @@ times = [
                     '6e2b4a88', # business 45 96x Petr Janošík / Jak z Brna rozjet globální startup se 100 000 uživateli za 10 měsíců a dostat investici 10M?
                     ),
             'e105': (
-                    '',
+                    '', # inspirational 45 48x Berka BerkaUX / Odstraňme tabu, bavme se o smrti
                     ),
             'a112': '',
             'a113': '',
