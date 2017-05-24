@@ -67,10 +67,9 @@ times = [
                     '928bc4a5', # marketing 22 82x Pavel Ungr / Zeptej se na co chceš v SEO! #TrueBarcamp
                     '95f1cf54', # marketing 22 74x Jan Kužel / Jak za pár dnů z nuly najít a oslovit emailem stovky potenciálních klientů a neposrat se z toho
                     ),
-            'd0206': (
-                    '0ee9a8ff', # development 22 44x Matouš Kutypa / Jak zajistit bezpečnost Vaší webové aplikace
-                    '840326a8', # development 22 40x Marek Salát / React, Redux ES6 starter pack
-                    ),
+            'd0206': {
+                    'category': 'development', # development L
+                    },
             'd0207': (
                     'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
                     '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
@@ -96,9 +95,10 @@ times = [
             'e112': (
                     '6ad55d76', # inspirational 45 54x Aleš Vrána / Jak vypadá koučování živě?
                     ),
-            'd0206': {
-                    'category': 'development', # development L
-                    },
+            'd0206': (
+                    '0ee9a8ff', # development 22 44x Matouš Kutypa / Jak zajistit bezpečnost Vaší webové aplikace
+                    '840326a8', # development 22 40x Marek Salát / React, Redux ES6 starter pack
+                    ),
             'd0207': {
                     'category': 'design', # design L
                     },
