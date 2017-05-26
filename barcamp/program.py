@@ -78,7 +78,9 @@ times = [
             'e104': {
                     'category': 'inovations', # inovations L
                     },
-            'e105': ('',), # DESIGN volny slot
+            'e105': (
+                    'cd2101a2', # business 45 56x Martin Dostál / Jak se buduje výdělečný startup. Co to všechno obnáší a zvládne to každý? 
+                    ),
             'a112': '5f9310e5', #Matej Minárik (55 minut) - Forms in Angular
             'a113': 'd137feaf', #Michal Štorkán (55 minut) - ZBOŽÁKOVÁ REVOLUCE aneb na velikosti (e-shopu) nezáleží
             'c228': '54272f4d', #BaraKahoun (30 minut) - Too much information?
