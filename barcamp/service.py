@@ -4,7 +4,7 @@ from barcamp import app
 from flask import abort, redirect, url_for, flash, render_template, Response
 from login_misc import check_auth, auth_required, is_admin
 from utils import send_mail, send_bulk_mail, mail_bulk_connection
-from talks import get_talks_dict, get_talks
+from talks import get_talks_dict, get_talks, get_talks_by_type, CATEGORIES, translate_category
 from workshops import get_workshops_dict
 from entrant import user_user_go
 from collections import defaultdict
@@ -45,7 +45,7 @@ def fill_eventee_app():
         'speakers': [],
     }
 
-    data = requests.get('https://eventee.co/api/public/all?date=2016-06-04', headers=headers)
+    data = requests.get('https://eventee.co/api/public/all?date=2017-06-03', headers=headers)
     data = data.json()
 
     for hall in data['halls'].values():
@@ -71,7 +71,6 @@ def fill_eventee_app():
         ('a112', u'workshopy'),
         ('a113', u'workshopy'),
         ('c228', u'workshopy'),
-        ('Hyde', 'Park'),
     )
 
     for room, desc in rooms:
@@ -84,6 +83,7 @@ def fill_eventee_app():
         data = {
             'name': u'{} {}'.format(room.upper(), desc)
         }
+        print(data['name'])
         response = requests.post(
             endpoint,
             json=data,
@@ -111,6 +111,8 @@ def fill_eventee_app():
                 'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
                 'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
             }
+
+            print(data['name'])
             response = requests.post(
                 endpoint,
                 json=data,
@@ -131,7 +133,7 @@ def fill_eventee_app():
     workshops = get_workshops_dict()
     _shit_re = re.compile(r'[^\w .-/?!,()*\n\r]+', re.UNICODE)
     _spaces = re.compile(r'\s\s+')
-    explode_speakers = ('bea84558', 'f89ae7e6')
+    explode_speakers = ()
     def clear(s):
         s = _shit_re.sub('', s)
         s = _spaces.sub(' ', s)
@@ -144,42 +146,22 @@ def fill_eventee_app():
 
         for room in talk_rooms + workshop_rooms:
             room_id = app.redis.hget(redis_key, 'room_%s' % room)
-            h = t['data'].get(room, False)
-            if not h:
+            hashes = t['data'].get(room, False)
+            if not hashes:
                 continue
 
-            if room in talk_rooms:
-                lecture = talks.get(h, False)
-                hash_key = 'talk_hash'
-            else:
-                lecture = workshops.get(h, False)
-                hash_key = 'workshop_hash'
+            if type(hashes) == dict:
+                # process lighning talks
 
-            if not lecture:
-                continue
-
-            speakers = [lecture['user']]
-
-            if h in explode_speakers:
-                words = speakers[0]['name'].split(' ')
-                speaker1 = copy(speakers[0])
-                speaker1['name'] = ' '.join(words[0:2])
-                speaker1['user_hash'] += '_1'
-                speaker2 = copy(speakers[0])
-                speaker2['name'] = ' '.join(words[3:5])
-                speaker2['user_hash'] += '_2'
-                speakers = [speaker1, speaker2]
-
-            speaker_ids = []
-
-            for speaker in speakers:
-                speaker_key = 'speaker_{}'.format(speaker['user_hash'])
+                # speaker
+                speaker_key = 'speaker_barcamp'
                 resource_id = app.redis.hget(redis_key, speaker_key)
-                print speaker['name']
+                speaker_ids = []
                 if not resource_id:
+                    print("Barcamp Brno")
                     endpoint = ENDPOINT['speaker']
                     data = {
-                        'name': clear(speaker['name']),
+                        'name': "Barcamp Brno",
                         'bio': '',
                     }
                     response = requests.post(
@@ -192,36 +174,122 @@ def fill_eventee_app():
                     app.redis.hset(redis_key, speaker_key, resource_id)
                 speaker_ids.append(resource_id)
 
-            #talk
-            talk_key = "talk_{}".format(lecture[hash_key])
-            endpoint = ENDPOINT['talk']
-            resource_id = app.redis.hget(redis_key, talk_key)
+                #lightning talk
+                talk_key = "talk_lightning_{}".format(hashes['category'])
+                endpoint = ENDPOINT['talk']
+                resource_id = app.redis.hget(redis_key, talk_key)
 
-            if resource_id:
-                ids['talks'].remove(int(resource_id))
-                endpoint = "{}/{}".format(endpoint, resource_id)
+                if resource_id:
+                    ids['talks'].remove(int(resource_id))
+                    endpoint = "{}/{}".format(endpoint, resource_id)
 
-            data = {
-                'name': clear(lecture['title']),
-                'description': clear(lecture['description']),
-                'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
-                'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
-                'speakers': speaker_ids,
-                'hallId': room_id,
-            }
+                data = {
+                    'name': u"Lightning talky ({})".format(translate_category(hashes['category'])),
+                    'description': "",
+                    'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
+                    'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+                    'speakers': speaker_ids,
+                    'hallId': room_id,
+                }
 
-            if room in workshop_rooms:
-                minutes = 45 if lecture['minutes'] <= 60 else 105
-                end = datetime.combine(t['date'], t['block_from']) + timedelta(minutes=minutes)
-                data['end'] = str(end)
+                print(data['name'])
 
-            response = requests.post(
-                endpoint,
-                json=data,
-                headers=headers
-            )
-            status = response.json()
-            app.redis.hset(redis_key, talk_key, int(status['id']))
+                response = requests.post(
+                    endpoint,
+                    json=data,
+                    headers=headers
+                )
+                status = response.json()
+                app.redis.hset(redis_key, talk_key, int(status['id']))
+
+                continue
+
+            if room not in talk_rooms:
+                hashes = (hashes, )
+
+            for i, h in enumerate(hashes):
+                if room in talk_rooms:
+                    lecture = talks.get(h, False)
+                    hash_key = 'talk_hash'
+                else:
+                    lecture = workshops.get(h, False)
+                    hash_key = 'workshop_hash'
+
+                if not lecture:
+                    print("missing {} {}".format(room, h))
+                    continue
+
+                speakers = [lecture['user']]
+
+                if h in explode_speakers:
+                    words = speakers[0]['name'].split(' ')
+                    speaker1 = copy(speakers[0])
+                    speaker1['name'] = ' '.join(words[0:2])
+                    speaker1['user_hash'] += '_1'
+                    speaker2 = copy(speakers[0])
+                    speaker2['name'] = ' '.join(words[3:5])
+                    speaker2['user_hash'] += '_2'
+                    speakers = [speaker1, speaker2]
+
+                speaker_ids = []
+
+                for speaker in speakers:
+                    speaker_key = 'speaker_{}'.format(speaker['user_hash'])
+                    resource_id = app.redis.hget(redis_key, speaker_key)
+                    print speaker['name']
+                    if not resource_id:
+                        endpoint = ENDPOINT['speaker']
+                        data = {
+                            'name': clear(speaker['name']),
+                            'bio': '',
+                        }
+                        response = requests.post(
+                            endpoint,
+                            json=data,
+                            headers=headers
+                        )
+                        status = response.json()
+                        resource_id = int(status['id'])
+                        app.redis.hset(redis_key, speaker_key, resource_id)
+                    speaker_ids.append(resource_id)
+
+                #talk
+                talk_key = "talk_{}".format(lecture[hash_key])
+                endpoint = ENDPOINT['talk']
+                resource_id = app.redis.hget(redis_key, talk_key)
+
+                if resource_id:
+                    ids['talks'].remove(int(resource_id))
+                    endpoint = "{}/{}".format(endpoint, resource_id)
+
+                data = {
+                    'name': clear(lecture['title']),
+                    'description': clear(lecture['description']),
+                    'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
+                    'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+                    'speakers': speaker_ids,
+                    'hallId': room_id,
+                }
+
+                print(data['name'])
+
+                if room in workshop_rooms:
+                    minutes = 45 if lecture['minutes'] <= 60 else 105
+                    end = datetime.combine(t['date'], t['block_from']) + timedelta(minutes=minutes)
+                    data['end'] = str(end)
+
+                if len(hashes) > 1 and i == 0:
+                    data['end'] = str(datetime.combine(t['date'], t['block_to']) - timedelta(minutes=22))
+                if len(hashes) > 1 and i == 1:
+                    data['start'] = str(datetime.combine(t['date'], t['block_from']) + timedelta(minutes=22))
+
+                response = requests.post(
+                    endpoint,
+                    json=data,
+                    headers=headers
+                )
+                status = response.json()
+                app.redis.hset(redis_key, talk_key, int(status['id']))
 
     for talk_id in ids['talks']:
         endpoint = "{}/{}".format(ENDPOINT['talk'], talk_id)
@@ -320,72 +388,90 @@ def service_speaker_mail():
     return Response(output.getvalue(), mimetype="text/plain")
 
 
-@app.route('/service/vyvoleni')
-@auth_required
-@is_admin
-def service_vyvoleni():
+def service_vyvoleni(_format):
     # talks, extra_talks = get_talks()
     talk_hashed = get_talks_dict()
     talks = []
     for t in times:
         if type(t['data']) is dict:
             for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
-                talk = talk_hashed.get(t['data'][room], None)
-                if talk:
-                    talks.append(talk)
+                if type(t['data'][room]) is tuple:
+                    for h in t['data'][room]:
+                        talk = talk_hashed.get(h, None)
+                        if talk:
+                            talk['room'] = room
+                            talks.append(talk)
 
-    # talks = talks[:35]
     output = io.BytesIO()
-    writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
 
-    writer.writerow([
-        'video',
-        'name',
-        'email',
-        'web',
-        'company',
-        'twitter',
-        'title',
-        'detail_url'
-        'description',
-        'purpose',
-        'other'
-    ])
+    if _format == "csv":
+        writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
 
-    for talk in talks:
-        user = talk['user']
-        _ = [
-            talk['video'],
-            user['name'],
-            user['email'],
-            talk['web'],
-            talk['company'],
-            talk['twitter'],
-            talk['title'], 
-            'http://www.barcampbrno.cz%s' % url_for('talk_detail', talk_hash=talk['talk_hash']),
-            talk['description'].replace("\r\n", "<br/>"),
-            talk['purpose'].replace("\r\n", "<br/>"),
-            talk['other'].replace("\r\n", "<br/>")
-        ]
-        writer.writerow([unicode(s).encode("utf-8") for s in _])
+        writer.writerow([
+            'video',
+            'name',
+            'email',
+            'web',
+            'company',
+            'twitter',
+            'title',
+            'detail_url'
+            'description',
+            'purpose',
+            'other'
+        ])
+
+        for talk in talks:
+            user = talk['user']
+            _ = [
+                talk['video'],
+                user['name'],
+                user['email'],
+                talk['web'],
+                talk['company'],
+                talk['twitter'],
+                talk['title'], 
+                'http://www.barcampbrno.cz%s' % url_for('talk_detail', talk_hash=talk['talk_hash']),
+                talk['description'].replace("\r\n", "<br/>"),
+                talk['purpose'].replace("\r\n", "<br/>"),
+                talk['other'].replace("\r\n", "<br/>")
+            ]
+            writer.writerow([unicode(s).encode("utf-8") for s in _])
+    else:
+        for talk in talks:
+            output.write(("%s: <%s>\r\n" % (talk['room'], talk['user']['email'])).encode('utf-8'))
 
     return Response(output.getvalue(), mimetype="text/plain")
 
+@app.route('/service/vyvoleni')
+@auth_required
+@is_admin
+def service_vyvoleni_csv():
+    return service_vyvoleni('csv')
+
+@app.route('/service/maily-prednasejicich')
+@auth_required
+@is_admin
+def service_maily_prednasejicich():
+    return service_vyvoleni('emails')
 
 @app.route('/service/do-programu')
 @auth_required
 @is_admin
 def service_do_programu():
-    talks, extra_talks = get_talks()
-    talks = talks[:42]
+    talks = get_talks_by_type()
     output = io.BytesIO()
     
-    rooms =  'd105', 'e112', 'd0206', 'd0207', 'e104', 'e105'
-    for i, talk in enumerate(talks):
-        user = talk['user']
-        #output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
-        output.write(("%s: <%s>\r\n" % (rooms[i//7], user['email'])).encode('utf-8'))
-      
+    categories =  [c[0] for c in CATEGORIES]
+
+    for category in categories:
+        total = 0
+        for i, talk in enumerate(talks[category]):
+            if total > 8 * 45:
+                break
+            user = talk['user']
+            output.write(("'%s', # %s %s %sx %s / %s \r\n" % (talk['talk_hash'], category, talk['length'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+            total += int(talk['length'])
 
     return Response(output.getvalue(), mimetype="text/plain")
 
@@ -393,16 +479,22 @@ def service_do_programu():
 @auth_required
 @is_admin
 def service_bad_luck():
-    talks, extra_talks = get_talks()
-    talks = talks[42:]
+
+    talk_hashed = get_talks_dict()
+    for t in times:
+        if type(t['data']) is dict:
+            for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+                if type(t['data'][room]) is tuple:
+                    for h in t['data'][room]:
+                        if h in talk_hashed:
+                            del talk_hashed[h]
+
     output = io.BytesIO()
     
-    for i, talk in enumerate(talks):
+    for i, talk in enumerate(talk_hashed.values()):
         user = talk['user']
-        #output.write(("'%s': '%s', # %sx %s / %s \r\n" % (rooms[i//7], talk['talk_hash'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
-        output.write(("%s <%s>: %s\r\n" % (user['name'], user['email'], talk['title'])).encode('utf-8'))
+        output.write(("<%s>\r\n" % (user['email'])).encode('utf-8'))
       
-
     return Response(output.getvalue(), mimetype="text/plain")
 
 @app.route('/service/naplnit-newsletter/')
