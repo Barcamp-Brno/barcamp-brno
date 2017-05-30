@@ -23,7 +23,7 @@ times = [
                     '7f04c7a7', # inspirational 45 87x Matěj Krejčí / F*ck It, F*ck them, F*ck them all - vol.2
                     ),
             'e104': (
-                    'b029734d', # inovations 45 49x Dominik Novozámský / Mindrák - jak pochopit a ovlivnit chování týmu, zákazníka a celého světa
+                    '3c658889', # development 45 36x Martin Péchal / Jak škálovat webovou aplikaci, aby zvládla 100 000 uživatelů online?
                     ),
             'e105': (
                     'c94564b4', # marketing 45 33x Milan Tříska / Brandování na výkon: Třetí noha Facebooku
@@ -73,7 +73,7 @@ times = [
                     ),
             'd0207': (
                     'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
-                    '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
+                    # '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
                     ),
             'e104': {
                     'category': 'inovations', # inovations L
@@ -158,7 +158,7 @@ times = [
                     'category': 'marketing', # marketing L
                     },
             'e104': (
-                    '3c658889', # development 45 36x Martin Péchal / Jak škálovat webovou aplikaci, aby zvládla 100 000 uživatelů online?
+                    'b029734d', # inovations 45 49x Dominik Novozámský / Mindrák - jak pochopit a ovlivnit chování týmu, zákazníka a celého světa
                     ),
             'e105': {
                     'category': 'inspirational', # inspirational L
