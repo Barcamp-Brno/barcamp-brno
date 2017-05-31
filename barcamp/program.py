@@ -73,7 +73,7 @@ times = [
                     ),
             'd0207': (
                     'ccbbc98e', # business 22 81x Lubomír Černý / Objevte sílu odlišnosti a uspějte v marketingu!
-                    # '7f4bb46b', # business 22 71x Karol Jarkovsky / Ako presrať 12 mil. a dostať za to povýšené
+                    'df17715b', # business 22 50x Kristýna Delmar / Každý má právo být zapomenut aneb změny v ochraně osobních údajů v souvislosti s novým nařízením GDPR 
                     ),
             'e104': {
                     'category': 'inovations', # inovations L
