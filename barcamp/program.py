@@ -114,7 +114,7 @@ times = [
                     ),
             'a112': 'a79edb11', #Barbora Nevosadova (115 minut) - Jak napsat tiskovku, která neskončí v koši
             'a113': '7c4a0548', #Robert Janák (115 minut) - InDesign – sazba učebnic, prac. postupy pro tvorbu EPUB, šablony
-            'c228': '',
+            'c228': 'e2226225', #Vrana
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
             'd105': (
@@ -140,7 +140,7 @@ times = [
                     ),
             'a112': '',
             'a113': '',
-            'c228': '',
+            'c228': 'e2226225',
         }},
         {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': den_d, 'data': {
             'd105': (
@@ -165,7 +165,7 @@ times = [
                     },
             'a112': '4c102eb1', #martin krcek (115 minut) - Vytvoř si svého ChatBOTa. Bez programování. Za pár minut.
             'a113': '535f0ba3', #Jan Petr (115 minut) - Nechte uživatele vyhledávat ve vašem obsahu rychlostí myšlenky
-            'c228': '',
+            'c228': 'e2226225',
         }},
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
             'd105': (
@@ -190,7 +190,7 @@ times = [
                     ),
             'a112': '',
             'a113': '',
-            'c228': '',
+            'c228': 'e2226225',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
         {'block_from': time(19, 0), 'block_to': time(23, 59), 'date': den_d,
