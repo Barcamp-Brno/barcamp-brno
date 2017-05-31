@@ -34,17 +34,17 @@ class Sponsors():
             )
         )
 
-        print(sponsors)
-
         for sponsor in sponsors:
             sponsor['score'] = sponsor_dict[self.KEYS['sponsor'] % sponsor['uri']]
 
         return sponsors
 
-    def get_all_by_type(self):
+    def get_all_by_type(self, min_weight=0):
         sponsors = self.get_all()
         sponsors_dict = defaultdict(list)
         for sponsor in sponsors:
+            if sponsor['score'] < min_weight:
+                continue
             sponsors_dict[sponsor['sponsorship']].append(sponsor)
 
         return sponsors_dict

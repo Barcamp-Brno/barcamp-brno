@@ -79,7 +79,7 @@ def co_program():
 
     return render_template(
         "doprovodny-program.html", 
-        sponsors=sponsors.get_all_by_type(),
+        sponsors=sponsors.get_all_by_type(min_weight=-100),
     )
 
 
