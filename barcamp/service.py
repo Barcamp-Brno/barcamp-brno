@@ -307,14 +307,12 @@ def room_program():
     writer.writerow([
         'room',
         'room_name',
-        'title',
-        'name',
         'from',
         'to',
-        'next_title',
-        'next_name',
-        'next_from',
-        'next_to',
+        'first_title',
+        'first_name',
+        'second_title',
+        'second_name',
     ])
     talk_hashed = get_talks_dict()
 
@@ -330,31 +328,24 @@ def room_program():
     for room, room_name in rooms:
         talks = []
         for i, t in enumerate(times):
+            row = [room.upper(), room_name, t['block_from'], t['block_to']]
             if type(t['data']) is dict:
-                if t['data'][room] in talk_hashed:
-                    talk = talk_hashed.get(t['data'][room], None)
-                else:
-                    talks.append([
-                        '','', 
-                        t['block_from'].strftime('%H.%M'),
-                        t['block_to'].strftime('%H.%M')])
-                    continue
+                talk_data = t['data'][room]
+                if type(talk_data) is dict:
+                    # lightning talks
+                    row += [u'Lightning talks', u'({})'.format(translate_category(talk_data['category'])), '', '']
+                if type(talk_data) is tuple:
+                    # ordinary talks
+                    for talk_hash in talk_data:
+                        talk = talk_hashed.get(talk_hash, None)
+                        if talk:
+                            row += [talk['title'], talk['user']['name']]
+                    if len(talk_data) < 2:
+                        row += ['', '']
             else:
                 continue
 
-            talks.append([
-                talk['title'],
-                talk['user']['name'],
-                t['block_from'].strftime('%H.%M'),
-                t['block_to'].strftime('%H.%M')
-            ])
-
-        for i in range(len(talks)):
-            if i == len(talks) - 1:
-                _ = [room.upper(), room_name] + talks[i] + ['', '', '', '']
-            else:
-                _ = [room.upper(), room_name] + talks[i] +  talks[i+1]
-            writer.writerow([unicode(s).encode("utf-8") for s in _])
+            writer.writerow([unicode(s).encode("utf-8") for s in row])
 
     return Response(output.getvalue(), mimetype="text/plain")
 
@@ -470,7 +461,7 @@ def service_do_programu():
             if total > 8 * 45:
                 break
             user = talk['user']
-            output.write(("'%s', # %s %s %sx %s / %s \r\n" % (talk['talk_hash'], category, talk['length'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+            output.write(("'%s', # %s %s %s %sx %s / %s \r\n" % (talk['talk_hash'], user['email'], category, talk['length'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
             total += int(talk['length'])
 
     return Response(output.getvalue(), mimetype="text/plain")
