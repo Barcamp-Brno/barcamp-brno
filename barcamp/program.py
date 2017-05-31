@@ -60,8 +60,8 @@ times = [
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'd105': (
-                    '9bfab62e', # inspirational 22 105x Radek Zahradník / Hackujeme Tinder! Aneb sex snadno, rychle a zadarmo!
                     '4b30589d', # inspirational 22 80x Hanka Březinová / Nežerte sendviče!! ... aneb jak někomu sdělit, že je "debil" a neurazit ho
+                    '9bfab62e', # inspirational 22 105x Radek Zahradník / Hackujeme Tinder! Aneb sex snadno, rychle a zadarmo!
                     ),
             'e112': (
                     '928bc4a5', # marketing 22 82x Pavel Ungr / Zeptej se na co chceš v SEO! #TrueBarcamp
