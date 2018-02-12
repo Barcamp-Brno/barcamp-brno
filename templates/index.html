@@ -69,36 +69,52 @@
                 {{ clearfix(offset) }}
                 <div class="col-md-3 col-sm-4">
                     {% set offset = offset + 1 %}
-                    <h2>{%- if stage(config.YEAR, 'VOTING') %}
-                            Hlasování
-                        {% else %}
-                            Přednášky
-                        {% endif -%}
-                    </h2>
-                    <p>{{talks|count}} přednášek v hlasování</p>
-                    <p>až 60 z nich v programu</p>
-                    <p><a class="btn btn-danger" href="{{url_for('talks_all')}}">
-                        <i class="fa fa-play-circle"></i>
-                        {%- if stage(config.YEAR, 'VOTING') %}
-                            Chcu hlasovat
-                        {% else %}
-                            Chcu vidět přednášky
-                        {% endif -%}
-                        
-                    </a></p>
+                    {% if before_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+                        <h2>Přednášky</h2>
+                        <a href="{{url_for('static_page', page='informace')}}">
+                            <i class="fa fa-bullhorn"></i>
+                            Registrace přednášek teprve začne.
+                        </a>
+                    {% else %}
+                        <h2>{%- if stage(config.YEAR, 'VOTING') %}
+                                Hlasování
+                            {% else %}
+                                Přednášky
+                            {% endif -%}
+                        </h2>
+                        <p>{{talks|count}} přednášek v hlasování</p>
+                        <p>až 60 z nich v programu</p>
+                        <p><a class="btn btn-danger" href="{{url_for('talks_all')}}">
+                            <i class="fa fa-play-circle"></i>
+                            {%- if stage(config.YEAR, 'VOTING') %}
+                                Chcu hlasovat
+                            {% else %}
+                                Chcu vidět přednášky
+                            {% endif -%}
+                            
+                        </a></p>
+                    {% endif %}
                 </div>
                 {{ clearfix(offset) }}
                 <div class="col-md-3 col-sm-4">
                     {% set offset = offset + 1 %}
-                    <h2>Workshopy</h2>
-                    <p>{{workshops|count}}</span> přihlášených workshopů</p>
-                    <p>8 z nich v programu</p>
-                    <p>
-                        <a class="btn btn-danger" href="{{url_for('workshops_all')}}">
-                            <i class="fa fa-globe"></i>
-                            Chcu vidět workshopy
+                    {% if before_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+                        <h2>Přednášky</h2>
+                        <a href="{{url_for('static_page', page='informace')}}">
+                            <i class="fa fa-bullhorn"></i>
+                            Registrace workshopů teprve začne.
                         </a>
-                    </p>
+                    {% else %}
+                        <h2>Workshopy</h2>
+                        <p>{{workshops|count}}</span> přihlášených workshopů</p>
+                        <p>8 z nich v programu</p>
+                        <p>
+                            <a class="btn btn-danger" href="{{url_for('workshops_all')}}">
+                                <i class="fa fa-globe"></i>
+                                Chcu vidět workshopy
+                            </a>
+                        </p>
+                    {% endif %}
                 </div>
                 {% for tile in low_tiles %}
                     {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}

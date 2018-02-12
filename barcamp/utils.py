@@ -91,6 +91,14 @@ def stage_in_past(year, stage):
     day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
     return day > schedule['to']
 
+def stage_in_future(year, stage):
+    if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES']:
+        return False
+
+    schedule = app.config['YEAR_SCHEDULE'][year]['STAGES'][stage]
+    day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
+    return day < schedule['from']
+
 ### MAIL ###
 def send_mail(subject, to, message_file, url=""):
     mail = Mail(app)

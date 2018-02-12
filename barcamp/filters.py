@@ -2,7 +2,7 @@ import re
 
 from jinja2 import evalcontextfilter, Markup
 from barcamp import app
-from utils import stage_is_active, stage_in_past, sponsors_data
+from utils import stage_is_active, stage_in_past, sponsors_data, stage_in_future
 from workshops import translate_status
 from talks import translate_category
 from login_misc import check_auth, check_admin
@@ -89,6 +89,11 @@ def sponsors_d():
 @app.context_processor
 def after_stage():
     return {'after_stage': stage_in_past}
+
+
+@app.context_processor
+def before_stage():
+    return {'before_stage': stage_in_future}
 
 
 @app.context_processor

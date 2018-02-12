@@ -258,7 +258,7 @@ def fill_eventee_app():
                 endpoint = ENDPOINT['talk']
                 resource_id = app.redis.hget(redis_key, talk_key)
 
-                if resource_id:
+                if resource_id and int(resource_id) in ids['talks']:
                     ids['talks'].remove(int(resource_id))
                     endpoint = "{}/{}".format(endpoint, resource_id)
 
@@ -311,8 +311,10 @@ def room_program():
         'to',
         'first_title',
         'first_name',
+        'first_category',
         'second_title',
         'second_name',
+        'second_category',
     ])
     talk_hashed = get_talks_dict()
 
@@ -333,15 +335,15 @@ def room_program():
                 talk_data = t['data'][room]
                 if type(talk_data) is dict:
                     # lightning talks
-                    row += [u'Lightning talks', u'({})'.format(translate_category(talk_data['category'])), '', '']
+                    row += [u'Lightning talks', '', u'({})'.format(translate_category(talk_data['category'])), '', '']
                 if type(talk_data) is tuple:
                     # ordinary talks
                     for talk_hash in talk_data:
                         talk = talk_hashed.get(talk_hash, None)
                         if talk:
-                            row += [talk['title'], talk['user']['name']]
+                            row += [talk['title'], talk['user']['name'], translate_category(talk['category'])]
                     if len(talk_data) < 2:
-                        row += ['', '']
+                        row += ['', '', '']
             else:
                 continue
 
@@ -430,7 +432,7 @@ def service_vyvoleni(_format):
             writer.writerow([unicode(s).encode("utf-8") for s in _])
     else:
         for talk in talks:
-            output.write(("%s: <%s>\r\n" % (talk['room'], talk['user']['email'])).encode('utf-8'))
+            output.write(("%s, %s\r\n" % (talk['room'], talk['user']['name'])).encode('utf-8'))
 
     return Response(output.getvalue(), mimetype="text/plain")
 
@@ -484,7 +486,7 @@ def service_bad_luck():
     
     for i, talk in enumerate(talk_hashed.values()):
         user = talk['user']
-        output.write(("<%s>\r\n" % (user['email'])).encode('utf-8'))
+        output.write(("<%s> %s %s \r\n" % (user['email'], talk['talk_hash'], talk['title'])).encode('utf-8'))
       
     return Response(output.getvalue(), mimetype="text/plain")
 
@@ -512,9 +514,9 @@ def poslani_newsletteru():
 
             send_bulk_mail(
                 conn,
-                u'Hodně budem někde - Barcamp Brno 2017',
+                u'Barcamp Brno 2017 již tuto sobotu',
                 mail,
-                'data/newsletter-reminder.md')
+                'data/newsletter-before.md')
 
 
     return 'newsletter done {} emails'.format(i)

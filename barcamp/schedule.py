@@ -8,9 +8,9 @@ from datetime import datetime
 
 
 schedule = {
-    'YEAR': '2017',
-    'YEAR_ARCHIVE': ['2013', '2014', '2015', '2016'],
-    'YEAR_ENABLED': ['2017'],
+    'YEAR': '2018',
+    'YEAR_ARCHIVE': ['2013', '2014', '2015', '2016', '2017'],
+    'YEAR_ENABLED': ['2018'],
     'YEAR_SCHEDULE': {
         # '2016': {
         #     'DATE': datetime(2016, 6, 4),
@@ -33,36 +33,36 @@ schedule = {
         #         }
         #     },
         # },
-        '2017': {
-            'DATE': datetime(2017, 6, 3),
+        '2018': {
+            'DATE': datetime(2018, 6, 2),
             'STAGES': {
                 'PREVIEW': {
                     'from': datetime(1970, 1, 1),
-                    'to': datetime(2017, 3, 11),
+                    'to': datetime(2018, 2, 11),
                 },
                 'CALL-FOR-PAPERS': {
-                    'from': datetime(2017, 4, 1),
-                    'to': datetime(2017, 5, 21),
+                    'from': datetime(2018, 4, 1),
+                    'to': datetime(2018, 5, 21),
                 },
                 'CALL-FOR-WORKSHOPS': {
-                    'from': datetime(2017, 4, 1),
-                    'to': datetime(2017, 5, 1),
+                    'from': datetime(2018, 4, 1),
+                    'to': datetime(2018, 5, 1),
                 },
                 'VOTING': {
-                    'from': datetime(2017, 5, 1),
-                    'to': datetime(2017, 5, 21),
+                    'from': datetime(2018, 5, 1),
+                    'to': datetime(2018, 5, 21),
                 },
                 'WORKSHOPS-PROGRAM': {
-                    'from': datetime(2017, 5, 17),
+                    'from': datetime(2018, 5, 17),
                     'to': datetime(2021, 12, 31),
                 },
                 'PROGRAM': {
-                    'from': datetime(2017, 5, 17),
+                    'from': datetime(2018, 5, 17),
                     'to': datetime(2021, 12, 31),
                 },
                 'USERS': {
-                    'from': datetime(2017, 5, 1),
-                    'to': datetime(2017, 6, 3),
+                    'from': datetime(2018, 5, 1),
+                    'to': datetime(2018, 6, 3),
                 },
             },
             

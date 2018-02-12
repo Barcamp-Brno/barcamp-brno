@@ -18,13 +18,13 @@ if __name__ == '__main__':
         'FACEBOOK_SECRET': '',
         'TWITTER_KEY': '',
         'TWITTER_SECRET': '',
-        #'TESTING': True ,
+        # 'TESTING': True ,
         'SECRET_KEY': 'jednadvehonzajde',
         'MAIL_SERVER': 'smtp.sendgrid.net',
         'MAIL_PORT': 587,
         'MAIL_USERNAME': os.environ.get('SENDGRID_USERNAME', ''),
         'MAIL_PASSWORD': os.environ.get('SENDGRID_PASSWORD', ''),
-        # 'TEST_DATE': datetime(2017, 4, 2),
+        # 'TEST_DATE': datetime(2017, 5, 1),
     }
 
     config.update(schedule)

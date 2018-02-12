@@ -9,13 +9,17 @@ PUBLISH_SKIP_URLS = (
     '/service/.*',
     '/chci-si-objednat/',
     '/objednavky/.*',
+    '/hlasovani.*',
+    '/workshop/zmenit-stav/.*',
+    '/static/components/AdminLTE/.*',
+    '/admin/.*',
     '.*/$',
 )
 PUBLISH_ADD_FILES = (
     'static',
 )
 
-YEAR = "2016"
+YEAR = "2017"
 
 class Publisher(object):
     def __init__(self, app):

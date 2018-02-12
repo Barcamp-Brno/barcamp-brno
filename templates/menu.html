@@ -26,13 +26,14 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if stage(config.YEAR, 'REVIEW-MENU') %}
                     {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
-                {% endif %}                    
-                {% if stage(config.YEAR, 'PROGRAM-MENU') %}
-                    {{active_li(url_for('program_aktualne'), 'Program')}}
                 {% endif %}
 
-                {{active_li(url_for('talks_all'), 'Přednášky')}}
-                {{active_li(url_for('workshops_all'), 'Workshopy')}}
+                {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+                    {{active_li(url_for('talks_all'), 'Přednášky')}}
+                {% endif %}
+                {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') or after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+                    {{active_li(url_for('workshops_all'), 'Workshopy')}}
+                {% endif %}
                 {{active_li(url_for('static_page', page='informace'), 'Informace')}}
                 {{active_li(url_for('sponsors'), 'Partneři')}}
 
