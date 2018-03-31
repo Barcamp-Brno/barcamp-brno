@@ -41,11 +41,11 @@ schedule = {
                     'to': datetime(2018, 2, 11),
                 },
                 'CALL-FOR-PAPERS': {
-                    'from': datetime(2018, 4, 1),
+                    'from': datetime(2018, 4, 2),
                     'to': datetime(2018, 5, 21),
                 },
                 'CALL-FOR-WORKSHOPS': {
-                    'from': datetime(2018, 4, 1),
+                    'from': datetime(2018, 4, 2),
                     'to': datetime(2018, 5, 1),
                 },
                 'VOTING': {
