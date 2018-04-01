@@ -1,0 +1,15 @@
+{% extends "_base_page.html" %}
+{% block page_content %}
+<!-- krok 2 -->
+<h2>Souhlas se zpracováním údajů</h2>
+<form method="post" class="form-horizontal" action=".">
+    {{form.csrf_token}}
+    <fieldset>
+        {{ forms.gdpr_consent(form.gdpr_consent)}}
+    </fieldset>
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Odeslat</button>
+    </div> 
+</form>
+<!-- /krok 1 -->
+{% endblock%}

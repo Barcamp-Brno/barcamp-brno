@@ -67,6 +67,25 @@
     </div>
 </div>
 {% endmacro -%}
+{% macro gdpr_consent(field) -%}
+<div class="form-group {{ error_class(field) }}">
+    <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+            <label>
+                <input
+                    type="checkbox"
+                    id="{{field.id}}"
+                    name="{{field.name}}"
+                    placeholder="{{field.label.text}}"
+                    {{'checked="checked"' if field.data}}
+                >
+                Prohlašuji, že souhlasím se <a href="{{url_for('static_page', page='gdpr')}}">Souhlasem o zpracování osobních údajů</a>
+            </label>
+            {{ error(field) }}
+        </div>
+    </div>
+</div>
+{% endmacro -%}
 
 {% macro step_box(number) -%}
 <!--div class="progress_box">

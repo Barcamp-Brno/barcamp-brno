@@ -7,6 +7,7 @@
     {{form.csrf_token}}
     <fieldset>
         {{ forms.input(form.email) }}
+        {{ forms.gdpr_consent(form.gdpr_consent)}}
     </fieldset>
     <div class="form-actions">
       <button type="submit" class="btn btn-primary">Odeslat</button>

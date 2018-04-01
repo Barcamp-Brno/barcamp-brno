@@ -5,18 +5,21 @@ from flask import url_for, request, abort
 from barcamp import app
 from hashlib import md5
 from flask_wtf import Form
-from wtforms import TextField
+from wtforms import TextField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo
 import base64
-from login_misc import auth_required, resolve_user_by_email
-from login_misc import check_auth, create_account, register_twitter
+from login_misc import auth_required, resolve_user_by_email, login_redirect
+from login_misc import check_auth, create_account, register_twitter, gdpr_consent_required
 from login_misc import update_password, create_update_profile
 from utils import send_mail
+from datetime import datetime
 
 KEYS = {
     'account': 'account_%s',
     'email': 'email_%s',
     'twitter': 'twitter_%s',
+    'gdpr': 'gdpr_consent_%s' % app.config['YEAR'],
+    'gdpr_date': 'gdpr_consent_date_%s' % app.config['YEAR'],
 }
 
 
@@ -41,7 +44,7 @@ def login():
     else:
         form = LoginForm()
 
-    if check_auth():
+    if check_auth(skip_gdpr_check=True):
         flash(u'Nyní jste přihlášen', 'success')
         return redirect(next or url_for('login_settings'))
 
@@ -73,7 +76,7 @@ def logout():
 @app.route('/login/registrace/zalozeni-uctu/', methods=['GET', 'POST'])
 def login_create_account():
     if request.method == "POST":
-        form = EmailForm(request.form)
+        form = ConsentEmailForm(request.form)
         if form.validate():
             email = form.data.get('email').lower()
             user_hash = resolve_user_by_email(email)
@@ -104,7 +107,7 @@ def login_create_account():
                 url)
             return redirect(url_for('login_email_verify'))
     else:
-        form = EmailForm()
+        form = ConsentEmailForm()
     return render_template('login_create_account.html', form=form)
 
 
@@ -237,6 +240,29 @@ def login_reset_password():
     return render_template('login_reset_password.html', form=form)
 
 
+@app.route('/login/gdpr/', methods=['POST', 'GET'])
+def gdpr_consent():
+    user = check_auth(skip_gdpr_check=True)
+    if not user:
+        return login_redirect()
+
+    if request.method == "POST":
+        form = ConsentForm(request.form)
+        if form.validate():
+            create_update_profile(
+                {
+                    KEYS['gdpr']: True,
+                    KEYS['gdpr_date']: str(datetime.now())
+                },
+                user['user_hash']
+            )
+            flash(u'Souhlas byl uložen', 'success')
+            return redirect(url_for('login_settings'))
+    else:
+        form = ConsentForm()
+    return render_template('login_gdpr_consent.html', user=user, form=form)
+
+
 ### FORMS ###
 class LoginForm(Form):
     email = TextField('E-mail', validators=[DataRequired(), Email()])
@@ -251,6 +277,19 @@ class PasswordForm(Form):
 
 class EmailForm(Form):
     email = TextField('E-mail', validators=[DataRequired(), Email()])
+
+class ConsentEmailForm(Form):
+    email = TextField('E-mail', validators=[DataRequired(), Email()])
+    gdpr_consent = BooleanField(
+        u'Souhlas',
+        validators=[DataRequired()],
+        default=False)
+
+class ConsentForm(Form):
+    gdpr_consent = BooleanField(
+        u'Souhlas',
+        validators=[DataRequired()],
+        default=False)
 
 
 class BasicForm(Form):

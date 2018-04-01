@@ -9,6 +9,7 @@ KEYS = {
     'account': 'account_%s',
     'email': 'email_%s',
     'twitter': 'twitter_%s',
+    'gdpr': 'gdpr_consent_%s' % app.config['YEAR'],
 }
 
 
@@ -20,11 +21,25 @@ def login_redirect():
     session['next'] = path
     return redirect(url_for('login'))
 
+
+def gdpr_redirect():
+    path = request.path
+    flash(
+        u"Potřebujeme doplnit souhlas se zpracováním osobních údajů",
+        "warning")
+    session['next'] = path
+    return redirect(url_for('gdpr_consent'))
+
+
 def auth_required(fn):
     @wraps(fn)
     def wrap(*args, **kwargs):
-        if not session.get('user_hash', False):
+        user = check_auth(skip_gdpr_check=True)
+        if not user:
             return login_redirect()
+
+        if gdpr_consent_required(user):
+            return gdpr_redirect()
         return fn(*args, **kwargs)
 
     return wrap
@@ -45,9 +60,12 @@ def check_admin():
     user = check_auth()
     return user and (user['email'] == u'petr@joachim.cz' or user['email'].endswith('@barcampbrno.cz'))
 
-def check_auth():
+def check_auth(skip_gdpr_check=False):
     user_hash = session.get('user_hash', None)
-    return get_account(user_hash)
+    user = get_account(user_hash)
+    if not skip_gdpr_check and gdpr_consent_required(user):
+        return False
+    return user
 
 
 def get_account(user_hash):
@@ -102,6 +120,14 @@ def resolve_user_by_email(email, password=None):
             return False  # password did not match
         return data['user_hash']  # only if everything is OK
     return False  # email not found
+
+
+def gdpr_consent_required(user):
+    if not user:
+        return False
+
+    return not (KEYS['gdpr'] in user and user[KEYS['gdpr']])
+
 
 
 def resolve_user_by_twitter(twitter_id):

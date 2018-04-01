@@ -103,6 +103,7 @@ def login_facebook_authorized(resp):
     me = facebook.get('/me')
 
     user_hash = resolve_user_by_email(me.data['email'])
+    new_account = False
     if not user_hash:
         # me.data
         # pokud ucet neexistuje, vytvorime (a vyplnime) ho z FB
@@ -114,7 +115,16 @@ def login_facebook_authorized(resp):
             'bio': me.data.get('bio', None),
         })
 
+        new_account = True
+
     session['user_hash'] = user_hash  # prihlaseni hotovo
+
+    if new_account:
+        flash(
+            u'Váš facebook účet je spárován, '
+            u'nyní ještě udělte souhlas se zpracováním osobních údajů k dokončení registrace.', 'success')
+        return request.redirect(url_for('gdpr_consent'))
+
     return redirect(request.args.get('next') or url_for('index'))
 
 
