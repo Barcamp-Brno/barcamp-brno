@@ -24,7 +24,8 @@ def login_facebook():
     session['facebook_token'] = None
     return facebook.authorize(
         callback=url_for(
-            'login_facebook_authorized'
+            'login_facebook_authorized',
+            _external=True
         )
     )
 
