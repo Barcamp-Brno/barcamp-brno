@@ -24,11 +24,7 @@ def login_facebook():
     session['facebook_token'] = None
     return facebook.authorize(
         callback=url_for(
-            'login_facebook_authorized',
-            next=request.args.get('next')
-            or request.referrer
-            or url_for('index'),
-            _external=True
+            'login_facebook_authorized'
         )
     )
 
@@ -51,7 +47,7 @@ facebook = oauth.remote_app(
     authorize_url='https://www.facebook.com/dialog/oauth',
     consumer_key=app.config.get('FACEBOOK_ID'),
     consumer_secret=app.config.get('FACEBOOK_SECRET'),
-    request_token_params={'scope': 'email'}
+    request_token_params={}
 )
 
 
