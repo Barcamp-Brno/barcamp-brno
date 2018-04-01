@@ -241,9 +241,10 @@ class TalkForm(Form):
     length = RadioField(
         u'Formát',
         choices=[
-            ('22', u'22 minut - volený formát'),
+            # ('22', u'22 minut - volený formát'),
             ('45', u'45 minut - volený formát'),
         ],
+        default='45',
         validators=[DataRequired()],
     )
 
