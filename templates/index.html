@@ -95,7 +95,6 @@
                         </a></p>
                     {% endif %}
                 </div>
-                {# 
                 {{ clearfix(offset) }}
                 <div class="col-md-3 col-sm-4">
                     {% set offset = offset + 1 %}
@@ -117,7 +116,6 @@
                         </p>
                     {% endif %}
                 </div>
-                #}
                 {% for tile in low_tiles %}
                     {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}
                         {{ clearfix(offset + loop.index0) }}
