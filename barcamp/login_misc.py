@@ -57,7 +57,7 @@ def is_admin(fn):
 
 
 def check_admin():
-    user = check_auth()
+    user = check_auth(skip_gdpr_check=True)
     return user and (user['email'] == u'petr@joachim.cz' or user['email'].endswith('@barcampbrno.cz'))
 
 def check_auth(skip_gdpr_check=False):
