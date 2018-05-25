@@ -486,7 +486,8 @@ def service_bad_luck():
     
     for i, talk in enumerate(talk_hashed.values()):
         user = talk['user']
-        output.write(("<%s> %s %s \r\n" % (user['email'], talk['talk_hash'], talk['title'])).encode('utf-8'))
+        output.write(("%s\r\n" % user['email']).encode('utf-8'))
+        #output.write(("<%s> %s %s \r\n" % (user['email'], talk['talk_hash'], talk['title'])).encode('utf-8'))
       
     return Response(output.getvalue(), mimetype="text/plain")
 
