@@ -53,11 +53,11 @@ schedule = {
                     'to': datetime(2018, 5, 21),
                 },
                 'WORKSHOPS-PROGRAM': {
-                    'from': datetime(2018, 5, 31),
+                    'from': datetime(2018, 5, 23),
                     'to': datetime(2021, 12, 31),
                 },
                 'PROGRAM': {
-                    'from': datetime(2018, 5, 31),
+                    'from': datetime(2018, 5, 24),
                     'to': datetime(2021, 12, 31),
                 },
                 'USERS': {

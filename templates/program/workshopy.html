@@ -18,7 +18,7 @@
 <ul>
     <li><a href="{{url_for('co_program')}}">Bohatý doprovodný program</a></li>
     <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
-    <li><a href="{{url_for('static_page', page='kral-barcampu')}}">Soutěž o Pevnost Barcampu Brno</a></li>
+    <li><a href="{{url_for('static_page', page='kral-barcampu')}}">Soutěž o Krále Barcampu Brno</a></li>
 {#     
     <li></li>
     <li><a href="http://play.google.com/store/apps/details?id=eu.touchart.barcamp">Aplikace Barcamp Brno pro Android</a></li>
@@ -28,17 +28,15 @@
 <table class="table table-condensed">
 <tr>
     <th></th>
-    <th style="text-align: center">A112</th>
-    <th style="text-align: center">A113</th>
-    <th style="text-align: center">C228</th>
+    <th style="text-align: center">Pracovní sál 1</th>
+    <th style="text-align: center">Pracovní sál 2</th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">
     <th>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</th>
     {% if t.data.items %}
-        {{format_workshop_td(t.data.a112)}}
-        {{format_workshop_td(t.data.a113)}}
-        {{format_workshop_td(t.data.c228)}}
+        {{format_workshop_td(t.data.workshop1)}}
+        {{format_workshop_td(t.data.workshop2)}}
     {% else %}
         <td colspan="3" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% endif %}

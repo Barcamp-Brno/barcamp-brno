@@ -360,7 +360,7 @@ def service_speaker_mail():
     talks = []
     for t in times:
         if type(t['data']) is dict:
-            for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+            for room in ('scala', 'baroko', 'it', 'partners'):
                 talk = talk_hashed.get(t['data'][room], None)
                 if talk:
                     talks.append(talk)
@@ -368,7 +368,7 @@ def service_speaker_mail():
     workshops = []
     for t in times:
         if type(t['data']) is dict:
-            for room in ('a112', 'a113', 'c228'):
+            for room in ('workshop1', 'workshop2'):
                 workshop = workshop_hashed.get(t['data'][room], None)
                 if workshop:
                     workshops.append(workshop)
@@ -387,7 +387,7 @@ def service_vyvoleni(_format):
     talks = []
     for t in times:
         if type(t['data']) is dict:
-            for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+            for room in ('scala', 'baroko', 'it', 'partners'):
                 if type(t['data'][room]) is tuple:
                     for h in t['data'][room]:
                         talk = talk_hashed.get(h, None)
@@ -408,7 +408,7 @@ def service_vyvoleni(_format):
             'company',
             'twitter',
             'title',
-            'detail_url'
+            'detail_url',
             'description',
             'purpose',
             'other'
@@ -432,7 +432,7 @@ def service_vyvoleni(_format):
             writer.writerow([unicode(s).encode("utf-8") for s in _])
     else:
         for talk in talks:
-            output.write(("%s, %s\r\n" % (talk['room'], talk['user']['name'])).encode('utf-8'))
+            output.write(("%s, %s\r\n" % (talk['room'], talk['user']['email'])).encode('utf-8'))
 
     return Response(output.getvalue(), mimetype="text/plain")
 
@@ -460,8 +460,8 @@ def service_do_programu():
     for category in categories:
         total = 0
         for i, talk in enumerate(talks[category]):
-            if total > 8 * 45:
-                break
+            # if total > 8 * 45:
+            #     break
             user = talk['user']
             output.write(("'%s', # %s %s %s %sx %s / %s \r\n" % (talk['talk_hash'], user['email'], category, talk['length'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
             total += int(talk['length'])
@@ -476,7 +476,7 @@ def service_bad_luck():
     talk_hashed = get_talks_dict()
     for t in times:
         if type(t['data']) is dict:
-            for room in ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105'):
+            for room in ('scala', 'baroko', 'it', 'partners'):
                 if type(t['data'][room]) is tuple:
                     for h in t['data'][room]:
                         if h in talk_hashed:

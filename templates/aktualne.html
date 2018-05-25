@@ -17,16 +17,13 @@
         <h3>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</h3>
         {% if t.data.items %}
             <ul>
-                <li>D105:{{format_talk_a(t.data.d105)}}</li>
-                <li>E112:{{format_talk_a(t.data.e112)}}</li>
-                <li>D0206:{{format_talk_a(t.data.d0206)}}</li>
-                <li>D0207:{{format_talk_a(t.data.d0207)}}</li>
-                <li>E104:{{format_talk_a(t.data.e104)}}</li>
-                <li>E105:{{format_talk_a(t.data.e105)}}</li>
+                <li>Kino Scala:{{format_talk_a(t.data.scala)}}</li>
+                <li>Barokní sál:{{format_talk_a(t.data.baroko)}}</li>
+                <li>Technický sál:{{format_talk_a(t.data.it)}}</li>
+                <li>Vznešený sál:{{format_talk_a(t.data.partners)}}</li>
                 <br />
-                <li>A112:{{format_workshop_a(t.data.a112)}}</li>
-                <li>A113:{{format_workshop_a(t.data.a113)}}</li>
-                <li>C228:{{format_workshop_a(t.data.c228)}}</li>
+                <li>Pracovní sál 1:{{format_workshop_a(t.data.workshop1)}}</li>
+                <li>Pracovní sál 2:{{format_workshop_a(t.data.workshop2)}}</li>
             </ul>
         {% else %}
             <p><strong>{{t.data}}</strong></p>
