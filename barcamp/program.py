@@ -71,7 +71,7 @@ times = [
                 '642a354f', # inspirational 45 123x Minutový Petr Krejčí / 5 nejčastějších chyb při prezentování „Minutový řečník“ aneb jak se zbavit trémy z mluvení na veřejnosti 
                     ),
             'baroko': (
-                'e6e18489', # inovations 45 86x Veronika Dohnalová / Zavádění prvků Hapiness Managementu ve velké nadnárodní firmě - co se lidem líbilo a co byl propadák? 
+                'a9b3f57f', # marketing 45 93x Veronika Dostálová / Zbavte se základních chyb v emailingu 
                     ),
             'it': (
                 '85cd04c1', # development 45 63x Jan Hadrava / Scrum Master: 10 důvodů, proč tě nenávidím 
@@ -121,7 +121,7 @@ times = [
                 'e70035db', # inspirational 45 110x Vít Skalický / Jak vyprávět příběhy
                     ),
             'baroko': (
-                'a9b3f57f', # marketing 45 93x Veronika Dostálová / Zbavte se základních chyb v emailingu 
+                'e6e18489', # inovations 45 86x Veronika Dohnalová / Zavádění prvků Hapiness Managementu ve velké nadnárodní firmě - co se lidem líbilo a co byl propadák? 
                     ),
             'it': (
                 '0df5100f', # development 45 51x Jiří Materna / Milníky, výzvy a limity současné umělé inteligence 
