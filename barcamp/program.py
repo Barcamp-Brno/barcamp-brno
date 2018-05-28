@@ -111,6 +111,7 @@ times = [
                 '82697f62', # development 45 55x Michal Vyšinský / Sdílení UI komponent napříč aplikacemi 
                     ),
             'partners': (
+                '20506e68', # development 45 15x Lukas Kocourek - Život Integračního architekta v korporátu bez ESB s králíkem v clusteru
                     ),
             'workshop1':
                 '8c8e6d25', # 90minut Darja Jochimová Jak tvořit poutavý obsah na sociální sítě v roce 2018?
