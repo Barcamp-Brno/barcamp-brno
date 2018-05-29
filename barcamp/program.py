@@ -21,7 +21,6 @@ times = [
                 '590915b2', # development 45 106x Tomáš Brukner / Jak se vzdělávat v IT, aby vám neujel technologický vlak? 
                     ),
             'partners': (
-                '41a7d057', # partner/inovations 45 21x Artur Kane / How Insider Threats Challenge Digital Economy, Real Life Attacks explained! 
                     ),
             'workshop1':
                 'f94c6a76', # 115minut Matěj Krejčí DigiDetox - Jak získat kontrolu
@@ -39,7 +38,7 @@ times = [
                 '42ecf6ed', # development 45 76x Dominik Tilp / Na frameworku (ani jazyku) nezáleží 
                     ),
             'partners': (
-                'b9603559', # partner/development 45 21x Přemysl Krajčovič / Jak jsme začali házet naše appky do kontejneru 
+                '41a7d057', # partner/inovations 45 21x Artur Kane / How Insider Threats Challenge Digital Economy, Real Life Attacks explained! 
                     ),
             'workshop1': '',
             'workshop2': '',
