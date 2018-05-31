@@ -26,17 +26,17 @@ KEYS = {
 }
 
 ENDPOINT = {
-    'break': 'https://eventee.co/api/public/break',
-    'room': 'https://eventee.co/api/public/hall',
-    'talk': 'https://eventee.co/api/public/lecture',
-    'speaker': 'https://eventee.co/api/public/user/register/speaker',
+    'break': 'https://eventee.co/public/api/v1/pause',
+    'room': 'https://eventee.co/public/api/v1/hall',
+    'talk': 'https://eventee.co/public/api/v1/lecture',
+    'speaker': 'https://eventee.co/public/api/v1/speaker',
 }
 
 @app.route('/service/aplikace')
 @auth_required
 @is_admin
 def fill_eventee_app():
-    headers = app.eventee
+    headers = {'Authorization': 'Bearer {}'.format(app.eventee['token'])}
     redis_key = KEYS['eventee']
     ids = {
         'breaks': [],
@@ -45,46 +45,47 @@ def fill_eventee_app():
         'speakers': [],
     }
 
-    data = requests.get('https://eventee.co/api/public/all?date=2017-06-03', headers=headers)
+    data = requests.get('https://eventee.co/public/api/v1/content?date=2018-06-02', headers=headers)
+    a = data.json()
     data = data.json()
 
-    for hall in data['halls'].values():
-        ids['rooms'].append(hall['id'])
-        if type(hall['lectures']) is dict:
-            for lecture in hall['lectures'].values():
-                ids['talks'].append(lecture['id'])
 
-    for b in data['breaks'].values():
+    for hall in data['halls']:
+        ids['rooms'].append(hall['id'])
+
+    for lecture in data['lectures']:
+        ids['talks'].append(lecture['id'])
+
+    for b in data['pauses']:
         ids['breaks'].append(b['id'])
 
-    for lecturer in data['lecturers'].values():
-        ids['speakers'].append(lecturer['id'])
+    for lecturer in data['speakers']:
+            ids['speakers'].append(lecturer['id'])
 
     # sync rooms
     rooms = (
-        ('d105', u'Prygl'),
-        ('e112', u'Špilas'),
-        ('d0206', u'Rola'),
-        ('d0207', u'Šalina'),
-        ('e104', u'Škopek'),
-        ('e105', u'Čára'),
-        ('a112', u'workshopy'),
-        ('a113', u'workshopy'),
-        ('c228', u'workshopy'),
+        ('scala', u'Kino Scala'),
+        ('baroko', u'Barokní sál'),
+        ('it', u'Technický sál'),
+        ('partners', u'Vznešený sál'),
+        ('workshop1', u'workshopy'),
+        ('workshop2', u'workshopy'),
     )
 
     for room, desc in rooms:
         room_key = 'room_%s' % room
         resource_id = app.redis.hget(redis_key, room_key)
         endpoint = ENDPOINT['room']
+        http_method = requests.post
         if resource_id:
             ids['rooms'].remove(int(resource_id))
             endpoint = '{}/{}'.format(endpoint, resource_id)
+            http_method = requests.patch
         data = {
-            'name': u'{} {}'.format(room.upper(), desc)
+            'name': desc
         }
         print(data['name'])
-        response = requests.post(
+        response = http_method(
             endpoint,
             json=data,
             headers=headers
@@ -101,19 +102,22 @@ def fill_eventee_app():
         if type(t['data']) is not dict:
             break_key = 'break_{}_{}'.format(t['date'], t['block_from'])
             endpoint = ENDPOINT['break']
+            http_method = requests.post
             resource_id = app.redis.hget(redis_key, break_key)
 
             if resource_id:
-                ids['breaks'].remove(int(resource_id))
+                if int(resource_id) in ids['breaks']:
+                    ids['breaks'].remove(int(resource_id))
                 endpoint = "{}/{}".format(endpoint, resource_id)
+                http_method = requests.patch
             data = {
                 'name': re.sub('<[^<]+?>', '', t['data']),
-                'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
-                'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+                'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from'].replace(hour=t['block_from'].hour-2)),
+                'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to'].replace(hour=t['block_to'].hour-2)),
             }
 
             print(data['name'])
-            response = requests.post(
+            response = http_method(
                 endpoint,
                 json=data,
                 headers=headers
@@ -127,8 +131,8 @@ def fill_eventee_app():
 
 
     # sync talks & speakers
-    talk_rooms = ('d105', 'd0206', 'd0207', 'e112', 'e104', 'e105')
-    workshop_rooms = ('a112', 'a113', 'c228')
+    talk_rooms = ('scala', 'baroko', 'it', 'partners')
+    workshop_rooms = ('workshop1', 'workshop2')
     talks = get_talks_dict()
     workshops = get_workshops_dict()
     _shit_re = re.compile(r'[^\w .-/?!,()*\n\r]+', re.UNICODE)
@@ -163,6 +167,7 @@ def fill_eventee_app():
                     data = {
                         'name': "Barcamp Brno",
                         'bio': '',
+                        'phone': '',
                     }
                     response = requests.post(
                         endpoint,
@@ -172,29 +177,30 @@ def fill_eventee_app():
                     status = response.json()
                     resource_id = int(status['id'])
                     app.redis.hset(redis_key, speaker_key, resource_id)
-                speaker_ids.append(resource_id)
+                speaker_ids.append(int(resource_id))
 
                 #lightning talk
                 talk_key = "talk_lightning_{}".format(hashes['category'])
                 endpoint = ENDPOINT['talk']
+                http_method = requests.post
                 resource_id = app.redis.hget(redis_key, talk_key)
 
                 if resource_id:
                     ids['talks'].remove(int(resource_id))
                     endpoint = "{}/{}".format(endpoint, resource_id)
+                    http_method = requests.patch
 
                 data = {
                     'name': u"Lightning talky ({})".format(translate_category(hashes['category'])),
                     'description': "",
-                    'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
-                    'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
-                    'speakers': speaker_ids,
-                    'hallId': room_id,
+                    'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from'].replace(hour=t['block_from'].hour-2)),
+                    'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to'].replace(hour=t['block_to'].hour-2)),
+                    'hall_id': room_id,
                 }
 
                 print(data['name'])
 
-                response = requests.post(
+                response = http_method(
                     endpoint,
                     json=data,
                     headers=headers
@@ -242,6 +248,7 @@ def fill_eventee_app():
                         data = {
                             'name': clear(speaker['name']),
                             'bio': '',
+                            'phone': '',
                         }
                         response = requests.post(
                             endpoint,
@@ -251,39 +258,41 @@ def fill_eventee_app():
                         status = response.json()
                         resource_id = int(status['id'])
                         app.redis.hset(redis_key, speaker_key, resource_id)
-                    speaker_ids.append(resource_id)
+                    speaker_ids.append(int(resource_id))
 
                 #talk
                 talk_key = "talk_{}".format(lecture[hash_key])
                 endpoint = ENDPOINT['talk']
+                http_method = requests.post
                 resource_id = app.redis.hget(redis_key, talk_key)
 
                 if resource_id and int(resource_id) in ids['talks']:
                     ids['talks'].remove(int(resource_id))
                     endpoint = "{}/{}".format(endpoint, resource_id)
+                    http_method = requests.patch
 
                 data = {
                     'name': clear(lecture['title']),
                     'description': clear(lecture['description']),
-                    'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from']),
-                    'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to']),
+                    'start': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_from'].replace(hour=t['block_from'].hour-2)),
+                    'end': '{} {}'.format(t['date'].strftime('%Y-%m-%d'), t['block_to'].replace(hour=t['block_to'].hour-2)),
                     'speakers': speaker_ids,
-                    'hallId': room_id,
+                    'hall_id': room_id,
                 }
 
                 print(data['name'])
 
                 if room in workshop_rooms:
                     minutes = 45 if lecture['minutes'] <= 60 else 105
-                    end = datetime.combine(t['date'], t['block_from']) + timedelta(minutes=minutes)
+                    end = datetime.combine(t['date'], t['block_from'].replace(hour=t['block_from'].hour-2)) + timedelta(minutes=minutes)
                     data['end'] = str(end)
 
                 if len(hashes) > 1 and i == 0:
-                    data['end'] = str(datetime.combine(t['date'], t['block_to']) - timedelta(minutes=22))
+                    data['end'] = str(datetime.combine(t['date'], t['block_to'].replace(hour=t['block_to'].hour-2)) - timedelta(minutes=22))
                 if len(hashes) > 1 and i == 1:
-                    data['start'] = str(datetime.combine(t['date'], t['block_from']) + timedelta(minutes=22))
+                    data['start'] = str(datetime.combine(t['date'], t['block_to'].replace(hour=t['block_to'].hour-2)) + timedelta(minutes=22))
 
-                response = requests.post(
+                response = http_method(
                     endpoint,
                     json=data,
                     headers=headers
@@ -319,12 +328,10 @@ def room_program():
     talk_hashed = get_talks_dict()
 
     rooms = (
-        ('d105', u'Prygl'),
-        ('e112', u'Špilas'),
-        ('d0206', u'Rola'),
-        ('d0207', u'Šalina'),
-        ('e104', u'Škopek'),
-        ('e105', u'Čára'),
+        ('scala', u'Kino Scala'),
+        ('baroko', u'Barokní sál'),
+        ('it', u'Technický sál'),
+        ('partners', u'Vznešený sál'),
     )
 
     for room, room_name in rooms:

@@ -114,7 +114,8 @@ times = [
                     ),
             'workshop1':
                 '8c8e6d25', # 90minut Darja Jochimová Jak tvořit poutavý obsah na sociální sítě v roce 2018?
-            'workshop2': '',
+            'workshop2':
+                '18b9d148', # 90minut Bara Radova Smrdis ...
         }},
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
             'scala': (  
