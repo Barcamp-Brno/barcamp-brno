@@ -101,10 +101,10 @@ times = [
         }},
         {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': den_d, 'data': {
             'scala': (
-                'a12c36f6', # design 45 133x Jan Řezáč / Web jako továrna na zákazníka 
+                '0302ef5c', # design 45 92x Marek Čevelíček / Tohle dej na web! 
                     ),
             'baroko': (
-                '0302ef5c', # design 45 92x Marek Čevelíček / Tohle dej na web! 
+                '0b0d9fe5', #  45  z hovna bic 
                     ),
             'it': (
                 '82697f62', # development 45 55x Michal Vyšinský / Sdílení UI komponent napříč aplikacemi 

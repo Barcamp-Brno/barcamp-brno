@@ -1,76 +1,58 @@
 Milá návštěvnice, milý návštěvníku,
 
-jsme velice rádi, že ses rozhodl zúčastnit letošního Barcamp Brno, který se koná již zítra __4.6.2016__. Protože je to už za dveřmi, rádi bychom tě informovali o důležitých věcech. Program letošního ročníku je značně komplexní, takže se podívej na náš web a tam všechno potřebné zjistíš. Kdyby něco, odkaz je <http://www.barcampbrno.cz/2016/>
-
-Jako každý rok, budeme i letos začínat náš den registrací. Nově jsme se ji ale rozhodli zjednodušit. Jen si vezmeš visačku, napíšeš na ni své jméno a jdeš dovnitř. Visačky jsou rozlišené pro řečníky, organizátory a účastníky. Tak se snad lépe rozlišíme v průběhu akce. Jde nám o to zrychlit a zefektivnit registraci, proto prosím svůj příchod naplánuj mezi __8:30__ a __9:00__ a stihneš i zahájení v hlavní přednáškové hale.
+jsi připraven/a na zítra? Barcamp Brno 2018 je po roce opět tady a čeká na vás další super den plný zážitků. Letošní ročník oficiálně zahájíme zítra - v sobotu 2. 6. v 9.00 v Kině Scala na Moravském náměstí 3 v Brně. Brány pro registrované účastníky otevřeme v 8.30 a budou přístupné po celý den. 
 
 Program přednášek a workshopů
 =============================
-Letos jsme pro tvou pohodlnost připravili ve spolupráci s Touch Art aplikaci pro iOS a Android platformu, takže můžete mít přehled o tom co se na Barcampu děje přímo v telefonu.
 
- - iOS: <http://bit.ly/ios-barcamp-brno>
- - Android: <http://bit.ly/play-barcamp-brno>
+Letošní Barcamp Brno se navrací ke svým kořenům a můžete se opět těšit u přednášek na vaše oblíbené 45minutové bloky včetně následné diskuze. Tematicky jsme 26 přednášek v programu rozdělili do 4 samostatných sálů (mapka zde), kdy jeden bude v Univerzitním kině Scala a tři (Barokní sál, Technický sál, Vznešený sál) v Moravské Galerii – Místodržitelském paláci.
 
-Volba přednášek probíhala na internetu ve formě hlasování. Workshopy jsme pak vybírali přímo my, ale samozřejmě s citem, láskou a ohledem na vás.
+► ► [Chcu vidět program přednášek](http://www.barcampbrno.cz/2018/program.html)
 
-Na workshopy není možné se přihlásit předem, ale pouze přímo na místě. Pokud máš zájem se workshopu zůčastnit podívej se na detailní informace. Registrace pak probíhají nejvíce retro jak to šlo. Tedy ráno až přijdeš, zajdeš se napsat na nástěnku, která bude viset u místnosti s tvým vybraným workshopem.
+Tento rok se můžete těšit na 8 workshopů, které budou probíhat ve dvou vyhrazených místnostech v Moravské Galerie v Místodržitelském paláci. Každý, kdo má zájem se zúčastnit, se může po příchodu zapsat na účastnický list (papírový). Ten bude viset na dveřích místnosti, kde se budou konat workshopy. Vaše místo bude rezervováno pouze do doby 5 minut před jeho začátkem, takže přijďte včas.
 
-Pro ostatní, kteří mají co říct, ať už formálně nebo neformálně jsme připravili pravý barcampový koutek, nazvali jsme ho Hyde Park, podívej se jak bude fungovat a pokud chceš využij ho a nebo se přijď podívat.
+► ► [Chcu vidět program workshopů](http://www.barcampbrno.cz/2018/workshopy.html)
 
- - <http://www.barcampbrno.cz/2016/prednasky.html>
- - <http://www.barcampbrno.cz/2016/workshopy.html>
- - <http://www.barcampbrno.cz/2016/stranka/hyde-park.html>
+I tento rok jsme připravili aplikaci pro iOS a Android platformu, takže můžete mít přehled o tom, co se na Barcampu děje, přímo v telefonu. 
 
-Pokud nemáš možnost a nebo nechceš instalovat naši aplikaci, můžeš přehledně sledovat dění na stránce uzpůsobené tomuto použití pro mobily.
+ - [iOS](https://itunes.apple.com/us/app/eventee-co/id1284946481?ls=1&mt=8)
+ - [Android](https://play.google.com/store/apps/details?id=com.touchart.eventee)
 
-- <http://www.barcampbrno.cz/2016/aktualne.html>
+Počítejte však s tím, že letošní prostory jsou specifické hlavně v dostupnosti WiFi (vůbec s ní nepočítejte) a GSM signálu (nějaký chytnete venku a v Místodržitelském paláci).
 
-Doprovodný program
-======================
-Během akce bude probíhat doprovodný program partnerů. Můžeš prohnat 3D tištěné autíčko, zahřát se pálivým ciderem nebo čajem, zahrát si pár kvízů, podívat se do IT muzea. A pokud jsi velký agro hipster, můžeš podojit i krávu, samo sebou jen na simulátoru. Pro milovníky vážné hudby jsme zařadili i koncert. Je opravdu na co se těšit.
+Doprovodný program a Král Barcamp Brno
+======================================
 
-- <http://www.barcampbrno.cz/2016/doprovodny-program.html>
+Během akce bude probíhat doprovodný program partnerů, kteří si na svých stáncích připraví nejrůznější zapeklité úkoly, soutěže a aktivity. Můžete si zahrát Super Maria, závodit na autodráze nebo třeba omrknout, jak tiskne 3D tiskárna. A pokud se vám bude dařit, tak se můžete stát jedním z 20 Králů Barcampu, kteří od nás získají parádní odměnu.
+
+► ► [Chcu vidět doprovodný program](http://www.barcampbrno.cz/2018/doprovodny-program.html)  
+► ► [Chcu se stát Králem Barcampu](http://www.barcampbrno.cz/2018/stranka/kral-barcampu.html)
 
 Občerstvení
 ===========
-Letos jsme přepracovali koncept občerstvení, takže kromě nabídky obědů z My Foodu budou k dispozici různé sladké dobroty, burgery a hotdogy, pečené selátko od Y Softu nebo Kodo Sushi. Přidali jsme i kávu, letos tak bude na výber Kofi Kofi a Rebelbean.
 
-- <http://www.barcampbrno.cz/2016/stranka/catering.html>
+Nebojte se, že byste byli o hladu a žízni! Kromě vody a drobného občerstvení v podobě ovoce a sladkého coffee breaku od Nikoly Henkel vám nachystají výbornou kávu u Rebelbean. K dostání bude i sušené ovoce a čokoláda od Bwindi, kde navíc nákupem přispějete na studium Josepha Ainembabaziho. Během celé doby je možné využít nabídky baru v Kině Scala i v Café Morgal a své chuťové buňky můžete potěšit také chlebíčky, které nám letos věnovali v Dixons Carphone CoE. A jako hořká tečka na závěr – brněnský minipivovar Lucky Bastard pro nás uvařil pivo, kterým se budete moci osvěžit po celý den.
 
-Soutěž 
-=======
-Máš-li dobrodružného ducha a nebojíš se výzev, neváhej a zapoj se. Po splnění úkolů můžeš vyhrát limitované tričko Barcampu a několik dalších cen. Počet balíčků pro výherce je 30 a určitě stojí za to to zkusit.
-
-- <http://www.barcampbrno.cz/2016/stranka/kral-barcampu.html>
-
-Afterparty
+Afterpárty
 ==========
-Po celém dni přijde vhod se jít neformálně pobavit s ostatními barcampery na afterpárty. Ta se bude konat v Místodržitelském Paláci Moravské Galerie v Brně ve spolupráci s kavárnou [MorGal](http://www.morgal.cz/barcamp-afterparty). Palác MG se nachází na Moravském Náměstí v bezprostřední blízkosti přestupního uzlu MHD Česká. Začátek je v 19:00 a konec…bohužel jsme v Brně, takže poslední objednávky jsou o půlnoci a všechny popelky musí být v jednu hodinu ráno už pryč.
 
-Velkým plusem, jsou prostory. Letos jsou mnohem větší, takže se nebudeme muset mačkat jako v minulých letech.
-
-Podrobný program najdeš na:
-- <http://www.barcampbrno.cz/2016/stranka/after-social-event.html>
+K Barcampu Brno patří i skvělá afterpárty. A abychom to neměli po akci daleko, tak se i letos potkáme od 19.00 v Café Morgal v Místodržitelském paláci. Těšit se můžete na diskuze s vybranými speakry, fajn raut a také na bohatý networking. Na místě bude k dostání samozřejmě i náš pivní speciál Lucky Barcamp. Program obohatí tanečníci ze Swing Wings, kapela The DOKK a Hoops Brno.
 
 Partneři
 ========
-Naše díky patří partnerům, kteří pro nás připravili většinu doprovodného programu a umožnili, aby se Barcamp Brno vůbec konal. Podívej se, kdo za to může.
+Naše díky patří partnerům, kteří pro vás připravili doprovodný program a umožnili, aby se letošní ročník Barcamp Brno konal. 
 
- - <http://www.barcampbrno.cz/2016/partneri.html>
- - <http://www.barcampbrno.cz/2016/pracovni-nabidky.html>
-
-Trička
-======
-Letos jsou trička jen pro výherce soutěží a pro ty co si je objednali předem. Pokud máš tričko objednané a zaplacené dostaneš jej u dobrovolnic na recepci, tak se pro něj nezapomeň zastavit.
-
-Lucky Barcamp
-=============
-A jako _hořká_ tečka nakonec nutno dodat, že ... počkej si ... Lucky Bastard pro nás uvařil speciální pivo. Nutno podotknout, že ne ledajaké, ALE letní 11 stupňový Red ALE. Nazvali jsme ho __Lucky Barcamp Brno__. Budeme ho čepovat na nádvoří i na after párty.
+► ► [Chcu vidět, kdo pomohl zrealizovat Barcamp Brno 2018](http://www.barcampbrno.cz/2018/partneri.html)
 
 
+*Těšíme se na vás*  
+ **Tým Barcamp Brno**
 
-Kdyby Tě cokoli napadlo, dej nám vědět a rádi Ti odpovíme
+___
+Chcete být neustále v centru dění? Sledujte nás na Facebooku, Twitteru a Instagramu, ať vám nic neunikne.
 
-Petr Joachim _za celý tým Barcamp Brno_
+- <https://twitter.com/bcbrno>
+- <https://www.facebook.com/barcamp-brno>
+- <https://www.instagram.com/barcampbrno/>
 
-<http://www.barcampbrno.cz/2016/stranka/kontakty.html>
+*Pokud uz nechceš dostávat maily k akci a řekni nám, že už [nechceš přijít](http://www.barcampbrno.cz/nechci-prijit/)*

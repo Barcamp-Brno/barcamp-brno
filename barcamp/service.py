@@ -522,7 +522,7 @@ def poslani_newsletteru():
 
             send_bulk_mail(
                 conn,
-                u'Barcamp Brno 2017 již tuto sobotu',
+                u'Už zítra… | Barcamp Brno 2018',
                 mail,
                 'data/newsletter-before.md')
 
@@ -535,9 +535,9 @@ def poslani_newsletteru():
 @is_admin
 def test_newsletteru():
     send_mail(
-        u'Hodně budem někde - Barcamp Brno 2017',
+        u'Už zítra… | Barcamp Brno 2018',
         'petr@joachim.cz',
-        'data/newsletter-reminder.md')
+        'data/newsletter-before.md')
 
     return 'done'
 
