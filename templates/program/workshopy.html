@@ -6,7 +6,7 @@
         {% if workshop.minutes > 60 %}rowspan="2"{% endif %}>
         <p>
             <strong>{{workshop.user.name}}</strong><br />
-            ({{workshop.minutes}} minut)<br />
+            {{workshop.minutes}} minut &mdash; {{workshop.max_count}} míst<br />
             <small><a href="{{url_for('workshop_detail', workshop_hash=hash)}}">{{workshop.title}}</a></small>
         </p>
     </td>
