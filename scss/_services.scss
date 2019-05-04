@@ -1,0 +1,19 @@
+// Styling for the services section
+.service-heading {
+  margin: 15px 0;
+  text-transform: none;
+}
+
+.service-circle {
+	display: inline-block;
+	background-color: $primary;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px; 
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 900;
+    line-height: 160px;
+    font-size: 4em;
+}

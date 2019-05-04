@@ -19,7 +19,7 @@ PUBLISH_ADD_FILES = (
     'static',
 )
 
-YEAR = "2017"
+YEAR = "2018"
 
 class Publisher(object):
     def __init__(self, app):

@@ -1,9 +1,9 @@
 # coding: utf-8
 
-from barcamp import app
+from .barcamp import app
 from flask import flash, url_for, redirect, json
-from login_misc import check_auth, auth_required, create_update_profile
-from vote import remove_user_votes
+from .login_misc import check_auth, auth_required, create_update_profile
+from .vote import remove_user_votes
 from time import time
 
 KEYS = {

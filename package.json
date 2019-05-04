@@ -1,10 +1,10 @@
 {
   "name": "barcamp-brno",
-  "version": "0.1.0",
-  "description": "Barcamp Brno ============ Webová aplikace řešící organizování Barcamp Brno 2013",
+  "version": "2019.1.0",
+  "description": "Barcamp Brno ============ Webová aplikace řešící organizování Barcamp Brno 2019",
   "main": "index.js",
   "scripts": {
-    "postinstall": "grunt"
+    "postinstall": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,23 @@
   },
   "homepage": "https://github.com/Barcamp-Brno/barcamp-brno#readme",
   "dependencies": {
-    "grunt-cli": "0.1.13",
-    "grunt": "^0.4.5",
-    "grunt-contrib-less": "^1.2.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "jit-grunt": "^0.10.0"
+      "@fortawesome/fontawesome-free": "5.8.1",
+      "bootstrap": "4.3.1",
+      "jquery": "3.3.1",
+      "jquery.easing": "^1.4.1",
+      "popper.js": "1.15.0"
+  },
+  "devDependencies": {
+      "browser-sync": "2.26.3",
+      "del": "4.0.0",
+      "gulp": "4.0.0",
+      "gulp-autoprefixer": "6.0.0",
+      "gulp-clean-css": "4.0.0",
+      "gulp-header": "2.0.7",
+      "gulp-plumber": "^1.2.1",
+      "gulp-rename": "1.4.0",
+      "gulp-sass": "4.0.2",
+      "gulp-uglify": "3.0.2",
+      "merge-stream": "^1.0.1"
   }
 }

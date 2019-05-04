@@ -1,6 +1,6 @@
 {
   "name": "barcamp-brno",
-  "version": "0.1.0",
+  "version": "2019.1.0",
   "homepage": "https://github.com/Barcamp-Brno/barcamp-brno",
   "authors": [
     "Petr Joachim <petr@joachim.cz>"
@@ -14,9 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.6",
-    "jquery": "^2.2.1",
-    "font-awesome": "^4.7.0",
-    "AdminLTE": "admin-lte#^2.3.11"
+    "AdminLTE": "admin-lte#~2.4"
   }
 }

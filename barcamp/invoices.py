@@ -2,14 +2,14 @@
 
 import json
 from datetime import datetime
-from barcamp import app
+from .barcamp import app
 from flask import render_template, url_for, redirect, request, flash
-from login_misc import check_auth, auth_required, is_admin
+from .login_misc import check_auth, auth_required, is_admin
 from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError
-from utils import mail
-from entrant import user_user_go
+from .utils import mail
+from .entrant import user_user_go
 from collections import defaultdict
 
 INVOICE_NUMBER_START = 102016000;

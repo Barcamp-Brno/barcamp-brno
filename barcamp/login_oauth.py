@@ -1,12 +1,12 @@
 # coding: utf-8
 
-from flask_oauth import OAuth
+# from flask_oauth import OAuth
 from flask import session, url_for, request, flash, redirect
-from login_misc import resolve_user_by_email, create_account
-from login_misc import resolve_user_by_twitter
-from barcamp import app
+from .login_misc import resolve_user_by_email, create_account
+from .login_misc import resolve_user_by_twitter
+from .barcamp import app
 
-
+"""
 @app.route('/login/twitter/')
 def login_twitter():
     session['twitter_token'] = None
@@ -128,3 +128,4 @@ def login_facebook_authorized(resp):
 @facebook.tokengetter
 def get_facebook_token(token=None):
     return session.get('facebook_token')
+"""

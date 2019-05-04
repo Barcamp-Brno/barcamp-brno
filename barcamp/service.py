@@ -1,16 +1,16 @@
 # coding: utf-8
 
-from barcamp import app
+from .barcamp import app
 from flask import abort, redirect, url_for, flash, render_template, Response
-from login_misc import check_auth, auth_required, is_admin
-from utils import send_mail, send_bulk_mail, mail_bulk_connection
-from talks import get_talks_dict, get_talks, get_talks_by_type, CATEGORIES, translate_category
-from workshops import get_workshops_dict
-from entrant import user_user_go
+from .login_misc import check_auth, auth_required, is_admin
+from .utils import send_mail, send_bulk_mail, mail_bulk_connection
+from .talks import get_talks_dict, get_talks, get_talks_by_type, CATEGORIES, translate_category
+from .workshops import get_workshops_dict
+from .entrant import user_user_go
 from collections import defaultdict
-from entrant import get_entrants
+from .entrant import get_entrants
 from datetime import time, date, datetime, timedelta
-from program import times
+from .program import times
 from copy import copy
 from pprint import pprint
 import requests
@@ -242,7 +242,7 @@ def fill_eventee_app():
                 for speaker in speakers:
                     speaker_key = 'speaker_{}'.format(speaker['user_hash'])
                     resource_id = app.redis.hget(redis_key, speaker_key)
-                    print speaker['name']
+                    print(speaker['name'])
                     if not resource_id:
                         endpoint = ENDPOINT['speaker']
                         data = {
@@ -517,14 +517,14 @@ def poslani_newsletteru():
     with mail_bulk_connection() as conn:
         for mail in app.redis.smembers('newsletter'):
             i += 1
-            print mail
+            print(mail)
             app.redis.srem('newsletter', mail)
 
             send_bulk_mail(
                 conn,
-                u'Už zítra… | Barcamp Brno 2018',
+                u'Jaké to letos bylo? | Barcamp Brno 2018',
                 mail,
-                'data/newsletter-before.md')
+                'data/newsletter-after.md')
 
 
     return 'newsletter done {} emails'.format(i)
@@ -535,9 +535,9 @@ def poslani_newsletteru():
 @is_admin
 def test_newsletteru():
     send_mail(
-        u'Už zítra… | Barcamp Brno 2018',
-        'petr@joachim.cz',
-        'data/newsletter-before.md')
+        u'Jaké to letos bylo? | Barcamp Brno 2018',
+        'martinka.ryskova@gmail.com',#'petr@joachim.cz',
+        'data/newsletter-after.md')
 
     return 'done'
 
@@ -565,7 +565,7 @@ def prepocet_hlasu():
     talk_tuples = app.redis.zrevrange(KEYS['talks'], 0, -1, withscores=True)
     for talk, score in talk_tuples:
         if 0 is not int(score - data.get(talk, 0)):
-            print "update talk %s from %d to %d votes" % (talk, score, data.get(talk, 0))
+            print("update talk %s from %d to %d votes" % (talk, score, data.get(talk, 0)))
             app.redis.zadd(KEYS['talks'], talk, data.get(talk, 0))
 
     return "omg"

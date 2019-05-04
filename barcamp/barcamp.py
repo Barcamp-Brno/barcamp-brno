@@ -38,19 +38,19 @@ def create_app(config):
         'email': config['EVENTEE_EMAIL'],
     }
 
-    import views
-    import login
-    import login_oauth
-    import talks
-    import program
-    import entrant
-    import vote
-    import filters
-    import service
-    import workshops
-    import invoices
+    from . import views
+    from . import login
+    from . import login_oauth
+    from . import talks
+    from . import program
+    from . import entrant
+    from . import vote
+    from . import filters
+    from . import service
+    from . import workshops
+    from . import invoices
 
-    from admin import admin
+    from .admin import admin
 
     app.register_blueprint(admin, url_prefix='/admin')
     return app

@@ -1,14 +1,14 @@
 # coding: utf-8
 from flask import render_template, Markup, abort
 from flask import request
-from login_misc import check_auth
+from .login_misc import check_auth
 import markdown
-from barcamp import app
+from .barcamp import app
 from datetime import datetime
-from flask.ext.mail import Mail, Message
+# from flask.ext.mail import Mail, Message
 from copy import copy
 
-from models.pages import Pages
+from .models.pages import Pages
 
 def send_feedback_mail(subject, template, data, user, url):
     mail = Mail(app)

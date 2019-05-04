@@ -1,14 +1,14 @@
 # coding: utf-8
-from barcamp import app
+from .barcamp import app
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
-from login_misc import check_auth, auth_required, get_account, is_admin
-from entrant import user_user_go
+from .login_misc import check_auth, auth_required, get_account, is_admin
+from .entrant import user_user_go
 from flask_wtf import Form
 from wtforms import TextField, TextAreaField, IntegerField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
-from utils import markdown_markup, send_feedback_mail
+from .utils import markdown_markup, send_feedback_mail
 
 KEYS = {
     'workshop': 'workshop_%s_%%s' % app.config['YEAR'],

@@ -1,11 +1,11 @@
 import re
 
 from jinja2 import evalcontextfilter, Markup
-from barcamp import app
-from utils import stage_is_active, stage_in_past, sponsors_data, stage_in_future
-from workshops import translate_status
-from talks import translate_category
-from login_misc import check_auth, check_admin
+from .barcamp import app
+from .utils import stage_is_active, stage_in_past, sponsors_data, stage_in_future
+from .workshops import translate_status
+from .talks import translate_category
+from .login_misc import check_auth, check_admin
 import markdown
 
 

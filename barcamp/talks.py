@@ -8,11 +8,11 @@ from flask import url_for, abort
 from wtforms import TextField, TextAreaField, BooleanField, RadioField
 from wtforms.validators import DataRequired, URL, Optional
 
-from barcamp import app
-from login_misc import check_auth, auth_required, get_account
-from entrant import user_user_go
-from utils import markdown_markup, send_feedback_mail
-from vote import get_user_votes
+from .barcamp import app
+from .login_misc import check_auth, auth_required, get_account
+from .entrant import user_user_go
+from .utils import markdown_markup, send_feedback_mail
+from .vote import get_user_votes
 
 
 KEYS = {

@@ -1,14 +1,10 @@
-blinker
 Flask
 gunicorn
 heroku
 Jinja2
 Markdown
 MarkupSafe
-oauth2
 python-dateutil
 redis
 requests
-Flask-Mail
-Flask-OAuth
 Flask-WTF

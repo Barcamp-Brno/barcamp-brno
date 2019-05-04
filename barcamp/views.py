@@ -1,19 +1,19 @@
 # coding: utf-8
 
-from barcamp import app
-from flask import render_template, abort, send_from_directory
-from login_misc import check_auth, get_account
-from talks import get_talks, get_talks_dict, get_talks_by_type
-from workshops import get_workshops, get_workshops_dict
-from utils import markdown_static_page, markdown_markup, stage_is_active
-from entrant import get_count, get_entrants
-from vote import get_user_votes
-from program import times
-from models.tiles import Tiles
-from models.sponsors import Sponsors
+from .barcamp import app
+from flask import render_template, abort, send_from_directory, redirect
+from .login_misc import check_auth, get_account
+from .talks import get_talks, get_talks_dict, get_talks_by_type
+from .workshops import get_workshops, get_workshops_dict
+from .utils import markdown_static_page, markdown_markup, stage_is_active
+from .entrant import get_count, get_entrants
+from .vote import get_user_votes
+from .program import times
+from .models.tiles import Tiles
+from .models.sponsors import Sponsors
 import os
 
-@app.route("/", redirect_to="/%s/index.html" % app.config['YEAR'])
+@app.route("/", redirect_to="/%s/index.html" % app.config['LANDING_YEAR'])
 @app.route("/%s/" % app.config['YEAR'], redirect_to="/%s/index.html" % app.config['YEAR'])
 @app.route("/%s/index.html" % app.config['YEAR'])
 def index():
@@ -78,7 +78,7 @@ def co_program():
     sponsors = Sponsors(app.redis, app.config['YEAR'])
 
     return render_template(
-        "doprovodny-program.html", 
+        "doprovodny-program.html",
         sponsors=sponsors.get_all_by_type(min_weight=-100),
     )
 
@@ -150,10 +150,7 @@ def static_page(page):
 def archive_proxy(year, path):
     year = str(year)
     # send_static_file will guess the correct MIME type
-    return send_from_directory(
-        os.path.abspath('archive'),
-        os.path.join(year, path)
-    )
+    return redirect(f'https://archiv.barcampbrno.cz/{year}/{path}')
 
 
 for year in app.config['YEAR_ARCHIVE']:
@@ -162,4 +159,3 @@ for year in app.config['YEAR_ARCHIVE']:
         defaults={'year': year},
         view_func=archive_proxy
     )
-

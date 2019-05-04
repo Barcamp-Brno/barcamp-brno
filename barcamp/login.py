@@ -2,16 +2,16 @@
 
 from flask import render_template, session, redirect, flash
 from flask import url_for, request, abort
-from barcamp import app
+from .barcamp import app
 from hashlib import md5
 from flask_wtf import Form
 from wtforms import TextField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo
 import base64
-from login_misc import auth_required, resolve_user_by_email, login_redirect
-from login_misc import check_auth, create_account, register_twitter, gdpr_consent_required
-from login_misc import update_password, create_update_profile
-from utils import send_mail
+from .login_misc import auth_required, resolve_user_by_email, login_redirect
+from .login_misc import check_auth, create_account, register_twitter, gdpr_consent_required
+from .login_misc import update_password, create_update_profile
+from .utils import send_mail
 from datetime import datetime
 
 KEYS = {

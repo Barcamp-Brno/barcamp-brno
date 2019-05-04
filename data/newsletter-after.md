@@ -1,34 +1,49 @@
 Milá návštěvnice, milý návštěvníku,
 
-píšeme Ti, protože před nějakou dobou proběhl Barcamp Brno 2016. Konkrétně to bylo v sobotu, 4. června. A že to byla nějaká akce. Letos jsme to například dotáhli až do přímého vstupu v rámci pořadu Online na ČT24. Jako obvykle jsme se vynasnažili pro účastníky připravit co možná nejlepší atmosféru, což se nám podle ohlasů povedlo.
+ozýváme se po měsíci od letošního **Barcamp Brno 2018**, který proběhl 2. 6. v prostorech Univerzitního kina Scala a Moravské Galerie – Místodržitelského paláce, abychom zjistili, jak jste si akci užili a zároveň celý den krátce shrnuli. 
 
-Letos jsme snědli jedno celé prsátko, 300 makronek, 100 hamburgerů, 50 hot-dogů, 100 porci lasagní, cca 70 porcí kuřecího soté. K tomu navíc bezpočet palačinek a sushi. To celé jsme zapili více než 100 litry ovocných džusů, množstvím cideru, čaje, kávou a navíc limitovaným Lucky Barcamp pivem.
+## Co přinesl tento rok?
 
-Z téměř všech přednášek byl pořízený videozáznam, videa jsou dostupná na stránkách [superlectures](http://www.superlectures.com/barcampbrno2016/). Fotografie z celého dne jsou na našem [flickru](https://www.flickr.com/photos/97646969@N07/sets/72157669419251582). Dále sledujte sociální média [facebook Barcamp Brno](https://cs-cz.facebook.com/barcamp.brno) a [twitter @bcbrno](https://twitter.com/bcbrno) pro aktuální informace.
+- Letos pro vás bylo připravených 26 přednášek, 8 workshopů a parádní doprovodný program od našich partnerů. 
+- I tento rok jsme na akci uspořádali finanční sbírku pro podporu studií Josepha z Ugandy. Vybrali jsme přes 10000 Kč a výtěžek jsme již předali organizaci Bwindi Orphans. Děkujeme všem, kteří přispěli. 
+- Celou akci pak zakončila afterparty, která se protáhla až do ranních hodin.
+- Fotografie z celého dne jsou na našem [flickru](https://www.flickr.com/photos/97646969@N07/albums/72157695411231192). 
+- Bohužel pro tento rok nejsou žádné záznamy.
 
-Celá akce byla zakončena afterpárty, která se protáhla až do ranních hodin, nově v prostorách Moravské galerie na náměstí u brněnské žirafy.
+**Věříme, že jste si akci užili stejně jako my! :-)**
 
-Jako každý rok, i letos jsme na Barcampu uspořádali sbírku, jejímž cílem bylo finančně podpořit Josepha z Ugandy a umožnit mu tak studium na střední škole. Vybrali jsme, také díky soutěži o Krále Barcampu, přes 10 000 Kč a v výtěžek jsme již předali organizaci Bwindi Orphans. Děkujeme všem, jenž přispěli. <http://www.barcampbrno.cz/2016/stranka/charita.html>
+Pomozte nám zlepšit příští ročník Barcamp Brno, vyplňte krátký dotazník, který vám nezabere více než pár minut. Děkujeme!
 
-Chtěli bychom poprosit všechny přihlášené účastníky, včetně těch, kteří na Barcamp nepřišli o vyplnění dotazníku. Budeme rádi za jakékoliv podněty, které pomohou vylepšit Barcamp Brno 2016. Dotazník najdete na adrese <https://www.survio.com/survey/d/barcamp-brno-2016>.
+**Chcu pomoct zlepšit příští Barcamp Brno ► ► <https://www.survio.com/survey/d/barcamp-brno-2018>**
 
-Rádi bych jménem organizačního týmu poděkovali všem dobrovolníkům, kteří nám s akcí pomohli, vám všem, kteří jste se akce zúčastnili a v neposlední řadě také všem partnerům, kteří umožnili aby se akce konala.
+Na závěr chceme poděkovat všem partnerům, účastníkům, moderátorům, přednášejícím a dobrovolníkům, díky kterým se letošní ročník mohl zrealizovat. 
 
-Rovněž děkujeme vedení [VUT FIT](http://www.fit.vutbr.cz/) za již tradiční podporu této akce. 
+**Zase za rok na viděnou!**  
+Tým Barcamp Brno
 
-Zvláštní poděkování pak patří paní [doc. RNDr. Jitce Kreslíkové, CSc.](http://www.fit.vutbr.cz/~kreslika/), která se již opakovaně podílí na organizaci Barcamp Brno a stala se tak nepostradatelným členem organizačního týmu.
+- Tomáš Vrabec
+- Petr Joachim
+- Martina Joachim
+- Tomáš Sotoniak 
+- Zdeněk Zicha 
+- Lenka Zichová 
+- Martina Ryšková
 
-Zase za rok na viděnou!
+___________________________
+Partneři Barcamp Brno 2018:
 
-Petr Joachim _za celý tým Barcamp Brno_
+- [Dixons Carphone CoE](http://dixonscarphone.cz/)
+- [Y Soft](http://www.ysoft.cz/)
+- [Thermo Fisher Scientific](http://www.thermofisher.com/FEI)
+- [Sygic](http://sygictravel.com/)
+- [Notino](https://www.notino.cz/pracuj-pro-nas/)
+- [Moravia IT](http://moravia.com/)
+- [Flowmon](http://https//www.flowmon.com/cs/company)
+- [CleverMaps](https://www.clevermaps.cz/)
+- [24i Media](http://www.24i.com/)
 
- - Petr Joachim [@petrjoachim](https://twitter.com/petrjoachim)
- - Tomáš Sotoniak [@sotoniak](https://twitter.com/sotoniak)
- - Zdeněk Zicha [@zdenekzicha](https://twitter.com/zdenekzicha)
+Chcete být neustále v centru dění? Sledujte nás na:
 
-** Hlavní partneři Barcamp Brno **
- 
- - VUT FIT <http://www.fit.vutbr.cz/>
- - Y soft <http://www.ysoft.cz/>
- - IBM Client Innovation Centre Brno <http://www-05.ibm.com/employment/cz/ibm_centre_brno/index.shtml>
- - FEI Company <http://www.fei.com/locations/fei-brno/>
+- twitter [@bcbrbo](https://twitter.com/bcbrno)
+- facebook [barcamp-brno](https://www.facebook.com/barcamp-brno)
+- instagram [@barcampbrno](https://www.instagram.com/barcampbrno/)

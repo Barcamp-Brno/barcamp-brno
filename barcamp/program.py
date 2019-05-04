@@ -1,8 +1,8 @@
 # coding: utf-8
-from barcamp import app
+from .barcamp import app
 from flask import render_template, Markup
-from talks import get_talks_dict
-from workshops import get_workshops_dict
+from .talks import get_talks_dict
+from .workshops import get_workshops_dict
 from datetime import time, date, datetime
 den_d = date(2018, 6, 2)
 

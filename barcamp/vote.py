@@ -1,8 +1,8 @@
 # coding: utf-8
 
-from barcamp import app
+from .barcamp import app
 from flask import flash, url_for, redirect, request, session
-from login_misc import check_auth, auth_required
+from .login_misc import check_auth, auth_required
 
 KEYS = {
     'votes': 'votes_%s_%%s' % app.config['YEAR'],  # set
