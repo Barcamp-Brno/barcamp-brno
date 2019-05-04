@@ -1,0 +1,64 @@
+{%- macro active_li(url, text) %}
+    <li
+        {% if request.path == url %}
+            class="active nav-item"
+        {% else %}
+            class="nav-item"
+        {% endif %}>
+        <a class="nav-link js-scroll-trigger" href="{{url}}">{{text}}</a>
+    </li>
+{% endmacro -%}
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <img alt="Barcamp Brno 2019" src="/static/img/barcamp-square-transparent.png"> Barcamp Brno</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ml-auto">
+        {% if stage(config.YEAR, 'REVIEW-MENU') %}
+            {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
+        {% endif %}
+
+        {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+            {{active_li(url_for('talks_all'), 'Přednášky')}}
+        {% endif %}
+        {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') or after_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+            {{active_li(url_for('workshops_all'), 'Workshopy')}}
+        {% endif %}
+        {{active_li(url_for('static_page', page='informace'), 'Informace')}}
+        {{active_li(url_for('sponsors'), 'Partneři')}}
+
+        {% if stage(config.YEAR, 'END') %}
+            {{active_li(url_for('static_page', page='zhodnoceni'), 'Zhodnocení')}}
+        {% endif %}
+        {% if not user %}
+            {{active_li(url_for('login'), 'Přihlásit se')}}
+        {% else %}
+            <li {% if request.path == url_for('login_settings') or request.path.startswith(url_for('my_invoices'))%}class="active nav-item"{% else %}class="nav-item"{% endif %}><a class="nav-link" href="{{url_for('login_settings')}}">Profil</a></li>
+            {{active_li(url_for('logout'), 'Odhlásit se')}}
+        {% endif %}
+
+        <!-- <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#services">Přednášky</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#portfolio">Workshopy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">Informace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#team">Partneři</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact">Přihlásit</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

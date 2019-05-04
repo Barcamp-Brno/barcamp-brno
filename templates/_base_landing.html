@@ -1,30 +1,7 @@
 {% extends "_base.html"%}
 {% block body %}
-<div id="hp-header">
-	<div class="container">
-		<div class="invitation">
-			<div class="jumbotron">
-				<h1>2. června</h1>
-				<p>Moravské náměstí 680/1a a 127/3, Brno</p>
-				<p><a class="btn btn-danger btn-lg" href="https://mapy.cz/s/2txcz" role="button">Kde je ten flek?</a></p>
-			</div>
-		</div>
-	</div>
-
-</div> <!-- hp-head-->
+{% include "_/header.html" %}
 {% block content %}
 {% endblock %}
-<div class="clearer"></div>
-<div class="container-fluid">
-    <!-- pata -->
-    <div id="footer">
-        <div class="wrapper">
-            <div>
-                &copy; Barcamp Brno {{config.YEAR}}
-                &mdash; <a href="{{url_for('static_page', page='kontakty')}}">Kontakty</a>
-                &mdash; <a href="{{url_for('static_page', page='gdpr')}}">Zpracování osobních údajů</a>
-            </div>
-        </div>
-    </div>
-</div>
+{% include "_/footer.html" %}
 {% endblock %}

@@ -109,7 +109,7 @@ function js() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./static/js'))
     .pipe(browsersync.stream());
 }
 

@@ -3,32 +3,50 @@
 <html lang="cs">
     <head>
         <meta charset="utf-8">
-        <title>Barcamp Brno {{config.YEAR}}{% if self.title() %} | {% endif %}{% block title %}{% endblock %}</title> 
+        <title>Barcamp Brno {{config.YEAR}}{% if self.title() %} | {% endif %}{% block title %}{% endblock %}</title>
         <meta name="author" content="Barcamp Brno {{config.YEAR}}" />
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="{{"/" + config.YEAR if config.ARCHIVE}}/static/favicon.ico" />
 
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <meta name="description" content="Barcamp Brno {{config.YEAR}}" />
         <meta name="keywords" content="Barcamp Brno {{config.YEAR}}" />
 
-        <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/css/main.css?2017-04-02" rel="stylesheet" type="text/css" media="screen" id="main_css" />
+        <!-- Custom styles for this template -->
+        <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/css/agency.min.css" rel="stylesheet">
 
+        <!-- Bootstrap core JavaScript -->
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/vendor/jquery/jquery.min.js"></script>
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/components/jquery/dist/jquery.min.js"></script>
-        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="http://api4.mapy.cz/loader.js"></script>
-        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/components/jquery/dist/jquery.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+        <!-- Contact form JavaScript -->
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/js/jqBootstrapValidation.js"></script>
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/js/contact_me.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/js/agency.min.js"></script>
+
+        <!-- Custom fonts for this template -->
+        <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <script src="//api4.mapy.cz/loader.js"></script>
         <script src="//code.optimcore.com/185649.js"></script>
-        
         <script>Loader.load();</script>
         {% block meta %}{% endblock %}
     </head>
-    <body>
-        <div class="container-fluid">
-            {% include 'menu.html' %}
-        </div>
+    <body id="page-top">
+      {% include '_/menu.html' %}
+
         <div class="spacer"></div>
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -38,21 +56,7 @@
                 {% endif %}
             {% endwith %}
         {% block body %}{% endblock %}
-
-            <script type="text/javascript">
-
-              var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-25528595-1']);
-              _gaq.push(['_trackPageview']);
-
-              (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-              })();
-
-            </script>
-            <!-- /pata -->
         </div>
+    {% include "_/ga.html" %}
     </body>
 </html>
