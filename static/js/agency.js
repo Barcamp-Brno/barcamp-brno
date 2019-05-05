@@ -28,6 +28,10 @@
 
   // Collapse Navbar
   var navbarCollapse = function() {
+    if($("#mainNav").hasClass("always-shrink")){
+      $("#mainNav").addClass("navbar-shrink");
+      return;
+    }
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-shrink");
     } else {

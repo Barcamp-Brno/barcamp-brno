@@ -97,10 +97,10 @@ function css() {
 function js() {
   return gulp
     .src([
-      './js/*.js',
-      '!./js/*.min.js',
-      '!./js/contact_me.js',
-      '!./js/jqBootstrapValidation.js'
+      './static/js/*.js',
+      '!./static/js/*.min.js',
+      '!./static/js/contact_me.js',
+      '!./static/js/jqBootstrapValidation.js'
     ])
     .pipe(uglify())
     .pipe(header(banner, {

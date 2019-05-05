@@ -1,4 +1,5 @@
 {% extends "_base_page.html" %}
+{% set shrink_navbar = True %}
 
 {% macro talk_voting(talk) %}
 {% if stage(config.YEAR, 'VOTING') or after_stage(config.YEAR, 'VOTING') %}

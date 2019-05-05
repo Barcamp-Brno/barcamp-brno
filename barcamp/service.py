@@ -11,6 +11,7 @@ from collections import defaultdict
 from .entrant import get_entrants
 from datetime import time, date, datetime, timedelta
 from .program import times
+from .models.pages import Pages
 from copy import copy
 from pprint import pprint
 import requests
@@ -430,7 +431,7 @@ def service_vyvoleni(_format):
                 talk['web'],
                 talk['company'],
                 talk['twitter'],
-                talk['title'], 
+                talk['title'],
                 'http://www.barcampbrno.cz%s' % url_for('talk_detail', talk_hash=talk['talk_hash']),
                 talk['description'].replace("\r\n", "<br/>"),
                 talk['purpose'].replace("\r\n", "<br/>"),
@@ -461,7 +462,7 @@ def service_maily_prednasejicich():
 def service_do_programu():
     talks = get_talks_by_type()
     output = io.BytesIO()
-    
+
     categories =  [c[0] for c in CATEGORIES]
 
     for category in categories:
@@ -490,12 +491,12 @@ def service_bad_luck():
                             del talk_hashed[h]
 
     output = io.BytesIO()
-    
+
     for i, talk in enumerate(talk_hashed.values()):
         user = talk['user']
         output.write(("%s\r\n" % user['email']).encode('utf-8'))
         #output.write(("<%s> %s %s \r\n" % (user['email'], talk['talk_hash'], talk['title'])).encode('utf-8'))
-      
+
     return Response(output.getvalue(), mimetype="text/plain")
 
 @app.route('/service/naplnit-newsletter/')
@@ -570,3 +571,17 @@ def prepocet_hlasu():
 
     return "omg"
 
+@app.route('/service/copy/pages/')
+@auth_required
+@is_admin
+def copy_pages():
+    old_pages = Pages(app.redis, '2018')
+    new_pages = Pages(app.redis, '2019')
+
+    output = ""
+
+    for page in old_pages.get_all():
+        output += f"copied {page['uri']}\n"
+        new_pages.update(page)
+
+    return Response(output, mimetype="text/plain")

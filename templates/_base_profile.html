@@ -1,4 +1,5 @@
 {% extends '_base_page.html' %}
+{% set shrink_navbar = True %}
 {% block page_content %}
 <ul class="nav nav-tabs profile-tabs">
     <li role="presentation" {% if request.path == url_for('login_settings')%}class="active"{% endif %}>
