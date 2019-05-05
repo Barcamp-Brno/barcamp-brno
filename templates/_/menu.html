@@ -1,11 +1,12 @@
 {%- macro active_li(url, text) %}
-    <li
-        {% if request.path == url %}
-            class="active nav-item"
-        {% else %}
-            class="nav-item"
-        {% endif %}>
-        <a class="nav-link js-scroll-trigger" href="{{url}}">{{text}}</a>
+    <li class="nav-item">
+        <a
+          {% if request.path == url %}
+              class="nav-link active"
+          {% else %}
+              class="nav-link"
+          {% endif %}
+          href="{{url}}">{{text}}</a>
     </li>
 {% endmacro -%}
 
@@ -39,7 +40,7 @@
         {% if not user %}
             {{active_li(url_for('login'), 'Přihlásit se')}}
         {% else %}
-            <li {% if request.path == url_for('login_settings') or request.path.startswith(url_for('my_invoices'))%}class="active nav-item"{% else %}class="nav-item"{% endif %}><a class="nav-link" href="{{url_for('login_settings')}}">Profil</a></li>
+            <li class="nav-item"><a {% if request.path == url_for('login_settings') or request.path.startswith(url_for('my_invoices'))%}class="active nav-link"{% else %}class="nav-link"{% endif %} href="{{url_for('login_settings')}}">Profil</a></li>
             {{active_li(url_for('logout'), 'Odhlásit se')}}
         {% endif %}
 

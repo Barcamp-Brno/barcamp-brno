@@ -1,23 +1,10 @@
 {% extends "_base.html" %}
 {% set shrink_navbar = True %}
 {% block body %}
-<div class="container-fluid">
-    <div class="detail {{page_style or ''}}">
-        <div class="wrapper container">
-            <div class="content">
-                {% block page_content %}{% endblock %}
-            </div>
-        </div>
-    </div>
-    <!-- pata -->
-    <div id="footer" class="detail {{page_style or ''}}">
-        <div class="wrapper container">
-            <div>
-                &copy; Barcamp Brno {{config.YEAR}}
-                &mdash; <a href="{{url_for('static_page', page='kontakty')}}">Kontakty</a>
-                &mdash; <a href="{{url_for('static_page', page='gdpr')}}">Zpracování osobních údajů</a>
-            </div>
-        </div>
-    </div>
-</div>
+<section>
+  <div class="container">
+      {% block page_content %}{% endblock %}
+  </div>
+</section>
+{% include "_/footer.html" %}
 {% endblock %}

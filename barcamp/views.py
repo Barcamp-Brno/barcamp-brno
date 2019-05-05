@@ -61,6 +61,7 @@ def sponsors():
         "partneri.html",
         sponsors=sponsors.get_all_by_type(),
         sponsors_other=markdown_markup('sponsors_other'),
+        sponsors_info=markdown_markup('informace-pro-partnery'),
     )
 
 @app.route('/%s/catering.html' % app.config['YEAR'])
