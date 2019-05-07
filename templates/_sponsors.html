@@ -1,5 +1,5 @@
 {% if sponsors.gold %}
-    <h2>Zlatí partneři</h2>
+    <h2>Generální partner</h2>
     <div class="row">
     {% for sponsor in sponsors.gold %}
         <div class="mister-egg-logo col-md-4 col-sm-6">{{ sponsor.logo|md }}</div>
@@ -7,7 +7,7 @@
     </div>
 {% endif %}
 {% if sponsors.silver %}
-    <h3>Stříbrní partneři</h3>
+    <h3>Hlavní partneři</h3>
     <div class="row">
     {% for sponsor in sponsors.silver %}
         <div class="mister-egg-logo col-md-3 col-sm-4 col-xs-6">{{ sponsor.logo|md }}</div>
@@ -15,7 +15,7 @@
     </div>
 {% endif %}
 {% if sponsors.medial %}
-    <h3>Mediální partneři</h3>
+    <h3>Partneři</h3>
     <div class="row">
     {% for sponsor in sponsors.medial %}
         <div class="mister-egg-logo col-md-2 col-sm-3 col-xs-4">{{ sponsor.logo|md }}</div>
@@ -23,7 +23,7 @@
     </div>
 {% endif %}
 {% if sponsors.other %}
-    <h3>Ostatní partneři</h3>
+    <h3>Za podpory</h3>
     <div class="row">
     {% for sponsor in sponsors.other %}
         <div class="mister-egg-logo col-md-2 col-sm-3 col-xs-4">{{ sponsor.logo|md }}</div>

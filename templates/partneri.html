@@ -1,7 +1,7 @@
 {% extends "_base_page.html"%}
 {% block page_content %}
 {% if sponsors.gold %}
-    <h2>Zlatí partneři</h2>
+    <h2>Generální partner</h2>
 
     {% for sponsor in sponsors.gold %}
         <div class="partner clearfix">
@@ -15,7 +15,7 @@
 {% endif %}
 
 {% if sponsors.silver %}
-    <h3>Stříbrní partneři</h3>
+    <h3>Hlavní partneři</h3>
     {% for sponsor in sponsors.silver %}
         <div class="partner clearfix">
             <div class="pic">{{ sponsor.logo|md }}</div>
@@ -28,7 +28,7 @@
 {% endif %}
 
 {% if sponsors.medial %}
-    <h3>Mediální partneři</h3>
+    <h3>Partneři</h3>
     {% for sponsor in sponsors.medial %}
         <div class="partner clearfix">
             <div class="pic">{{ sponsor.logo|md }}</div>
@@ -41,7 +41,7 @@
 {% endif %}
 
 {% if sponsors.other %}
-    <h3>Ostatní partneři</h3>
+    <h3>Za podpory</h3>
     {% for sponsor in sponsors.other %}
         <div class="partner clearfix">
             <div class="pic">{{ sponsor.logo|md }}</div>

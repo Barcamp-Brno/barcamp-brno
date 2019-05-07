@@ -77,12 +77,12 @@ class SponsorForm(Form):
     sponsorship = RadioField(
         u'Typ sponzorství',
         choices=[
-            (u'gold', u'Zlatý'),
-            (u'silver', u'Stříbrný'),
-            (u'social', u'Sociální'),
-            (u'medial', u'Mediální'),
+            (u'gold', u'Generální partner'),
+            (u'silver', u'Hlavní partner'),
+            # (u'social', u'Partner'),
+            (u'medial', u'Partner'),
             (u'catering', u'Catering'),
-            (u'other', u'Ostatní'),
+            (u'other', u'Za podpory'),
         ],
         validators=[DataRequired()],
         default='other',
