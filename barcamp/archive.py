@@ -2,6 +2,7 @@
 
 import re
 import os
+from io import open
 from . import create_app, schedule
 
 PUBLISH_SKIP_URLS = (
@@ -44,7 +45,7 @@ class Publisher(object):
     def __get_urls(self):
         for rule in self.__get_rules():
             if rule.alias:
-                print "skip alias: %s" % rule.rule
+                print("skip alias: %s" % rule.rule)
                 continue
 
             if rule.arguments:
@@ -52,7 +53,7 @@ class Publisher(object):
                     for param in rule.generator():
                         yield rule.build(param)[1]
                 else:
-                    print "missing generator for rule %s" % rule.rule
+                    print("missing generator for rule %s" % rule.rule)
             else:
                 yield rule.rule
 
@@ -67,12 +68,12 @@ class Publisher(object):
 
     def __save_page(self, url, storage_path):
         filename = "%s%s" % (os.path.dirname(storage_path), url)
-        print "saving url: %s to file %s" % (url, filename)
+        print("saving url: %s to file %s" % (url, filename))
         data = self.__rip_page(url)
 
         self.__create_dir_recursively_if_not_exists(os.path.dirname(filename))
-        f = file(filename, "w")
-        f.write(data)
+        f = open(filename, "w")
+        f.write(str(data))
         f.close()
 
     def get_rules(self):
@@ -87,7 +88,7 @@ class Publisher(object):
         for f in PUBLISH_ADD_FILES:
             result = os.popen('cp -rv %s %s%s/' % (f, store_path, YEAR))
             for line in result.readlines():
-                print "saving: %s" % line.strip("\n\r")
+                print("saving: %s" % line.strip("\n\r"))
 
 
 if __name__ == '__main__':
@@ -108,6 +109,6 @@ if __name__ == '__main__':
     config.update(schedule)
 
     app = create_app(config)
-    
+
     publisher = Publisher(app)
     publisher.copy_to("./archive/")

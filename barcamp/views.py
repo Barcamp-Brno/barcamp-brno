@@ -138,11 +138,8 @@ def profile(user_hash):
     )
 
 def stranky():
-    pages = Pages(app.redis, app.config('YEAR'))
-    for page in pages:
-        files += page['uri']
-
-    return [{"page": key} for key in files]
+    pages = Pages(app.redis, app.config['YEAR'])
+    return [{"page": page['uri']} for page in pages.get_all()]
 
 @app.route("/%s/stranka/<page>.html" % app.config['YEAR'], generator=stranky)
 def static_page(page):
