@@ -9,7 +9,7 @@ from .utils import markdown_static_page, markdown_markup, stage_is_active
 from .entrant import get_count, get_entrants
 from .vote import get_user_votes
 from .program import times
-from .models.tiles import Tiles
+from .models.tiles import Tiles, Pages
 from .models.sponsors import Sponsors
 import os
 
@@ -137,11 +137,11 @@ def profile(user_hash):
     )
 
 def stranky():
-    files = []
-    for _, _, keys in os.walk('data/%s' % app.config['YEAR']):
-        files += keys;
+    pages = Pages(app.redis, app.config('YEAR'))
+    for page in pages:
+        files += page['uri']
 
-    return [{"page": key.replace(".md", "")} for key in files]
+    return [{"page": key} for key in files]
 
 @app.route("/%s/stranka/<page>.html" % app.config['YEAR'], generator=stranky)
 def static_page(page):
