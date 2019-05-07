@@ -39,7 +39,7 @@ schedule = {
             'STAGES': {
                 'PREVIEW': {
                     'from': datetime(1970, 1, 1),
-                    'to': datetime(2019, 5, 8),
+                    'to': datetime(2019, 6, 3),
                 },
                 'CALL-FOR-PAPERS': {
                     'from': datetime(2019, 6, 4),

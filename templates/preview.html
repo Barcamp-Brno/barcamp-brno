@@ -1,60 +1,102 @@
 {% extends "_base_landing.html" %}
 {% block content %}
+
 <!-- Services -->
 <section id="services">
   <div class="container">
-    <!-- <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Services</h2>
-        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-      </div>
-    </div> -->
     <div class="row text-center">
       <div class="col-md-3">
-        <!-- <span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-        </span> -->
         <span class="service-circle">
           1,3k
         </span>
         <h4 class="service-heading">Návštěvníků</h4>
-        <!-- <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p> -->
       </div>
       <div class="col-md-3">
-        <!-- <span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-        </span> -->
         <span class="service-circle">
           32
         </span>
         <h4 class="service-heading">Přednášek</h4>
-        <!-- <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p> -->
       </div>
       <div class="col-md-3">
-       <!--  <span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-        </span> -->
         <span class="service-circle">
           16
         </span>
         <h4 class="service-heading">Workshopů</h4>
-        <!-- <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p> -->
       </div>
       <div class="col-md-3">
-       <!--  <span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-        </span> -->
         <span class="service-circle">
           1
         </span>
         <h4 class="service-heading">Skvělá párty</h4>
-        <!-- <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p> -->
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Harmonogram Barcampu</h2>
+        <h3>&nbsp;</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+          <li>
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>4. června 2019</h4>
+                <h4 class="subheading">Přihlašování přednášek</h4>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>3. září 2019</h4>
+                <h4 class="subheading">Registrace a hlasování</h4>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>28. září 2019</h4>
+                <h4 class="subheading">Konec hlasování</h4>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>30. září 2019</h4>
+                <h4 class="subheading">Zveřejnění programu</h4>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="timeline-end">
+          <h4>5. října 2019</h4>
+          <h4>Den konference</h4>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+{% include "_/sponsors.html" %}
 {% endblock %}

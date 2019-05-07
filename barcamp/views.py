@@ -42,6 +42,8 @@ def index():
         hi_tiles=filter(lambda x: x['score'] > 10, tiles.get_all()),
         low_tiles=filter(lambda x: x['score'] <= 10, tiles.get_all()),
         sponsors=sponsors.get_all_by_type(),
+        sponsors_other=markdown_markup('sponsors_other'),
+        sponsors_info=markdown_markup('informace-pro-partnery'),
     )
 
 
