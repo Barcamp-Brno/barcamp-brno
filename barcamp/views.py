@@ -9,8 +9,9 @@ from .utils import markdown_static_page, markdown_markup, stage_is_active
 from .entrant import get_count, get_entrants
 from .vote import get_user_votes
 from .program import times
-from .models.tiles import Tiles, Pages
+from .models.tiles import Tiles
 from .models.sponsors import Sponsors
+from .models.pages import Pages
 import os
 
 @app.route("/", redirect_to="/%s/index.html" % app.config['LANDING_YEAR'])
