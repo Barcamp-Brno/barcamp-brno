@@ -50,6 +50,7 @@
 
       {% block body %}{% endblock %}
       {% include "_/ga.html" %}
+      {% include "_/fb-pixel.html" %}
       <!-- Custom scripts for this template -->
       <script src="{{"/" + config.YEAR if config.ARCHIVE}}/static/js/agency.min.js{{anticache}}"></script>
     </body>
