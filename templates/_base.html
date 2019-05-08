@@ -4,17 +4,12 @@
 <html lang="cs">
     <head>
         <meta charset="utf-8">
-        <title>Barcamp Brno {{config.YEAR}}{% if self.title() %} | {% endif %}{% block title %}{% endblock %}</title>
-        <meta name="author" content="Barcamp Brno {{config.YEAR}}" />
-
+        {% include "_/meta.html" %}
         <!-- Bootstrap core CSS -->
         <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="{{"/" + config.YEAR if config.ARCHIVE}}/static/favicon.ico" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <meta name="description" content="Barcamp Brno {{config.YEAR}}" />
-        <meta name="keywords" content="Barcamp Brno {{config.YEAR}}" />
 
         <!-- Custom styles for this template -->
         <link href="{{"/" + config.YEAR if config.ARCHIVE}}/static/css/agency.min.css{{anticache}}" rel="stylesheet">
@@ -40,7 +35,6 @@
         <!-- <script src="//api4.mapy.cz/loader.js"></script> -->
         <!-- <script src="//code.optimcore.com/185649.js"></script> -->
         <!-- <script>Loader.load();</script> -->
-        <meta name="google-site-verification" content="uaKNVsyJozxJS1QF4u-sSqcKAwQjJYwqZQ_9teQyPsY" />
         {% block meta %}{% endblock %}
     </head>
     <body id="page-top">
