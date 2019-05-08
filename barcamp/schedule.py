@@ -9,7 +9,7 @@ from datetime import datetime
 
 schedule = {
     'YEAR': '2019',
-    'LANDING_YEAR': '2018',
+    'LANDING_YEAR': '2019',
     'YEAR_ARCHIVE': ['2013', '2014', '2015', '2016', '2017', '2018'],
     'YEAR_ENABLED': ['2019'],
     'YEAR_SCHEDULE': {
