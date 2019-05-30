@@ -1,18 +1,22 @@
 # coding: utf-8
 
+import base64
+from datetime import datetime
+from hashlib import md5
+
 from flask import render_template, session, redirect, flash
 from flask import url_for, request, abort
-from .barcamp import app
-from hashlib import md5
+
 from flask_wtf import Form
 from wtforms import TextField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo
-import base64
+
 from .login_misc import auth_required, resolve_user_by_email, login_redirect
 from .login_misc import check_auth, create_account, register_twitter, gdpr_consent_required
 from .login_misc import update_password, create_update_profile
-from .utils import send_mail
-from datetime import datetime
+
+from .mailing import send_message_from_template
+from .barcamp import app
 
 KEYS = {
     'account': 'account_%s',
@@ -88,23 +92,23 @@ def login_create_account():
                 return redirect(url_for(
                     'login_forgotten_password',
                     email=email))
-            raw_email = email
-            email = base64.b64encode(email)
-            token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
+            email_b64 = base64.b64encode(email.encode()).decode()
+
+            token = md5(f"{app.secret_key}|{email_b64}".encode()).hexdigest()
             url = url_for(
                 'login_click_from_email',
                 token=token,
-                email=email,
+                email=email_b64,
                 _external=True)
 
             if app.debug:
-                flash(url, "debug")
+                flash(url, "dark")
 
-            send_mail(
+            send_message_from_template(
+                email,
                 u'Vytvoření účtu',
-                raw_email,
                 "data/verify-account.md",
-                url)
+                {'url': url})
             return redirect(url_for('login_email_verify'))
     else:
         form = ConsentEmailForm()
@@ -121,8 +125,9 @@ def login_click_from_email():
     email = request.args.get('email', None)
     token = request.args.get('token', None)
 
-    if token == md5("%s|%s" % (app.secret_key, email)).hexdigest():
-        email = base64.b64decode(email)
+    if token == md5(f"{app.secret_key}|{email}".encode()).hexdigest():
+        email = base64.b64decode(email).decode()
+        print(email)
         session['verified-mail'] = email
         twitter_data = session.get('twitter_temp', None)
         if twitter_data:
@@ -174,23 +179,22 @@ def login_forgotten_password():
             if not resolve_user_by_email(email):
                 flash(u'Nejprve si svůj e-mail zaregistrujte', 'warning')
                 redirect(url_for('login_create_account'))
-            raw_email = email
-            email = base64.b64encode(email)
-            token = md5("%s|%s" % (app.secret_key, email)).hexdigest()
+            email_b64 = base64.b64encode(email.encode()).decode()
+            token = md5(f"{app.secret_key}|{email_b64}".encode()).hexdigest()
             url = url_for(
                 'login_click_from_email_password',
                 token=token,
-                email=email,
+                email=email_b64,
                 _external=True)
 
             if app.debug:
-                flash(url, "debug")
+                flash(url, "dark")
 
-            send_mail(
+            send_message_from_template(
+                email,
                 u'Obnovení hesla',
-                raw_email,
                 "data/reset-password.md",
-                url)
+                {"url": url})
             return redirect(url_for('login_forgotten_verify'))
     else:
         form = EmailForm(request.args)
@@ -208,8 +212,8 @@ def login_click_from_email_password():
     email = request.args.get('email', None)
     token = request.args.get('token', None)
 
-    if token == md5("%s|%s" % (app.secret_key, email)).hexdigest():
-        email = base64.b64decode(email)
+    if token == md5(f"{app.secret_key}|{email}".encode()).hexdigest():
+        email = base64.b64decode(email).decode()
         session['reset-email'] = email
         flash(u'Váš e-mail byl ověrěn, nyní nastavte nové heslo', 'success')
         return redirect(url_for('login_reset_password'))

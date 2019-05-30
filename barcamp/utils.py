@@ -5,30 +5,9 @@ from .login_misc import check_auth
 import markdown
 from .barcamp import app
 from datetime import datetime
-# from flask.ext.mail import Mail, Message
 from copy import copy
 
 from .models.pages import Pages
-
-def send_feedback_mail(subject, template, data, user, url):
-    mail = Mail(app)
-    body = read_file(template) or ""
-
-    data = copy(data)
-    data['ip'] = request.remote_addr
-    data['user_agent'] = request.user_agent
-    data['url'] = url
-    data.update(user)
-    body = body % data
-
-    msg = Message(
-        subject,
-        recipients=["petr@joachim.cz"],
-        sender=(user['name'], user['email'])
-    )
-    msg.body = body
-    msg.html = markdown.markdown(body)
-    mail.send(msg)
 
 
 def markdown_static_page(uri):
@@ -83,6 +62,7 @@ def stage_is_active(year, stage):
     day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
     return schedule['from'] <= day and day <= schedule['to']
 
+
 def stage_in_past(year, stage):
     if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES']:
         return False
@@ -91,6 +71,7 @@ def stage_in_past(year, stage):
     day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
     return day > schedule['to']
 
+
 def stage_in_future(year, stage):
     if stage not in app.config['YEAR_SCHEDULE'][year]['STAGES']:
         return False
@@ -98,68 +79,6 @@ def stage_in_future(year, stage):
     schedule = app.config['YEAR_SCHEDULE'][year]['STAGES'][stage]
     day = datetime.now() if 'TEST_DATE' not in app.config else app.config['TEST_DATE']
     return day < schedule['from']
-
-### MAIL ###
-def send_mail(subject, to, message_file, url=""):
-    mail = Mail(app)
-    body = read_file(message_file) or ""
-    body = body % {
-        'url': url,
-        'ip': request.remote_addr,
-        'user_agent': request.user_agent,
-        'mail': to,
-    }
-
-    msg = Message(
-        subject,
-        recipients=[to],
-        sender=(u"Petr Joachim", "petr@joachim.cz")
-    )
-    msg.body = body
-    msg.html = markdown.markdown(body)
-    mail.send(msg)
-
-def mail_bulk_connection():
-    mail = Mail(app)
-    return mail.connect()
-
-def send_bulk_mail(conn, subject, to, message_file, url=""):
-    body = read_file(message_file) or ""
-    body = body % {
-        'url': url,
-        'ip': request.remote_addr,
-        'user_agent': request.user_agent,
-        'mail': to,
-    }
-
-    msg = Message(
-        subject,
-        recipients=[to],
-        sender=(u"Petr Joachim", "petr@joachim.cz")
-    )
-    msg.body = body
-    msg.html = markdown.markdown(body)
-    conn.send(msg)
-
-
-def mail(subject, sender, recipient, file, data, sender_name=None):
-    body = read_file(file) or ""
-
-    body = body % data
-    if sender_name:
-        sender = (sender_name, sender)
-
-    msg = Message(
-        subject,
-        sender=sender,
-        recipients=[recipient]
-    )
-
-    msg.body = body
-    msg.html = markdown.markdown(body)
-
-    mail = Mail(app)
-    return mail.send(msg)
 
 
 def read_file(filename):

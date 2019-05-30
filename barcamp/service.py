@@ -1,9 +1,13 @@
 # coding: utf-8
+import requests
+import io
+import csv
+import re
 
 from .barcamp import app
 from flask import abort, redirect, url_for, flash, render_template, Response
 from .login_misc import check_auth, auth_required, is_admin
-from .utils import send_mail, send_bulk_mail, mail_bulk_connection
+# from .utils import send_mail, send_bulk_mail, mail_bulk_connection
 from .talks import get_talks_dict, get_talks, get_talks_by_type, CATEGORIES, translate_category
 from .workshops import get_workshops_dict
 from .entrant import user_user_go
@@ -14,10 +18,9 @@ from .program import times
 from .models.pages import Pages
 from copy import copy
 from pprint import pprint
-import requests
-import io
-import csv
-import re
+
+from .mailing import send_test_message
+
 
 KEYS = {
     'talk': 'talk_%s_%%s' % app.config['YEAR'],
@@ -499,48 +502,6 @@ def service_bad_luck():
 
     return Response(output.getvalue(), mimetype="text/plain")
 
-@app.route('/service/naplnit-newsletter/')
-@auth_required
-@is_admin
-def plneni_newsletteru():
-    entrants = get_entrants()
-    for entrant in entrants:
-        app.redis.sadd('newsletter', entrant['email'])
-
-    return 'filled {} entrants'.format(len(entrants))
-
-
-@app.route('/service/poslat-newsletter/')
-@auth_required
-@is_admin
-def poslani_newsletteru():
-    i = 0
-    with mail_bulk_connection() as conn:
-        for mail in app.redis.smembers('newsletter'):
-            i += 1
-            print(mail)
-            app.redis.srem('newsletter', mail)
-
-            send_bulk_mail(
-                conn,
-                u'Jaké to letos bylo? | Barcamp Brno 2018',
-                mail,
-                'data/newsletter-after.md')
-
-
-    return 'newsletter done {} emails'.format(i)
-
-
-@app.route('/service/test-newsletter/')
-@auth_required
-@is_admin
-def test_newsletteru():
-    send_mail(
-        u'Jaké to letos bylo? | Barcamp Brno 2018',
-        'martinka.ryskova@gmail.com',#'petr@joachim.cz',
-        'data/newsletter-after.md')
-
-    return 'done'
 
 @app.route('/program-rc/')
 def rc_program():

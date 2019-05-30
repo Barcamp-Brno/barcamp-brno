@@ -3,7 +3,7 @@
 from functools import wraps
 from flask import abort, session, request, redirect, flash, url_for, json
 from .barcamp import app
-from hashlib import md5
+from hashlib import md5, sha1
 
 KEYS = {
     'account': 'account_%s',
@@ -87,7 +87,7 @@ def create_update_profile(data, user_hash=None):
 
 def get_user_hash(data, depth=5):
     "Non-colide user hash algoritm ;)"
-    user_hash = md5("%s|%s" % (json.dumps(data), depth)).hexdigest()[:8]
+    user_hash = md5(f"{data['email']}|depth".encode()).hexdigest()[:8]
     if not app.redis.setnx(KEYS['account'] % user_hash, 'false'):
         return get_user_hash(data, depth - 1)
 
@@ -96,8 +96,9 @@ def get_user_hash(data, depth=5):
 
 def update_password(user_hash, email, password=None):
     email = email.lower()
+    print(password)
     if password is not None:
-        password = md5(password.encode()).hexdigest()
+        password = sha1(password.encode()).hexdigest()
     app.redis.set(
         KEYS['email'] % email,
         json.dumps({
@@ -112,11 +113,12 @@ def resolve_user_by_email(email, password=None):
         also validates password, if provided
     """
     email = email.lower()
+    print(email)
     data = json.loads(app.redis.get(KEYS['email'] % email) or "false")
     if data:
         #check password
         if password and\
-                md5(password.encode()).hexdigest() != data.get('password', None):
+                sha1(password.encode()).hexdigest() != data.get('password', None):
             return False  # password did not match
         return data['user_hash']  # only if everything is OK
     return False  # email not found

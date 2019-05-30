@@ -11,7 +11,7 @@ from wtforms.validators import DataRequired, URL, Optional
 from .barcamp import app
 from .login_misc import check_auth, auth_required, get_account
 from .entrant import user_user_go
-from .utils import markdown_markup, send_feedback_mail
+from .utils import markdown_markup
 from .vote import get_user_votes
 
 
@@ -141,7 +141,7 @@ def get_talk_hash(data, depth=5):
 
 def get_talk(talk_hash):
     talk = json.loads(app.redis.get(KEYS['talk'] % talk_hash) or 'false')
-    if not talk: 
+    if not talk:
         return False
 
     score = int(app.redis.zscore(KEYS['talks'], talk_hash))

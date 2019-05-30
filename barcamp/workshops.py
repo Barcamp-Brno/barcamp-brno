@@ -8,7 +8,7 @@ from flask_wtf import Form
 from wtforms import TextField, TextAreaField, IntegerField
 from wtforms.validators import DataRequired, URL, Optional
 from hashlib import md5
-from .utils import markdown_markup, send_feedback_mail
+from .utils import markdown_markup
 
 KEYS = {
     'workshop': 'workshop_%s_%%s' % app.config['YEAR'],

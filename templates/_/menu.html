@@ -40,7 +40,7 @@
         {% if not user %}
             {{active_li(url_for('login'), 'Přihlásit se')}}
         {% else %}
-            <li class="nav-item"><a {% if request.path == url_for('login_settings') or request.path.startswith(url_for('my_invoices'))%}class="active nav-link"{% else %}class="nav-link"{% endif %} href="{{url_for('login_settings')}}">Profil</a></li>
+            {{active_li(url_for('login_settings'), 'Profil')}}
             {{active_li(url_for('logout'), 'Odhlásit se')}}
         {% endif %}
 
