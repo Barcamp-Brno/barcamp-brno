@@ -39,14 +39,8 @@
     <body id="page-top">
       {% include '_/menu.html' %}
 
-      <div class="spacer"></div>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-              {% for category, message in messages %}
-              <div class="bar bar-{{ category }}">{{ message }}</div>
-              {% endfor %}
-          {% endif %}
-      {% endwith %}
+      
+
 
       {% block body %}{% endblock %}
       {% include "_/ga.html" %}

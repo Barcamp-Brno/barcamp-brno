@@ -1,0 +1,9 @@
+section.alerts {
+  padding: 10px 0;
+}
+
+@media(min-width:768px) {
+  section.alerts {
+    padding: 15px 0;
+  }
+}
