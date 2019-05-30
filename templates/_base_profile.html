@@ -1,11 +1,5 @@
 {% extends '_base_page.html' %}
 {% set shrink_navbar = True %}
 {% block page_content %}
-<ul class="nav nav-tabs profile-tabs">
-    <li role="presentation" {% if request.path == url_for('login_settings')%}class="active"{% endif %}>
-        <a href="{{url_for('login_settings')}}" role="button">Nastavení</a></li>
-    <li role="presentation" {% if request.path.startswith(url_for('my_invoices')) %}class="active"{% endif %}>
-        <a href="{{url_for('my_invoices')}}" role="button">Objednávky</a></li>
-</ul>
 {% block profile_content %}{% endblock %}
 {% endblock %}
