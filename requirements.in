@@ -9,3 +9,4 @@ redis
 requests
 Flask-WTF
 sendgrid
+cloudinary
