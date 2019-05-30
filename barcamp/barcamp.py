@@ -48,7 +48,6 @@ def create_app(config):
     from . import filters
     from . import service
     from . import workshops
-    from . import invoices
 
     from .admin import admin
 
