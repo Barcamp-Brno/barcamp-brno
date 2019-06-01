@@ -1,45 +1,61 @@
 {%- macro input(field, type="text") %}
 <div class="form-group {{ error_class(field) }}">
-    <label class="control-label col-sm-2" for="{{field.id}}">{{field.label.text}}</label>
+    <label class="control-label col-sm-10" for="{{field.id}}">{{field.label.text}}</label>
     <div class="col-sm-10">
         <input
             type="{{type}}"
             id="{{field.id}}"
-            class="form-control"
+            class="form-control {{ error_class(field) }}"
             name="{{field.name}}"
             placeholder="{{field.label.text}}"
             value="{{field.data or ''}}"
+            {{required(field)}}
         >
         {{ error(field) }}
     </div>
 </div>
 {% endmacro -%}
 
+{%- macro fileinput(field) %}
+<div class="input-group mb-3 col-sm-10">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input {{ error_class(field) }}" id="{{field.id}}" size="1000000">
+    <label class="custom-file-label" for="{{field.id}}">{{field.label.text}}</label>
+    {{ error(field) }}
+  </div>
+</div>
+{% endmacro -%}
+
+
+
 {%- macro textarea(field, rows=7, monospace=False) %}
-<div class="form-group {{ error_class(field) }}">
-    <label class="control-label col-sm-2" for="{{field.id}}">{{field.label.text}}</label>
+<div class="form-group">
+    <label class="control-label col-sm-10" for="{{field.id}}">{{field.label.text}}</label>
     <div class="col-sm-10">
         {% if monospace %}<samp>{% endif %}
         <textarea
+            {{ error_class(field) }}
             rows="{{rows}}"
             id="{{field.id}}"
-            class="form-control monospace"
+            class="form-control monospace {{ error_class(field) }}"
             name="{{field.name}}"
             placeholder="{{field.label.text}}"
+            {{required(field)}}
         >{{field.data or ''}}</textarea>
         {% if monospace %}</samp>{% endif %}
         {{ error(field) }}
     </div>
 </div>
 {% endmacro -%}
+
 {% macro radiobox(field) -%}
-<div class="form-group {{ error_class(field) }}">
-    <label class="control-label col-sm-2"">{{field.label.text}}</label>
+<div class="form-group">
+    <label class="control-label col-sm-10">{{field.label.text}}</label>
     <div class="col-sm-10">
         {% for option in field %}
             <div class="radio">
                 <label>
-                    <input type="radio" name="{{field.name}}" value="{{option.data}}" id="{{option.id}}" {{'checked="checked"' if field.data == option.data}} >
+                    <input class="{{ error_class(field) }}" type="radio" name="{{field.name}}" value="{{option.data}}" id="{{option.id}}" {{'checked="checked"' if field.data == option.data}} {{required(field)}} >
                     {{option.label}}
                 </label>
             </div>
@@ -48,17 +64,20 @@
     </div>
 </div>
 {% endmacro -%}
+
 {% macro checkbox(field) -%}
-<div class="form-group {{ error_class(field) }}">
+<div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox">
             <label>
                 <input
+                    class="{{ error_class(field) }}"
                     type="checkbox"
                     id="{{field.id}}"
                     name="{{field.name}}"
                     placeholder="{{field.label.text}}"
                     {{'checked="checked"' if field.data}}
+                    {{required(field)}}
                 >
                 {{field.label.text}}
             </label>
@@ -67,17 +86,20 @@
     </div>
 </div>
 {% endmacro -%}
+
 {% macro gdpr_consent(field) -%}
-<div class="form-group {{ error_class(field) }}">
+<div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox">
             <label>
                 <input
+                    class="{{ error_class(field) }}"
                     type="checkbox"
                     id="{{field.id}}"
                     name="{{field.name}}"
                     placeholder="{{field.label.text}}"
                     {{'checked="checked"' if field.data}}
+                    {{required(field)}}
                 >
                 Prohlašuji, že souhlasím se <a href="{{url_for('static_page', page='gdpr')}}">Souhlasem o zpracování osobních údajů</a>
             </label>
@@ -87,20 +109,16 @@
 </div>
 {% endmacro -%}
 
-{% macro step_box(number) -%}
-<!--div class="progress_box">
-    <div class="{{'active' if number==1}} {{'done' if number > 1}}">1.</div>
-    <div class="{{'active' if number==2}} {{'done' if number > 2}}">2.</div>
-    <div class="{{'active' if number==3}} {{'done' if number > 3}}">3.</div>
-</div-->
-{%- endmacro %}
-
 {%- macro error(field) %}
 {% if field.errors %}
-    <span class="help-block">{% for error in field.errors %}{{error}}{% endfor %}</span>
+    <span class="invalid-feedback help-block">{% for error in field.errors %}{{error}}{% endfor %}</span>
 {% endif %}
 {% endmacro -%}
 
 {%- macro error_class(field) %}
-{{'has-error' if field.errors}}
+{{'is-invalid' if field.errors}}
+{% endmacro -%}
+
+{%- macro required(field) %}
+{# {{'required' if field.flags.required}} #}
 {% endmacro -%}

@@ -23,7 +23,7 @@
 {% if admin() %}
 <p>
 <a class="btn btn-success" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='approved')}}">Zařadit</a>
-<a class="btn btn-danger" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='disapproved')}}">Vyřadit</a>
+<a class="btn btn-danger" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='rejected')}}">Vyřadit</a>
 </p>
 {% endif %}
 {{workshop.description|nl2br}}
@@ -48,5 +48,5 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
+
 {% endblock %}

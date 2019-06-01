@@ -26,11 +26,12 @@ def send_message(message):
         print(response.headers)
         return True
     except Exception as e:
-        print(e.message)
+        print(e)
+        print(message)
         return False
 
 
-def send_message_from_template(subject, to, template, data, from_email="petr@barcampbrno.cz", from_name="Petr z Barcamp Brno"):
+def send_message_from_template(to, subject, template, data, from_email="petr@barcampbrno.cz", from_name="Petr z Barcamp Brno"):
     data.update({
         'ip': request.remote_addr,
         'user_agent': request.user_agent,
@@ -41,10 +42,12 @@ def send_message_from_template(subject, to, template, data, from_email="petr@bar
     body = body % data
 
     message = Message(
-        subject,
         to,
+        subject,
         markdown.markdown(body),
-        body
+        body,
+        from_name=from_name,
+        from_email=from_email
     )
     return send_message(message)
 

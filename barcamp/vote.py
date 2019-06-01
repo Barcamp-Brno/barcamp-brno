@@ -19,11 +19,11 @@ def vote_for_talk(talk_hash):
 
     method = request.args.get('method', 'decrease')
     if method == 'increase' and talk_hash not in old_votes:
-        app.redis.zincrby(KEYS['talks'], talk_hash, 1)
+        app.redis.zincrby(KEYS['talks'], 1, talk_hash)
         app.redis.sadd(KEYS['votes'] % user_hash, talk_hash)
 
     if method == 'decrease' and talk_hash in old_votes:
-        app.redis.zincrby(KEYS['talks'], talk_hash, -1)
+        app.redis.zincrby(KEYS['talks'], -1, talk_hash)
         app.redis.srem(KEYS['votes'] % user_hash, talk_hash)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
@@ -54,4 +54,4 @@ def remove_user_votes(user_hash):
     decrement = app.redis.smembers(KEYS['votes'] % user_hash) or set()
     for vote in decrement:
         app.redis.srem(KEYS['votes'] % user_hash, vote)
-        app.redis.zincrby(KEYS['talks'], vote, -1)
+        app.redis.zincrby(KEYS['talks'], -1, vote)

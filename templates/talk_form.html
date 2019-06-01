@@ -4,20 +4,20 @@
 {{ informace }}
 
 <h2>{% if talk.talk_hash %}Editace{% else %}Registrace nové{% endif %} přednášky</h2>
-<form method="POST" class="form-horizontal" action=".">
+<form method="POST" class="form-horizontal" action="."  enctype="multipart/form-data">
     <fieldset>
         {{form.csrf_token}}
         {{forms.input(form.title)}}
+        {{forms.input(form.speakers_name)}}
+        {{forms.input(form.contact_phone)}}
+        {{forms.input(form.image, type="file")}}
         {{forms.radiobox(form.category)}}
         {{forms.radiobox(form.length)}}
         {{forms.textarea(form.description)}}
         {{forms.textarea(form.purpose)}}
-        {{forms.input(form.company)}}
-        {{forms.input(form.web)}}
-        {{forms.input(form.twitter)}}
         {{forms.textarea(form.other)}}
         {{forms.checkbox(form.video)}}
-    </fiedlset>
+    </fieldset>
 
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Odeslat</button>

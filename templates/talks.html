@@ -3,10 +3,10 @@
 {% block page_content %}
 {% if stage(config.YEAR, 'PROGRAM') %}
     {% include 'program/prednasky.html' %}
-{% elif stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+{% elif stage(config.YEAR, 'CALL-FOR-PAPERS') or after_stage(config.YEAR, 'CALL-FOR-PAPERS') or admin() %}
     <!-- prednasejici -->
     <h2>Přednášky{% if stage(config.YEAR, 'VOTING') %} &amp; hlasování{% endif %}</h2>
-    {% if stage(config.YEAR, 'CALL-FOR-PAPERS') %}
+    {% if stage(config.YEAR, 'CALL-FOR-PAPERS') or admin() %}
     <p class="menu center menu-button"><a class="btn btn-danger" href="{{url_for('talk_edit')}}">
                 <i class="fa fa-bullhorn"></i>
                 Máš co říct? Přidej své téma</a>
@@ -18,30 +18,33 @@
                 Registrace přednášek už je uzavřená.
     </p><div class="clearer"></div>
     {% endif %}
-    
+
     <h3>
         Témata volená účastníky
         <small>(21 míst)</small>
-        <div class="pull-right">
+        <!-- <div class="pull-right">
             <a class="btn btn-default" onclick="showView('table'); return false"><i class="fa fa-list"></i></a>
             <a class="btn btn-default" onclick="showView('tiles'); return false"><i class="fa fa-table"></i></a>
-        </div>
+        </div> -->
     </h3>
 
     <table class="table talks talks-table">
-        {% for category in ('business', 'design', 'inovations', 'marketing', 'inspirational', 'development') %}
-            {% for talk in talks[category] %}
+        {% for category in ('business-marketing', 'design', 'inspirational', 'development') %}
+            {% for talk in talks[category] if talk.status == "approved" or admin() %}
                 <tr>
                     <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a> <span class="text-nowrap">({{talk.length}} minut)</span></td>
                     <td class="text-nowrap">{{talk.user.name|no_emoji}}</td>
                     <td class="text-nowrap">{{talk_category(category)}}</td>
                     <td class="text-nowrap">{{ talk_voting(talk) }}</td>
+                    {% if admin() %}
+                      <td class="text-nowrap">{{ talk_status(talk.status) }}</td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         {% endfor %}
     </table>
-    <div id="talks" class="row talks talks-tiles">
-        {% for category in ('business', 'design', 'inovations', 'marketing', 'inspirational', 'development') %}
+    {#<div id="talks" class="row talks talks-tiles">
+        {% for category in  ('business-marketing', 'design', 'inspirational', 'development') %}
             <h2>{{talk_category(category)}}</h2>
             {% for talk in talks[category] %}
                 <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4">
@@ -87,8 +90,9 @@
             <div class="clearfix"></div>
         {% endfor %}
     </div>
+    #}
 {% endif %}
-<script type="text/javascript">
+{#<script type="text/javascript">
 function showView(view){
     localStorage.setItem('talks-view', view);
     $('.talks').hide();
@@ -136,5 +140,5 @@ $(document).ready(function(){
     });
 });
 </script>
+#}
 {% endblock %}
-

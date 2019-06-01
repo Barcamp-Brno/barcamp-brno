@@ -19,7 +19,7 @@ KEYS = {
 STATUSES = {
     'waiting': u'Čeká na schválení',
     'approved': u'Zařazen do programu',
-    'disapproved': u'Nezařazen do programu',
+    'rejected': u'Nezařazen do programu',
 }
 
 def workshopy():
@@ -134,7 +134,7 @@ def create_or_update_workshop(data, workshop_hash=None):
 
 def get_workshop_hash(data, depth=5):
     "Non-colide workshop hash algoritm ;)"
-    workshop_hash = md5("%s|%s" % (json.dumps(data), depth)).hexdigest()[:8]
+    workshop_hash = md5(f"{data['title']|depth}".encode()).hexdigest()[:8]
     if not app.redis.setnx(KEYS['workshop'] % workshop_hash, 'false'):
         return get_workshop_hash(data, depth - 1)
 

@@ -1,18 +1,23 @@
 # coding: utf-8
+import uuid
 from collections import defaultdict
 from hashlib import md5
+from copy import copy
 
 from flask_wtf import Form
 from flask import render_template, request, json, flash, redirect
 from flask import url_for, abort
-from wtforms import TextField, TextAreaField, BooleanField, RadioField
+from wtforms import TextField, TextAreaField, BooleanField, RadioField, FileField
 from wtforms.validators import DataRequired, URL, Optional
+from werkzeug.datastructures import CombinedMultiDict
 
 from .barcamp import app
-from .login_misc import check_auth, auth_required, get_account
+from .login_misc import check_auth, auth_required, get_account, is_admin
 from .entrant import user_user_go
 from .utils import markdown_markup
 from .vote import get_user_votes
+from .mailing import send_message_from_template
+from .images import square_crop_thumbnail, upload_image
 
 
 KEYS = {
@@ -23,13 +28,17 @@ KEYS = {
 }
 
 CATEGORIES = [
-    ('business', u'Byznys'),
+    ('business-marketing', u'Byznys & Marketing'),
     ('design', u'Design'),
-    ('inovations', u'Inovace'),
-    ('marketing', u'Marketing'),
-    ('inspirational', u'Osobní rozvoj'),
-    ('development', u'Vývoj'),
+    ('inspirational', u'Inspirace'),
+    ('development', u'Vývoj, IT & UX'),
 ]
+
+STATUSES = {
+    'new': u'Čeká na schválení',
+    'approved': u'Zařazen do hlasování',
+    'rejected': u'Téma vyřazeno',
+}
 
 def prednasky():
     return [{"talk_hash": key} for key in app.redis.zrange(KEYS['talks'], 0, -1)]
@@ -71,6 +80,21 @@ def talk_delete(talk_hash):
     return redirect(url_for('index'))
 
 
+@app.route('/prednaska/zmenit-stav/<talk_hash>/<status>')
+@auth_required
+@is_admin
+def talk_status(talk_hash, status):
+    if status in STATUSES:
+        talk_data = get_talk(talk_hash)
+        talk_data['status'] = status # zmenime status
+        talk_data.update(talk_data.get("to_approve", {})) # aplikujeme zmeny
+        del(talk_data['to_approve']) # smazeme zmeny
+        app.redis.set(KEYS['talk'] % talk_hash, json.dumps(talk_data))
+        return redirect(url_for('talk_detail', talk_hash=talk_hash))
+    else:
+        abort(404)
+
+
 @app.route(
     "/prednaska/pridat/",
     methods=['GET', 'POST'],
@@ -87,15 +111,18 @@ def talk_edit(talk_hash=None):
             abort(403)  # uzivatel tohle nemuze editovat
 
     if request.method == "POST":
-        form = TalkForm(request.form)
+        form = TalkForm(CombinedMultiDict((request.files, request.form)))
         if form.validate():
             old_hash = talk_hash
-            talk_hash = create_or_update_talk(form.data, talk_hash)
+            talk_hash = create_or_update_talk(form.data, talk_hash=talk_hash, talk_data=talk_data, need_approvement=need_approvement(talk_data, form.data))
             user_user_go(user_data)
             flash(u'Přednáška byla uložena', 'success')
             if talk_hash != old_hash:
                 return redirect(url_for('talk_edit', talk_hash=talk_hash))
+
     else:
+        # show version with things to approve
+        talk_data.update(talk_data.get('to_approve', {}))
         form = TalkForm(**talk_data)
     return render_template(
         'talk_form.html',
@@ -105,18 +132,107 @@ def talk_edit(talk_hash=None):
     )
 
 
-def create_or_update_talk(data, talk_hash=None):
+def need_approvement(talk_data, talk_form_data):
+    return bool(talk_data) and any((
+        talk_data['title'] != talk_form_data['title'],
+        talk_data['speakers_name'] != talk_form_data['speakers_name'],
+        talk_data['category'] != talk_form_data['category'],
+        talk_data['description'] != talk_form_data['description'],
+        talk_data['purpose'] != talk_form_data['purpose'],
+        talk_form_data['image'],
+    ))
+
+
+def extract_things_for_review(talk_hash, talk_form_data):
+    data = {
+        'title': talk_form_data['title'],
+        'speakers_name': talk_form_data['speakers_name'],
+        'category': talk_form_data['category'],
+        'description': talk_form_data['description'],
+        'purpose': talk_form_data['purpose'],
+    }
+
+    if 'image' in talk_form_data:
+        data['cdn_image'] = extract_image(talk_hash, talk_form_data['image'])
+        del(talk_form_data['image'])
+
+    return data
+
+def extract_image(talk_hash, form_data_image):
+    if not form_data_image:
+        return {}
+
+    uid = uuid.uuid1()
+    file_name = f"{talk_hash}-{uid}"
+    path = f"/tmp/{file_name}"
+    form_data_image.save(path)
+    square_crop_thumbnail(path)
+    url = upload_image(path, file_name)
+    return {
+        'cdn_file_name': file_name,
+        'url': url,
+    }
+
+def fallback_unreviewed_data(new_form_data, old_talk_data):
+    new_form_data.update({
+        'title': old_talk_data['title'],
+        'speakers_name': old_talk_data['speakers_name'],
+        'category': old_talk_data['category'],
+        'description': old_talk_data['description'],
+        'purpose': old_talk_data['purpose'],
+    })
+
+def create_or_update_talk(data, talk_hash=None, talk_data=None, need_approvement=False):
     user_data = check_auth()
+
     if talk_hash is None:
         talk_hash = get_talk_hash(data)
         data['talk_hash'] = talk_hash
+        data['status'] = "new"
+        data['cdn_image'] = extract_image(talk_hash, data['image'])
+        del(data['image'])
+        print(data)
+        mail_data = copy(data)
+        mail_data.update({
+            'url': url_for('talk_detail', talk_hash=talk_hash, _external=True)
+        })
+        mail_data.update(user_data)
         # send talk mail
-        send_feedback_mail(
-            u"Nová přednáška: %s" % data['title'],
+        flash(u'Nové přednášky schvalujeme přidání do 3 dnů.', 'info')
+        send_message_from_template(
+            app.config['TALK_NOTIFICATION_MAIL'],
+            u"Nová přednáška - nutno schválit: %s" % data['title'],
             "data/new-talk.md",
-            data,
-            user_data,
-            url_for('talk_detail', talk_hash=talk_hash, _external=True)
+            mail_data,
+            from_email=user_data['email'],
+            from_name=user_data['name'],
+        )
+    else:
+        data['status'] = talk_data['status']
+        data['cdn_image'] = talk_data.get('cdn_image', {})
+        mail_data = copy(data)
+        mail_data.update({
+            'url': url_for('talk_detail', talk_hash=talk_hash, _external=True)
+        })
+        mail_data.update(user_data)
+
+        subject = u"Změněná přednáška - bez schválení: %s" % data['title']
+        if need_approvement:
+            subject = u"Změněná přednáška - nutno schválit: %s" % data['title']
+            data['to_approve'] = extract_things_for_review(talk_hash, data)
+            mail_data.update(data['to_approve'])
+            fallback_unreviewed_data(data, talk_data)
+            flash(u'Změnil(a) jsi něco viditelné na webu, tyto změny ručne schvalujeme do 3 dnů.', 'info')
+        else:
+            del(data['image'])
+
+        send_message_from_template(
+            app.config['TALK_NOTIFICATION_MAIL'],
+            subject,
+            "data/new-talk.md",
+            mail_data,
+            from_email=user_data['email'],
+            from_name=user_data['name'],
         )
 
     data.update({
@@ -126,13 +242,13 @@ def create_or_update_talk(data, talk_hash=None):
 
     app.redis.set(KEYS['talk'] % talk_hash, json.dumps(data))
     # zalozime hlasovani - bezpecne pres zincrby (namisto zadd s if podminkou)
-    app.redis.zincrby(KEYS['talks'], talk_hash, 0)
+    app.redis.zincrby(KEYS['talks'], 0, talk_hash)
     return talk_hash
 
 
 def get_talk_hash(data, depth=5):
     "Non-colide talk hash algoritm ;)"
-    talk_hash = md5("%s|%s" % (json.dumps(data), depth)).hexdigest()[:8]
+    talk_hash = md5(f"{data['title']}|{depth}".encode()).hexdigest()[:8]
     if not app.redis.setnx(KEYS['talk'] % talk_hash, 'false'):
         return get_talk_hash(data, depth - 1)
 
@@ -189,13 +305,13 @@ def _get_talks():
     if not talk_hashes:
         return []
 
-    talks = filter(
+    talks = list(filter(
         lambda x: bool(x),
         map(
             lambda talk: json.loads(talk or 'false'),
-            app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
+            app.redis.mget(map(lambda key: KEYS['talk'] % key.decode(), talk_hashes))
         )
-    )
+    ))
     try:
         talks.remove(False)
         talks.remove(False)
@@ -228,9 +344,15 @@ def _get_talks():
 def translate_category(category):
     return dict(CATEGORIES).get(category)
 
+def translate_status(status):
+    return dict(STATUSES).get(status)
+
 
 class TalkForm(Form):
     title = TextField(u'Název', validators=[DataRequired()])
+    speakers_name = TextField(u'Jméno řečníka (řečníků)', validators=[DataRequired()])
+    contact_phone = TextField(u'Telefonní  číslo (neveřejná informace)', validators=[DataRequired()])
+    image = FileField(u'Portrét řečníka (čtverec)')
 
     category = RadioField(
         u'Kategorie',
@@ -248,20 +370,18 @@ class TalkForm(Form):
         validators=[DataRequired()],
     )
 
-    company = TextField(u'Firma')
-    twitter = TextField(u'Twitter')
-    web = TextField(u'Web', validators=[Optional(), URL()])
     description = TextField(
         u'Popisek',
         validators=[DataRequired()],
         widget=TextAreaField())
+
     purpose = TextField(
         u'Pro koho je určena',
         validators=[DataRequired()],
         widget=TextAreaField())
 
     other = TextField(
-        u'Poznámka pro pořadatele',
+        u'Poznámka pro pořadatele (neveřejná informace)',
         widget=TextAreaField()
     )
 

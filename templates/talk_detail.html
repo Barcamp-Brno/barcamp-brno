@@ -3,7 +3,7 @@
 {% block meta%}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@bcbrno">
-<meta name="twitter:title" content="{{author.name}} - {{talk.title}}">
+<meta name="twitter:title" content="{{talk.speakers_name}} - {{talk.title}}">
 <meta name="twitter:description" content="{{talk.description|truncate(180, True)}}">
 {% if author.twitter %}
 <meta name="twitter:creator" content="{{author.twitter}}">
@@ -11,15 +11,49 @@
 <meta name="twitter:image:src" content="http://www.barcampbrno.cz/static/img/barcamp-square.png">
 {% endblock %}
 {% block page_content %}
-<h2>Přednáška &mdash; {{talk.title|no_emoji}}</h2>
-{{ talk_voting(talk) }}
-<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name|no_emoji}}</a> &mdash; {{talk_category(talk.category)}} &mdash; {{talk.length}} minut</h3>
-{% if author.user_hash == user.user_hash %}
-<p><a class="btn btn-danger" href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a></p>
+
+<div {% if talk.status != "approved" %}class="jumbotron"{% endif %}>
+  {% if talk.status != "approved" %}
+  <div class="alert alert-danger" role="alert">
+    Přednáška není schválená. (Stav: {{ talk_status(talk.status) }})
+  </div>
+  {% endif %}
+  <h2>Přednáška &mdash; {{talk.title|no_emoji}}</h2>
+  {{ talk_voting(talk) }}
+  <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{talk.speakers_name|no_emoji}}</a> &mdash; {{talk_category(talk.category)}} &mdash; {{talk.length}} minut</h3>
+
+  {{talk.description|nl2br}}
+  <h3>Pro koho je přednáška určena</h3>
+  {{talk.purpose|nl2br}}
+</div>
+
+
+{% if admin() and talk.to_approve %}
+<div class="jumbotron">
+  <div class="alert alert-info" role="alert">
+    Změny čekající na schválení
+  </div>
+  <h2>Přednáška &mdash; {{talk.to_approve.title|no_emoji}}</h2>
+  <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{talk.to_approve.speakers_name|no_emoji}}</a> &mdash; {{talk_category(talk.to_approve.category)}} &mdash; {{talk.length}} minut</h3>
+
+  {{talk.to_approve.description|nl2br}}
+  <h3>Pro koho je přednáška určena</h3>
+  {{talk.to_approve.purpose|nl2br}}
+</div>
 {% endif %}
-{{talk.description|nl2br}}
-<h3>Pro koho je přednáška určena</h3>
-{{talk.purpose|nl2br}}
+
+{% if author.user_hash == user.user_hash or admin()%}
+<div>
+  {% if author.user_hash == user.user_hash %}
+    <a class="btn btn-danger" href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a>
+  {% endif %}
+  {% if admin() %}
+    <a class="btn btn-success" href="{{url_for('talk_status', talk_hash=talk.talk_hash, status='approved')}}">Schálit (a zařadit do hlasování)</a>
+    <a class="btn btn-danger" href="{{url_for('talk_status', talk_hash=talk.talk_hash, status='rejected')}}">Vyřadit z hlasování</a>
+  {% endif %}
+</div>
+{% endif %}
+
 <h3>Komentáře</h3>
 <div id="disqus_thread"></div>
 <script type="text/javascript">

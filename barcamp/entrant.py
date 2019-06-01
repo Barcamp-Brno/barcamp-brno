@@ -29,7 +29,7 @@ def user_user_go(user):
     else:
         user['going_%s' % app.config['YEAR']] = True
         create_update_profile(user, user['user_hash'])
-        app.redis.zadd(KEYS['entrants'], user['user_hash'], int(time()))
+        app.redis.zadd(KEYS['entrants'], int(time()), user['user_hash'])
         app.redis.incr(KEYS['entrant_count'])
         return False
 

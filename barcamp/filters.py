@@ -3,7 +3,8 @@ import re
 from jinja2 import evalcontextfilter, Markup
 from .barcamp import app
 from .utils import stage_is_active, stage_in_past, sponsors_data, stage_in_future
-from .workshops import translate_status
+from .workshops import translate_status as workshop_translate_status
+from .talks import translate_status as talk_translate_status
 from .talks import translate_category
 from .login_misc import check_auth, check_admin
 import markdown
@@ -59,7 +60,11 @@ def stage():
 
 @app.context_processor
 def workshop_status():
-    return {'status': translate_status}
+    return {'status': workshop_translate_status}
+
+@app.context_processor
+def talk_status():
+        return {'talk_status': talk_translate_status}
 
 @app.context_processor
 def talk_category():

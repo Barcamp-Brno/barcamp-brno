@@ -18,3 +18,7 @@
 .bg-light {
   background-color: $gray-200 !important;
 }
+
+.custom-file-label::after {
+  content: "Vybrat";
+}
