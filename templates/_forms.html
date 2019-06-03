@@ -115,6 +115,14 @@
 {% endif %}
 {% endmacro -%}
 
+{% macro step_box(number) -%}
+<!--div class="progress_box">
+    <div class="{{'active' if number==1}} {{'done' if number > 1}}">1.</div>
+    <div class="{{'active' if number==2}} {{'done' if number > 2}}">2.</div>
+    <div class="{{'active' if number==3}} {{'done' if number > 3}}">3.</div>
+</div-->
+{%- endmacro %}
+
 {%- macro error_class(field) %}
 {{'is-invalid' if field.errors}}
 {% endmacro -%}
