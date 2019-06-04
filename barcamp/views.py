@@ -31,7 +31,7 @@ def index():
         stage_template,
         times=times,
         entrant_count=get_count(),
-        entrants=get_entrants()[:50],
+        # entrants=list(get_entrants())[:50],
         novinky=markdown_markup('novinky'),
         talks=talks, extra_talks=extra_talks,
         talks_dict=get_talks_dict(),
