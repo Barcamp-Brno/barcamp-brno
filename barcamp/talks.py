@@ -87,8 +87,13 @@ def talk_status(talk_hash, status):
     if status in STATUSES:
         talk_data = get_talk(talk_hash)
         talk_data['status'] = status # zmenime status
-        talk_data.update(talk_data.get("to_approve", {})) # aplikujeme zmeny
-        del(talk_data['to_approve']) # smazeme zmeny
+
+        if status == "approve" and 'to_approve' in talk_data:
+            talk_data.update(talk_data.get("to_approve", {})) # aplikujeme zmeny
+
+        if 'to_approve' in talk_data:
+            del(talk_data['to_approve']) # smazeme zmeny
+
         app.redis.set(KEYS['talk'] % talk_hash, json.dumps(talk_data))
         return redirect(url_for('talk_detail', talk_hash=talk_hash))
     else:
