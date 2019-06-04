@@ -309,7 +309,7 @@ def _get_talks():
         lambda x: bool(x),
         map(
             lambda talk: json.loads(talk or 'false'),
-            app.redis.mget(map(lambda key: KEYS['talk'] % key.decode(), talk_hashes))
+            app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
         )
     ))
     try:

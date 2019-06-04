@@ -35,7 +35,7 @@ def create_app(config):
 
     app.url_rule_class = GeneratorRule
 
-    app.redis = redis.Redis.from_url(config['REDISCLOUD_URL'])
+    app.redis = redis.Redis.from_url(config['REDISCLOUD_URL'], decode_responses=True)
     app.eventee = {
         'token': config['EVENTEE_TOKEN'],
         'email': config['EVENTEE_EMAIL'],

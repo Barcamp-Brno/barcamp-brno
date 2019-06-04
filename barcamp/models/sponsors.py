@@ -60,7 +60,7 @@ class Sponsors():
 
     def update(self, data):
         url = data['uri']
-        self._redis.zadd(self.KEYS['sponsors'], self.KEYS['sponsor'] % data['uri'], data['score'])
+        self._redis.zadd(self.KEYS['sponsors'], {self.KEYS['sponsor'] % data['uri']: data['score']})
         self._redis.set(self.KEYS['sponsor'] % data['uri'], json.dumps(data))
         return data
 
