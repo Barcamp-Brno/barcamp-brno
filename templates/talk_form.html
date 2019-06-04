@@ -1,7 +1,18 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 
+{% if talk.talk_hash%}
+<div class="collapse" id="informace">
+  {{ informace }}
+</div>
+<p>
+  <a class="btn btn-info" data-toggle="collapse" href="#informace" role="button" aria-expanded="false" aria-controls="informace">
+    Zobrazit podrobné instrukce
+  </a>
+</p>
+{% else %}
 {{ informace }}
+{% endif %}
 
 <h2>{% if talk.talk_hash %}Editace{% else %}Registrace nové{% endif %} přednášky</h2>
 <form method="POST" class="form-horizontal" action="."  enctype="multipart/form-data">
