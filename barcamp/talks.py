@@ -384,7 +384,3 @@ class TalkForm(Form):
         u'Poznámka pro pořadatele (neveřejná informace)',
         widget=TextAreaField()
     )
-
-    video = BooleanField(
-        u'Souhlasím se zveřejněním videozáznamu z přednášky',
-        default=True)

@@ -45,7 +45,7 @@
 {% if author.user_hash == user.user_hash or admin()%}
 <div>
   {% if author.user_hash == user.user_hash %}
-    <a class="btn btn-danger" href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit tuto přednášku</a>
+    <a class="btn btn-danger" href="{{url_for('talk_edit', talk_hash=talk.talk_hash)}}">Upravit přednášku</a>
   {% endif %}
   {% if admin() %}
     <a class="btn btn-success" href="{{url_for('talk_status', talk_hash=talk.talk_hash, status='approved')}}">Schálit (a zařadit do hlasování)</a>
