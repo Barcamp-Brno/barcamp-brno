@@ -1,20 +1,25 @@
 {% extends "_base_page.html" %}
 {% block page_content %}
 
-{% if talk.talk_hash%}
+{% if talk.talk_hash %}
 <div class="collapse" id="informace">
   {{ informace }}
+  <hr />
 </div>
+{% else %}
+{{ informace }}
+<hr />
+{% endif %}
+
+<h2>{% if talk.talk_hash %}Editace{% else %}Registrace nové{% endif %} přednášky</h2>
+{% if talk.talk_hash %}
 <p>
+  Potřebujete upravit informace o přednášce? Přečtěte si v případě zájmu ještě jednou letošní pokyny. Děkujeme. <br />
   <a class="btn btn-info" data-toggle="collapse" href="#informace" role="button" aria-expanded="false" aria-controls="informace">
     Zobrazit podrobné instrukce
   </a>
 </p>
-{% else %}
-{{ informace }}
 {% endif %}
-
-<h2>{% if talk.talk_hash %}Editace{% else %}Registrace nové{% endif %} přednášky</h2>
 <form method="POST" class="form-horizontal" action="."  enctype="multipart/form-data">
     <fieldset>
         {{form.csrf_token}}

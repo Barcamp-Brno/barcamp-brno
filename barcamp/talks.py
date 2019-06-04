@@ -196,7 +196,7 @@ def create_or_update_talk(data, talk_hash=None, talk_data=None, need_approvement
         data['status'] = "new"
         data['cdn_image'] = extract_image(talk_hash, data['image'])
         del(data['image'])
-        print(data)
+
         mail_data = copy(data)
         mail_data.update({
             'url': url_for('talk_detail', talk_hash=talk_hash, _external=True)
@@ -292,8 +292,6 @@ def get_talks_by_type():
     for talk in talks:
         talk_dict[talk['category']].append(talk)
 
-    import pprint
-    pprint.pprint(talk_dict)
     return talk_dict
 
 
