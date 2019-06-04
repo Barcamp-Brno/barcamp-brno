@@ -4,10 +4,10 @@
 <p class="alert alert-danger">
     <strong>Pozor!</strong> Přihlášením do stránky se automaticky nepřihlásíte k účasti na Barcamp Brno.
 </p>
-<p>&nbsp;</p>
+<p>&nbsp;</p>f
 <p>
     {# <a class="btn btn-primary" href="/login/facebook/"><span>Přes facebook</span></a> #}
-    <a class="btn btn-info" href="/login/twitter/"><span>Přes twitter</span></a>
+    {# <a class="btn btn-info" href="/login/twitter/"><span>Přes twitter</span></a> #}
 </p>
 <form method="post" class="form-inline" action="{{url_for('login')}}">
     {{ form.csrf_token }}
