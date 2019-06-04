@@ -1,4 +1,4 @@
-Ahoj Petře,
+Zdravím týme,
 
 zaregistroval/a jsem si přednášku:
 
@@ -8,7 +8,7 @@ zaregistroval/a jsem si přednášku:
  - Url: <%(url)s>
  - Poznámka: %(other)s
 
-Prosím, napiš mi prosím zpětnou vazbu.
+Prosím, napište mi zpětnou vazbu.
 
 S pozdravem
 
