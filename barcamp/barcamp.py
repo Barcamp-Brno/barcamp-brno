@@ -41,11 +41,10 @@ def create_app(config):
         'email': config['EVENTEE_EMAIL'],
     }
 
-    if config['FLASK_ENV'] == 'production':
-        sentry_sdk.init(
-            dsn=config['SENTRY_DSN'],
-            integrations=[FlaskIntegration()]
-        )
+    sentry_sdk.init(
+        dsn=config['SENTRY_DSN'],
+        integrations=[FlaskIntegration()]
+    )
 
     from . import views
     from . import login
