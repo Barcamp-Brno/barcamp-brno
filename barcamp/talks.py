@@ -203,7 +203,7 @@ def create_or_update_talk(data, talk_hash=None, talk_data=None, need_approvement
         })
         mail_data.update(user_data)
         # send talk mail
-        flash(u'Nové přednášky schvalujeme přidání do 3 dnů.', 'info')
+        flash(u'Nové přednášky schvalujeme do 3 dnů.', 'info')
         send_message_from_template(
             app.config['TALK_NOTIFICATION_MAIL'],
             u"Nová přednáška - nutno schválit: %s" % data['title'],
@@ -227,7 +227,7 @@ def create_or_update_talk(data, talk_hash=None, talk_data=None, need_approvement
             data['to_approve'] = extract_things_for_review(talk_hash, data)
             mail_data.update(data['to_approve'])
             fallback_unreviewed_data(data, talk_data)
-            flash(u'Změnil(a) jsi něco viditelné na webu, tyto změny ručne schvalujeme do 3 dnů.', 'info')
+            flash(u'Změny přednášek viditelné na webu schvalujeme do 3 dnů', 'info')
         else:
             del(data['image'])
 
