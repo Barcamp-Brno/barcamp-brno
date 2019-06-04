@@ -26,13 +26,13 @@ class Sponsors():
         if not len(sponsor_members):
             return tuple()
 
-        sponsors = filter( # filter out invalid
+        sponsors = list(filter( # filter out invalid
             lambda x: bool(x),
             map( # load json into Python dict
                 lambda sponsor: json.loads(sponsor or 'false'),
                 self._redis.mget([data[0] for data in sponsor_members])
             )
-        )
+        ))
 
         for sponsor in sponsors:
             sponsor['score'] = sponsor_dict[self.KEYS['sponsor'] % sponsor['uri']]
@@ -79,7 +79,6 @@ class SponsorForm(Form):
         choices=[
             (u'gold', u'Generální partner'),
             (u'silver', u'Hlavní partner'),
-            # (u'social', u'Partner'),
             (u'medial', u'Partner'),
             (u'catering', u'Catering'),
             (u'other', u'Za podpory'),

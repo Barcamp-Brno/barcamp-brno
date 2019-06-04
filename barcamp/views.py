@@ -27,9 +27,6 @@ def index():
     if stage_is_active(app.config['YEAR'], 'END'):
         stage_template = "end.html"
 
-    if stage_is_active(app.config['YEAR'], 'PREVIEW'):
-        stage_template = "preview.html"
-
     return render_template(
         stage_template,
         times=times,
@@ -39,8 +36,8 @@ def index():
         talks=talks, extra_talks=extra_talks,
         talks_dict=get_talks_dict(),
         workshops=workshops,
-        hi_tiles=filter(lambda x: x['score'] > 10, tiles.get_all()),
-        low_tiles=filter(lambda x: x['score'] <= 10, tiles.get_all()),
+        hi_tiles=list(filter(lambda x: x['score'] > 10, tiles.get_all())),
+        low_tiles=list(filter(lambda x: x['score'] <= 10, tiles.get_all())),
         sponsors=sponsors.get_all_by_type(),
         sponsors_other=markdown_markup('sponsors_other'),
         sponsors_info=markdown_markup('informace-pro-partnery'),

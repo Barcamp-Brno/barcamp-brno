@@ -1,65 +1,49 @@
 {% extends "_base_page.html"%}
+{% macro render_sponsor_detail(sponsor) %}
+<div class="row">
+    <div class="mister-egg-logo col-md-3">{{ sponsor.logo|md }}</div>
+    <div class="col-md-9">
+        <h3 class="hidden-xs">{{ sponsor.title }}</h3>
+        <div class="desc">{{ sponsor.body|md }}</div>
+    </div>
+</div>
+{% endmacro %}
 {% block page_content %}
-<h2 class="text-center">Partneři</h2>
 {% if sponsors.gold %}
-    <h3>Generální partner</h3>
-
+    <h3 class="text-center">Generální partner</h3>
     {% for sponsor in sponsors.gold %}
-        <div class="partner clearfix">
-            <div class="pic">{{ sponsor.logo|md }}</div>
-            <div class="company">
-                <h3 class="hidden-xs">{{ sponsor.title }}</h3>
-                <div class="desc">{{ sponsor.body|md }}</div>
-            </div>
-        </div>
+        {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 {% if sponsors.silver %}
-    <h3>Hlavní partneři</h3>
+    <h3 class="text-center">Hlavní partneři</h3>
     {% for sponsor in sponsors.silver %}
-        <div class="partner clearfix">
-            <div class="pic">{{ sponsor.logo|md }}</div>
-            <div class="company">
-                <h3 class="hidden-xs">{{ sponsor.title }}</h3>
-                <div class="desc">{{ sponsor.body|md }}</div>
-            </div>
-        </div>
+        {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 {% if sponsors.medial %}
-    <h3>Partneři</h3>
+    <h3 class="text-center">Partneři</h3>
     {% for sponsor in sponsors.medial %}
-        <div class="partner clearfix">
-            <div class="pic">{{ sponsor.logo|md }}</div>
-            <div class="company">
-                <h3 class="hidden-xs">{{ sponsor.title }}</h3>
-                <div class="desc">{{ sponsor.body|md }}</div>
-            </div>
-        </div>
+        {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 {% if sponsors.other %}
-    <h3>Za podpory</h3>
+    <h3 class="text-center">Za podpory</h3>
     {% for sponsor in sponsors.other %}
-        <div class="partner clearfix">
-            <div class="pic">{{ sponsor.logo|md }}</div>
-            <div class="company">
-                <h3 class="hidden-xs">{{ sponsor.title }}</h3>
-                <div class="desc">{{ sponsor.body|md }}</div>
-            </div>
-        </div>
+        {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 
 {% if sponsors_other %}
-    <h3>Ostatní partneři a podporovatelé</h3>
+    <h3 class="text-center">Ostatní partneři a podporovatelé</h3>
     {{sponsors_other}}
 {% endif %}
 
+<hr />
 {{sponsors_info}}
 </section>
 {% endblock %}

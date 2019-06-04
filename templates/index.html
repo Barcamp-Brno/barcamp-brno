@@ -1,145 +1,102 @@
-{% extends "_base_landing.html"%}
-{% block meta %}
-{% endblock %}
-{%- macro clearfix(index) %}
-{% if index % 3 == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-{% if index % 4 == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
-{% endmacro -%}
+{% extends "_base_landing.html" %}
 {% block content %}
-<div class="container">
-    <div id="hp-content">
-        <div class="wrapper">
-            <div class="row">
-                {% set offset = 0 %}
-                {{ clearfix(offset) }}
-                {% for tile in hi_tiles %}
-                    {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}
-                        {{ clearfix(offset + loop.index0) }}
-                        <div class="col-md-3 col-sm-4 ">
-                            <h2>{{tile.title}}</h2>
-                            {{tile.body|md}}
-                            <p>
-                                <a class="btn {{tile.action_class}}" href="{{tile.action_url}}">
-                                    <i class="fa {{tile.action_icon}}"></i>
-                                    {{tile.action_caption}}
-                                </a>
-                            </p>
-                        </div>
-                    {% else %}
-                        {% set offset = offset -1 %}
-                    {% endif %}
-                {% endfor %}
-                {% set offset=offset + hi_tiles|count %}
-                <div class="col-md-3 col-sm-4">
-                    {% set offset = offset + 1 %}
-                    {% if not after_stage(config.YEAR, 'USERS') %}
-                        {% if stage(config.YEAR, 'USERS') %}
-                            <h2>Účastníci</h2>
-                              <p><a href="{{url_for('entrants')}}">{{entrant_count}} přihlášených účastníků</a></p>
-                              {% if going(user, config.YEAR) %}
-                                  <p>a ty jsi jedním z nich</p>
-                                  <p><a class="btn btn-default" href="{{url_for('attend_remove')}}">
-                                      <i class="fa fa-times"></i>
-                                      Ale já už nechcu přijít
-                                  </a></p>
-                              {% else %}
-                                  <p>&nbsp;</p>
-                                  <a class="btn btn-danger" href="{{url_for('attend_add')}}">
-                                      <i class="fa fa-heart"></i>
-                                      Chcu přijít na Barcamp!
-                                  </a>
-                              {% endif %}
-                        {% else %}
-                            <h2>Účastníci</h2>
-                            <p>
-                                <a href="{{url_for('static_page', page='informace')}}">
-                                    <i class="fa fa-bullhorn"></i>
-                                    Registrace teprve začne.
-                                </a>
-                            </p>
-                        {% endif %}
-                    {% else %}
-                        <h2><a href="{{url_for('entrants')}}">Účastníci</a></h2>
-                        <p><a href="{{url_for('entrants')}}">{{entrant_count}} přihlášených účastníků</a>
-                        <p>1300 lidí přišlo</p>
-                    {% endif %}
-                </div>
-                {{ clearfix(offset) }}
-                <div class="col-md-3 col-sm-4">
-                    {% set offset = offset + 1 %}
-                    {% if before_stage(config.YEAR, 'CALL-FOR-PAPERS') %}
-                        <h2>Přednášky</h2>
-                        <a href="{{url_for('static_page', page='informace')}}">
-                            <i class="fa fa-bullhorn"></i>
-                            Registrace přednášek teprve začne.
-                        </a>
-                    {% else %}
-                        <h2>{%- if stage(config.YEAR, 'VOTING') %}
-                                Hlasování
-                            {% else %}
-                                Přednášky
-                            {% endif -%}
-                        </h2>
-                        <p>{{talks|count}} přednášek v hlasování</p>
-                        <p>21 z nich v programu</p>
-                        <p><a class="btn btn-danger" href="{{url_for('talks_all')}}">
-                            <i class="fa fa-play-circle"></i>
-                            {%- if stage(config.YEAR, 'VOTING') %}
-                                Chcu hlasovat
-                            {% else %}
-                                Chcu vidět přednášky
-                            {% endif -%}
 
-                        </a></p>
-                    {% endif %}
-                </div>
-                {{ clearfix(offset) }}
-                <div class="col-md-3 col-sm-4">
-                    {% set offset = offset + 1 %}
-                    {% if before_stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
-                        <h2>Workshopy</h2>
-                        <a href="{{url_for('static_page', page='informace')}}">
-                            <i class="fa fa-bullhorn"></i>
-                            Registrace workshopů teprve začne.
-                        </a>
-                    {% else %}
-                        <h2>Workshopy</h2>
-                        <p>{{workshops|count}}</span> přihlášených workshopů</p>
-                        <p>8 z nich v programu</p>
-                        <p>
-                            <a class="btn btn-danger" href="{{url_for('workshops_all')}}">
-                                <i class="fa fa-globe"></i>
-                                Chcu vidět workshopy
-                            </a>
-                        </p>
-                    {% endif %}
-                </div>
-                {% for tile in low_tiles %}
-                    {% if stage(config.YEAR, tile.visible_from) or (after_stage(config.YEAR, tile.visible_from) and tile.visible_after_stage) %}
-                        {{ clearfix(offset + loop.index0) }}
-                        <div class="col-md-3 col-sm-4 ">
-                            <h2>{{tile.title}}</h2>
-                            {{tile.body|md}}
-                            <p>
-                                <a class="btn {{tile.action_class}}" href="{{tile.action_url}}">
-                                    <i class="fa {{tile.action_icon}}"></i>
-                                    {{tile.action_caption}}
-                                </a>
-                            </p>
-                        </div>
-                    {% else %}
-                        {% set offset = offset -1 %}
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="row">
-                {{novinky}}
-            </div>
-
-            <!-- sponzori -->
-            {% include '_sponsors.html'%}
-            <!-- / sponzori -->
-        </div>
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="service-circle">
+          1,3k
+        </span>
+        <h4 class="service-heading">Návštěvníků</h4>
+      </div>
+      <div class="col-md-4">
+        <span class="service-circle">
+          32
+        </span>
+        <h4 class="service-heading">Přednášek</h4>
+      </div>
+      <!-- <div class="col-md-3">
+        <span class="service-circle">
+          16
+        </span>
+        <h4 class="service-heading">Workshopů</h4>
+      </div> -->
+      <div class="col-md-4">
+        <span class="service-circle">
+          1
+        </span>
+        <h4 class="service-heading">Skvělá párty</h4>
     </div>
-</div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Harmonogram Barcampu</h2>
+        <h3>&nbsp;</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+          <li>
+            <div class="timeline-image">
+              <i class="fas fa-2x fa-pencil-alt"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>4. června 2019</h4>
+                <h4 class="subheading">Přihlašování přednášek</h4>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <i class="fas fa-2x fa-poll-h"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>3. září 2019</h4>
+                <h4 class="subheading">Registrace a hlasování</h4>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+                <i class="fas fa-2x fa-hourglass-end"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>28. září 2019</h4>
+                <h4 class="subheading">Konec hlasování</h4>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+                <i class="far fa-2x fa-calendar-alt"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>30. září 2019</h4>
+                <h4 class="subheading">Zveřejnění programu</h4>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="timeline-end">
+          <h4>5. října 2019</h4>
+          <h4>Den konference</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "_/sponsors.html" %}
 {% endblock %}
