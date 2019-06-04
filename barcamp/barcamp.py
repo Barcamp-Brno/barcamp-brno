@@ -9,6 +9,9 @@ from werkzeug.contrib.fixers import ProxyFix
 from werkzeug.routing import Rule
 
 import redis
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
 
 app = None
 
@@ -37,6 +40,11 @@ def create_app(config):
         'token': config['EVENTEE_TOKEN'],
         'email': config['EVENTEE_EMAIL'],
     }
+
+    sentry_sdk.init(
+        dsn=config['SENTRY_DSN'],
+        integrations=[FlaskIntegration()]
+    )
 
     from . import views
     from . import login

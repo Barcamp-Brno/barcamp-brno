@@ -11,3 +11,4 @@ Flask-WTF
 sendgrid
 cloudinary
 Pillow
+sentry-sdk[flask]
