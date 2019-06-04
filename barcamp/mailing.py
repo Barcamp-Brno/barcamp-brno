@@ -7,7 +7,7 @@ from sendgrid.helpers.mail import Mail
 
 from .barcamp import app
 
-def Message(to, subject, body_html, body_txt, from_email="petr@barcampbrno.cz", from_name="Petr z Barcamp Brno"):
+def Message(to, subject, body_html, body_txt, from_email="info@barcampbrno.cz", from_name=u"Tým Barcamp Brno"):
     return {
             'from': { 'email': from_email, 'name': from_name},
             'personalizations': [{'to': [{'email': to}],'subject': subject}],
@@ -31,7 +31,7 @@ def send_message(message):
         return False
 
 
-def send_message_from_template(to, subject, template, data, from_email="petr@barcampbrno.cz", from_name="Petr z Barcamp Brno"):
+def send_message_from_template(to, subject, template, data, from_email="info@barcampbrno.cz", from_name=u"Tým Barcamp Brno"):
     data.update({
         'ip': request.remote_addr,
         'user_agent': request.user_agent,
