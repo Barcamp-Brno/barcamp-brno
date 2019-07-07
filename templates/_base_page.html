@@ -3,7 +3,7 @@
 {% block body %}
 <div class="spacer">&nbsp;</div>
 {% include "_/alerts.html" %}
-<section>
+<section{%- if section %} id="{{section}}"{% endif -%}>
   <div class="container">
       {% block page_content %}{% endblock %}
   </div>

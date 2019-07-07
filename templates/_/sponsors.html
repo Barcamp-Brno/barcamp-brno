@@ -2,7 +2,7 @@
   <div class="container">
     <!-- <h2 class="text-center">Partneři</h2> -->
   {% if sponsors.gold %}
-      <h2 class="text-center">Generální partner</h2>
+      <h2 class="text-center sponsors-heading">Generální partner</h2>
       <div class="row justify-content-center align-items-center">
       {% for sponsor in sponsors.gold %}
           <div class="mister-egg-logo col-md-4 col-sm-6">{{ sponsor.logo|md }}</div>
@@ -10,7 +10,7 @@
       </div>
   {% endif %}
   {% if sponsors.silver %}
-      <h3 class="text-center">Hlavní partneři</h3>
+      <h3 class="text-center sponsors-heading">Hlavní partneři</h3>
       <div class="row justify-content-center align-items-center">
       {% for sponsor in sponsors.silver %}
           <div class="mister-egg-logo col-md-3 col-sm-4 col-xs-6">{{ sponsor.logo|md }}</div>
@@ -18,7 +18,7 @@
       </div>
   {% endif %}
   {% if sponsors.medial %}
-      <h3 class="text-center">Partneři</h3>
+      <h3 class="text-center sponsors-heading">Partneři</h3>
       <div class="row justify-content-center align-items-center">
       {% for sponsor in sponsors.medial %}
           <div class="mister-egg-logo col-md-2 col-sm-3 col-xs-4">{{ sponsor.logo|md }}</div>
@@ -26,7 +26,7 @@
       </div>
   {% endif %}
   {% if sponsors.other %}
-      <h3 class="text-center">Za podpory</h3>
+      <h3 class="text-center sponsors-heading">Za podpory</h3>
       <div class="row justify-content-center align-items-center">
       {% for sponsor in sponsors.other %}
           <div class="mister-egg-logo col-md-2 col-sm-3 col-xs-4">{{ sponsor.logo|md }}</div>

@@ -1,6 +1,7 @@
-{% extends "_base_page.html"%}
+{% extends "_base_page.html" %}
+{% set section="sponsors" %}
 {% macro render_sponsor_detail(sponsor) %}
-<div class="row">
+<div class="row sponsors-row">
     <div class="mister-egg-logo col-md-3">{{ sponsor.logo|md }}</div>
     <div class="col-md-9">
         <h3 class="hidden-xs">{{ sponsor.title }}</h3>
@@ -10,28 +11,28 @@
 {% endmacro %}
 {% block page_content %}
 {% if sponsors.gold %}
-    <h3 class="text-center">Generální partner</h3>
+    <h3 class="text-center sponsors-heading">Generální partner</h3>
     {% for sponsor in sponsors.gold %}
         {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 {% if sponsors.silver %}
-    <h3 class="text-center">Hlavní partneři</h3>
+    <h3 class="text-center sponsors-heading">Hlavní partneři</h3>
     {% for sponsor in sponsors.silver %}
         {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 {% if sponsors.medial %}
-    <h3 class="text-center">Partneři</h3>
+    <h3 class="text-center sponsors-heading">Partneři</h3>
     {% for sponsor in sponsors.medial %}
         {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
 {% endif %}
 
 {% if sponsors.other %}
-    <h3 class="text-center">Za podpory</h3>
+    <h3 class="text-center sponsors-heading">Za podpory</h3>
     {% for sponsor in sponsors.other %}
         {{ render_sponsor_detail(sponsor) }}
     {% endfor %}
@@ -39,7 +40,7 @@
 
 
 {% if sponsors_other %}
-    <h3 class="text-center">Ostatní partneři a podporovatelé</h3>
+    <h3 class="text-center sponsors-heading">Ostatní partneři a podporovatelé</h3>
     {{sponsors_other}}
 {% endif %}
 
