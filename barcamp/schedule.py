@@ -45,18 +45,14 @@ schedule = {
                     'from': datetime(2019, 6, 4, 16, 0),
                     'to': datetime(2019, 9, 3),
                 },
-                # 'CALL-FOR-WORKSHOPS': {
-                #     'from': datetime(2019, 6, 4),
-                #     'to': datetime(2019, 5, 21),
-                # },
+                'CALL-FOR-WORKSHOPS': {
+                    'from': datetime(2019, 6, 4, 16, 0),
+                    'to': datetime(2019, 9, 3),
+                },
                 'VOTING': {
                     'from': datetime(2019, 9, 3),
                     'to': datetime(2019, 9, 28),
                 },
-                # 'WORKSHOPS-PROGRAM': {
-                #     'from': datetime(2019, 5, 23),
-                #     'to': datetime(2021, 3, 31),
-                # },
                 'PROGRAM': {
                     'from': datetime(2019, 9, 30),
                     'to': datetime(2021, 12, 31),

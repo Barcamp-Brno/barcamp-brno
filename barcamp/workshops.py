@@ -339,7 +339,7 @@ class WorkshopForm(Form):
 
     minutes = IntegerField(
         u'Trvání (minuty)',
-        default=115)
+        default=90)
 
     max_count = IntegerField(
         u'Počet účastníků',
