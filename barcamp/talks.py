@@ -88,7 +88,10 @@ def talk_status(talk_hash, status):
         talk_data = get_talk(talk_hash)
         talk_data['status'] = status # zmenime status
 
-        if status == "approve" and 'to_approve' in talk_data:
+        if status == "approved" and 'to_approve' in talk_data:
+            if talk_data.get('to_approve', {}).get('cdn_image') == {}:
+                del(talk_data['to_approve']['cdn_image'])
+
             talk_data.update(talk_data.get("to_approve", {})) # aplikujeme zmeny
 
         if 'to_approve' in talk_data:

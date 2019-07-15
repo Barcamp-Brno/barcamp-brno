@@ -123,6 +123,7 @@ def workshops_all():
         "workshops.html",
         times=times,
         workshops=workshops,
+        informace=markdown_markup('workshopy-info'),
     )
 
 @app.route('/profil/<user_hash>/')

@@ -2,18 +2,36 @@
 {% block title %}Registrace workshopu{% endblock %}
 {% block page_content %}
 
+{% if workshop.workshop_hash %}
+<div class="collapse" id="informace">
+  {{ informace }}
+  <hr />
+</div>
+{% else %}
 {{ informace }}
+<hr />
+{% endif %}
 
 <h2>{% if workshop.workshop_hash %}Editace{% else %}Registrace nového{% endif %} workshopu</h2>
-<form method="POST" class="form-horizontal" action=".">
+{% if workshop.workshop_hash %}
+<p>
+  Potřebujete upravit informace o workshopu? Přečtěte si v případě zájmu ještě jednou letošní pokyny. Děkujeme. <br />
+  <a class="btn btn-info" data-toggle="collapse" href="#informace" role="button" aria-expanded="false" aria-controls="informace">
+    Zobrazit podrobné instrukce
+  </a>
+</p>
+{% endif %}
+
+<form method="POST" class="form-horizontal" action="."  enctype="multipart/form-data">
     <fieldset>
         {{form.csrf_token}}
         {{forms.input(form.title)}}
+        {{forms.input(form.speakers_name)}}
+        {{forms.input(form.contact_phone)}}
+        {{forms.input(form.image, type="file")}}
         {{forms.textarea(form.description)}}
         {{forms.textarea(form.purpose)}}
         {{forms.textarea(form.needs)}}
-        {{forms.input(form.company)}}
-        {{forms.input(form.web)}}
         {{forms.input(form.twitter)}}
         {{forms.textarea(form.other)}}
         {{forms.input(form.minutes)}}

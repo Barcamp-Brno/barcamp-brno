@@ -11,28 +11,79 @@
 <meta name="twitter:image:src" content="http://www.barcampbrno.cz/static/img/barcamp-square.png">
 {% endblock %}
 {% block page_content %}
-<h2>Workshop &mdash; {{workshop.title}}</h2>
-<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{author.name}}</a></h3>
-<ul>
-	<li>Trvá {{workshop.minutes}} minut</li>
-	<li>Celkem {{workshop.max_count}} míst</li>
-</ul>
+
+<div>
+  {% if workshop.status != "approved" %}
+  <div class="alert alert-danger" role="alert">
+    Workshop není schválený. (Stav: {{ status(workshop.status) }})
+  </div>
+  {% endif %}
+  <div class="row">
+    {% if workshop.cdn_image %}
+      <div class="col-sm-2 mister-egg-logo">
+        <img src="{{workshop.cdn_image.url}}">
+      </div>
+    {% endif %}
+    <div class="col-sm-10">
+      <h2>Workshop &mdash; {{workshop.title|no_emoji}}</h2>
+      <h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{workshop.speakers_name|no_emoji}}</a></h3>
+			<ul>
+				<li>Trvá {{workshop.minutes}} minut</li>
+				<li>Celkem {{workshop.max_count}} míst</li>
+			</ul>
+			{{workshop.description|nl2br}}
+			<h3>Pro koho je workshop určen</h3>
+			{{workshop.purpose|nl2br}}
+			{% if workshop.needs %}
+				<h3>Jak se připravit na workshop</h3>
+				{{workshop.needs|nl2br}}
+			{% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% if admin() and workshop.to_approve %}
+<div class="jumbotron">
+  <div class="alert alert-info" role="alert">
+    Změny čekající na schválení
+  </div>
+  <div class="row">
+    {% if workshop.to_approve.cdn_image %}
+      <div class="col-sm-2 mister-egg-logo">
+        <img src="{{workshop.to_approve.cdn_image.url}}">
+      </div>
+    {% endif %}
+		<div class="col-sm-10">
+			<h2>Workshop &mdash; {{workshop.to_approve.title|no_emoji}}</h2>
+			<h3>Připravuje <a href="{{url_for('profile', user_hash=author.user_hash)}}">{{workshop.to_approve.speakers_name|no_emoji}}</a></h3>
+			<ul>
+				<li>Trvá {{workshop.minutes}} minut</li>
+				<li>Celkem {{workshop.max_count}} míst</li>
+			</ul>
+			{{workshop.to_approve.description|nl2br}}
+			<h3>Pro koho je workshop určen</h3>
+			{{workshop.to_approve.purpose|nl2br}}
+			{% if workshop.needs %}
+				<h3>Jak se připravit na workshop</h3>
+				{{workshop.to_approve.needs|nl2br}}
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endif %}
+
 {% if author.user_hash == user.user_hash %}
 <p><a class="btn btn-danger" href="{{url_for('workshop_edit', workshop_hash=workshop.workshop_hash)}}">Upravit tento workshop</a></p>
 {% endif %}
+
 {% if admin() %}
 <p>
-<a class="btn btn-success" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='approved')}}">Zařadit</a>
-<a class="btn btn-danger" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='rejected')}}">Vyřadit</a>
+<a class="btn btn-success" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='approved')}}">Schálit (a zařadit)</a>
+<a class="btn btn-danger" href="{{url_for('workshop_status', workshop_hash=workshop.workshop_hash, status='rejected')}}">Zamítnout</a>
 </p>
 {% endif %}
-{{workshop.description|nl2br}}
-<h3>Pro koho je workshop určen</h3>
-{{workshop.purpose|nl2br}}
-{% if workshop.needs %}
-	<h3>Jak se připravit na workshop</h3>
-	{{workshop.needs|nl2br}}
-{% endif %}
+
 <h3>Komentáře</h3>
 <div id="disqus_thread"></div>
 <script type="text/javascript">

@@ -5,25 +5,25 @@
 <section id="services">
   <div class="container">
     <div class="row text-center">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <span class="service-circle">
           1,3k
         </span>
         <h4 class="service-heading">Návštěvníků</h4>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <span class="service-circle">
           28
         </span>
         <h4 class="service-heading">Přednášek</h4>
       </div>
-      <!-- <div class="col-md-3">
+      <div class="col-md-3">
         <span class="service-circle">
-          16
+          10
         </span>
         <h4 class="service-heading">Workshopů</h4>
-      </div> -->
-      <div class="col-md-4">
+      </div>
+      <div class="col-md-3">
         <span class="service-circle">
           1
         </span>
@@ -55,6 +55,11 @@
                   <h4 class="subheading"><a href="{{url_for('talks_all')}}">Přihlašování přednášek</a></h4>
                 {% else %}
                   <h4 class="subheading">Přihlašování přednášek</h4>
+                {% endif %}
+                {% if stage(config.YEAR, 'CALL-FOR-WORKSHOPS') %}
+                  <h4 class="subheading"><a href="{{url_for('workshops_all')}}">Přihlašování workshopů</a></h4>
+                {% else %}
+                  <h4 class="subheading">Přihlašování workshopů</h4>
                 {% endif %}
               </div>
             </div>
