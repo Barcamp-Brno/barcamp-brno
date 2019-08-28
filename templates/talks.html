@@ -21,7 +21,7 @@
 
     <h3>
         Témata volená účastníky
-        <small>(21 míst)</small>
+        <!-- <small>(21 míst)</small> -->
         <!-- <div class="pull-right">
             <a class="btn btn-default" onclick="showView('table'); return false"><i class="fa fa-list"></i></a>
             <a class="btn btn-default" onclick="showView('tiles'); return false"><i class="fa fa-table"></i></a>
@@ -33,7 +33,7 @@
             {% for talk in talks[category] if talk.status == "approved" or admin() %}
                 <tr>
                     <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a> <span class="text-nowrap">({{talk.length}} minut)</span></td>
-                    <td class="text-nowrap">{{talk.user.name|no_emoji}}</td>
+                    <td class="text-nowrap">{{talk.speakers_name|no_emoji}}</td>
                     <td class="text-nowrap">{{talk_category(category)}}</td>
                     <td class="text-nowrap">{{ talk_voting(talk) }}</td>
                     {% if admin() %}
