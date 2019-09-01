@@ -102,16 +102,7 @@
 {% endif %}
 
 <script type="text/javascript">
-function showView(view){
-    localStorage.setItem('talks-view', view);
-    $('.talks').hide();
-    $('.talks-' + view).show();
-}
 $(document).ready(function(){
-    var view = localStorage.getItem('talks-view');
-    view = view ? view : 'tiles';
-    showView(view);
-
     $('.voting .vote-button').click(function(event){
         event.preventDefault();
         var self = $(this);
