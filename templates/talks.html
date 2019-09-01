@@ -32,16 +32,24 @@
         {% for category in ('business-marketing', 'design', 'inspirational', 'development') %}
             {% for talk in talks[category] if talk.status == "approved" or admin() %}
                 <tr>
-                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a> <span class="text-nowrap">({{talk.length}} minut)</span></td>
-                    <td class="text-nowrap">{{talk.speakers_name|no_emoji}}</td>
+                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                    <td class="">{{talk.speakers_name}}</td>
                     <td class="text-nowrap">{{talk_category(category)}}</td>
-                    <td class="text-nowrap">{% if talk.status == "approved" %}{{ talk_voting(talk) }}{% endif %}</td>
+                    <td class="">{% if talk.status == "approved" %}{{ talk_voting(talk) }}{% endif %}</td>
                     {% if admin() %}
                       <td class="text-nowrap">{{ talk_status(talk.status) }}</td>
                     {% endif %}
                 </tr>
             {% endfor %}
         {% endfor %}
+        {% if stage(config.YEAR, 'VOTING') %}
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="width: 9em"></td>
+          </tr>
+        {% endif %}
     </table>
     {#<div id="talks" class="row talks talks-tiles">
         {% for category in  ('business-marketing', 'design', 'inspirational', 'development') %}
