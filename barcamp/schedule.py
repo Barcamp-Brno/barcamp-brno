@@ -47,7 +47,7 @@ schedule = {
                 },
                 'CALL-FOR-WORKSHOPS': {
                     'from': datetime(2019, 6, 4, 16, 0),
-                    'to': datetime(2019, 9, 3),
+                    'to': datetime(2019, 8, 31),
                 },
                 'VOTING': {
                     'from': datetime(2019, 9, 3),
