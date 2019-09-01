@@ -18,17 +18,17 @@
         {% endif %}
         {% if talk.talk_hash in user_votes %}
             <span class="caption">
-                <i class="fa fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
+                <i class="fas fa-star"></i> ty a {{talk.score -1 or 0|int}} hlasů
             </span>
             <span class="caption-hover">
-                <i class="fa fa-star-o"></i> zrušit hlas
+                <i class="far fa-star"></i> zrušit hlas
             </span>
         {% else %}
             <span class="caption">
-                <i class="fa fa-star-o"></i> {{talk.score or 0|int}} hlasů
+                <i class="far fa-star"></i> {{talk.score or 0|int}} hlasů
             </span>
             <span class="caption-hover">
-                <i class="fa fa-star"></i> přidat hlas
+                <i class="fas fa-star"></i> přidat hlas
             </span>
         {% endif %}
         {% if stage(config.YEAR, 'VOTING') %}

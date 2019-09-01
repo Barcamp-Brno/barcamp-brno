@@ -318,20 +318,9 @@ def _get_talks():
             app.redis.mget(map(lambda key: KEYS['talk'] % key, talk_hashes))
         )
     ))
-    try:
-        talks.remove(False)
-        talks.remove(False)
-        talks.remove(False)
-        talks.remove(False)
-        talks.remove(False)
-    except:
-        pass
 
-    map(
-        lambda talk: talk.update(
-            {'score': int(talk_scores.get(talk['talk_hash']) or 0)}),
-        talks
-    )
+    for talk in talks:
+        talk.update({'score': int(talk_scores.get(talk['talk_hash'], 0))})
 
     user_hashes = [talk['user'] for talk in talks]
     users_tuple = map(

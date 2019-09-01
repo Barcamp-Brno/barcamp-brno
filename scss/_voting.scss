@@ -1,0 +1,15 @@
+.voting a,
+.voting a:hover {
+  color: red;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.voting .caption-hover {
+  display: none;
+}
+.voting a:hover .caption {
+  display: none;
+}
+.voting a:hover .caption-hover {
+  display: inline;
+}
