@@ -12,7 +12,7 @@ from wtforms import TextField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo
 
 from .login_misc import auth_required, resolve_user_by_email, login_redirect
-from .login_misc import check_auth, create_account, register_twitter, gdpr_consent_required
+from .login_misc import check_auth, create_account, gdpr_consent_required
 from .login_misc import update_password, create_update_profile
 
 from .mailing import send_message_from_template

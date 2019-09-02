@@ -12,3 +12,4 @@ sendgrid
 cloudinary
 Pillow
 sentry-sdk[flask]
+flask-dance

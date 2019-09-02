@@ -5,7 +5,6 @@
 """
 
 from flask import Flask
-from werkzeug.contrib.fixers import ProxyFix
 from werkzeug.routing import Rule
 
 import redis
@@ -23,6 +22,16 @@ class GeneratorRule(Rule):
 
         super(GeneratorRule, self).__init__(rule, **kwargs)
 
+class ReverseProxied(object):
+    def __init__(self, app):
+        self.app = app
+
+    def __call__(self, environ, start_response):
+        scheme = environ.get('HTTP_X_FORWARDED_PROTO')
+        if scheme:
+            environ['wsgi.url_scheme'] = scheme
+        return self.app(environ, start_response)
+
 def create_app(config):
     global app
     app = Flask(
@@ -30,7 +39,7 @@ def create_app(config):
         template_folder='../templates',
         static_folder='../static',
     )
-    app.wsgi_app = ProxyFix(app.wsgi_app)
+    app.wsgi_app = ReverseProxied(app.wsgi_app)
     app.config.update(config)
 
     app.url_rule_class = GeneratorRule

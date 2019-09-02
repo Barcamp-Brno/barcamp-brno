@@ -8,7 +8,6 @@ from hashlib import md5, sha1
 KEYS = {
     'account': 'account_%s',
     'email': 'email_%s',
-    'twitter': 'twitter_%s',
     'gdpr': 'gdpr_consent_%s' % app.config['YEAR'],
 }
 
@@ -18,7 +17,7 @@ def login_redirect():
     flash(
         u"Stránka [%s] je dostupná jen přihlášenému uživateli" % path,
         "warning")
-    session['next'] = path
+    # session['next'] = path
     return redirect(url_for('login'))
 
 
@@ -27,7 +26,7 @@ def gdpr_redirect():
     flash(
         u"Potřebujeme doplnit souhlas se zpracováním osobních údajů",
         "warning")
-    session['next'] = path
+    # session['next'] = path
     return redirect(url_for('gdpr_consent'))
 
 
@@ -129,15 +128,6 @@ def gdpr_consent_required(user):
         return False
 
     return not (KEYS['gdpr'] in user and user[KEYS['gdpr']])
-
-
-
-def resolve_user_by_twitter(twitter_id):
-    return app.redis.get(KEYS['twitter'] % twitter_id) or False
-
-
-def register_twitter(twitter_id, user_hash):
-    return app.redis.set(KEYS['twitter'] % twitter_id, user_hash)
 
 
 def create_account(email, password, user_hash=None, data=None):
