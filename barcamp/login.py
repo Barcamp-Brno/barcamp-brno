@@ -29,7 +29,7 @@ KEYS = {
 
 @app.route("/login/", methods=['GET', 'POST'])
 def login():
-    next = session.get('next', None)
+    # next = session.get('next', None)
     if request.method == "POST":
         form = LoginForm(request.form)
         if form.validate():
@@ -50,7 +50,8 @@ def login():
 
     if check_auth(skip_gdpr_check=True):
         flash(u'Nyní jste přihlášen', 'success')
-        return redirect(next or url_for('login_settings'))
+        # return redirect(next or url_for('login_settings'))
+        return redirect(url_for('index'))
 
     return render_template("login.html", form=form)
 
@@ -137,11 +138,12 @@ def login_click_from_email():
             }
             user_hash = create_account(email, None, data=user_data)
             register_twitter(twitter_data['id'], user_hash)
-            next = session.get('next', None)
+            # next = session.get('next', None)
             session.clear()
             session['user_hash'] = user_hash
             flash(u'Váš účet je vytvořen a spárován s twitterem')
-            return redirect(next or url_for('login_settings'))
+            # return redirect(next or url_for('login_settings'))
+            return redirect(url_for('index'))
         return redirect(url_for('login_basic_data'))
     flash(
         u'Platnost odkazu již vypršela, nebo je odkaz v nespárvném tvaru',
@@ -160,11 +162,12 @@ def login_basic_data():
             user_hash = create_account(email, password, data={
                 'name': fullname,
             })
-            next = session.get('next', None)
+            # next = session.get('next', None)
             session.clear()
             session['user_hash'] = user_hash
             flash(u'Nyní jste přihlášen', 'success')
-            return redirect(next or url_for('login_settings'))
+            # return redirect(next or url_for('login_settings'))
+            return redirect(url_for('index'))
     else:
         form = BasicForm()
     return render_template('login_basic_data.html', form=form)
@@ -234,11 +237,12 @@ def login_reset_password():
         if form.validate():
             user_hash = resolve_user_by_email(email)
             update_password(user_hash, email, form.data.get('password', None))
-            next = session.get('next', None)
+            # next = session.get('next', None)
             session.clear()
             session['user_hash'] = user_hash
             flash(u'Heslo bylo změneno', 'success')
-            return redirect(next or url_for('index'))
+            # return redirect(next or url_for('index'))
+            return redirect(url_for('index'))
     else:
         form = PasswordForm()
     return render_template('login_reset_password.html', form=form)
