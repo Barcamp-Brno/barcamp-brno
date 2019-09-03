@@ -49,15 +49,16 @@ def vote_for_talk(talk_hash):
 
 @app.route('/hlasovani-potrebuje-prihlaseni')
 def voting_require_login():
-    flash(u'Když chceš hlasovat, musíš se přihlásit ke svému účtu', 'warning')
+    flash(u'Když chcete hlasovat, musíte se přihlásit k vašemu účtu', 'warning')
+    session.clear()
     session['next'] = url_for('talks_all')
     return redirect(url_for('login'))
 
 @app.route('/hlasovani-potrebuje-registraci')
 def voting_require_going():
-    flash(u'Když chceš hlasovat, musíš chtít přijít', 'warning')
-    session['next'] = url_for('index')
-    return redirect(url_for('index'))
+    flash(u'Když chcete hlasovat, musíte nejdříve chtít přijít. Uděláme tento krok za Vás a nyní můžete hlasovat', 'warning')
+    session['next'] = url_for('talks_all')
+    return redirect(url_for('attend_add'))
 
 
 def get_user_votes(user_hash):

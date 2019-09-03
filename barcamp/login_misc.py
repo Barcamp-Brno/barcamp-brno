@@ -24,13 +24,13 @@ def login_redirect():
     return redirect(url_for('login'))
 
 
-def authorized_redirect(url_to='index'):
+def authorized_redirect(url):
     user = check_auth(skip_gdpr_check=True)
 
     if user and gdpr_consent_required(user):
         return gdpr_redirect()
 
-    return redirect(url_for(url_to))
+    return redirect(url)
 
 
 def gdpr_redirect():
@@ -47,6 +47,7 @@ def auth_required(fn):
     def wrap(*args, **kwargs):
         user = check_auth(skip_gdpr_check=True)
         if not user:
+            session.clear()
             return login_redirect()
 
         if gdpr_consent_required(user):

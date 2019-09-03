@@ -8,6 +8,7 @@ from .barcamp import app
 
 @app.route('/connect/facebook')
 def connect_facebook():
+    next = session.get('next', None)
     resp = facebook.get('/me?fields=id,name,email')
     data = resp.json()
 
@@ -31,7 +32,7 @@ def connect_facebook():
     if new_account:
         flash(u'Váš facebook účet je spárován', 'success')
 
-    return authorized_redirect()
+    return authorized_redirect(next or url_for('login_settings'))
 
 
 facebook_blueprint = make_facebook_blueprint(
