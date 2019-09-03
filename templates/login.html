@@ -8,7 +8,7 @@
 <p>
     <a class="btn btn-primary" href="{{url_for('facebook.login')}}"><span>Přes facebook</span></a>
     <a class="btn btn-secondary" href="{{url_for('google.login')}}"><span>Přes google</span></a>
-    <!-- <a class="btn btn-info" href="/login/linkedin/"><span>Přes twitter</span></a> -->
+    <!-- <a class="btn btn-success" href="{{url_for('linkedin.login')}}"><span>Přes linkedin</span></a> -->
 </p>
 <form method="post" class="form-inline" action="{{url_for('login')}}">
     {{ form.csrf_token }}
