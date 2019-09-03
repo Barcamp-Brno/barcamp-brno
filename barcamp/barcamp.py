@@ -9,6 +9,7 @@ from werkzeug.routing import Rule
 
 import redis
 import sentry_sdk
+import mailchimp
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 

@@ -3,7 +3,7 @@
 from flask_dance.contrib.facebook import facebook, make_facebook_blueprint
 from flask_dance.consumer import oauth_authorized
 from flask import session, url_for, request, flash, redirect
-from .login_misc import resolve_user_by_email, create_account
+from .login_misc import resolve_user_by_email, create_account, authorized_redirect
 from .barcamp import app
 
 @app.route('/connect/facebook')
@@ -29,12 +29,9 @@ def connect_facebook():
     session['user_hash'] = user_hash  # prihlaseni hotovo
 
     if new_account:
-        flash(
-            u'Váš facebook účet je spárován, '
-            u'nyní ještě udělte souhlas se zpracováním osobních údajů k dokončení registrace.', 'success')
-        return request.redirect(url_for('gdpr_consent'))
+        flash(u'Váš facebook účet je spárován', 'success')
 
-    return redirect(url_for('index'))
+    return authorized_redirect()
 
 
 facebook_blueprint = make_facebook_blueprint(

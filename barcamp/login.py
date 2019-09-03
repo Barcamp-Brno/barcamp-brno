@@ -11,9 +11,9 @@ from flask_wtf import Form
 from wtforms import TextField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo
 
-from .login_misc import auth_required, resolve_user_by_email, login_redirect
+from .login_misc import auth_required, resolve_user_by_email, login_redirect, authorized_redirect
 from .login_misc import check_auth, create_account, gdpr_consent_required
-from .login_misc import update_password, create_update_profile
+from .login_misc import update_password, create_update_profile, store_gdpr_consent
 
 from .mailing import send_message_from_template
 from .barcamp import app
@@ -51,7 +51,7 @@ def login():
     if check_auth(skip_gdpr_check=True):
         flash(u'Nyní jste přihlášen', 'success')
         # return redirect(next or url_for('login_settings'))
-        return redirect(url_for('index'))
+        return authorized_redirect()
 
     return render_template("login.html", form=form)
 
@@ -162,6 +162,7 @@ def login_basic_data():
             user_hash = create_account(email, password, data={
                 'name': fullname,
             })
+            store_gdpr_consent({'email': email, 'user_hash': user_hash})
             # next = session.get('next', None)
             session.clear()
             session['user_hash'] = user_hash
@@ -257,15 +258,8 @@ def gdpr_consent():
     if request.method == "POST":
         form = ConsentForm(request.form)
         if form.validate():
-            create_update_profile(
-                {
-                    KEYS['gdpr']: True,
-                    KEYS['gdpr_date']: str(datetime.now())
-                },
-                user['user_hash']
-            )
-            flash(u'Souhlas byl uložen', 'success')
-            return redirect(url_for('login_settings'))
+            store_gdpr_consent(user)
+            return redirect(url_for('index'))
     else:
         form = ConsentForm()
     return render_template('login_gdpr_consent.html', user=user, form=form)
@@ -286,6 +280,7 @@ class PasswordForm(Form):
 class EmailForm(Form):
     email = TextField('E-mail', validators=[DataRequired(), Email()])
 
+
 class ConsentEmailForm(Form):
     email = TextField('E-mail', validators=[DataRequired(), Email()])
     gdpr_consent = BooleanField(
@@ -293,11 +288,16 @@ class ConsentEmailForm(Form):
         validators=[DataRequired()],
         default=False)
 
+
 class ConsentForm(Form):
     gdpr_consent = BooleanField(
-        u'Souhlas',
+        u'Souhlasím se zpracováním údajů',
         validators=[DataRequired()],
         default=False)
+    mailchimp_consent = BooleanField(
+        u'Souhlasím s přihlášením do newsletteru',
+        default=True
+    )
 
 
 class BasicForm(Form):

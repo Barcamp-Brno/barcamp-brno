@@ -108,7 +108,7 @@ def going():
 
 @app.context_processor
 def user():
-    return {'user': check_auth()}
+    return {'user': check_auth(skip_gdpr_check=True)}
 
 @app.context_processor
 def admin():

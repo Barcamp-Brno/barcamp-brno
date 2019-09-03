@@ -4,11 +4,14 @@ from functools import wraps
 from flask import abort, session, request, redirect, flash, url_for, json
 from .barcamp import app
 from hashlib import md5, sha1
+import mailchimp
+from datetime import datetime
 
 KEYS = {
     'account': 'account_%s',
     'email': 'email_%s',
-    'gdpr': 'gdpr_consent_%s' % app.config['YEAR'],
+    'gdpr': 'gdpr_consent_%s_v2' % app.config['YEAR'],
+    'gdpr_date': 'gdpr_consent_date_%s' % app.config['YEAR'],
 }
 
 
@@ -19,6 +22,15 @@ def login_redirect():
         "warning")
     # session['next'] = path
     return redirect(url_for('login'))
+
+
+def authorized_redirect(url_to='index'):
+    user = check_auth(skip_gdpr_check=True)
+
+    if user and gdpr_consent_required(user):
+        return gdpr_redirect()
+
+    return redirect(url_for(url_to))
 
 
 def gdpr_redirect():
@@ -59,6 +71,7 @@ def check_admin():
     user = check_auth(skip_gdpr_check=True)
     return user and (user['email'] == u'petr@joachim.cz' or user['email'].endswith('@barcampbrno.cz'))
 
+
 def check_auth(skip_gdpr_check=False):
     user_hash = session.get('user_hash', None)
     user = get_account(user_hash)
@@ -95,7 +108,6 @@ def get_user_hash(data, depth=5):
 
 def update_password(user_hash, email, password=None):
     email = email.lower()
-    print(password)
     if password is not None:
         password = sha1(password.encode()).hexdigest()
     app.redis.set(
@@ -112,7 +124,6 @@ def resolve_user_by_email(email, password=None):
         also validates password, if provided
     """
     email = email.lower()
-    print(email)
     data = json.loads(app.redis.get(KEYS['email'] % email) or "false")
     if data:
         #check password
@@ -139,3 +150,25 @@ def create_account(email, password, user_hash=None, data=None):
     update_password(user_hash, email, password)
 
     return user_hash
+
+
+def store_gdpr_consent(user):
+    api = mailchimp.Mailchimp(app.config['MAILCHIMP_API_KEY'])
+    api.lists.subscribe(
+        app.config['MAILCHIMP_LIST_ID'],
+        {'email': user['email']},
+        merge_vars={'ROK': app.config['YEAR']},
+        double_optin=False,
+        update_existing=True,
+        send_welcome=True
+    )
+
+    create_update_profile(
+        {
+            KEYS['gdpr']: True,
+            KEYS['gdpr_date']: str(datetime.now())
+        },
+        user['user_hash']
+    )
+
+    flash(u'Souhlas byl uložen', 'success')
