@@ -43,14 +43,14 @@ schedule = {
                 },
                 'CALL-FOR-PAPERS': {
                     'from': datetime(2019, 6, 4, 16, 0),
-                    'to': datetime(2019, 9, 3),
+                    'to': datetime(2019, 9, 3, 15, 0),
                 },
                 'CALL-FOR-WORKSHOPS': {
                     'from': datetime(2019, 6, 4, 16, 0),
                     'to': datetime(2019, 8, 31),
                 },
                 'VOTING': {
-                    'from': datetime(2019, 9, 3),
+                    'from': datetime(2019, 9, 3, 16, 0),
                     'to': datetime(2019, 9, 28),
                 },
                 'PROGRAM': {
@@ -58,7 +58,7 @@ schedule = {
                     'to': datetime(2021, 12, 31),
                 },
                 'USERS': {
-                    'from': datetime(2019, 9, 3),
+                    'from': datetime(2019, 9, 3, 16, 0),
                     'to': datetime(2019, 10, 4),
                 },
             },
