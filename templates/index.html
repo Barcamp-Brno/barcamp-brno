@@ -70,8 +70,13 @@
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4>3. září 2019</h4>
-                <h4 class="subheading">Registrace a hlasování</h4>
+                <h4>3. září 2019 18.00</h4>
+                {% if stage(config.YEAR, 'VOTING') %}
+                  <h4 class="subheading"><a href="{{url_for('attend_add')}}">Registrace účastníků</a></h4>
+                  <h4 class="subheading"><a href="{{url_for('talks_all')}}">Hlasování o programu</a></h4>
+                {% else %}
+                  <h4 class="subheading">Registrace a hlasování</h4>
+                {% endif %}
               </div>
             </div>
           </li>

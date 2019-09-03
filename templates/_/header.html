@@ -8,7 +8,11 @@
 			<div class="intro-heading text-uppercase">Budoucnost je&nbsp;v&nbsp;udržitelnosti</div>
 			<div class="intro-lead-in intro-medium font-weight-bold">5. října 2019</div>
 			<div class="intro-lead-in intro-place intro-small"><a href="https://mapy.cz/s/2txcz"><i class="fas fa-map-marker-alt"></i> Kino Scala a Místodržitelský palác</a></div>
-			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about">Chcu přijít</a>
+			{% if stage(config.YEAR, 'VOTING') %}
+				<a class="btn btn-primary btn-xl text-uppercase" href="{{url_for('attend_add')}}">Chcu přijít</a>
+			{% else %}
+				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about">Chcu přijít</a>
+			{% endif %}
 		</div>
 	</div>
 </header>
