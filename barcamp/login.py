@@ -120,6 +120,20 @@ def login_create_account():
 def login_email_verify():
     return render_template('login_email_verify.html')
 
+@app.route("/login/registrace/odkaz-z-mailu/")
+def login_click_from_email():
+    email = request.args.get('email', None)
+    token = request.args.get('token', None)
+
+    if token == md5(f"{app.secret_key}|{email}".encode()).hexdigest():
+        email = base64.b64decode(email).decode()
+        session['verified-mail'] = email
+        return redirect(url_for('login_basic_data'))
+    flash(
+        u'Platnost odkazu již vypršela, nebo je odkaz v nespárvném tvaru',
+        'warning')
+    return redirect(url_for('login_create_account'))
+
 
 @app.route("/login/registrace/vyplneni-udaju/", methods=['GET', 'POST'])
 def login_basic_data():
