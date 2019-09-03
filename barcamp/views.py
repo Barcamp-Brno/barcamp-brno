@@ -109,6 +109,7 @@ def talks_all():
         "talks.html",
         talks=talks,
         times=times,
+        informace=markdown_markup('hlasovani'),
         user_votes=get_user_votes(user_hash)
     )
 
