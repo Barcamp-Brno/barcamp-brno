@@ -39,6 +39,9 @@ header.masthead {
       @include heading-font;
     }
   }
+  .btn {
+    font-weight: 700;
+  }
 }
 @media(min-width:768px) {
   header.masthead {

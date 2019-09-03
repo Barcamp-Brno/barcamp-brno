@@ -6,26 +6,25 @@
 </p>
 <p>&nbsp;</p>
 <p>
-    <a class="btn btn-primary" href="{{url_for('facebook.login')}}"><span>Přes facebook</span></a>
-    <a class="btn btn-secondary" href="{{url_for('google.login')}}"><span>Přes google</span></a>
-    <!-- <a class="btn btn-success" href="{{url_for('linkedin.login')}}"><span>Přes linkedin</span></a> -->
+    <a class="btn btn-outline-primary" href="{{url_for('facebook.login')}}"><span><i class="fab fa-facebook-square"></i> Facebook</span></a>
+    <a class="btn btn-outline-success" href="{{url_for('google.login')}}"><span><i class="fab fa-google"></i> Google</span></a>
+    <!-- <a class="btn btn-outline-info" href="{{url_for('linkedin.login')}}"><span><i class="fab fa-linkedin"></i> Linkedin</span></a> -->
 </p>
+<p>&nbsp;</p>
+<h4>Klasické přihlášení</h4>
 <form method="post" class="form-inline" action="{{url_for('login')}}">
     {{ form.csrf_token }}
     {{form.errrors}}
-
     <fieldset>
-        <legend>Klasické přihlášení</legend>
-        <input type="text" placeholder="Email" value="{{ form.email.data or '' }}" name="email">
-        <input type="password" placeholder="Heslo" value="" name="password">
-        <button class="btn" type="submit">Přihlásit se</button>
+        <input class="form-control mb-2 mr-sm-2" type="text" placeholder="Email" value="{{ form.email.data or '' }}" name="email">
+        <input class="form-control mb-2 mr-sm-2" type="password" placeholder="Heslo" value="" name="password">
+        <button class="form-control mb-2 mr-sm-2 btn btn-outline-secondary" type="submit"><i class="fas fa-sign-in-alt"></i> Přihlásit se</button>
     </fieldset>
 </form>
-
+<p>&nbsp;</p>
+<h4>Další možnosti přihlášení</h4>
 <p>
-    <a href="{{url_for('login_create_account')}}">Registrace</a>
-</p>
-<p>
-    <a href="/login/zapomenute-heslo/" title="Zapomenuté heslo">Zapomenuté heslo</a>
+    <a class="btn btn-outline-dark" href="{{url_for('login_create_account')}}"><i class="fas fa-user-plus"></i> Registrace</a>
+    <a class="btn btn-outline-danger" href="/login/zapomenute-heslo/" title="Zapomenuté heslo"><i class="fas fa-unlock-alt"></i> Zapomenuté heslo</a>
 </p>
 {% endblock %}
