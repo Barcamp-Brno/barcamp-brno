@@ -50,6 +50,7 @@ def login():
 
     if check_auth(skip_gdpr_check=True):
         flash(u'Nyní jste přihlášen', 'success')
+        session['next'] = None
         return authorized_redirect(next or url_for('login_settings'))
 
     return render_template("login.html", form=form)

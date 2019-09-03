@@ -32,6 +32,7 @@ def connect_facebook():
     if new_account:
         flash(u'Váš facebook účet je spárován', 'success')
 
+    session['next'] = None
     return authorized_redirect(next or url_for('login_settings'))
 
 
