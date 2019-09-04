@@ -6,6 +6,7 @@ from .barcamp import app
 from hashlib import md5, sha1
 import mailchimp
 from datetime import datetime
+from sentry_sdk import capture_exception
 
 KEYS = {
     'account': 'account_%s',
@@ -155,14 +156,17 @@ def create_account(email, password, user_hash=None, data=None):
 
 def store_gdpr_consent(user):
     api = mailchimp.Mailchimp(app.config['MAILCHIMP_API_KEY'])
-    api.lists.subscribe(
-        app.config['MAILCHIMP_LIST_ID'],
-        {'email': user['email']},
-        merge_vars={'ROK': app.config['YEAR']},
-        double_optin=False,
-        update_existing=True,
-        send_welcome=True
-    )
+    try:
+        api.lists.subscribe(
+            app.config['MAILCHIMP_LIST_ID'],
+            {'email': user['email']},
+            merge_vars={'ROK': app.config['YEAR']},
+            double_optin=False,
+            update_existing=True,
+            send_welcome=True
+        )
+    except Exception as e:
+        capture_exception(e)
 
     create_update_profile(
         {
