@@ -13,3 +13,24 @@
 .voting a:hover .caption-hover {
   display: inline;
 }
+
+.talks-business-marketing {
+  a, span.caption, span.caption-hover {
+    color: #dc3545!important;
+  }
+}
+.talks-design {
+  a, span.caption, span.caption-hover {
+    color: #ff8307!important;
+  }
+}
+.talks-inspirational {
+  a, span.caption, span.caption-hover {
+    color: #28a745!important;
+  }
+}
+.talks-development {
+  a, span.caption, span.caption-hover {
+    color: #17a2b8!important;
+  }
+}

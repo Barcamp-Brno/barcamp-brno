@@ -19,86 +19,40 @@
     </p><div class="clearer"></div>
     {% endif %}
 
-    <h3>
+    {#<h3>
         Témata volená účastníky
         <!-- <small>(21 míst)</small> -->
         <!-- <div class="pull-right">
             <a class="btn btn-default" onclick="showView('table'); return false"><i class="fa fa-list"></i></a>
             <a class="btn btn-default" onclick="showView('tiles'); return false"><i class="fa fa-table"></i></a>
         </div> -->
-    </h3>
+    </h3>#}
 
-    <table class="table talks talks-table">
-        {% for category in ('business-marketing', 'design', 'inspirational', 'development') %}
-            {% for talk in talks[category] if talk.status == "approved" or admin() %}
-                <tr>
-                    <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
-                    <td class="">{{talk.speakers_name}}</td>
-                    <td class="text-nowrap">{{talk_category(category)}}</td>
-                    <td class="">{% if talk.status == "approved" %}{{ talk_voting(talk) }}{% endif %}</td>
-                    {% if admin() %}
-                      <td class="text-nowrap">{{ talk_status(talk.status) }}</td>
-                    {% endif %}
-                </tr>
-            {% endfor %}
-        {% endfor %}
-        {% if stage(config.YEAR, 'VOTING') %}
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td style="width: 9em"></td>
-          </tr>
-        {% endif %}
-    </table>
-    {#<div id="talks" class="row talks talks-tiles">
-        {% for category in  ('business-marketing', 'design', 'inspirational', 'development') %}
-            <h2>{{talk_category(category)}}</h2>
-            {% for talk in talks[category] %}
-                <div id="talk-{{talk.talk_hash}}" class="talk-block col-md-3 col-sm-4">
-                    <div class="talk-content">
-                        <p class="talk-name">
-                            <a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title|no_emoji}}</a>
-                        </p>
-                        {% set speakers = extract_speakers(talk.user.name) %}
-                        <p>
-                            <div class="pull-right small">{{talk.length}} minut</div>
-                            {% for speaker in speakers %}
-                                {{speaker}}{% if not loop.last %}<br/ >{% endif %}
-                            {% endfor %}
 
-                        </p>
-                        {{ talk_voting(talk) }}
-                        <a href="#" class="more-button" onclick="
-                            var hadClass = $('#talk-{{talk.talk_hash}}').hasClass('more');
-                            $('.more').removeClass('more');
-                            if(!hadClass){
-                                $('#talk-{{talk.talk_hash}}').addClass('more');
-                            }
-                            return false;
-                        ">
-                            <span class="fa-stack">
-                                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                <i class="fa fa-angle-down fa-stack-1x icon-open"></i>
-                                <i class="fa fa-angle-up fa-stack-1x icon-close"></i>
-                            </span>
-                        </a>
-                        <div class="detail">
-                            <p>{{talk.description}}</p>
-                            <h3>Pro koho</h3>
-                            <p>{{talk.purpose or "---"}}</p>
-                            <h3>O autorovi</h3>
-                            <p>{{talk.user.bio or "---"}}</p>
-                        </div>
-                    </div>
-                </div>
-                {% if loop.index % 3 == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-                {% if loop.index % 4 == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
-            {% endfor %}
-            <div class="clearfix"></div>
-        {% endfor %}
-    </div>
-    #}
+    {% for category in ('business-marketing', 'design', 'inspirational', 'development') %}
+        <h4>{{talk_category(category)}}</h4>
+        <table class="table talks talks-table talks-{{category}}">
+          {% for talk in talks[category] if talk.status == "approved" or admin() %}
+              <tr>
+                  <td><a href="{{url_for('talk_detail', talk_hash=talk.talk_hash)}}">{{talk.title}}</a></td>
+                  <td class="">{{talk.speakers_name}}</td>
+                  <td class="text-nowrap">{{talk_category(category)}}</td>
+                  <td class="">{% if talk.status == "approved" %}{{ talk_voting(talk) }}{% endif %}</td>
+                  {% if admin() %}
+                    <td class="text-nowrap">{{ talk_status(talk.status) }}</td>
+                  {% endif %}
+              </tr>
+          {% endfor %}
+          {% if stage(config.YEAR, 'VOTING') %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="width: 9em"></td>
+            </tr>
+          {% endif %}
+        </table>
+    {% endfor %}
 {% endif %}
 
 <script type="text/javascript">
