@@ -32,6 +32,7 @@
             {{active_li(url_for('workshops_all'), 'Workshopy')}}
         {% endif %}
         {{active_li(url_for('static_page', page='informace'), 'Informace')}}
+        {{active_li(url_for('static_page', page='charita'), 'Charita')}}
         {{active_li(url_for('sponsors'), 'Partneři')}}
 
         {% if stage(config.YEAR, 'END') %}
