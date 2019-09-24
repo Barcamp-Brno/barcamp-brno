@@ -4,7 +4,10 @@ from flask import render_template, Markup
 from .talks import get_talks_dict
 from .workshops import get_workshops_dict
 from datetime import time, date, datetime
-den_d = date(2018, 6, 2)
+den_d = date(2019, 10, 5)
+
+"""
+"""
 
 
 times = [
@@ -12,54 +15,39 @@ times = [
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': den_d, 'data': u'Oficiální zahájení - Kino Scala'},
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'scala': (
-                'c83ba428', # business 45 145x Martin Lutonský / Vyjednávej bez okolků aneb zajisti si (rychle a účinně), to co chceš - praktické tipy a triky co a kdy říct 
                     ),
             'baroko': (
-                'db1223c4', # marketing 45 69x Lukáš Dadej / VELKÝ BRATR tě sleduje >>> škaredá pravda o Facebooku 
                     ),
             'it': (
-                '590915b2', # development 45 106x Tomáš Brukner / Jak se vzdělávat v IT, aby vám neujel technologický vlak? 
                     ),
             'partners': (
                     ),
-            'workshop1':
-                'f94c6a76', # 115minut Matěj Krejčí DigiDetox - Jak získat kontrolu
-            'workshop2':
-                'bd2f43d7', # 120minut Pavel Szabo Na volné noze vzdáleně a nezávisle odkudkoliv na světě
+            'workshop1': '38bea4bd', # [approved] 90min 30x - Lucie Mairychová, Veronika Lokajová, Maria Anna Bednariková / Raketovou rychlostí kupředu - manuál pro úspěšný vstup studenta na trh práce,
+            'workshop2': 'a438a88c', # [approved] 90min 30x - Radek Šimčík / Jak na stres? Meditace, dýchací cvičení, hudba v praxi,
         }},
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
             'scala': (
-                '79630a79', # inovations 45 140x Hanka Březinová _ Inspirata.cz / Motivace zaměstnance v 21. století - 10 ověřených pravd 
                     ),
             'baroko': (
-                '34f8af6c', # marketing 45 73x Filip Novák / Youtube marketing 
                     ),
             'it': (
-                '42ecf6ed', # development 45 76x Dominik Tilp / Na frameworku (ani jazyku) nezáleží 
                     ),
             'partners': (
-                '41a7d057', # partner/inovations 45 21x Artur Kane / How Insider Threats Challenge Digital Economy, Real Life Attacks explained! 
                     ),
             'workshop1': '',
             'workshop2': '',
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'scala': (
-                '58284f8f', # business 45 143x Richard Kunovský / Jak si vytvořit doživotní rentu? 
                     ),
             'baroko': (
-                '0c009760', # inovations 45 85x Jan Meravy / 10 zaujímavých technológií budúcnosti 
                     ),
             'it': (
-                'a44bc297', # development 45 66x Martin Podborský / Výhody práce v Týmu aneb Proč někdy nemám rád své kolegy 
                     ),
             'partners': (
-                '69530f9b', # partner/inovations 45 39x Tomáš Koudar / Be AGILE, not frAGILE: Jak doručovat agilně a nezbláznit se z toho 
                     ),
-            'workshop1':
-                'd6fb05b1', # 60minut Veronika Dostálová GDPR v emailingu
-            'workshop2':
-                '34310e5b', # 55minut Lea Kolkopova Svobodné kreslení
+            'workshop1': '615f8ea9', # [approved] 30min 30x - Hana Klimentová / Návrh vizitky za 30 minut
+            'workshop2': 'ca0c61f3', # [approved] 60min 30x - Hanka Březinová / Jak vybrat ten správný teambuilding nebo trénink, který vašim lidem sedne!,
         }},
         {'block_from': time(12, 30), 'block_to': time(13, 45), 'date': den_d, 'data':
             #Markup(u'<a href="/' + app.config['YEAR'] + u'/stranka/catering.html">Oběd</a>')
@@ -67,69 +55,50 @@ times = [
         },
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
             'scala': (
-                '642a354f', # inspirational 45 123x Minutový Petr Krejčí / 5 nejčastějších chyb při prezentování „Minutový řečník“ aneb jak se zbavit trémy z mluvení na veřejnosti 
                     ),
             'baroko': (
-                'a9b3f57f', # marketing 45 93x Veronika Dostálová / Zbavte se základních chyb v emailingu 
                     ),
             'it': (
-                '85cd04c1', # development 45 63x Jan Hadrava / Scrum Master: 10 důvodů, proč tě nenávidím 
                     ),
             'partners': (
-                '614c955b', # partner/development 45 14x Martin Dulák / Jak si vydělat první milion na Atlassian Marketplace 
                     ),
-            'workshop1':
-                '97426abc', # 115minut Barbara Palatová Daně v kostce Workshop by se měl konat v místnosti s projektorem a tabulí nebo flipchartem.
-            'workshop2':
-                '6373d483', # 115minut Honza Řehák Mindfulness v každodenních situacích vol.2
+            'workshop1': '82d25b71', # [approved] 60min 30x - Vladimír Macháček / Jak udělat e-shop z jakékoliv webové stránky do 30 minut,
+            'workshop2': 'cfed55d0', # [approved] 90min 24x - Mirka Papajiková / Hravě a zdravě v těle,
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
             'scala': (
-                '6b3c1cd1', # business 45 129x Jaroslav Kováč / Realita brněnských realit v2018
                     ),
             'baroko': (
-                '90e53d70', # inspirational 45 88x Mirka Papajiková / Denní rituály - jak, proč a co vlastně 
                     ),
             'it': (
-                '2ddb19bf', # development 45 61x Matouš Kutypa / Tajemství čistého a dobře napsaného kódu 
                     ),
             'partners': (
-                '6203620f', # partner/development 45 25x David Fogl / Testování mobilních aplikací (jde to i levně) 
                     ),
-            'workshop1': '',
+            'workshop1': '6a59257a', # [approved] 90min 30x - Zbyněk Hyrák / Jak číst a vyhodnocovat data v Google Analytics,
             'workshop2': '',
         }},
         {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': den_d, 'data': {
             'scala': (
-                '0302ef5c', # design 45 92x Marek Čevelíček / Tohle dej na web! 
                     ),
             'baroko': (
-                '0b0d9fe5', #  45  z hovna bic 
                     ),
             'it': (
-                '82697f62', # development 45 55x Michal Vyšinský / Sdílení UI komponent napříč aplikacemi 
-                    ),
-            'partners': (
-                '20506e68', # development 45 15x Lukas Kocourek - Život Integračního architekta v korporátu bez ESB s králíkem v clusteru
-                    ),
-            'workshop1':
-                '8c8e6d25', # 90minut Darja Jochimová Jak tvořit poutavý obsah na sociální sítě v roce 2018?
-            'workshop2':
-                '18b9d148', # 90minut Bara Radova Smrdis ...
-        }},
-        {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
-            'scala': (  
-                'e70035db', # inspirational 45 110x Vít Skalický / Jak vyprávět příběhy
-                    ),
-            'baroko': (
-                'e6e18489', # inovations 45 86x Veronika Dohnalová / Zavádění prvků Hapiness Managementu ve velké nadnárodní firmě - co se lidem líbilo a co byl propadák? 
-                    ),
-            'it': (
-                '0df5100f', # development 45 51x Jiří Materna / Milníky, výzvy a limity současné umělé inteligence 
                     ),
             'partners': (
                     ),
             'workshop1': '',
+            'workshop2': '5b6c7c56', # [approved] 90min 30x - Matej Chyľa / Návrh prezentačného webu, na ktorý budete hrdý,
+        }},
+        {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
+            'scala': (
+                    ),
+            'baroko': (
+                    ),
+            'it': (
+                    ),
+            'partners': (
+                    ),
+            'workshop1': 'b41bd72c', # [approved] 60min 15x - M.arter, Jana Pokorná, Markéta Mrkvová, Andrea Bohačíková / Byznys během rodičovské,
             'workshop2': '',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},

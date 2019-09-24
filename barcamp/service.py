@@ -9,7 +9,7 @@ from flask import abort, redirect, url_for, flash, render_template, Response
 from .login_misc import check_auth, auth_required, is_admin
 # from .utils import send_mail, send_bulk_mail, mail_bulk_connection
 from .talks import get_talks_dict, get_talks, get_talks_by_type, CATEGORIES, translate_category
-from .workshops import get_workshops_dict
+from .workshops import get_workshops_dict, get_workshops
 from .entrant import user_user_go
 from collections import defaultdict
 from .entrant import get_entrants
@@ -459,6 +459,21 @@ def service_vyvoleni_csv():
 def service_maily_prednasejicich():
     return service_vyvoleni('emails')
 
+
+@app.route('/service/program-workshopu')
+@auth_required
+@is_admin
+def service_program_workshopu():
+    workshops = [x for x in get_workshops() if x['status'] == "approved"]
+    output = io.BytesIO()
+
+    for workshop in workshops:
+        user = workshop['user']
+        output.write(f"'{workshop['workshop_hash']}', # [{workshop['status']}] {workshop['minutes']}min {workshop['max_count']}x - {workshop['speakers_name']} / {workshop['title']} - {workshop['other']}\r\n".encode('utf-8'))
+
+    return Response(output.getvalue(), mimetype="text/plain")
+
+
 @app.route('/service/do-programu')
 @auth_required
 @is_admin
@@ -510,6 +525,15 @@ def rc_program():
         times=times,
         page_style='program',
         talks=get_talks_dict(),
+    )
+
+@app.route('/workshopy-nahled/')
+def rc_workshops():
+    return render_template(
+        'rc-workshops.html',
+        times=times,
+        page_style='program',
+        workshops=get_workshops_dict(),
     )
 
 
