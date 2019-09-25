@@ -22,8 +22,8 @@ times = [
                     ),
             'partners': (
                     ),
-            'workshop1': '38bea4bd', # [approved] 90min 30x - Lucie Mairychová, Veronika Lokajová, Maria Anna Bednariková / Raketovou rychlostí kupředu - manuál pro úspěšný vstup studenta na trh práce,
-            'workshop2': 'a438a88c', # [approved] 90min 30x - Radek Šimčík / Jak na stres? Meditace, dýchací cvičení, hudba v praxi,
+            'workshop1': 'a438a88c', # [approved] 90min 30x - Radek Šimčík / Jak na stres? Meditace, dýchací cvičení, hudba v praxi,
+            'workshop2': '38bea4bd', # [approved] 90min 30x - Lucie Mairychová, Veronika Lokajová, Maria Anna Bednariková / Raketovou rychlostí kupředu - manuál pro úspěšný vstup studenta na trh práce,
         }},
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
             'scala': (
