@@ -74,7 +74,7 @@ times = [
                     ),
             'partners': (
                     ),
-            'workshop1': '6a59257a', # [approved] 90min 30x - Zbyněk Hyrák / Jak číst a vyhodnocovat data v Google Analytics,
+            'workshop1': 'b41bd72c', # [approved] 60min 15x - M.arter, Jana Pokorná, Markéta Mrkvová, Andrea Bohačíková / Byznys během rodičovské,
             'workshop2': '',
         }},
         {'block_from': time(15, 45), 'block_to': time(16, 30), 'date': den_d, 'data': {
@@ -98,7 +98,7 @@ times = [
                     ),
             'partners': (
                     ),
-            'workshop1': 'b41bd72c', # [approved] 60min 15x - M.arter, Jana Pokorná, Markéta Mrkvová, Andrea Bohačíková / Byznys během rodičovské,
+            'workshop1': ''
             'workshop2': '',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
