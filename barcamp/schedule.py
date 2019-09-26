@@ -57,6 +57,10 @@ schedule = {
                     'from': datetime(2019, 9, 30),
                     'to': datetime(2021, 12, 31),
                 },
+                'WORKSHOPS-PROGRAM': {
+                    'from': datetime(2019, 9, 26),
+                    'to': datetime(2021, 12, 31),
+                },
                 'USERS': {
                     'from': datetime(2019, 9, 3, 16, 0),
                     'to': datetime(2019, 10, 4),

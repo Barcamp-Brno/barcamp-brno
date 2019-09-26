@@ -387,7 +387,7 @@ def service_speaker_mail():
     output = io.BytesIO()
     writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
     for lecture in talks + workshops:
-        writer.writerow([lecture['user']['email']])
+        output.write(f"{lecture['user']['email']}\n\r".encode('utf-8'))
 
     return Response(output.getvalue(), mimetype="text/plain")
 
