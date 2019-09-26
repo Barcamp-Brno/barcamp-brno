@@ -98,7 +98,7 @@ times = [
                     ),
             'partners': (
                     ),
-            'workshop1': ''
+            'workshop1': '',
             'workshop2': '',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
