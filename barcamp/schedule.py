@@ -51,7 +51,7 @@ schedule = {
                 },
                 'VOTING': {
                     'from': datetime(2019, 9, 3, 16, 0),
-                    'to': datetime(2019, 9, 28),
+                    'to': datetime(2019, 9, 28, 22, 0),
                 },
                 'PROGRAM': {
                     'from': datetime(2019, 9, 30),
