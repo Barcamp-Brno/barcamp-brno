@@ -86,7 +86,7 @@ times = [
                     ),
             'partners': (
                     ),
-            'workshop1': '6a59257a', # fix layout
+            'workshop1': 'placeholder',
             'workshop2': '5b6c7c56', # [approved] 90min 30x - Matej Chyľa / Návrh prezentačného webu, na ktorý budete hrdý,
         }},
         {'block_from': time(16, 45), 'block_to': time(17, 30), 'date': den_d, 'data': {
@@ -98,7 +98,7 @@ times = [
                     ),
             'partners': (
                     ),
-            'workshop1': '',
+            'workshop1': 'placeholder',
             'workshop2': '',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},

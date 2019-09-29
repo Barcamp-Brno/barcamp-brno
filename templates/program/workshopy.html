@@ -1,15 +1,19 @@
 {% macro format_workshop_td(hash, limit) -%}
 {% if hash %}
-    {% set workshop = workshops[hash]%}
-    <td
-        style="text-align: center;"
-        {% if workshop.minutes > 60 %}rowspan="2"{% endif %}>
-        <p>
-            <strong>{{workshop.speakers_name}}</strong><br />
-            {{workshop.minutes}} minut &mdash; {{[workshop.max_count, limit]|sort|first}} míst<br />
-            <small><a href="{{url_for('workshop_detail', workshop_hash=hash)}}">{{workshop.title}}</a></small>
-        </p>
-    </td>
+    {% if hash == 'placeholder' %}
+      <td></td>
+    {% else %}
+      {% set workshop = workshops[hash]%}
+      <td
+          style="text-align: center;"
+          {% if workshop.minutes > 60 %}rowspan="2"{% endif %}>
+          <p>
+              <strong>{{workshop.speakers_name}}</strong><br />
+              {{workshop.minutes}} minut &mdash; {{[workshop.max_count, limit]|sort|first}} míst<br />
+              <small><a href="{{url_for('workshop_detail', workshop_hash=hash)}}">{{workshop.title}}</a></small>
+          </p>
+      </td>
+    {% endif %}
 {% endif %}
 {%- endmacro %}
 
