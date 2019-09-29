@@ -29,9 +29,9 @@
 {%- endmacro %}
 
 <h2>Program přednášek na Barcampu</h2>
-<h3>Sobota 2.6.2018</h3>
+<h3>Sobota 5.10.2019</h3>
 <ul>
-    <li><a href="{{url_for('co_program')}}">Bohatý doprovodný program</a></li>
+    <!-- <li><a href="{{url_for('co_program')}}">Bohatý doprovodný program</a></li> -->
     <li><a href="{{url_for('static_page', page='charita')}}">Dobročinná sbírka</a></li>
     <li><a href="{{url_for('static_page', page='kral-barcampu')}}">Soutěž o Krále Barcampu Brno</a></li>
 </ul>
@@ -45,10 +45,10 @@
 </tr>
 <tr>
     <th>Moderuje</th>
-    <th style="text-align: center">Dagmar Vilémová<br />Evža Kobzeva</th>
-    <th style="text-align: center">Vít Skalický<br />Tomas Liszka</th>
-    <th style="text-align: center">Tomáš Brukner<br />Martin Hruzík</th>
-    <th style="text-align: center">Jiří Maliňák<br />Boris Karavasilev</th>
+    <th style="text-align: center">Lenka Urban<br />David Homolka</th>
+    <th style="text-align: center">Evža Kobzeva<br />Vít Skalický</th>
+    <th style="text-align: center">Dagmar Vilémová<br />Juraj Melo</th>
+    <th style="text-align: center">Ondřej Minář<br />Daniel Bednář</th>
 </tr>
 {% for t in times %}
 <tr class="{{'success' if not t.data.items}}">

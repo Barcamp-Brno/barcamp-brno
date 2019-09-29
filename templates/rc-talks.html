@@ -1,38 +1,5 @@
 {% extends "_base_page.html" %}
+{% block title %}[náhled] Program{% endblock %}
 {% block page_content %}
-<h2>Program sources</h2>
-
-<table class="table">
-{% for t in times %}
-        {{format_talk_tr(t.data.d105, 'd105', t.block_from)}}
-        {{format_talk_tr(t.data.e112, 'e112', t.block_from)}}
-        {{format_talk_tr(t.data.d0206, 'd0206', t.block_from)}}
-        {{format_talk_tr(t.data.d0207, 'd0207', t.block_from)}}
-        {{format_talk_tr(t.data.e105, 'e105', t.block_from)}}
-    {% else %}
-{% endfor %}
-</table>
+{% include 'program/prednasky.html' %}
 {% endblock %}
-{% macro format_talk_mail(hash, room, t) -%}
-{% if hash and hash in talks %}
-{% set talk=talks[hash] %}
-{{talk.user.email}},
-{% endif %}
-{%- endmacro %}
-{% macro format_talk_tr(hash, room, t) -%}
-{% if hash and hash in talks %}
-{% set talk=talks[hash] %}
-<tr>
-    <td>{{t}}</td>
-    <td>{{room}}</td>
-    <td>{{talk.user.name}} / {{talk.user.email}}</td>
-    <td>{{talk.title}}</td>
-    <td>{{talk.description}}</td>
-    <td>{{talk.purpose}}</td>
-    <td>{{talk.twitter}}</td>
-    <td>{{talk.company}}</td>
-    <td>{{talk.web}}</td>
-</tr>
-{% elif hash=='nahrada' %}
-{% endif %}
-{%- endmacro %}

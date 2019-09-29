@@ -489,7 +489,7 @@ def service_do_programu():
             # if total > 8 * 45:
             #     break
             user = talk['user']
-            output.write(("'%s', # %s %s %s %sx %s / %s \r\n" % (talk['talk_hash'], user['email'], category, talk['length'], talk['score'], user['name'], talk['title'])).encode('utf-8'))
+            output.write(f"'{talk['talk_hash']}', # [{category}] {talk['score']}x - {talk['speakers_name']} / {talk['title']}\r\n".encode('utf-8'))
             total += int(talk['length'])
 
     return Response(output.getvalue(), mimetype="text/plain")
@@ -518,7 +518,7 @@ def service_bad_luck():
     return Response(output.getvalue(), mimetype="text/plain")
 
 
-@app.route('/program-rc/')
+@app.route('/program-nahled/')
 def rc_program():
     return render_template(
         'rc-talks.html',
