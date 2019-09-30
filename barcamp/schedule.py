@@ -54,7 +54,7 @@ schedule = {
                     'to': datetime(2019, 9, 28, 22, 0),
                 },
                 'PROGRAM': {
-                    'from': datetime(2019, 9, 30),
+                    'from': datetime(2019, 9, 30, 16, 0),
                     'to': datetime(2021, 12, 31),
                 },
                 'WORKSHOPS-PROGRAM': {

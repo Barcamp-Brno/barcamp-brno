@@ -368,13 +368,19 @@ def room_program():
 @is_admin
 def service_speaker_mail():
     talk_hashed = get_talks_dict()
+    output = io.BytesIO()
+    writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
+
+    def xxx(room, lecture):
+        output.write(f"{lecture['speakers_name']}\n\r".encode('utf-8'))
+
     talks = []
     for t in times:
         if type(t['data']) is dict:
             for room in ('scala', 'baroko', 'it', 'partners'):
-                talk = talk_hashed.get(t['data'][room], None)
+                talk = talk_hashed.get(t['data'][room][0], None)
                 if talk:
-                    talks.append(talk)
+                    xxx(room, talk)
     workshop_hashed = get_workshops_dict()
     workshops = []
     for t in times:
@@ -382,12 +388,7 @@ def service_speaker_mail():
             for room in ('workshop1', 'workshop2'):
                 workshop = workshop_hashed.get(t['data'][room], None)
                 if workshop:
-                    workshops.append(workshop)
-
-    output = io.BytesIO()
-    writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
-    for lecture in talks + workshops:
-        output.write(f"{lecture['user']['email']}\n\r".encode('utf-8'))
+                    xxx(room, workshop)
 
     return Response(output.getvalue(), mimetype="text/plain")
 

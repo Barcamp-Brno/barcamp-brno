@@ -15,7 +15,7 @@ times = [
         {'block_from': time(9, 0), 'block_to': time(9, 30), 'date': den_d, 'data': u'Oficiální zahájení - Kino Scala'},
         {'block_from': time(9, 45), 'block_to': time(10, 30), 'date': den_d, 'data': {
             'scala': (
-                '459dc9a0', # [business-marketing] 128x - Hanka Březinová (inspirata.cz) / Prezentuj (se) jako hvězda aneb umění prodat své myšlenky.
+                '13d67ff8', # [business-marketing] 117x - Jaroslav Kováč / Realita brněnských realit v3
                     ),
             'baroko': (
                 '64ccb043', # [business-marketing] 89x - Lukáš Lesovský / Automatizace v online marketingu. Hrozba nebo pomocník?
@@ -67,7 +67,7 @@ times = [
         },
         {'block_from': time(13, 45), 'block_to': time(14, 30), 'date': den_d, 'data': {
             'scala': (
-                '13d67ff8', # [business-marketing] 117x - Jaroslav Kováč / Realita brněnských realit v3
+                '459dc9a0', # [business-marketing] 128x - Hanka Březinová (inspirata.cz) / Prezentuj (se) jako hvězda aneb umění prodat své myšlenky.
                     ),
             'baroko': (
                 '00743784', # [business-marketing] 90x - Michal Orsava a Michaela Lovecká / Za oponou virálních videí s mnoha miliony zhlédnutí! (Harry Potter v česku s Milošem Zemanem a další)
