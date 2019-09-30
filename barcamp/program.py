@@ -24,7 +24,7 @@ times = [
                 'placeholder', # flowmon partnerska prednaska - zatim nedodali
                     ),
             'partners': (
-                '92cd49b1', # [inspirational] 54x - Filip Holec, Marian Hurta / Efektivní vzdělávání (nejen) v IT aneb co jsme se naučili za 3 roky praxe s našimi studenty
+                'ef2028d6', # [design] 67x - Marek Malík / Design sprint: Jak v 5 dnech vyřešit složité problémy a otestovat nové nápady
                     ),
             'workshop1': 'a438a88c', # [approved] 90min 30x - Radek Šimčík / Jak na stres? Meditace, dýchací cvičení, hudba v praxi,
             'workshop2': '38bea4bd', # [approved] 90min 30x - Lucie Mairychová, Veronika Lokajová, Maria Anna Bednariková / Raketovou rychlostí kupředu - manuál pro úspěšný vstup studenta na trh práce,
@@ -108,7 +108,7 @@ times = [
                 '614cc3e8', # [development] 48x - Jan Ševčík / Nativní aplikace jsou mrtvé! Google věří PWA
                     ),
             'partners': (
-                'ef2028d6', # [design] 67x - Marek Malík / Design sprint: Jak v 5 dnech vyřešit složité problémy a otestovat nové nápady
+                '92cd49b1', # [inspirational] 54x - Filip Holec, Marian Hurta / Efektivní vzdělávání (nejen) v IT aneb co jsme se naučili za 3 roky praxe s našimi studenty
                     ),
             'workshop1': 'placeholder',
             'workshop2': '5b6c7c56', # [approved] 90min 30x - Matej Chyľa / Návrh prezentačného webu, na ktorý budete hrdý,
