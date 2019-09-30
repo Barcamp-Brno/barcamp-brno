@@ -21,7 +21,7 @@
 {% macro display_talk_inner(hash) -%}
 {% if hash in talks %}
 <p>
-    <strong>{{talks[hash].user.name}}</strong><br />
+    <strong>{{talks[hash].speakers_name}}</strong><br />
     <small>{{talk_category(talks[hash].category)}}</small><br />
     <small><a href="{{url_for('talk_detail', talk_hash=hash)}}">{{talks[hash].title|truncate(64)}}</a></small>
 </p>
