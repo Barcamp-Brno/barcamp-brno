@@ -31,7 +31,7 @@ times = [
         }},
         {'block_from': time(10, 45), 'block_to': time(11, 30), 'date': den_d, 'data': {
             'scala': (
-                '1a586200', # [business-marketing] 99x - Filip Novák / Jak najít a obhájit správnou cenu za své služby
+                'dd30b19b', # [inspirational] 180x - Tomáš Rygl / Hackni své zdraví, štěstí i produktivitu appkou
                     ),
             'baroko': (
                 '3ddf5a22', # [inspirational] 86x - Vít Skalický / Jak prezentovat zajímavě i nezajímavá témata
@@ -47,7 +47,7 @@ times = [
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'scala': (
-                'dd30b19b', # [inspirational] 180x - Tomáš Rygl / Hackni své zdraví, štěstí i produktivitu appkou
+                '78f0efd8', # [inspirational] 151x - Richard Kunovský / Jak se stát spokojeným rentiérem
                     ),
             'baroko': (
                 '93015acb', # [inspirational] 59x - Karel Dytrych / Život bez doktora: challenge accepted 💪
@@ -83,7 +83,7 @@ times = [
         }},
         {'block_from': time(14, 45), 'block_to': time(15, 30), 'date': den_d, 'data': {
             'scala': (
-                '78f0efd8', # [inspirational] 151x - Richard Kunovský / Jak se stát spokojeným rentiérem
+                '1a586200', # [business-marketing] 99x - Filip Novák / Jak najít a obhájit správnou cenu za své služby
                     ),
             'baroko': (
                 'e49d98c6', # [business-marketing] 79x - Ondřej Pešák / Jak vytvořit reklamní strategii, aby klient nezkrachoval
