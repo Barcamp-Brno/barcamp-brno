@@ -37,7 +37,7 @@ times = [
                 '3ddf5a22', # [inspirational] 86x - Vít Skalický / Jak prezentovat zajímavě i nezajímavá témata
                     ),
             'it': (
-                'placeholder', # flowmon partnerska prednaska - zatim nedodali
+                '4195ebff', # [development] 0x - Artur Kane / 10 důvodů, proč mě hackli.
                     ),
             'partners': (
                 '70890a38', # [business-marketing] 76x - Jan Ševčík / O kolik peněz přicházíte, když nevyužíváte všechny funkce webového prohlížeče.
