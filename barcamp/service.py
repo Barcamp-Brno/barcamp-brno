@@ -372,7 +372,7 @@ def service_speaker_mail():
     writer = csv.writer(output, delimiter=";", dialect="excel", quotechar='"')
 
     def xxx(room, lecture):
-        output.write(f"{lecture['speakers_name']}\n\r".encode('utf-8'))
+        output.write(f" {lecture['speakers_name']}\n\r".encode('utf-8'))
 
     talks = []
     for t in times:
@@ -490,7 +490,7 @@ def service_do_programu():
             # if total > 8 * 45:
             #     break
             user = talk['user']
-            output.write(f"'{talk['talk_hash']}', # [{category}] {talk['score']}x - {talk['speakers_name']} / {talk['title']}\r\n".encode('utf-8'))
+            output.write(f"'{talk['talk_hash']}', # [{category}] {talk['score']}x - {talk['speakers_name']} / {talk['title']} - {talk['user']['email']}\r\n".encode('utf-8'))
             total += int(talk['length'])
 
     return Response(output.getvalue(), mimetype="text/plain")

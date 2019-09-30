@@ -73,7 +73,7 @@ times = [
                 '00743784', # [business-marketing] 90x - Michal Orsava a Michaela Lovecká / Za oponou virálních videí s mnoha miliony zhlédnutí! (Harry Potter v česku s Milošem Zemanem a další)
                     ),
             'it': (
-                'afd67f00', # [development] 47x - Jakub Čížek / Hospodyňka v8: Chytrá domácnost s prvky A.I., která vám rozsvítí, pokud nebude v depresi
+                'dd38ac4d', # [development] 47x - Lukáš Hala / HOC vs Render Props vs Hooks aneb porovnání funkcionálních konceptů v Reactu
                     ),
             'partners': (
                 '6b20dbbb', # [inspirational] 55x - Nela Ďopanová / Příběh udržitelného pohybu
