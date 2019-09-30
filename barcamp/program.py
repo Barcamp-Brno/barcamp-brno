@@ -21,7 +21,7 @@ times = [
                 '64ccb043', # [business-marketing] 89x - Lukáš Lesovský / Automatizace v online marketingu. Hrozba nebo pomocník?
                     ),
             'it': (
-                'placeholder', # flowmon partnerska prednaska - zatim nedodali
+                '8dea4dd5', # [development] 81x - Lukáš Antal / Sociální inženýrství, aneb nejsnazší metoda hackingu
                     ),
             'partners': (
                 'ef2028d6', # [design] 67x - Marek Malík / Design sprint: Jak v 5 dnech vyřešit složité problémy a otestovat nové nápady
@@ -37,7 +37,7 @@ times = [
                 '3ddf5a22', # [inspirational] 86x - Vít Skalický / Jak prezentovat zajímavě i nezajímavá témata
                     ),
             'it': (
-                '8dea4dd5', # [development] 81x - Lukáš Antal / Sociální inženýrství, aneb nejsnazší metoda hackingu
+                'placeholder', # flowmon partnerska prednaska - zatim nedodali
                     ),
             'partners': (
                 '70890a38', # [business-marketing] 76x - Jan Ševčík / O kolik peněz přicházíte, když nevyužíváte všechny funkce webového prohlížeče.
@@ -47,7 +47,7 @@ times = [
         }},
         {'block_from': time(11, 45), 'block_to': time(12, 30), 'date': den_d, 'data': {
             'scala': (
-                '45bb8e55', # [inspirational] 165x - Tomáš Rygl / Jdi si za svým, dokud je čas
+                'dd30b19b', # [inspirational] 180x - Tomáš Rygl / Hackni své zdraví, štěstí i produktivitu appkou
                     ),
             'baroko': (
                 '93015acb', # [inspirational] 59x - Karel Dytrych / Život bez doktora: challenge accepted 💪
@@ -130,9 +130,9 @@ times = [
             'workshop2': '',
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
-        {'block_from': time(19, 0), 'block_to': time(23, 59), 'date': den_d,
+        {'block_from': time(19, 0), 'block_to': time(23, 00), 'date': den_d,
             'data': Markup(u'Afterpárty')},#u'<a href="/' + app.config['YEAR'] + u'/stranka/after-social-event.html">Afterpárty</a>')},
-        {'block_from': time(23, 45), 'block_to': time(23, 59), 'date': den_d,
+        {'block_from': time(22, 45), 'block_to': time(23, 00), 'date': den_d,
             'data': Markup(u'Poslední objednávky')},
     ]
 @app.route('/%s/aktualne.html' % app.config['YEAR'])
