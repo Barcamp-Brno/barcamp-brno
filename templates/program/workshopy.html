@@ -38,8 +38,8 @@
 <tr class="{{'success' if not t.data.items}}">
     <th>{{t.block_from.strftime('%H:%M')}}&mdash;{{t.block_to.strftime('%H:%M')}}</th>
     {% if t.data.items %}
-        {{format_workshop_td(t.data.workshop1, 10)}}
-        {{format_workshop_td(t.data.workshop2, 30)}}
+        {{format_workshop_td(t.data.workshop1, 15)}}
+        {{format_workshop_td(t.data.workshop2, 50)}}
     {% else %}
         <td colspan="3" style="text-align: center; vertical-align: middle">{{t.data}}</td>
     {% endif %}
