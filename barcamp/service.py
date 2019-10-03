@@ -512,6 +512,8 @@ def service_bad_luck():
     output = io.BytesIO()
 
     for i, talk in enumerate(talk_hashed.values()):
+        if talk['status'] != "approved":
+            continue
         user = talk['user']
         output.write(("%s\r\n" % user['email']).encode('utf-8'))
         #output.write(("<%s> %s %s \r\n" % (user['email'], talk['talk_hash'], talk['title'])).encode('utf-8'))
