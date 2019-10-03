@@ -131,7 +131,7 @@ times = [
         }},
         {'block_from': time(17, 30), 'block_to': time(18, 0), 'date': den_d, 'data': u'Zakončení akce'},
         {'block_from': time(19, 0), 'block_to': time(23, 00), 'date': den_d, 'data':
-            f"<a href=\"/{app.config['YEAR']}/stranka/after-social-event.html\">Afterpárty</a>"
+            Markup(f"<a href=\"/{app.config['YEAR']}/stranka/after-social-event.html\">Afterpárty</a>")
         },
         {'block_from': time(22, 45), 'block_to': time(23, 00), 'date': den_d,
             'data': Markup(u'Poslední objednávky')},
